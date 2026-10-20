@@ -75,153 +75,173 @@
     .d365-glow {
       box-shadow: 0 0 35px rgba(14, 165, 233, 0.35), inset 0 0 15px rgba(14, 165, 233, 0.15);
     }
-    /* Fullscreen presentation enhancements */
-    :fullscreen #slideViewport { min-height: 74vh; }
+    /* Fullscreen & MS Teams full-viewport presentation enhancements */
+    :fullscreen #slideViewport { height: calc(100vh - 52px); }
+    @keyframes slideDownMenu {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-slide-down { animation: slideDownMenu 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
     ::-webkit-scrollbar { width: 6px; height: 6px; }
     ::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.4); }
     ::-webkit-scrollbar-thumb { background: rgba(100, 116, 139, 0.5); border-radius: 9999px; }
   </style>
 </head>
-<body id="presentationRoot" class="bg-slate-950 text-slate-100 antialiased selection:bg-sky-500 selection:text-white min-h-screen flex flex-col justify-between overflow-x-hidden">
+<body id="presentationRoot" class="bg-slate-950 text-slate-100 antialiased selection:bg-sky-500 selection:text-white h-screen w-screen flex flex-col justify-between overflow-hidden">
 
-  <!-- TOP NAVIGATION & CONTROL BAR -->
-  <header class="border-b border-slate-800/80 bg-slate-900/90 backdrop-blur-md px-4 py-2.5 sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
-      <!-- Brand / Deck Title -->
-      <div class="flex items-center gap-3">
-        <div class="px-2.5 py-1 rounded bg-red-600/20 border border-red-500/40 text-red-400 font-bold text-xs tracking-wider uppercase flex items-center gap-1.5">
+  <!-- TOP NAVIGATION & CONTROL BAR (Compact Full-Width for MS Teams) -->
+  <header class="relative border-b border-slate-800/90 bg-slate-900/95 backdrop-blur-md px-3 py-1.5 z-50 flex-shrink-0">
+    <div class="w-full flex flex-wrap items-center justify-between gap-2">
+      <!-- Left: Brand + Prev / Slide Selector Dropdown / Next -->
+      <div class="flex items-center gap-2 flex-wrap">
+        <div class="px-2 py-0.5 rounded bg-red-600/20 border border-red-500/40 text-red-400 font-bold text-xs tracking-wider uppercase flex items-center gap-1.5">
           <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
-          FTH Executive Pitch
+          <span class="hidden sm:inline">FTH Pitch</span>
         </div>
-        <h1 class="text-sm md:text-base font-bold bg-gradient-to-r from-white via-sky-200 to-purple-300 bg-clip-text text-transparent">
-          D365 F&amp;O Thailand Localization × Microsoft Copilot AI
-        </h1>
+
+        <!-- Prev Button (Top) -->
+        <button onclick="prevSlide()" id="btnPrev" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs font-bold text-slate-200 flex items-center gap-1 transition-all disabled:opacity-40" title="Previous Slide (Left Arrow)">
+          ◀ Prev
+        </button>
+
+        <!-- Slide-Down Menu Trigger Button (Top) -->
+        <div class="relative">
+          <button onclick="toggleSlideMenu(event)" id="btnSlideMenu" class="px-3 py-1 rounded-lg bg-slate-950 hover:bg-slate-800 border border-sky-500/50 text-xs font-bold text-sky-300 flex items-center gap-2 shadow transition-all" title="Click to slide down and select any slide">
+            <span>📑 Slide <span id="currentSlideNum">1</span>/12: <span id="currentSlideShortTitle" class="text-white font-semibold hidden md:inline">Vision &amp; Hook</span></span>
+            <span id="slideMenuChevron" class="text-sky-400 transition-transform duration-200">▾</span>
+          </button>
+        </div>
+
+        <!-- Next Button (Top) -->
+        <button onclick="nextSlide()" id="btnNext" class="px-3 py-1 rounded-lg bg-sky-600 hover:bg-sky-500 text-xs font-bold text-white flex items-center gap-1 shadow-md shadow-sky-900/40 transition-all" title="Next Slide (Right Arrow)">
+          Next ▶
+        </button>
       </div>
 
-      <!-- Controls: Slide Jump, Timer, Language Toggle, Voice Controls, Fullscreen -->
-      <div class="flex items-center gap-2 flex-wrap">
-        <!-- Total Presentation Timer Badge -->
-        <div class="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-800/90 border border-slate-700 text-xs text-slate-300">
+      <!-- Right Controls: Timer, Language Toggle, Voice + Speed, Script Toggle, Fullscreen -->
+      <div class="flex items-center gap-1.5 flex-wrap">
+        <!-- Total Presentation Timer Badge (~8:00 Total) -->
+        <div class="hidden xl:flex items-center gap-1 px-2 py-1 rounded-lg bg-slate-800/90 border border-slate-700 text-xs text-slate-300">
           <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          <span id="slideDurationBadge">0:45 / ~11:30 Total</span>
+          <span id="slideDurationBadge">Slide 1: 0:26 / ~8:00 Total</span>
         </div>
 
         <!-- Language Switcher (EN / TH) -->
         <div class="flex items-center bg-slate-800 p-0.5 rounded-lg border border-slate-700">
-          <button id="btnLangEN" onclick="setLanguage('en')" class="px-2.5 py-1 rounded-md text-xs font-semibold transition-all bg-sky-600 text-white shadow">
-            🇬🇧 EN (Simple)
+          <button id="btnLangEN" onclick="setLanguage('en')" class="px-2 py-0.5 rounded-md text-xs font-semibold transition-all bg-sky-600 text-white shadow">
+            🇬🇧 EN
           </button>
-          <button id="btnLangTH" onclick="setLanguage('th')" class="px-2.5 py-1 rounded-md text-xs font-semibold transition-all text-slate-300 hover:text-white">
-            🇹🇭 ไทย (TH)
+          <button id="btnLangTH" onclick="setLanguage('th')" class="px-2 py-0.5 rounded-md text-xs font-semibold transition-all text-slate-300 hover:text-white">
+            🇹🇭 ไทย
           </button>
         </div>
 
         <!-- AI Presenter Voice Button -->
-        <button id="btnVoiceToggle" onclick="toggleSpeech()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-r from-purple-600 to-sky-600 hover:from-purple-500 hover:to-sky-500 text-white font-semibold text-xs shadow-lg shadow-purple-900/30 transition-all">
+        <button id="btnVoiceToggle" onclick="toggleSpeech()" class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-gradient-to-r from-purple-600 to-sky-600 hover:from-purple-500 hover:to-sky-500 text-white font-semibold text-xs shadow-md transition-all">
           <svg id="iconVoicePlay" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/></svg>
-          <span id="voiceBtnLabel">🎙️ ฟังเสียงพิธีกรคู่ (TH)</span>
+          <span id="voiceBtnLabel">🎙️ ฟังเสียงบรรยาย</span>
         </button>
+
+        <!-- Compact Speed Controls in Top Bar -->
+        <div class="hidden sm:flex items-center bg-slate-800/90 rounded-lg border border-slate-700 p-0.5 text-xs">
+          <button onclick="adjustPlaybackSpeed(-1)" class="px-1.5 py-0.5 rounded hover:bg-slate-700 text-sky-300 font-bold" title="Slower Speech (-)">−</button>
+          <button onclick="cyclePlaybackSpeed()" id="btnSpeed" class="px-1.5 py-0.5 text-white font-mono font-bold min-w-[42px] text-center" title="Speech Speed">0.95x</button>
+          <button onclick="adjustPlaybackSpeed(1)" class="px-1.5 py-0.5 rounded hover:bg-slate-700 text-emerald-300 font-bold" title="Faster Speech (+)">+</button>
+        </div>
 
         <!-- Auto-Advance Toggle -->
-        <button id="btnAutoPlay" onclick="toggleAutoTour()" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs text-slate-300 font-medium transition-all" title="Auto-advance slides with voice">
-          ⚡ Auto-Tour: OFF
+        <button id="btnAutoPlay" onclick="toggleAutoTour()" class="px-2 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs text-slate-300 font-medium transition-all" title="Auto-advance slides with voice">
+          ⚡ Auto
         </button>
 
+        <!-- Toggle Bottom Presenter Script Drawer (Hidden by Default) -->
+        <button id="btnToggleScriptDrawer" onclick="toggleScriptDrawer()" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs text-slate-300 font-semibold transition-all" title="Show/Hide Presenter Script & Audio Bar">
+          💬 บทพูด
+        </button>
+
+        <!-- Download 14-Page PDF Button (Includes Full-Page Slide 3 & 4 Diagrams) -->
+        <a id="btnDownloadPDF" href="FTH_D365_Copilot_Pitch_Deck.pdf" download="FTH_D365_Copilot_Pitch_Deck.pdf" target="_blank" class="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-600/25 hover:bg-emerald-600/40 border border-emerald-500/50 text-xs text-emerald-200 font-bold transition-all shadow" title="Download 14-Page Executive PDF (Slides 1–12 + Full-Page Architecture & Use Case Diagrams)">
+          <span>📥</span>
+          <span class="hidden sm:inline">PDF</span>
+        </a>
+
         <!-- Fullscreen Toggle Button -->
-        <button id="btnFullscreen" onclick="toggleFullscreen()" class="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-red-600/20 hover:bg-red-600/35 border border-red-500/50 text-xs text-red-200 font-bold transition-all shadow" title="Toggle Fullscreen (Shortcut: F)">
+        <button id="btnFullscreen" onclick="toggleFullscreen()" class="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-red-600/20 hover:bg-red-600/35 border border-red-500/50 text-xs text-red-200 font-bold transition-all shadow" title="Toggle Fullscreen (Shortcut: F)">
           <span id="fullscreenIcon">⛶</span>
-          <span id="fullscreenLabel">Fullscreen</span>
+          <span id="fullscreenLabel" class="hidden md:inline">Fullscreen</span>
         </button>
       </div>
     </div>
 
-    <!-- Progress Bar -->
-    <div class="max-w-7xl mx-auto mt-2 h-1 bg-slate-800 rounded-full overflow-hidden">
+    <!-- Thin Progress Bar -->
+    <div class="w-full mt-1 h-0.5 bg-slate-800 rounded-full overflow-hidden">
       <div id="slideProgressBar" class="h-full bg-gradient-to-r from-red-500 via-purple-500 to-sky-400 transition-all duration-500" style="width: 8.33%"></div>
+    </div>
+
+    <!-- SLIDE-DOWN MENU DRAWER (Hidden until clicked) -->
+    <div id="slideDropdownMenu" class="hidden absolute left-3 right-3 md:left-6 md:right-auto md:w-[680px] top-full mt-1.5 bg-slate-900/98 backdrop-blur-xl border-2 border-sky-500/50 rounded-2xl shadow-2xl p-3 z-50 animate-slide-down">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-2 mb-2.5">
+        <span class="text-xs font-extrabold uppercase tracking-wider text-sky-400">📑 เลือกหน้าที่ต้องการ (Select Slide 1–12)</span>
+        <button onclick="closeSlideMenu()" class="text-xs px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300">✕ ปิด</button>
+      </div>
+      <div id="slidePillsContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-1.5 max-h-[65vh] overflow-y-auto">
+        <!-- Generated via JS -->
+      </div>
     </div>
   </header>
 
-  <!-- MAIN SLIDE STAGE -->
-  <main class="flex-1 flex flex-col justify-center max-w-7xl w-full mx-auto px-4 py-4">
-    <div id="slideViewport" class="relative bg-slate-900/75 border border-slate-800 rounded-2xl shadow-2xl overflow-hidden min-h-[480px] md:min-h-[520px] flex flex-col justify-between">
+  <!-- MAIN SLIDE STAGE (Full-Screen Edge-to-Edge for MS Teams Presentation) -->
+  <main class="flex-1 w-full overflow-hidden flex flex-col px-2 py-1.5 md:px-3 md:py-2 relative">
+    <div id="slideViewport" class="relative flex-1 w-full h-full bg-slate-900/80 border border-slate-800/90 rounded-2xl shadow-2xl overflow-y-auto flex flex-col justify-between">
       <!-- Dynamic Slide Content Injected by JS -->
     </div>
 
-    <!-- NOTEBOOK-LM STYLE DUAL-HOST PRESENTER DOCK (STUDIO NEURAL MP3 ENGINE) -->
-    <div class="mt-3 bg-slate-900/95 border border-slate-800 rounded-xl p-3.5 shadow-lg">
-      <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-3">
-        <div class="flex items-start gap-3 flex-1 w-full">
-          <!-- Animated Dual-Host Avatars -->
-          <div class="relative flex-shrink-0 flex -space-x-2">
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-sky-500 to-blue-700 flex items-center justify-center shadow-md border border-sky-300/50 z-10" title="Host A (Male)">
-              <span class="text-base">👨🏻‍💼</span>
-            </div>
-            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center shadow-md border border-purple-300/50" title="Host B (Female)">
-              <span class="text-base">👩🏻‍💼</span>
-            </div>
-            <!-- Equalizer animation when playing neural MP3 -->
-            <div id="voiceEqIndicator" class="hidden absolute -bottom-1.5 right-0 bg-slate-950 px-1.5 py-0.5 rounded border border-emerald-400/60 flex items-end gap-0.5 h-4 z-20">
-              <span class="w-0.5 bg-emerald-400 animate-[eqBar_0.45s_ease-in-out_infinite]"></span>
-              <span class="w-0.5 bg-sky-400 animate-[eqBar_0.65s_ease-in-out_infinite]"></span>
-              <span class="w-0.5 bg-purple-400 animate-[eqBar_0.35s_ease-in-out_infinite]"></span>
-            </div>
+    <!-- COLLAPSIBLE BOTTOM PRESENTER SCRIPT & AUDIO DRAWER (Hidden by Default until user clicks '💬 บทพูด') -->
+    <div id="bottomScriptDrawer" class="hidden absolute bottom-3 left-4 right-4 z-40 bg-slate-950/95 backdrop-blur-xl border-2 border-sky-500/40 rounded-2xl p-3.5 shadow-2xl animate-slide-down">
+      <div class="flex items-start gap-3 w-full">
+        <!-- Animated Dual-Host Avatars -->
+        <div class="relative flex-shrink-0 flex -space-x-2">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-sky-500 to-blue-700 flex items-center justify-center shadow-md border border-sky-300/50 z-10" title="Host A (Male)">
+            <span class="text-sm">👨🏻‍💼</span>
           </div>
-
-          <!-- Presenter Script Text & Audio Scrubber -->
-          <div class="flex-1 min-w-0">
-            <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
-              <div class="flex items-center gap-2">
-                <span id="hostBadge" class="text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
-                  🎙️ Dual-Host Neural Audio (NotebookLM Style • Crystal Clear TH/EN)
-                </span>
-                <span id="slideTargetTime" class="text-xs text-slate-400">⏱️ ~0:45</span>
-              </div>
-
-              <!-- Audio Scrubber & Playback Speed (- / + Controls) -->
-              <div class="flex items-center gap-1.5 text-xs text-slate-300">
-                <span id="audioTimeLabel" class="font-mono text-sky-300 mr-1">0:00 / 0:45</span>
-                <span class="text-slate-400 hidden sm:inline">Speed:</span>
-                <button onclick="adjustPlaybackSpeed(-1)" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 border border-slate-700 text-sky-300 font-extrabold transition-all" title="Slower Speech (-)">
-                  − ช้าลง
-                </button>
-                <button onclick="cyclePlaybackSpeed()" id="btnSpeed" class="px-2 py-0.5 rounded bg-slate-950 border border-sky-500/40 text-white font-mono font-bold min-w-[48px] text-center" title="Current Speech Speed">
-                  0.95x
-                </button>
-                <button onclick="adjustPlaybackSpeed(1)" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 border border-slate-700 text-emerald-300 font-extrabold transition-all" title="Faster Speech (+)">
-                  + เร็วขึ้น
-                </button>
-              </div>
-            </div>
-
-            <!-- Audio Seek Bar -->
-            <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden mb-2 cursor-pointer" onclick="seekAudio(event)">
-              <div id="audioSeekFill" class="h-full bg-gradient-to-r from-emerald-400 via-sky-400 to-purple-400 transition-all duration-150" style="width: 0%"></div>
-            </div>
-
-            <!-- Dual-Host Dialogue Container -->
-            <div id="presenterScriptText" class="text-xs md:text-sm text-slate-200 leading-relaxed space-y-1 max-h-28 overflow-y-auto pr-1">
-              Loading dual-host script...
-            </div>
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center shadow-md border border-purple-300/50" title="Host B (Female)">
+            <span class="text-sm">👩🏻‍💼</span>
+          </div>
+          <div id="voiceEqIndicator" class="hidden absolute -bottom-1 right-0 bg-slate-950 px-1 py-0.5 rounded border border-emerald-400/60 flex items-end gap-0.5 h-3.5 z-20">
+            <span class="w-0.5 bg-emerald-400 animate-[eqBar_0.45s_ease-in-out_infinite]"></span>
+            <span class="w-0.5 bg-sky-400 animate-[eqBar_0.65s_ease-in-out_infinite]"></span>
+            <span class="w-0.5 bg-purple-400 animate-[eqBar_0.35s_ease-in-out_infinite]"></span>
           </div>
         </div>
 
-        <!-- Slide Navigation Buttons -->
-        <div class="flex items-center gap-2 self-end lg:self-center flex-shrink-0">
-          <button onclick="prevSlide()" id="btnPrev" class="px-3.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs font-semibold text-slate-200 flex items-center gap-1 transition-all disabled:opacity-40">
-            ◀ Prev
-          </button>
-          <div class="px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-xs font-bold text-sky-400">
-            Slide <span id="currentSlideNum">1</span> / 12
-          </div>
-          <button onclick="nextSlide()" id="btnNext" class="px-4 py-2 rounded-lg bg-sky-600 hover:bg-sky-500 text-xs font-bold text-white flex items-center gap-1 shadow-lg shadow-sky-900/40 transition-all">
-            Next ▶
-          </button>
-        </div>
-      </div>
+        <!-- Presenter Script Text & Audio Scrubber -->
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+            <div class="flex items-center gap-2">
+              <span id="hostBadge" class="text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+                🎙️ บทบรรยายผู้บริหาร (Executive Dual-Host Script • ~8 Min Total)
+              </span>
+              <span id="slideTargetTime" class="text-xs text-slate-400">⏱️ ~0:28</span>
+            </div>
 
-      <!-- Slide Thumbnail Pills (Quick Jump 1..12) -->
-      <div id="slidePillsContainer" class="mt-3 pt-2.5 border-t border-slate-800/80 flex items-center gap-1.5 overflow-x-auto pb-1">
-        <!-- Generated via JS -->
+            <div class="flex items-center gap-2 text-xs text-slate-300">
+              <span id="audioTimeLabel" class="font-mono text-sky-300">0:00 / 0:28</span>
+              <button onclick="toggleScriptDrawer()" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-red-900/60 border border-slate-700 text-slate-200 font-bold" title="Hide Script Panel">
+                ✕ ซ่อนหน้าต่างบทพูด
+              </button>
+            </div>
+          </div>
+
+          <!-- Audio Seek Bar -->
+          <div class="w-full h-1.5 bg-slate-800 rounded-full overflow-hidden mb-2 cursor-pointer" onclick="seekAudio(event)">
+            <div id="audioSeekFill" class="h-full bg-gradient-to-r from-emerald-400 via-sky-400 to-purple-400 transition-all duration-150" style="width: 0%"></div>
+          </div>
+
+          <!-- Dual-Host Dialogue Container -->
+          <div id="presenterScriptText" class="text-xs md:text-sm text-slate-200 leading-relaxed space-y-1 max-h-28 overflow-y-auto pr-1">
+            Loading dual-host script...
+          </div>
+        </div>
       </div>
     </div>
 
@@ -231,135 +251,135 @@
 
   <script>
     // =========================================================================
-    // DUAL-HOST DIALOGUE BREAKDOWN FOR DISPLAY
+    // DUAL-HOST DIALOGUE BREAKDOWN FOR DISPLAY (~8 MINUTES TOTAL, POLITE & NATURAL)
     // =========================================================================
     const dualHostDialogues = {
       1: {
         en: [
-          ["👨🏻‍💼 Host A:", "Hello everyone! Welcome to the future of finance at FTH, Fujitsu Thailand!"],
-          ["👩🏻‍💼 Host B:", "Today, we're showing you how combining Dynamics 365 Finance & Operations with Microsoft Copilot AI will transform Thai accounting forever—working faster, 100% tax-compliant, with people firmly in control!"]
+          ["👨🏻‍💼 Host A:", "Good day to our executive team. Welcome to the presentation on advancing financial operations at Fujitsu Thailand, FTH."],
+          ["👩🏻‍💼 Host B:", "Today, we will share how integrating Dynamics 365 Finance & Operations with Microsoft Copilot AI streamlines Thai accounting and tax compliance—improving speed and accuracy while keeping our finance professionals firmly in control."]
         ],
         th: [
-          ["👨🏻‍💼 พิธีกรชาย:", "สวัสดีครับทุกท่าน! ยินดีต้อนรับสู่อนาคตของงานการเงินยุคใหม่ของ FTH (ฟูจิตสึ ประเทศไทย) ครับ!"],
-          ["👩🏻‍💼 พิธีกรหญิง:", "สวัสดีค่ะ! วันนี้เราจะพาทุกท่านมาดูว่า เมื่อเรานำระบบ D365 F&O มาผสานพลังกับ Microsoft Copilot AI มันจะพลิกโฉมงานบัญชีและภาษีไทยไปตลอดกาลได้อย่างไร งานจะเร็วขึ้น ถูกต้องตามกฎสรรพากร 100% และคนของเรายังเป็นผู้ควบคุมทุกขั้นตอน ไปชมกันเลยค่ะ!"]
+          ["👨🏻‍💼 พิธีกรชาย:", "สวัสดีครับคณะผู้บริหารและทุกท่านครับ ยินดีต้อนรับสู่การนำเสนอแนวทางยกระดับระบบการเงินของ ฟูจิตสึ ประเทศไทย (FTH) ครับ"],
+          ["👩🏻‍💼 พิธีกรหญิง:", "สวัสดีค่ะ วันนี้เราจะขอพาทุกท่านมาชมแนวทางการผสานระบบ D365 Finance & Operations เข้ากับ Microsoft Copilot AI เพื่อช่วยให้การทำงานด้านบัญชีและภาษีไทยรวดเร็วขึ้น แม่นยำตามหลักเกณฑ์ของกรมสรรพากร โดยมีทีมงานของเราเป็นผู้ควบคุมในทุกขั้นตอนค่ะ"]
         ]
       },
       2: {
         en: [
-          ["👩🏻‍💼 Host B:", "Let's be honest—month-end closing in Thailand is tough! Every single day, our AP team reads hundreds of PDF invoices by hand."],
-          ["👨🏻‍💼 Host A:", "Exactly! They manually check 13-digit Tax IDs, 5-digit branch codes, PO numbers, 7% VAT, and withholding tax. One tiny typo means big headaches during tax filing. It's time to take this robotic work off our team's shoulders!"]
+          ["👩🏻‍💼 Host B:", "Looking at our current month-end operations, our Accounts Payable team faces a heavy manual workload—reviewing hundreds of PDF tax invoices line by line."],
+          ["👨🏻‍💼 Host A:", "They manually verify 13-digit Tax IDs, 5-digit branch codes, purchase orders, 7% VAT, and withholding tax. Even a minor typo can cause delays during monthly tax filing. This initiative removes that repetitive burden from our team."]
         ],
         th: [
-          ["👩🏻‍💼 พิธีกรหญิง:", "ต้องยอมรับความจริงกันก่อนนะคะว่า ช่วงปิดงบสิ้นเดือนของไทยเรานั้นหนักหน่วงมากจริงๆ! ทุกวันทีมบัญชีเจ้าหนี้ต้องเปิดอ่านไฟล์ PDF ใบกำกับภาษีนับร้อยใบด้วยตาเปล่า"],
-          ["👨🏻‍💼 พิธีกรชาย:", "ใช่เลยครับ! ต้องคอยเช็คทั้งเลขผู้เสียภาษี 13 หลัก รหัสสาขา 5 หลัก เลขใบสั่งซื้อ ยอด VAT 7% และภาษีหัก ณ ที่จ่าย พลาดแค่ตัวเดียวก็ปวดหัวยาวตอนยื่นแบบ ถึงเวลาแล้วครับที่เราจะปลดล็อกงานซ้ำๆ เหล่านี้ออกจากบ่าของทีมงานเรา!"]
+          ["👩🏻‍💼 พิธีกรหญิง:", "หากมองที่การทำงานจริงในปัจจุบัน ช่วงปิดงบปลายเดือนเป็นช่วงที่ทีมงานต้องรับภาระหนักมากค่ะ เพราะต้องตรวจสอบเอกสารใบกำกับภาษี PDF จำนวนมากด้วยตาเปล่า"],
+          ["👨🏻‍💼 พิธีกรชาย:", "ใช่ครับ ทั้งการตรวจสอบเลขผู้เสียภาษี 13 หลัก รหัสสาขา 5 หลัก เลขใบสั่งซื้อ ยอด VAT 7% และภาษีหัก ณ ที่จ่าย ซึ่งหากคลาดเคลื่อนแม้แต่นิดเดียว ก็จะส่งผลกระทบต่อการยื่นแบบภาษีตอนสิ้นเดือน โครงการนี้จึงเข้ามาช่วยลดงานซ้ำซ้อนเหล่านี้ให้ทีมงานครับ"]
         ]
       },
       3: {
         en: [
-          ["👨🏻‍💼 Host A:", "And here is the game-changer! Look at Microsoft's official Copilot Studio blueprint. On the left, we feed it our Thai tax manuals and connect directly to D365 F&O via Dataverse and APIs."],
-          ["👩🏻‍💼 Host B:", "In the center, smart AI agents orchestrate the workflow. And on the right, our team interacts right inside Microsoft Teams and D365—all protected by enterprise-grade Microsoft security!"]
+          ["👨🏻‍💼 Host A:", "Our technical foundation follows Microsoft's official Copilot Studio reference architecture. On the left, we ground the system in Thai tax manuals and connect directly to D365 via Dataverse and standard APIs."],
+          ["👩🏻‍💼 Host B:", "In the center, specialized AI agents coordinate validation tasks. And on the right, our team interacts seamlessly through Microsoft Teams and D365, protected by enterprise-grade Microsoft security and governance."]
         ],
         th: [
-          ["👨🏻‍💼 พิธีกรชาย:", "และนี่คือพระเอกของเราครับ! ดูจากพิมพ์เขียวทางการของ Microsoft Copilot Studio หน้านี้ได้เลย ด้านซ้ายเราป้อนความรู้คู่มือภาษีไทย และเชื่อมตรงเข้ากับฐานข้อมูล D365 F&O ผ่าน Dataverse และ API"],
-          ["👩🏻‍💼 พิธีกรหญิง:", "ส่วนตรงกลางคือกองทัพ AI Agent ที่ช่วยกันคิดและกระจายงานอย่างเป็นระบบ และด้านขวา ทีมงานสามารถสั่งงานผ่าน Microsoft Teams หรือหน้าจอ D365 ได้ทันที ภายใต้ระบบความปลอดภัยระดับองค์กรของไมโครซอฟท์ค่ะ!"]
+          ["👨🏻‍💼 พิธีกรชาย:", "สำหรับสถาปัตยกรรมที่เราเลือกใช้ เราอ้างอิงตามมาตรฐานของ Microsoft Copilot Studio ครับ ด้านซ้ายคือการเชื่อมโยงคลังความรู้คู่มือภาษีไทย และฐานข้อมูล D365 ผ่าน Dataverse และ API มาตรฐาน"],
+          ["👩🏻‍💼 พิธีกรหญิง:", "ส่วนตรงกลางคือระบบ Multi-Agent ที่ช่วยคัดกรองและประมวลผลตามหน้าที่ และด้านขวา ทีมงานสามารถใช้งานผ่าน Microsoft Teams หรือหน้าจอ D365 ได้อย่างคุ้นเคย ภายใต้มาตรฐานความปลอดภัยระดับองค์กรของไมโครซอฟท์ค่ะ"]
         ]
       },
       4: {
         en: [
-          ["👨🏻‍💼 Host A (Intro):", "In Slide 4, let's take a deep dive into all 5 AI Use Cases for D365 F&O Thailand Localization so everyone can clearly see how each one works in practice."],
-          ["👩🏻‍💼 Host B (Case 1 - AP Invoice):", "1. AP Invoice Intelligence: Instead of typing Thai/English PDFs by hand, AI extracts headers & lines, checks confidence scores, validates against Vendor Master, PO, Goods Receipt, VAT & WHT, and creates a Draft Vendor Invoice for human approval!"],
-          ["👨🏻‍💼 Host A (Case 2 - Tax Compliance):", "2. Thai Tax Compliance Copilot: Tax details are scattered across master data, invoices, and payments. Deterministic rules pre-check 13-digit Tax IDs, 5-digit branches, 7% VAT, and WHT groups before closing—while AI groups exceptions and explains in Thai what to check, ready for the new March 2026 ภ.พ.30 format!"],
-          ["👩🏻‍💼 Host B (Case 3 - e-Tax Control):", "3. e-Tax Invoice & e-Receipt Control: AI pre-checks completeness, duplicate invoices, and missing branches before XML creation & digital signing—and translates complex Revenue Dept or Service Provider reject codes into plain language!"],
-          ["👨🏻‍💼 Host A (Case 4 - Reconciliation):", "4. Continuous Reconciliation Agent: Instead of hunting down differences at month-end, AI continuously reconciles GL against AP, AR, Tax, and Bank subledgers, recommending matches or adjustments for accountant approval."],
-          ["👩🏻‍💼 Host B (Case 5 - Knowledge Q&A):", "5. Finance & Tax Knowledge Assistant: Instant role-based Q&A grounded in approved policies, Thai tax manuals, and live D365 Virtual Entities—always keeping humans in 100% control of posting!"]
+          ["👨🏻‍💼 Host A (Intro):", "On Slide 4, let's review the top five AI use cases designed specifically for D365 Thailand Localization. We begin with Use Case 1: AP Invoice Intelligence, which is our recommended first POC."],
+          ["👩🏻‍💼 Host B (Case 1 - AP Invoice):", "In Use Case 1, Azure AI extracts headers and line items from Thai and English invoices, checks confidence scores, validates data against Vendor Master, PO, and Goods Receipt, and creates a Draft Vendor Invoice for human review."],
+          ["👨🏻‍💼 Host A (Case 2 - Tax Copilot):", "Use Case 2 is the Thai Tax Compliance Copilot. Deterministic rules pre-validate VAT and Withholding Tax transactions before period close, while AI categorizes exceptions and explains in clear Thai what needs attention—ready for the updated Revenue Department formats."],
+          ["👩🏻‍💼 Host B (Case 3 - e-Tax Control):", "Use Case 3, e-Tax Invoice & e-Receipt Control, acts as a pre-submission gate—checking completeness and branch codes before XML generation, and translating technical rejection messages into clear user actions."],
+          ["👨🏻‍💼 Host A (Case 4 - Reconciliation):", "Use Case 4, the Continuous Reconciliation Agent, monitors General Ledger against AP, AR, Tax, and Bank subledgers throughout the month, suggesting match or adjustment actions so discrepancies don't pile up at month-end."],
+          ["👩🏻‍💼 Host B (Case 5 - Knowledge Q&A):", "And Use Case 5, the Finance & Tax Knowledge Assistant, provides role-based Q&A grounded in company policies and live D365 Virtual Entities. Across all five use cases, every posting action requires explicit human approval."]
         ],
         th: [
-          ["👨🏻‍💼 พิธีกรชาย (บทนำ):", "ในสไลด์ที่ 4 นี้ เราจะมาเจาะลึกทั้ง 5 Use Cases หลัก สำหรับงานการเงินและภาษีไทยบน D365 F&O เพื่อให้ทุกท่านเห็นภาพการทำงานจริงอย่างชัดเจนครับ"],
-          ["👩🏻‍💼 พิธีกรหญิง (ข้อ 1 - AP Invoice):", "1. AP Invoice Intelligence: แก้ปัญหาการอ่าน PDF คีย์มือ โดย AI จะสกัดหัวเอกสารและรายการสินค้า ตรวจ Confidence Score เทียบกับฐานข้อมูลผู้ขาย, PO, ใบรับของ, VAT และ WHT แล้วสร้างเป็น Draft Invoice รอให้คนอนุมัติ ดักจับข้อผิดพลาดได้ก่อนโพสต์เลยค่ะ"],
-          ["👨🏻‍💼 พิธีกรชาย (ข้อ 2 - Thai Tax Copilot):", "2. Thai Tax Compliance Copilot: ใช้กฎภาษีแบบ Deterministic Rules ตรวจรายการก่อนปิดงวด ทั้งเลข 13 หลัก รหัสสาขา ยอด VAT 7% และกลุ่มหัก ณ ที่จ่าย แล้วให้ AI จัดกลุ่มและอธิบายเป็นภาษาไทยว่า 'ผิดตรงไหน-ควรตรวจอะไร' รองรับทั้ง ภ.ง.ด.3/53 และแบบ ภ.พ.30 โฉมใหม่ของสรรพากร (มี.ค. 2569) ครับ"],
-          ["👩🏻‍💼 พิธีกรหญิง (ข้อ 3 - e-Tax Control):", "3. e-Tax Invoice & e-Receipt Control: AI ทำหน้าที่เป็นด่านหน้า ตรวจความครบถ้วน อินวอยซ์ซ้ำ หรือสาขาตกหล่นก่อนสร้างไฟล์ XML ลงลายมือชื่อดิจิทัล และช่วยแปล Error Message จากผู้ให้บริการหรือกรมสรรพากรเป็นภาษาที่เข้าใจง่ายค่ะ"],
-          ["👨🏻‍💼 พิธีกรชาย (ข้อ 4 - Reconciliation):", "4. Continuous Reconciliation Agent: ตรวจจับยอดผิดปกติระหว่าง GL กับบัญชีแยกประเภท AP, AR, Tax และ Bank อย่างต่อเนื่อง พร้อมแนะนำแนวทางจับคู่หรือปรับปรุงบัญชี (Suggested Action) ให้คนอนุมัติ ไม่ต้องรอตามหาตัวเลขวันสุดท้ายของการปิดงบครับ"],
-          ["👩🏻‍💼 พิธีกรหญิง (ข้อ 5 - Knowledge Assistant):", "5. Finance & Tax Knowledge Assistant: ผู้ช่วยถาม-ตอบตามสิทธิ์ผู้ใช้งาน อ้างอิงคู่มือภาษีไทย นโยบายบริษัท และดึงข้อมูลจริงผ่าน D365 Virtual Entities โดยทั้ง 5 ข้อนี้ยึดกฎเหล็กเดียวกันคือ ทุกการโพสต์บัญชีต้องได้รับการอนุมัติจากผู้มีอำนาจเสมอค่ะ!"]
+          ["👨🏻‍💼 พิธีกรชาย (บทนำ):", "ในหน้านี้ เราขอสรุป 5 Use Cases หลัก ที่ออกแบบมาเพื่อระบบการเงินและภาษีไทยโดยเฉพาะครับ เริ่มจากข้อที่ 1 AP Invoice Intelligence ซึ่งเราจะใช้เป็นโครงการนำร่อง หรือ POC แรกครับ"],
+          ["👩🏻‍💼 พิธีกรหญิง (ข้อ 1 - AP Invoice):", "ในข้อที่ 1 นี้ AI จะช่วยอ่านใบแจ้งหนี้ทั้งภาษาไทยและอังกฤษ ดึงข้อมูลหัวเอกสารและรายการสินค้า ตรวจสอบค่าความมั่นใจ แล้วนำไปเทียบกับข้อมูลผู้ขาย ใบสั่งซื้อ และใบรับของในระบบ ก่อนสร้างเป็นเอกสารร่าง (Draft Invoice) เพื่อรอให้เจ้าหน้าที่ตรวจสอบและอนุมัติค่ะ"],
+          ["👨🏻‍💼 พิธีกรชาย (ข้อ 2 - Thai Tax Copilot):", "ต่อมาข้อที่ 2 ครับ Thai Tax Compliance Copilot ใช้กฎการตรวจสอบที่แม่นยำ ช่วยตรวจทานรายการ VAT และภาษีหัก ณ ที่จ่าย ล่วงหน้าก่อนปิดงวด พร้อมให้ AI ช่วยสรุปสาเหตุเป็นภาษาไทยที่เข้าใจง่าย และรองรับการปรับปรุงแบบ ภ.พ.30 รูปแบบใหม่ของกรมสรรพากรด้วยครับ"],
+          ["👩🏻‍💼 พิธีกรหญิง (ข้อ 3 - e-Tax Control):", "ข้อที่ 3 e-Tax Invoice & e-Receipt Control: AI จะทำหน้าที่เป็นด่านหน้า ตรวจสอบความครบถ้วนของข้อมูลและรหัสสาขาก่อนสร้างไฟล์ XML เพื่อลดโอกาสที่เอกสารจะถูกตีกลับ และช่วยแปลรหัสข้อผิดพลาดทางเทคนิคให้ผู้ใช้เข้าใจได้ทันทีค่ะ"],
+          ["👨🏻‍💼 พิธีกรชาย (ข้อ 4 - Reconciliation):", "ข้อที่ 4 Continuous Reconciliation Agent: ช่วยตรวจสอบและกระทบยอดระหว่างบัญชีแยกประเภททั่วไป (GL) กับบัญชีเจ้าหนี้ ลูกหนี้ ภาษี และธนาคาร อย่างต่อเนื่องตลอดทั้งเดือน พร้อมเสนอแนวทางปรับปรุงรายการให้นักบัญชีพิจารณาครับ"],
+          ["👩🏻‍💼 พิธีกรหญิง (ข้อ 5 - Knowledge Assistant):", "และข้อที่ 5 Finance & Tax Knowledge Assistant: ผู้ช่วยถาม-ตอบข้อสงสัยด้านการใช้งานและภาษีไทยตามสิทธิ์ของผู้ใช้ โดยทั้ง 5 ข้อนี้ ยึดหลักการสำคัญเดียวกันคือ AI เป็นผู้ช่วยเตรียมข้อมูล และผู้มีอำนาจอนุมัติยังคงเป็นคนตัดสินใจเสมอค่ะ"]
         ]
       },
       5: {
         en: [
-          ["👨🏻‍💼 Host A:", "Where should we start for the fastest return? Use Case #1: AP Invoice Intelligence!"],
-          ["👩🏻‍💼 Host B:", "Watch how smooth this 5-step flow is: A Thai or English invoice arrives. Document AI extracts the header and lines, checks the confidence score, performs a 3-way match against the PO and Goods Receipt in D365, and creates a ready-to-review Draft Invoice in seconds!"]
+          ["👨🏻‍💼 Host A:", "To deliver measurable value quickly, we recommend starting our first POC with Use Case 1: AP Invoice Intelligence."],
+          ["👩🏻‍💼 Host B:", "The five-step workflow is straightforward: when an invoice arrives, Azure AI extracts the data, verifies confidence thresholds, performs three-way matching against D365 purchase orders and receipts, and prepares a Draft Invoice in seconds."]
         ],
         th: [
-          ["👨🏻‍💼 พิธีกรชาย:", "คำถามสำคัญคือ เราจะเริ่มตรงไหนให้เห็นผลเร็วและคุ้มค่าที่สุด? คำตอบคือข้อที่ 1 ครับ: AP Invoice Intelligence!"],
-          ["👩🏻‍💼 พิธีกรหญิง:", "ดูโฟลว์การทำงาน 5 ขั้นตอนนี้สิคะ ทันทีที่ใบแจ้งหนี้ภาษาไทยหรืออังกฤษเข้ามา AI จะสกัดข้อมูลหัวเอกสารและรายการสินค้า ตรวจค่าความมั่นใจ วิ่งไปเช็ค 3-Way Match กับใบสั่งซื้อและใบรับของใน D365 จากนั้นสร้างเป็น Draft Invoice รอให้คนตรวจได้ในพริบตาเดียวค่ะ!"]
+          ["👨🏻‍💼 พิธีกรชาย:", "เพื่อให้เห็นผลลัพธ์ที่ชัดเจนและรวดเร็วที่สุด เราขอเสนอให้เริ่มต้น POC แรกที่ Use Case ข้อที่ 1 คือระบบอ่านและตรวจสอบใบแจ้งหนี้เจ้าหนี้ครับ"],
+          ["👩🏻‍💼 พิธีกรหญิง:", "ขั้นตอนการทำงานแบ่งเป็น 5 สเต็ปที่ชัดเจนค่ะ เมื่อได้รับไฟล์ใบแจ้งหนี้ Azure AI จะสกัดข้อมูล ตรวจค่าความมั่นใจ ทำการเทียบข้อมูล 3 ทาง (3-Way Match) กับใบสั่งซื้อและใบรับของใน D365 แล้วสร้างเป็นเอกสารร่าง ให้ทีมงานตรวจสอบได้ภายในไม่กี่วินาทีค่ะ"]
         ]
       },
       6: {
         en: [
-          ["👩🏻‍💼 Host B:", "Now you might ask: Can AI really read complex Thai fonts and Thai Baht accurately? Standard OCR struggles, yes—but Azure AI Document Intelligence v4.0 natively understands Thai and THB!"],
-          ["👨🏻‍💼 Host A:", "Even better, with a Custom Model, we just label 5 to 10 sample invoices in Azure Studio, and the AI learns our exact vendor layouts with pinpoint precision. And it's 100% Microsoft-compliant!"]
+          ["👩🏻‍💼 Host B:", "Regarding Thai language accuracy: we utilize Azure AI Document Intelligence version 4.0, which provides official native support for Thai script and Thai Baht currency."],
+          ["👨🏻‍💼 Host A:", "Furthermore, by training a Custom Model with just 5 to 10 sample invoices, the system learns our key vendor layouts with high precision—while remaining 100% compliant with D365 architecture standards."]
         ],
         th: [
-          ["👩🏻‍💼 พิธีกรหญิง:", "หลายท่านอาจสงสัยว่า AI จะอ่านฟอนต์ภาษาไทยและสกุลเงินบาทได้แม่นยำจริงหรือ? ถ้าเป็นตัวพื้นฐานทั่วไปอาจจะยากค่ะ แต่ด้วย Azure AI Document Intelligence เวอร์ชัน 4.0 ตัวใหม่ล่าสุด มันรองรับภาษาไทยและเงินบาทเต็มรูปแบบ!"],
-          ["👨🏻‍💼 พิธีกรชาย:", "ยิ่งไปกว่านั้น เรายังสร้าง Custom Model ได้ง่ายๆ แค่นำตัวอย่างใบกำกับภาษีเพียง 5 ถึง 10 ใบมาตีกรอบสอน AI ในสตูดิโอ มันก็จำฟอร์มของคู่ค้าเราได้แม่นยำสุดๆ และถูกกฎมาตรฐานของ D365 100% ครับ!"]
+          ["👩🏻‍💼 พิธีกรหญิง:", "สำหรับคำถามที่ว่า AI จะอ่านภาษาไทยได้แม่นยำแค่ไหน ปัจจุบันเราใช้ Azure AI Document Intelligence เวอร์ชัน 4.0 ซึ่งรองรับการอ่านภาษาไทยและสกุลเงินบาทอย่างเป็นทางการแล้วค่ะ"],
+          ["👨🏻‍💼 พิธีกรชาย:", "นอกจากนี้ เรายังสามารถฝึกฝน Custom Model เพิ่มเติม โดยใช้ตัวอย่างเอกสารเพียง 5 ถึง 10 ใบ เพื่อให้ระบบจดจำรูปแบบฟอร์มของคู่ค้าหลักได้อย่างแม่นยำ และเป็นบริการมาตรฐานบนคลาวด์ของไมโครซอฟท์ที่สอดคล้องกับข้อกำหนดของ D365 ทุกประการครับ"]
         ]
       },
       7: {
         en: [
-          ["👨🏻‍💼 Host A:", "For finance, accuracy and control are non-negotiable. That's why we never let AI guess tax laws! We use strict Deterministic Rules: Modulo-11 math checks on 13-digit Tax IDs, exact 5-digit branch validation, and 7% VAT checks."],
-          ["👩🏻‍💼 Host B:", "Most importantly: ZERO auto-posting! The AI only creates a Draft. An authorized human accountant always reviews and clicks Approve!"]
+          ["👨🏻‍💼 Host A:", "In financial operations, precision is paramount. We never rely on AI to guess tax calculations. Instead, we enforce strict deterministic rules for 13-digit Tax IDs, 5-digit branches, and 7% VAT math."],
+          ["👩🏻‍💼 Host B:", "Most importantly, we enforce a strict Zero Auto-Post policy. AI only prepares a draft record; an authorized accountant always reviews and approves the final posting, ensuring a complete audit trail."]
         ],
         th: [
-          ["👨🏻‍💼 พิธีกรชาย:", "สำหรับงานการเงิน ความถูกต้องคือสิ่งสูงสุดครับ เราจึงไม่ปล่อยให้ AI คาดเดากฎภาษีเองเด็ดขาด! แต่เราใช้กฎการคำนวณที่ตายตัว เช่น สูตร Modulo-11 เช็คเลขผู้เสียภาษี 13 หลัก เช็ครหัสสาขา 5 หลัก และคำนวณ VAT 7% อย่างเป๊ะๆ"],
-          ["👩🏻‍💼 พิธีกรหญิง:", "และกฎเหล็กที่สำคัญที่สุดของเราคือ Zero Auto-Post ค่ะ! AI จะสร้างได้เฉพาะเอกสารร่าง หรือ Draft เท่านั้น นักบัญชีที่มีอำนาจจะต้องเป็นคนตรวจสอบและกดปุ่มอนุมัติด้วยตัวเองเสมอ ปลอดภัย 100% ค่ะ!"]
+          ["👨🏻‍💼 พิธีกรชาย:", "ด้านความถูกต้องทางภาษี เราแยกหน้าที่อย่างชัดเจนครับ โดยไม่ปล่อยให้ AI คาดเดาตัวเลขเอง แต่ใช้กฎการคำนวณที่ชัดเจน ทั้งการเช็คเลข 13 หลักตามสูตร Modulo-11 รหัสสาขา 5 หลัก และอัตราภาษี 7%"],
+          ["👩🏻‍💼 พิธีกรหญิง:", "และที่สำคัญที่สุดคือหลักการ Zero Auto-Post ค่ะ ระบบจะสร้างเฉพาะเอกสารร่างเท่านั้น จะไม่มีการบันทึกบัญชีจริงจนกว่านักบัญชีผู้มีอำนาจจะตรวจสอบและกดอนุมัติ พร้อมเก็บประวัติการตรวจสอบครบถ้วนค่ะ"]
         ]
       },
       8: {
         en: [
-          ["👩🏻‍💼 Host B:", "Once our Phase 1 Invoice POC succeeds, look at where we go next! Phase 2 launches the Thai Tax Compliance Copilot—pre-validating VAT and Withholding Tax reports."],
-          ["👨🏻‍💼 Host A:", "It even includes Rule Versioning ready for the Thai Revenue Department's new 2026 formats! Then Phase 3 unlocks e-Tax XML error translation and continuous month-end reconciliation!"]
+          ["👩🏻‍💼 Host B:", "Following a successful Phase 1 POC, Phase 2 expands into the Thai Tax Compliance Copilot to automate pre-filing checks for monthly VAT and Withholding Tax."],
+          ["👨🏻‍💼 Host A:", "This includes rule versioning prepared for upcoming Revenue Department requirements, followed by Phase 3 for e-Tax XML quality control and continuous subledger reconciliation."]
         ],
         th: [
-          ["👩🏻‍💼 พิธีกรหญิง:", "เมื่อ POC ใบแจ้งหนี้ในเฟสแรกสำเร็จ ดูสเต็ปต่อไปที่เราจะขยายผลสิคะ! ในเฟสที่ 2 เราจะเปิดใช้งานผู้ช่วยตรวจภาษีล่วงหน้า ทั้งแบบ ภ.พ.30 และ ภ.ง.ด.3/53"],
-          ["👨🏻‍💼 พิธีกรชาย:", "ซึ่งเราออกแบบให้รองรับการปรับปรุงแบบ ภ.พ.30 โฉมใหม่ของกรมสรรพากรในปี 2569 ไว้พร้อมแล้วด้วยครับ! จากนั้นในเฟสที่ 3 เราจะขยายไปสู่งานแปลผล Error ของ e-Tax และการกระทบยอดบัญชีอัตโนมัติครับ!"]
+          ["👩🏻‍💼 พิธีกรหญิง:", "เมื่อ POC ในเฟสที่ 1 สำเร็จตามเป้าหมาย เราสามารถต่อยอดสู่เฟสที่ 2 ได้ทันที คือระบบช่วยตรวจสอบรายงานภาษีมูลค่าเพิ่ม และภาษีหัก ณ ที่จ่าย ก่อนยื่นแบบจริงค่ะ"],
+          ["👨🏻‍💼 พิธีกรชาย:", "รวมถึงการเตรียมความพร้อมสำหรับโครงสร้างแบบ ภ.พ.30 โฉมใหม่ของกรมสรรพากร และการขยายผลสู่เฟสที่ 3 ทั้งการดูแลระบบ e-Tax และการกระทบยอดบัญชีอัตโนมัติในลำดับถัดไปครับ"]
         ]
       },
       9: {
         en: [
-          ["👨🏻‍💼 Host A:", "We don't just hope for success—we measure it with clear KPIs! We will test 50 real invoices across Thai, English, and mixed formats."],
-          ["👩🏻‍💼 Host B:", "Our target is at least 80% overall extraction accuracy, 60% straight-through processing to Draft with zero manual typing, over 70% time saved per invoice, and a strict 100% record of zero unauthorized auto-posting!"]
+          ["👨🏻‍💼 Host A:", "We will evaluate the POC using transparent, measurable KPIs across 50 representative invoices covering Thai, English, and mixed layouts."],
+          ["👩🏻‍💼 Host B:", "Our target benchmarks are at least 80% extraction accuracy, 60% straight-through draft creation, over 70% reduction in processing time per invoice, and 100% adherence to human approval controls."]
         ],
         th: [
-          ["👨🏻‍💼 พิธีกรชาย:", "เราไม่ได้ทำแค่ให้ดูล้ำสมัยนะครับ แต่เราวัดผลด้วยตัวเลข KPI ที่ชัดเจน! เราจะทดสอบด้วยเอกสารใบกำกับภาษีจริง 50 ฉบับ ทั้งภาษาไทย อังกฤษ และแบบผสม"],
-          ["👩🏻‍💼 พิธีกรหญิง:", "โดยตั้งเป้าหมายความแม่นยำรวมไว้ไม่ต่ำกว่า 80% เอกสารไหลเข้าเป็น Draft อัตโนมัติโดยไม่ต้องพิมพ์แก้เลยอย่างน้อย 60% ลดเวลาทำงานต่อใบลงกว่า 70% และไม่มีการโพสต์บัญชีเองโดยพลการ 100% เต็มค่ะ!"]
+          ["👨🏻‍💼 พิธีกรชาย:", "สำหรับการประเมินผล POC เราได้กำหนดตัวชี้วัดที่ชัดเจน โดยจะทดสอบกับเอกสารใบกำกับภาษีตัวอย่างจำนวน 50 ฉบับ ทั้งภาษาไทย อังกฤษ และแบบผสมครับ"],
+          ["👩🏻‍💼 พิธีกรหญิง:", "เราตั้งเป้าหมายความแม่นยำในการดึงข้อมูลไม่น้อยกว่า 80% เอกสารผ่านเข้าสู่สถานะร่างได้โดยไม่ต้องคีย์ซ้ำอย่างน้อย 60% ลดเวลาทำงานต่อใบลงมากกว่า 70% และรักษามาตรฐานการอนุมัติโดยคน 100% ค่ะ"]
         ]
       },
       10: {
         en: [
-          ["👩🏻‍💼 Host B:", "And here is the best part for executives: How much extra software budget do we need for this 4-week POC? Zero dollars!"],
-          ["👨🏻‍💼 Host A:", "That's right! Azure AI gives us 500 free pages every month, and D365 OData and Dataverse Virtual Entities are already included in our license! Even in full production, Azure AI costs just $10 per 1,000 pages—only 35 satang per invoice!"]
+          ["👩🏻‍💼 Host B:", "From an investment perspective, this four-week POC requires zero additional software budget."],
+          ["👨🏻‍💼 Host A:", "We leverage Azure AI's free tier of 500 pages per month alongside our existing D365 OData and Dataverse licenses. Even in full production, Azure AI processing costs only about 35 satang per invoice."]
         ],
         th: [
-          ["👩🏻‍💼 พิธีกรหญิง:", "และนี่คือข่าวดีที่สุดสำหรับผู้บริหารค่ะ! โครงการ POC 4 สัปดาห์นี้ เราต้องของบซื้อซอฟต์แวร์เพิ่มเท่าไหร่คะ? คำตอบคือ 0 บาท ค่ะ!"],
-          ["👨🏻‍💼 พิธีกรชาย:", "ถูกต้องครับ! เพราะ Azure AI มีโควต้าให้อ่านฟรีเดือนละ 500 หน้า ส่วน OData และ Dataverse ก็รวมอยู่ในไลเซนส์ D365 เดิมของเราอยู่แล้ว! และแม้แต่ตอนขึ้นใช้งานจริง ค่าอ่านเอกสารของ Azure AI ก็ถูกมาก ตกเพียงหน้าละ 35 สตางค์ เท่านั้นเองครับ!"]
+          ["👩🏻‍💼 พิธีกรหญิง:", "ในด้านงบประมาณสำหรับการทำ POC ระยะเวลา 4 สัปดาห์นี้ ข่าวดีคือเราไม่จำเป็นต้องของบประมาณซื้อซอฟต์แวร์เพิ่มเติมเลยค่ะ"],
+          ["👨🏻‍💼 พิธีกรชาย:", "เนื่องจาก Azure AI มีโควตาใช้งานฟรีเดือนละ 500 หน้า และใช้การเชื่อมต่อมาตรฐานที่มีอยู่ในไลเซนส์ D365 เดิม ส่วนในระยะใช้งานจริง ค่าบริการประมวลผลเอกสารก็ประหยัดมาก เฉลี่ยเพียงหน้าละประมาณ 35 สตางค์เท่านั้นครับ"]
         ]
       },
       11: {
         en: [
-          ["👨🏻‍💼 Host A:", "Our execution plan is fast and focused—just 4 weeks! Week 1: Complete internal AI RMS registration and collect 50 test invoices. Week 2: Configure Azure AI v4.0 and train our Thai Custom Model."],
-          ["👩🏻‍💼 Host B:", "Week 3: Connect the flow to our D365 Sandbox and test validation rules. Week 4: Present the Scorecard results for your Go or No-Go decision!"]
+          ["👨🏻‍💼 Host A:", "Our execution plan spans four structured weeks: Week 1 covers internal AI governance registration and sample preparation. Week 2 focuses on Azure AI setup and Custom Model training."],
+          ["👩🏻‍💼 Host B:", "In Week 3, we integrate with the D365 Sandbox and validate tax rules. And in Week 4, we present the complete KPI scorecard for your Go or No-Go decision."]
         ],
         th: [
-          ["👨🏻‍💼 พิธีกรชาย:", "แผนปฏิบัติการของเรารวดเร็วและชัดเจนใน 4 สัปดาห์ครับ! สัปดาห์แรก ลงทะเบียน AI RMS และเตรียมเอกสารทดสอบ 50 ใบ สัปดาห์ที่ 2 ตั้งค่า Azure AI v4.0 และสอน Custom Model ภาษาไทย"],
-          ["👩🏻‍💼 พิธีกรหญิง:", "สัปดาห์ที่ 3 เชื่อมต่อเข้ากับ D365 Sandbox เพื่อทดสอบกฎการตรวจภาษี และสัปดาห์ที่ 4 นำผลคะแนน Scorecard มาสรุปเสนอผู้บริหารเพื่อตัดสินใจขยายผลทันทีค่ะ!"]
+          ["👨🏻‍💼 พิธีกรชาย:", "แผนการดำเนินงานใช้เวลาเพียง 4 สัปดาห์ครับ สัปดาห์แรก ลงทะเบียนธรรมาภิบาล AI ภายใน และเตรียมเอกสารทดสอบ 50 ฉบับ สัปดาห์ที่ 2 ตั้งค่า Azure AI และฝึกสอน Custom Model"],
+          ["👩🏻‍💼 พิธีกรหญิง:", "สัปดาห์ที่ 3 เชื่อมต่อเข้ากับระบบ D365 Sandbox เพื่อทดสอบกฎการตรวจสอบ และสัปดาห์ที่ 4 สรุปผลลัพธ์ตามตัวชี้วัด เพื่อนำเสนอคณะผู้บริหารพิจารณาอนุมัติขยายผลค่ะ"]
         ]
       },
       12: {
         en: [
-          ["👨🏻‍💼 Host A:", "Look at this synergy in motion! Fujitsu and FTH joining forces with Microsoft Dynamics 365 Finance & Operations and Microsoft Copilot Studio!"],
-          ["👩🏻‍💼 Host B:", "Zero extra POC cost, 100% safe guardrails, and massive productivity gains for our people. Give us the green light for this 4-week POC, and let's shape the future of AI-powered Finance in Thailand together! Thank you!"]
+          ["👨🏻‍💼 Host A:", "By uniting Fujitsu Thailand's localization expertise with Dynamics 365 Finance & Operations and Microsoft Copilot Studio, we set a new benchmark for intelligent finance."],
+          ["👩🏻‍💼 Host B:", "With a focused four-week timeline, zero extra software cost for the POC, and strict governance controls, we kindly invite your approval to initiate Phase 1. Thank you very much."]
         ],
         th: [
-          ["👨🏻‍💼 พิธีกรชาย:", "ดูพลังของการผสานเทคโนโลยีตรงหน้านี้สิครับ! เมื่อ Fujitsu และ FTH ของเรา รวมพลังกับ Dynamics 365 F&O และ Microsoft Copilot Studio!"],
-          ["👩🏻‍💼 พิธีกรหญิง:", "งบซอฟต์แวร์เริ่มต้น 0 บาท ปลอดภัยตามหลักธรรมาภิบาล 100% และช่วยยกระดับการทำงานของทีมการเงินไทยได้อย่างก้าวกระโดด ขอไฟเขียวอนุมัติ POC 4 สัปดาห์นี้ แล้วมาสร้างอนาคตไปด้วยกันนะคะ ขอบคุณค่ะ!"]
+          ["👨🏻‍💼 พิธีกรชาย:", "ทั้งหมดนี้คือการผสานศักยภาพของ ฟูจิตสึ ประเทศไทย ระบบ D365 Finance & Operations และ Microsoft Copilot Studio เพื่อยกระดับมาตรฐานงานการเงินของเราครับ"],
+          ["👩🏻‍💼 พิธีกรหญิง:", "ด้วยระยะเวลาทดลองเพียง 4 สัปดาห์ โดยไม่มีค่าใช้จ่ายซอฟต์แวร์เพิ่มเติม และมีความปลอดภัยสูง จึงขอเรียนเชิญคณะผู้บริหารพิจารณาอนุมัติเริ่มต้นโครงการ POC นี้ ขอบพระคุณมากค่ะ"]
         ]
       }
     };
@@ -603,18 +623,20 @@
       },
       {
         id: 4,
-        duration: "2:45",
-        badgeEN: "SLIDE 4 • DEEP DIVE: TOP 5 AI USE CASES (3-MIN MASTER OVERVIEW)",
-        badgeTH: "สไลด์ 4 • เจาะลึก 5 AI USE CASES สำหรับระบบการเงินและภาษีไทย (~3 นาที)",
+        duration: "1:50",
+        badgeEN: "SLIDE 4 • DEEP DIVE: TOP 5 AI USE CASES FOR THAILAND LOCALIZATION",
+        badgeTH: "สไลด์ 4 • เจาะลึก 5 AI USE CASES สำหรับระบบการเงินและภาษีไทย",
         titleEN: "Top 5 AI Use Cases for D365 Thailand Localization",
         titleTH: "เจาะลึก 5 สุดยอด AI Use Cases สำหรับ D365 F&O Thailand Localization",
         subtitleEN: "Click any Use Case (1–5) or play audio to see Problem, AI Role, Flow & Business Benefit",
-        subtitleTH: "คลิกเลือกแต่ละข้อ (1–5) หรือกดฟังเสียงพากย์เพื่อดู ปัญหา • หน้าที่ของ AI • Flow การทำงาน • ประโยชน์ที่ได้รับ",
+        subtitleTH: "คลิกเลือกแต่ละข้อ (1–5) หรือกดฟังเสียงบรรยายเพื่อดู ปัญหา • หน้าที่ของ AI • Flow การทำงาน • ประโยชน์ที่ได้รับ",
         renderHTML: (lang) => {
           const ucData = [
             {
               num: 1,
-              topPct: "11%",
+              topPct: "7.3%",
+              heightPct: "14.2%",
+              circleTop: "7.5%",
               color: "red",
               tag: "★ POC #1 FOCUS",
               titleEN: "1. AP Invoice Intelligence (ใบแจ้งหนี้เจ้าหนี้)",
@@ -629,7 +651,9 @@
             },
             {
               num: 2,
-              topPct: "27%",
+              topPct: "22.7%",
+              heightPct: "14.2%",
+              circleTop: "22.9%",
               color: "sky",
               tag: "PHASE 2",
               titleEN: "2. Thai Tax Compliance Copilot (VAT / WHT Pre-validation)",
@@ -644,7 +668,9 @@
             },
             {
               num: 3,
-              topPct: "43%",
+              topPct: "38.1%",
+              heightPct: "14.2%",
+              circleTop: "38.3%",
               color: "emerald",
               tag: "PHASE 3",
               titleEN: "3. e-Tax Invoice & e-Receipt Intelligent Control",
@@ -659,7 +685,9 @@
             },
             {
               num: 4,
-              topPct: "59%",
+              topPct: "54.1%",
+              heightPct: "14.2%",
+              circleTop: "54.3%",
               color: "purple",
               tag: "PHASE 3",
               titleEN: "4. Continuous Reconciliation & Financial Close Agent",
@@ -674,7 +702,9 @@
             },
             {
               num: 5,
-              topPct: "75%",
+              topPct: "69.6%",
+              heightPct: "14.2%",
+              circleTop: "69.8%",
               color: "amber",
               tag: "PHASE 2",
               titleEN: "5. Finance & Thailand Localization Knowledge Assistant",
@@ -692,16 +722,26 @@
           const activeUC = ucData[activeSlide4Case - 1] || ucData[0];
 
           return `
-          <div class="flex-1 flex flex-col lg:flex-row items-stretch gap-5 p-4 md:p-6">
-            <!-- Left: Blueprint Image with Synchronized Highlight Bar + 5 Selector Tabs -->
-            <div class="lg:w-[48%] flex flex-col justify-between gap-3">
-              <div class="relative rounded-2xl overflow-hidden border-2 border-purple-500/40 shadow-2xl bg-white p-1.5 flex-1 flex items-center justify-center">
-                <img src="top5_thai_usecases.jpg" alt="Top 5 AI Use Cases for D365 Thailand Localization" class="w-full h-auto rounded-xl object-contain max-h-[310px] mx-auto" />
-                <!-- Dynamic Highlight Overlay synced to selected Use Case (1..5) -->
-                <div style="top: ${activeUC.topPct};" class="absolute left-[2%] right-[2%] h-[15%] rounded-lg border-2 border-red-600 bg-red-500/15 pointer-events-none transition-all duration-500 flex items-center justify-end pr-2 shadow-lg">
-                  <span class="px-2 py-0.5 rounded bg-red-600 text-white text-xs font-extrabold shadow">
-                    #${activeUC.num} ACTIVE
-                  </span>
+          <div class="flex-1 flex flex-col lg:flex-row items-stretch gap-4 p-3 md:p-5">
+            <!-- Left: Blueprint Image with Pixel-Locked Highlight Overlay + 5 Selector Tabs -->
+            <div class="lg:w-[50%] flex flex-col justify-between gap-2.5">
+              <div class="rounded-2xl overflow-hidden border-2 border-purple-500/40 shadow-2xl bg-white p-1.5 flex-1 flex items-center justify-center">
+                <!-- Exact 1024:682 Image Wrapper so percentage coordinates never drift -->
+                <div class="relative w-full mx-auto select-none" style="aspect-ratio: 1024 / 682;">
+                  <img src="top5_thai_usecases.jpg" alt="Top 5 AI Use Cases for D365 Thailand Localization" class="w-full h-full block rounded-lg object-fill" />
+
+                  <!-- Glowing Active Circle Ring locked directly over the numbered circle (1..5) on the left -->
+                  <div style="top: ${activeUC.circleTop}; left: 1.15%; width: 4.85%; aspect-ratio: 1 / 1;"
+                       class="absolute rounded-full border-[3px] border-red-600 bg-red-500/25 shadow-[0_0_16px_rgba(220,38,38,0.95)] pointer-events-none transition-all duration-500 flex items-center justify-center z-20 animate-pulse">
+                  </div>
+
+                  <!-- Dynamic Row Highlight Box synced to exact Use Case row (1..5) -->
+                  <div style="top: ${activeUC.topPct}; height: ${activeUC.heightPct}; left: 0.8%; right: 0.8%;"
+                       class="absolute rounded-lg border-2 border-red-600 bg-red-500/12 pointer-events-none transition-all duration-500 flex items-center justify-end pr-2 shadow-lg z-10">
+                    <span class="px-2 py-0.5 rounded bg-red-600 text-white text-[11px] font-extrabold shadow-md tracking-wide">
+                      #${activeUC.num} ACTIVE
+                    </span>
+                  </div>
                 </div>
               </div>
 
@@ -710,7 +750,7 @@
                 ${ucData.map(u => `
                   <button onclick="selectSlide4UseCase(${u.num})" class="p-2 rounded-xl border text-left transition-all ${
                     u.num === activeUC.num
-                      ? 'bg-sky-600 border-sky-300 text-white shadow-lg scale-[1.03]'
+                      ? 'bg-red-600 border-red-300 text-white shadow-lg scale-[1.03]'
                       : 'bg-slate-800/80 border-slate-700 text-slate-300 hover:bg-slate-700'
                   }">
                     <div class="text-xs font-black">#${u.num}</div>
@@ -1371,6 +1411,54 @@
 
     const audioEl = document.getElementById('neuralAudioPlayer');
 
+    function toggleSlideMenu(event) {
+      if (event) event.stopPropagation();
+      const menu = document.getElementById('slideDropdownMenu');
+      const chev = document.getElementById('slideMenuChevron');
+      if (menu.classList.contains('hidden')) {
+        menu.classList.remove('hidden');
+        if (chev) chev.style.transform = 'rotate(180deg)';
+      } else {
+        closeSlideMenu();
+      }
+    }
+
+    function closeSlideMenu() {
+      const menu = document.getElementById('slideDropdownMenu');
+      const chev = document.getElementById('slideMenuChevron');
+      if (menu) menu.classList.add('hidden');
+      if (chev) chev.style.transform = 'rotate(0deg)';
+    }
+
+    document.addEventListener('click', (e) => {
+      const menu = document.getElementById('slideDropdownMenu');
+      const btn = document.getElementById('btnSlideMenu');
+      if (menu && !menu.classList.contains('hidden')) {
+        if (!menu.contains(e.target) && (!btn || !btn.contains(e.target))) {
+          closeSlideMenu();
+        }
+      }
+    });
+
+    function toggleScriptDrawer() {
+      const drawer = document.getElementById('bottomScriptDrawer');
+      const btn = document.getElementById('btnToggleScriptDrawer');
+      if (!drawer) return;
+      if (drawer.classList.contains('hidden')) {
+        drawer.classList.remove('hidden');
+        if (btn) {
+          btn.className = 'px-2.5 py-1 rounded-lg bg-sky-600/30 border border-sky-400 text-xs text-sky-200 font-bold transition-all';
+          btn.textContent = '💬 ซ่อนบทพูด';
+        }
+      } else {
+        drawer.classList.add('hidden');
+        if (btn) {
+          btn.className = 'px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs text-slate-300 font-semibold transition-all';
+          btn.textContent = '💬 บทพูด';
+        }
+      }
+    }
+
     function selectSlide4UseCase(num) {
       activeSlide4Case = num;
       const slide = slides[currentIndex];
@@ -1380,15 +1468,15 @@
         const titleText = currentLang === 'en' ? slide.titleEN : slide.titleTH;
         const subText = currentLang === 'en' ? slide.subtitleEN : slide.subtitleTH;
         viewport.innerHTML = `
-          <div class="flex-1 flex flex-col justify-between">
-            <div class="px-6 pt-5 pb-3 border-b border-slate-800/80 flex flex-wrap items-center justify-between gap-2 bg-slate-900/50">
+          <div class="flex-1 flex flex-col justify-between h-full">
+            <div class="px-5 py-2.5 border-b border-slate-800/80 flex flex-wrap items-center justify-between gap-2 bg-slate-900/60">
               <div>
-                <div class="text-xs font-bold tracking-widest text-sky-400 uppercase">${badgeText}</div>
-                <h2 class="text-xl md:text-2xl font-extrabold text-white mt-0.5">${titleText}</h2>
+                <div class="text-[11px] font-bold tracking-widest text-sky-400 uppercase">${badgeText}</div>
+                <h2 class="text-lg md:text-2xl font-extrabold text-white">${titleText}</h2>
                 <p class="text-xs text-slate-400">${subText}</p>
               </div>
               <div class="text-xs px-2.5 py-1 rounded-full bg-slate-800 border border-slate-700 text-slate-300 font-semibold">
-                ⏱️ Target: ${slide.duration} min
+                ⏱️ ~${slide.duration} min
               </div>
             </div>
             ${slide.renderHTML(currentLang)}
@@ -1406,19 +1494,19 @@
 
     audioEl.addEventListener('timeupdate', () => {
       const cur = audioEl.currentTime;
-      const dur = audioEl.duration || 45;
+      const dur = audioEl.duration || 35;
       const pct = Math.min(100, (cur / dur) * 100);
       document.getElementById('audioSeekFill').style.width = `${pct}%`;
       document.getElementById('audioTimeLabel').textContent = `${formatTime(cur)} / ${formatTime(dur)}`;
 
-      // Auto-switch Use Case #1..#5 on Slide 4 as the ~3-min audio progresses!
-      if (slides[currentIndex].id === 4 && dur > 60) {
+      // Auto-switch Use Case #1..#5 on Slide 4 as the audio progresses!
+      if (slides[currentIndex].id === 4 && dur > 40) {
         const progressRatio = cur / dur;
         let expectedCase = 1;
-        if (progressRatio < 0.24) expectedCase = 1;
+        if (progressRatio < 0.30) expectedCase = 1;
         else if (progressRatio < 0.48) expectedCase = 2;
-        else if (progressRatio < 0.68) expectedCase = 3;
-        else if (progressRatio < 0.84) expectedCase = 4;
+        else if (progressRatio < 0.65) expectedCase = 3;
+        else if (progressRatio < 0.82) expectedCase = 4;
         else expectedCase = 5;
 
         if (expectedCase !== activeSlide4Case) {
@@ -1471,15 +1559,15 @@
       const subText = currentLang === 'en' ? slide.subtitleEN : slide.subtitleTH;
 
       viewport.innerHTML = `
-        <div class="slide-enter flex-1 flex flex-col justify-between">
-          <div class="px-6 pt-5 pb-3 border-b border-slate-800/80 flex flex-wrap items-center justify-between gap-2 bg-slate-900/50">
+        <div class="slide-enter flex-1 flex flex-col justify-between h-full">
+          <div class="px-5 py-2.5 border-b border-slate-800/80 flex flex-wrap items-center justify-between gap-2 bg-slate-900/60">
             <div>
-              <div class="text-xs font-bold tracking-widest text-sky-400 uppercase">${badgeText}</div>
-              <h2 class="text-xl md:text-2xl font-extrabold text-white mt-0.5">${titleText}</h2>
+              <div class="text-[11px] font-bold tracking-widest text-sky-400 uppercase">${badgeText}</div>
+              <h2 class="text-lg md:text-2xl font-extrabold text-white">${titleText}</h2>
               <p class="text-xs text-slate-400">${subText}</p>
             </div>
             <div class="text-xs px-2.5 py-1 rounded-full bg-slate-800 border border-slate-700 text-slate-300 font-semibold">
-              ⏱️ Target: ${slide.duration} min
+              ⏱️ ~${slide.duration} min
             </div>
           </div>
 
@@ -1491,14 +1579,19 @@
       const lines = dualHostDialogues[slide.id][currentLang];
       document.getElementById('presenterScriptText').innerHTML = lines.map(([speaker, text], i) => `
         <div class="flex items-start gap-2">
-          <span class="font-bold whitespace-nowrap ${i === 0 ? 'text-sky-400' : 'text-purple-400'}">${speaker}</span>
+          <span class="font-bold whitespace-nowrap ${i % 2 === 0 ? 'text-sky-400' : 'text-purple-400'}">${speaker}</span>
           <span class="text-slate-200">${text}</span>
         </div>
       `).join('');
 
       document.getElementById('slideTargetTime').textContent = `⏱️ ~${slide.duration} min`;
-      document.getElementById('slideDurationBadge').textContent = `Slide ${slide.id}: ${slide.duration} / ~11:30 Total`;
+      document.getElementById('slideDurationBadge').textContent = `Slide ${slide.id}: ${slide.duration} / ~8:00 Total`;
       document.getElementById('currentSlideNum').textContent = slide.id;
+      const shortTitleEl = document.getElementById('currentSlideShortTitle');
+      if (shortTitleEl) {
+        const rawTitle = currentLang === 'en' ? slide.titleEN : slide.titleTH;
+        shortTitleEl.textContent = rawTitle.length > 28 ? rawTitle.substring(0, 28) + '…' : rawTitle;
+      }
 
       const pct = ((currentIndex + 1) / slides.length) * 100;
       document.getElementById('slideProgressBar').style.width = `${pct}%`;
@@ -1530,13 +1623,18 @@
       const container = document.getElementById('slidePillsContainer');
       container.innerHTML = slides.map((s, idx) => {
         const active = idx === currentIndex;
+        const label = currentLang === 'en' ? s.titleEN : s.titleTH;
         return `
-          <button onclick="goToSlide(${idx})" class="px-2.5 py-1 rounded-md text-xs font-semibold whitespace-nowrap transition-all ${
+          <button onclick="goToSlide(${idx})" class="p-2 rounded-xl text-left text-xs transition-all flex items-center justify-between gap-2 border ${
             active
-              ? 'bg-sky-500 text-slate-950 font-bold shadow'
-              : 'bg-slate-800/80 text-slate-400 hover:text-white hover:bg-slate-700'
+              ? 'bg-sky-500/25 border-sky-400 text-white font-bold shadow-md'
+              : 'bg-slate-800/80 border-slate-700/80 text-slate-300 hover:text-white hover:bg-slate-700'
           }">
-            ${s.id}. ${s.titleEN.split(':')[0].substring(0, 18)}
+            <div class="truncate">
+              <span class="inline-block w-5 h-5 rounded-md text-center leading-5 mr-1 font-extrabold ${active ? 'bg-sky-400 text-slate-950' : 'bg-slate-900 text-sky-400'}">${s.id}</span>
+              <span>${label}</span>
+            </div>
+            <span class="text-[10px] px-1.5 py-0.5 rounded bg-slate-950/80 text-slate-400 flex-shrink-0">${s.duration}</span>
           </button>
         `;
       }).join('');
@@ -1547,17 +1645,18 @@
       const btnEN = document.getElementById('btnLangEN');
       const btnTH = document.getElementById('btnLangTH');
       if (lang === 'en') {
-        btnEN.className = "px-2.5 py-1 rounded-md text-xs font-semibold transition-all bg-sky-600 text-white shadow";
-        btnTH.className = "px-2.5 py-1 rounded-md text-xs font-semibold transition-all text-slate-300 hover:text-white";
+        btnEN.className = "px-2 py-0.5 rounded-md text-xs font-semibold transition-all bg-sky-600 text-white shadow";
+        btnTH.className = "px-2 py-0.5 rounded-md text-xs font-semibold transition-all text-slate-300 hover:text-white";
       } else {
-        btnTH.className = "px-2.5 py-1 rounded-md text-xs font-semibold transition-all bg-red-600 text-white shadow";
-        btnEN.className = "px-2.5 py-1 rounded-md text-xs font-semibold transition-all text-slate-300 hover:text-white";
+        btnTH.className = "px-2 py-0.5 rounded-md text-xs font-semibold transition-all bg-red-600 text-white shadow";
+        btnEN.className = "px-2 py-0.5 rounded-md text-xs font-semibold transition-all text-slate-300 hover:text-white";
       }
       renderSlide();
       updateVoiceUI(isPlayingAudio);
     }
 
     function nextSlide() {
+      closeSlideMenu();
       if (currentIndex < slides.length - 1) {
         currentIndex++;
       } else {
@@ -1567,6 +1666,7 @@
     }
 
     function prevSlide() {
+      closeSlideMenu();
       if (currentIndex > 0) {
         currentIndex--;
         renderSlide();
@@ -1574,6 +1674,7 @@
     }
 
     function goToSlide(idx) {
+      closeSlideMenu();
       currentIndex = idx;
       renderSlide();
     }
@@ -1611,11 +1712,11 @@
       const label = document.getElementById('voiceBtnLabel');
       const eq = document.getElementById('voiceEqIndicator');
       if (active) {
-        label.textContent = currentLang === 'en' ? '⏸️ Pause Dual-Host' : '⏸️ พักเสียงพิธีกรคู่';
-        eq.classList.remove('hidden');
+        label.textContent = currentLang === 'en' ? '⏸️ Pause' : '⏸️ พักเสียง';
+        if (eq) eq.classList.remove('hidden');
       } else {
-        label.textContent = currentLang === 'en' ? '🎙️ Play Dual-Host' : '🎙️ ฟังเสียงพิธีกรคู่ (TH)';
-        eq.classList.add('hidden');
+        label.textContent = currentLang === 'en' ? '🎙️ Play Voice' : '🎙️ ฟังเสียงบรรยาย';
+        if (eq) eq.classList.add('hidden');
       }
     }
 
@@ -1623,12 +1724,12 @@
       autoTourEnabled = !autoTourEnabled;
       const btn = document.getElementById('btnAutoPlay');
       if (autoTourEnabled) {
-        btn.textContent = '⚡ Auto-Tour: ON';
-        btn.className = 'px-2.5 py-1.5 rounded-lg bg-emerald-600/30 border border-emerald-400 text-xs text-emerald-200 font-bold transition-all';
+        btn.textContent = '⚡ Auto: ON';
+        btn.className = 'px-2 py-1 rounded-lg bg-emerald-600/30 border border-emerald-400 text-xs text-emerald-200 font-bold transition-all';
         if (!isPlayingAudio) toggleSpeech();
       } else {
-        btn.textContent = '⚡ Auto-Tour: OFF';
-        btn.className = 'px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs text-slate-300 font-medium transition-all';
+        btn.textContent = '⚡ Auto';
+        btn.className = 'px-2 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs text-slate-300 font-medium transition-all';
       }
     }
 
