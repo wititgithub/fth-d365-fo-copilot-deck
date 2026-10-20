@@ -10,17 +10,17 @@ def build_presentation():
     prs.slide_width = Inches(13.333)
     prs.slide_height = Inches(7.5)
 
-    # Color Palette matching the interactive pitch deck
-    BG_COLOR = RGBColor(11, 17, 32)         # Deep Slate 950 / Navy
-    CARD_BG = RGBColor(20, 29, 47)          # Slate 900
-    CARD_BORDER = RGBColor(38, 52, 85)      # Slate 700 / Border
-    ACCENT_RED = RGBColor(230, 0, 18)       # Fujitsu Red
-    ACCENT_SKY = RGBColor(56, 189, 248)     # Sky 400
-    ACCENT_PURPLE = RGBColor(168, 85, 247)  # Purple 400
-    ACCENT_EMERALD = RGBColor(16, 185, 129) # Emerald 400
-    TEXT_WHITE = RGBColor(255, 255, 255)
-    TEXT_MUTED = RGBColor(148, 163, 184)    # Slate 400
-    TEXT_LIGHT = RGBColor(226, 232, 240)    # Slate 200
+    # Pristine Executive White Corporate Theme
+    BG_COLOR = RGBColor(248, 250, 252)       # Slate 50
+    CARD_BG = RGBColor(255, 255, 255)        # Pure White
+    CARD_BORDER = RGBColor(226, 232, 240)    # Slate 200
+    ACCENT_RED = RGBColor(220, 38, 38)       # Fujitsu Red (Crimson)
+    ACCENT_SKY = RGBColor(2, 132, 199)       # Sky 600 / Azure
+    ACCENT_PURPLE = RGBColor(124, 58, 237)   # Indigo / Purple 600
+    ACCENT_EMERALD = RGBColor(5, 150, 105)   # Emerald 600
+    TEXT_TITLE = RGBColor(15, 23, 42)        # Slate 900 (High contrast)
+    TEXT_BODY = RGBColor(51, 65, 85)         # Slate 700
+    TEXT_MUTED = RGBColor(100, 116, 139)     # Slate 500
 
     LOGO_PATH = r"c:\FTH\FTH-D365_FO\fujitsu_wordmark_clean.png"
     blank_layout = prs.slide_layouts[6]
@@ -28,14 +28,14 @@ def build_presentation():
     def add_slide_base(badge_text, title_text, subtitle_text, slide_num):
         slide = prs.slides.add_slide(blank_layout)
 
-        # 1. Background fill
+        # 1. Background fill (Slate 50)
         bg_shape = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, 0, 0, Inches(13.333), Inches(7.5))
         bg_shape.fill.solid()
         bg_shape.fill.fore_color.rgb = BG_COLOR
         bg_shape.line.fill.background()
 
-        # Top subtle accent line (Fujitsu red gradient tone)
-        top_line = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, 0, 0, Inches(13.333), Inches(0.06))
+        # Top accent line (Fujitsu Red)
+        top_line = slide.shapes.add_shape(MSO_SHAPE.RECTANGLE, 0, 0, Inches(13.333), Inches(0.08))
         top_line.fill.solid()
         top_line.fill.fore_color.rgb = ACCENT_RED
         top_line.line.fill.background()
@@ -56,7 +56,7 @@ def build_presentation():
         p_badge.font.name = "Segoe UI"
         p_badge.font.size = Pt(10)
         p_badge.font.bold = True
-        p_badge.font.color.rgb = ACCENT_SKY
+        p_badge.font.color.rgb = ACCENT_RED
         p_badge.space_after = Pt(3)
 
         # Title
@@ -65,7 +65,7 @@ def build_presentation():
         p_title.font.name = "Segoe UI"
         p_title.font.size = Pt(22)
         p_title.font.bold = True
-        p_title.font.color.rgb = TEXT_WHITE
+        p_title.font.color.rgb = TEXT_TITLE
         p_title.space_after = Pt(3)
 
         # Subtitle
@@ -81,75 +81,83 @@ def build_presentation():
         ftf.word_wrap = True
         ftf.margin_left = ftf.margin_top = ftf.margin_right = ftf.margin_bottom = 0
         p_ftr = ftf.paragraphs[0]
-        p_ftr.text = f"FUJITSU THAILAND (FTH) • DYNAMICS 365 & COPILOT AI EXECUTIVE BRIEFING • SLIDE {slide_num} OF 4"
+        p_ftr.text = f"FUJITSU THAILAND (FTH) • DYNAMICS 365 & COPILOT AI EXECUTIVE KEYNOTE • SLIDE {slide_num} OF 4"
         p_ftr.font.name = "Segoe UI"
         p_ftr.font.size = Pt(9)
-        p_ftr.font.color.rgb = RGBColor(100, 116, 139)
+        p_ftr.font.bold = True
+        p_ftr.font.color.rgb = TEXT_MUTED
 
         return slide
 
     # =========================================================================
-    # SLIDE 1: Title & Executive Welcome
+    # SLIDE 1: Title & Executive Welcome (English White Theme)
     # =========================================================================
     s1 = add_slide_base(
-        "Fujitsu Thailand (FTH) • Executive Opening Keynote",
+        "Fujitsu Thailand (FTH) • Strategic Keynote",
         "Empowering Enterprise ERP with Microsoft Copilot AI",
-        "ยกระดับศักยภาพ Dynamics 365 Finance & Operations สู่ยุค Autonomous AI & ขับเคลื่อนคุณค่าเชิงกลยุทธ์ให้ ฟูจิตสึ ประเทศไทย",
+        "Advancing Dynamics 365 Finance & Operations into Autonomous AI & Unlocking Strategic Value for Fujitsu Thailand",
         1
     )
 
-    # Main Center Hero Banner Card
-    hero = s1.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(0.8), Inches(1.85), Inches(11.733), Inches(4.85))
-    hero.fill.solid()
-    hero.fill.fore_color.rgb = CARD_BG
-    hero.line.color.rgb = CARD_BORDER
-    hero.line.width = Pt(1.5)
+    card_width_3 = Inches(3.64)
+    card_height = Inches(4.85)
+    top_pos = Inches(1.85)
+    gap = Inches(0.4)
 
-    # Content inside Slide 1 Hero Card
-    htf = hero.text_frame
-    htf.word_wrap = True
-    htf.margin_left = Inches(0.6)
-    htf.margin_right = Inches(0.6)
-    htf.margin_top = Inches(0.4)
+    # 3 Strategic Pillars Cards
+    pillars = [
+        ("⚡ 1. Autonomous ERP", ACCENT_SKY, [
+            ("Speed & Precision", "Transforming manual accounting workflows into an intelligent system that reads, verifies, and pre-drafts invoices."),
+            ("Seamless Dynamics 365", "Direct native fusion between Copilot Studio, Azure AI, and D365 F&O via Dataverse."),
+            ("Labor Savings", "Slashes repetitive Accounts Payable cycle time by over 70%, freeing teams for strategic finance.")
+        ]),
+        ("🏛️ 2. Thai Tax Compliance", ACCENT_PURPLE, [
+            ("100% Tax Alignment", "Built for Revenue Department standards: PP.30 VAT 7%, PND 3/53, and 50 Tawi certificates."),
+            ("e-Tax Pre-Validation", "Automatic gate checking 13-digit Tax IDs and 5-digit branch codes before XML generation."),
+            ("Continuous Subledger Audit", "Monitors GL against AP/AR/Tax continuously, preventing month-end tax filing panic.")
+        ]),
+        ("🏆 3. Value for Fujitsu (FTH)", ACCENT_RED, [
+            ("Proprietary IP Leadership", "FTH owns a distinctive, repeatable AI-infused Thai Localization package in Thailand."),
+            ("High-Margin Reusability", "Packaged solution scales across Japanese MNCs and major Thai corporate clients."),
+            ("Trusted Global Partner", "Combines Fujitsu’s Japanese quality and governance with Microsoft’s premier enterprise AI.")
+        ])
+    ]
 
-    p0 = htf.paragraphs[0]
-    p0.text = "🎯 จุดมุ่งหมายเชิงกลยุทธ์ของการบรรยายในวันนี้ (Executive Purpose)"
-    p0.font.name = "Segoe UI"
-    p0.font.size = Pt(16)
-    p0.font.bold = True
-    p0.font.color.rgb = ACCENT_SKY
-    p0.space_after = Pt(12)
+    for i, (p_title, border_color, p_items) in enumerate(pillars):
+        left_pos = Inches(0.8) + i * (card_width_3 + gap)
+        c = s1.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, left_pos, top_pos, card_width_3, card_height)
+        c.fill.solid()
+        c.fill.fore_color.rgb = CARD_BG
+        c.line.color.rgb = border_color
+        c.line.width = Pt(1.5)
+        tf = c.text_frame
+        tf.word_wrap = True
+        tf.margin_left = tf.margin_right = tf.margin_top = Inches(0.3)
 
-    p1 = htf.add_paragraph()
-    p1.text = "1. การปฏิวัติระบบ ERP สู่ Autonomous AI: นำเสนอแนวทางการผสาน Dynamics 365 F&O เข้ากับ Microsoft Copilot Studio เพื่อเปลี่ยนจากการทำงานแบบ Manual ซ้ำซ้อน สู่การประมวลผลอัจฉริยะแบบอัตโนมัติ"
-    p1.font.name = "Segoe UI"
-    p1.font.size = Pt(13)
-    p1.font.color.rgb = TEXT_LIGHT
-    p1.space_after = Pt(10)
+        p = tf.paragraphs[0]
+        p.text = p_title
+        p.font.name = "Segoe UI"
+        p.font.size = Pt(14)
+        p.font.bold = True
+        p.font.color.rgb = border_color
+        p.space_after = Pt(12)
 
-    p2 = htf.add_paragraph()
-    p2.text = "2. เจาะลึก Thai Localization & Tax Compliance: แก้โจทย์ความซับซ้อนของภาษีไทย ทั้ง VAT 7%, ภาษีหัก ณ ที่จ่าย ภ.พ.30, ภ.ง.ด.3/53, และ e-Tax Invoice ให้ถูกต้อง แม่นยำ รวดเร็ว และตรวจสอบย้อนกลับได้ 100%"
-    p2.font.name = "Segoe UI"
-    p2.font.size = Pt(13)
-    p2.font.color.rgb = TEXT_LIGHT
-    p2.space_after = Pt(10)
+        for heading, body in p_items:
+            pb = tf.add_paragraph()
+            pb.text = f"• {heading}: "
+            pb.font.name = "Segoe UI"
+            pb.font.size = Pt(10.5)
+            pb.font.bold = True
+            pb.font.color.rgb = TEXT_TITLE
 
-    p3 = htf.add_paragraph()
-    p3.text = "3. เสริมความแข็งแกร่งของผลิตภัณฑ์ & มูลค่าของ FTH: ตอกย้ำความเป็นผู้นำของ ฟูจิตสึ ประเทศไทย ในฐานะ Trusted Partner ที่ครอบครอง High-Value Intellectual Property (IP) ด้าน AI ERP ในระดับภูมิภาค"
-    p3.font.name = "Segoe UI"
-    p3.font.size = Pt(13)
-    p3.font.color.rgb = TEXT_LIGHT
-    p3.space_after = Pt(16)
+            run = pb.add_run()
+            run.text = body
+            run.font.name = "Segoe UI"
+            run.font.size = Pt(10)
+            run.font.bold = False
+            run.font.color.rgb = TEXT_BODY
+            pb.space_after = Pt(8)
 
-    # Speaker info badge
-    p4 = htf.add_paragraph()
-    p4.text = "🎤 ผู้นำเสนอ: Solution Principal & Executive Host, Fujitsu Thailand (FTH) | ⏱️ ระยะเวลาเกริ่นนำ: ~2 นาที"
-    p4.font.name = "Segoe UI"
-    p4.font.size = Pt(11)
-    p4.font.bold = True
-    p4.font.color.rgb = ACCENT_PURPLE
-
-    # Slide 1 Notes (Bilingual Presenter Script)
     s1.notes_slide.notes_text_frame.text = (
         "【English Executive Host Script - Slide 1: Welcome & Visionary Opening】\n\n"
         "\"Good morning and welcome, esteemed executives, colleagues, and distinguished guests. Welcome to this strategic executive briefing "
@@ -175,105 +183,62 @@ def build_presentation():
     s2 = add_slide_base(
         "Market Drivers & Business Challenges",
         "The Paradigm Shift: From System of Record to System of Intelligence",
-        "ทำไมระบบ ERP ในปัจจุบันจึงต้องก้าวข้ามขีดจำกัดเดิม สู่การเป็นระบบอัจฉริยะที่ช่วยวิเคราะห์และตัดสินใจ",
+        "Navigating Thai financial and tax complexities, and unlocking Fujitsu’s breakthrough opportunity.",
         2
     )
 
-    # 3 Cards Layout
-    card_width = Inches(3.64)
-    card_height = Inches(4.85)
-    top_pos = Inches(1.85)
-    gap = Inches(0.4)
-
-    # Card 1: Traditional Bottlenecks
-    c1 = s2.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(0.8), top_pos, card_width, card_height)
-    c1.fill.solid()
-    c1.fill.fore_color.rgb = CARD_BG
-    c1.line.color.rgb = RGBColor(239, 68, 68) # Red alert border
-    c1.line.width = Pt(1.5)
-    t1 = c1.text_frame
-    t1.word_wrap = True
-    t1.margin_left = t1.margin_right = t1.margin_top = Inches(0.3)
-    p = t1.paragraphs[0]
-    p.text = "⚠️ ความท้าทายของ ERP ดั้งเดิม"
-    p.font.name = "Segoe UI"
-    p.font.size = Pt(14)
-    p.font.bold = True
-    p.font.color.rgb = RGBColor(248, 113, 113)
-    p.space_after = Pt(8)
-
-    bullets1 = [
-        "งาน Manual สูง: พนักงานต้องใช้เวลากว่า 70% ตรวจสอบเอกสารใบแจ้งหนี้ PDF และใบเสร็จรับเงินด้วยตาเปล่า",
-        "ความเสี่ยงเรื่อง Human Error: การคีย์เลขประจำตัวผู้เสียภาษี 13 หลัก หรือรหัสสาขา 5 หลัก ผิดพลาด นำไปสู่ปัญหาภาษี",
-        "ปิดงวดบัญชีล่าช้า: คอขวดในช่วงสิ้นเดือน ส่งผลกระทบต่อการยื่นแบบ ภ.พ.30 และการบริหารสภาพคล่องขององค์กร"
+    s2_cards = [
+        ("⚠️ Traditional ERP Limits", ACCENT_RED, [
+            ("Manual Overload", "AP teams spend >70% of time verifying PDF invoices, receipts, and line items manually."),
+            ("Human Error Risks", "Typos in 13-digit Tax IDs or 5-digit branch codes trigger tax discrepancies."),
+            ("Closing Delays", "Month-end crunch delays PP.30 submissions and obscures real-time cash visibility.")
+        ]),
+        ("🏛️ Strict Thai Mandates", ACCENT_PURPLE, [
+            ("e-Tax Enforcement", "Revenue Dept requires strict XML schemas and 100% pre-validation before submission."),
+            ("Complex WHT Rules", "Variable 1%, 2%, 3%, 5% rates require exact categorization based on service nature."),
+            ("Penalty Exposure", "Late or erroneous filings result in unnecessary surcharges and audit friction.")
+        ]),
+        ("🚀 Fujitsu's Opportunity", ACCENT_SKY, [
+            ("System of Intelligence", "Elevating D365 to analyze, pre-validate, and predict issues before transactions post."),
+            ("Human-in-the-Loop", "AI prepares validated drafts; accountants retain full approval authority."),
+            ("Market Leadership", "FTH delivers modern AI innovation that traditional competitors in Thailand cannot match.")
+        ])
     ]
-    for b in bullets1:
-        pb = t1.add_paragraph()
-        pb.text = "• " + b
-        pb.font.name = "Segoe UI"
-        pb.font.size = Pt(11)
-        pb.font.color.rgb = TEXT_LIGHT
-        pb.space_after = Pt(8)
 
-    # Card 2: Regulatory Pressures
-    c2 = s2.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(0.8) + card_width + gap, top_pos, card_width, card_height)
-    c2.fill.solid()
-    c2.fill.fore_color.rgb = CARD_BG
-    c2.line.color.rgb = ACCENT_PURPLE
-    c2.line.width = Pt(1.5)
-    t2 = c2.text_frame
-    t2.word_wrap = True
-    t2.margin_left = t2.margin_right = t2.margin_top = Inches(0.3)
-    p = t2.paragraphs[0]
-    p.text = "🏛️ กฎระเบียบภาษีไทยที่เข้มงวด"
-    p.font.name = "Segoe UI"
-    p.font.size = Pt(14)
-    p.font.bold = True
-    p.font.color.rgb = ACCENT_PURPLE
-    p.space_after = Pt(8)
+    for i, (title, color, items) in enumerate(s2_cards):
+        left_pos = Inches(0.8) + i * (card_width_3 + gap)
+        c = s2.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, left_pos, top_pos, card_width_3, card_height)
+        c.fill.solid()
+        c.fill.fore_color.rgb = CARD_BG
+        c.line.color.rgb = color
+        c.line.width = Pt(1.5)
+        tf = c.text_frame
+        tf.word_wrap = True
+        tf.margin_left = tf.margin_right = tf.margin_top = Inches(0.3)
 
-    bullets2 = [
-        "นโยบาย e-Tax Mandate: กรมสรรพากรผลักดันระบบ e-Tax Invoice & e-Receipt จำเป็นต้องมีระบบตรวจสอบความสมบูรณ์ก่อนส่ง",
-        "ภาษีหัก ณ ที่จ่าย (WHT): มีอัตราภาษีหลากหลายและเงื่อนไขซับซ้อนตามประเภทบริการ",
-        "โทษปรับและภาระดอกเบี้ย: ความผิดพลาดเพียงจุดเดียวส่งผลกระทบต่อการยื่นภาษีและสร้างภาระค่าใช้จ่ายที่ไม่จำเป็นแก่ธุรกิจ"
-    ]
-    for b in bullets2:
-        pb = t2.add_paragraph()
-        pb.text = "• " + b
-        pb.font.name = "Segoe UI"
-        pb.font.size = Pt(11)
-        pb.font.color.rgb = TEXT_LIGHT
-        pb.space_after = Pt(8)
+        p = tf.paragraphs[0]
+        p.text = title
+        p.font.name = "Segoe UI"
+        p.font.size = Pt(14)
+        p.font.bold = True
+        p.font.color.rgb = color
+        p.space_after = Pt(12)
 
-    # Card 3: AI-First Opportunity
-    c3 = s2.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(0.8) + (card_width + gap)*2, top_pos, card_width, card_height)
-    c3.fill.solid()
-    c3.fill.fore_color.rgb = CARD_BG
-    c3.line.color.rgb = ACCENT_SKY
-    c3.line.width = Pt(1.5)
-    t3 = c3.text_frame
-    t3.word_wrap = True
-    t3.margin_left = t3.margin_right = t3.margin_top = Inches(0.3)
-    p = t3.paragraphs[0]
-    p.text = "🚀 โอกาสของ Fujitsu (FTH)"
-    p.font.name = "Segoe UI"
-    p.font.size = Pt(14)
-    p.font.bold = True
-    p.font.color.rgb = ACCENT_SKY
-    p.space_after = Pt(8)
+        for heading, body in items:
+            pb = tf.add_paragraph()
+            pb.text = f"• {heading}: "
+            pb.font.name = "Segoe UI"
+            pb.font.size = Pt(10.5)
+            pb.font.bold = True
+            pb.font.color.rgb = TEXT_TITLE
 
-    bullets3 = [
-        "System of Intelligence: เปลี่ยน D365 F&O ให้กลายเป็นศูนย์บัญชาการการเงินที่คิด วิเคราะห์ และตรวจทานข้อมูลล่วงหน้า",
-        "Human-in-the-Loop: AI ช่วยอ่านและร่างเอกสาร แต่ให้อำนาจการตัดสินใจและอนุมัติขั้นสุดท้ายแก่บุคลากรผู้เชี่ยวชาญ",
-        "สร้างแต้มต่อทางธุรกิจ: FTH สามารถส่งมอบโซลูชันที่เหนือกว่าคู่แข่งรายอื่นในตลาด และตอบโจทย์องค์กรยุคใหม่อย่างแท้จริง"
-    ]
-    for b in bullets3:
-        pb = t3.add_paragraph()
-        pb.text = "• " + b
-        pb.font.name = "Segoe UI"
-        pb.font.size = Pt(11)
-        pb.font.color.rgb = TEXT_LIGHT
-        pb.space_after = Pt(8)
+            run = pb.add_run()
+            run.text = body
+            run.font.name = "Segoe UI"
+            run.font.size = Pt(10)
+            run.font.bold = False
+            run.font.color.rgb = TEXT_BODY
+            pb.space_after = Pt(8)
 
     s2.notes_slide.notes_text_frame.text = (
         "【English Executive Host Script - Slide 2: Industry Shift & Local Challenges】\n\n"
@@ -302,15 +267,15 @@ def build_presentation():
     # =========================================================================
     s3 = add_slide_base(
         "Product Excellence & Strategic Value",
-        "Strengthening Dynamics 365 & Maximizing Fujitsu (FTH) Enterprise Value",
-        "เสริมความแข็งแกร่งของโซลูชัน และสร้างมูลค่าเพิ่มมหาศาลให้กับ ฟูจิตสึ ประเทศไทย",
+        "Strengthening Dynamics 365 & Maximizing Fujitsu (FTH) Value",
+        "A strategic technology fusion that drives mutual ROI for our clients and Fujitsu Thailand.",
         3
     )
 
     col_width = Inches(5.66)
     col_gap = Inches(0.4)
 
-    # Left Column: Product Strength
+    # Left Column: D365 Product Enhancement
     p_card = s3.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(0.8), top_pos, col_width, card_height)
     p_card.fill.solid()
     p_card.fill.fore_color.rgb = CARD_BG
@@ -321,7 +286,7 @@ def build_presentation():
     ptf.margin_left = ptf.margin_right = ptf.margin_top = Inches(0.35)
 
     p = ptf.paragraphs[0]
-    p.text = "💎 1. เสริมความแข็งแกร่งของผลิตภัณฑ์ (D365 F&O)"
+    p.text = "💎 1. D365 Product Enhancement"
     p.font.name = "Segoe UI"
     p.font.size = Pt(15)
     p.font.bold = True
@@ -329,10 +294,10 @@ def build_presentation():
     p.space_after = Pt(10)
 
     p_items = [
-        ("Native Copilot Fusion", "ผสาน Microsoft Copilot Studio และ Azure AI เข้ากับ D365 ผ่าน Dataverse และ standard API โดยตรง ไม่มีการส่งข้อมูลออกนอกระบบ"),
-        ("Autonomous Draft Workflow", "AI ช่วยอ่านเอกสาร ตรวจสอบกฎระเบียบ และสร้าง Draft Vendor Invoice ล่วงหน้า ลดเวลางานลงกว่า 70%"),
-        ("Strict Human-in-the-Loop", "รักษาความปลอดภัยสูงสุด AI ทำหน้าที่เป็นผู้ช่วยจัดเตรียม แต่พนักงานต้องกด Confirm และ Approve เสมอก่อนโพสต์ลงสมุดบัญชี"),
-        ("Comprehensive Thai Localization", "ครอบคลุมรายงานภาษีไทยครบวงจร: ภ.พ.30, ภ.ง.ด.3, ภ.ง.ด.53, หนังสือรับรองการหักภาษี 50 ทวิ และ e-Tax XML")
+        ("Native Copilot Fusion", "Direct integration with Copilot Studio and Azure AI via Dataverse and standard APIs—zero external data leakage."),
+        ("Autonomous Draft Preparation", "AI reads documents, validates 3-way matching rules, and creates draft vendor invoices—slashing AP review time by >70%."),
+        ("Strict Human-in-the-Loop", "AI prepares validated drafts; accountants retain exclusive approval authority before any journal posting."),
+        ("Total Thai Tax Compliance", "Full support for PP.30, PND 3/53, 50 Tawi certificates, and Revenue Dept e-Tax XML formats.")
     ]
     for title, desc in p_items:
         pt = ptf.add_paragraph()
@@ -340,18 +305,17 @@ def build_presentation():
         pt.font.name = "Segoe UI"
         pt.font.size = Pt(11)
         pt.font.bold = True
-        pt.font.color.rgb = TEXT_WHITE
+        pt.font.color.rgb = TEXT_TITLE
 
-        # Add description
         run = pt.add_run()
         run.text = desc
         run.font.name = "Segoe UI"
-        run.font.size = Pt(10.5)
+        run.font.size = Pt(10)
         run.font.bold = False
-        run.font.color.rgb = TEXT_LIGHT
-        pt.space_after = Pt(6)
+        run.font.color.rgb = TEXT_BODY
+        pt.space_after = Pt(7)
 
-    # Right Column: FTH Business Value
+    # Right Column: Fujitsu (FTH) Strategic Value
     f_card = s3.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE, Inches(0.8) + col_width + col_gap, top_pos, col_width, card_height)
     f_card.fill.solid()
     f_card.fill.fore_color.rgb = CARD_BG
@@ -362,18 +326,18 @@ def build_presentation():
     ftf.margin_left = ftf.margin_right = ftf.margin_top = Inches(0.35)
 
     p = ftf.paragraphs[0]
-    p.text = "🏆 2. เพิ่มมูลค่าและแต้มต่อทางธุรกิจให้ Fujitsu (FTH)"
+    p.text = "🏆 2. Fujitsu (FTH) Strategic Value"
     p.font.name = "Segoe UI"
     p.font.size = Pt(15)
     p.font.bold = True
-    p.font.color.rgb = RGBColor(248, 113, 113)
+    p.font.color.rgb = ACCENT_RED
     p.space_after = Pt(10)
 
     f_items = [
-        ("First-Mover Advantage ในไทย", "FTH เป็นผู้นำรายแรกที่นำเสนอ Thai Localization Package ที่มี AI ฝังตัว ช่วยสร้างแต้มต่อที่ยากแก่การลอกเลียนแบบ"),
-        ("High-Margin Reusable IP", "สามารถแพ็กเกจเป็น Commercial IP Asset นำไปติดตั้งและต่อยอดให้กับลูกค้าองค์กรได้อย่างรวดเร็ว ลดเวลา Implement"),
-        ("ขยายฐานลูกค้าญี่ปุ่นและองค์กรชั้นนำ", "ตอบโจทย์ Japanese MNCs และกลุ่มธุรกิจขนาดใหญ่ในไทยที่ต้องการยกระดับ ERP ให้ทันสมัยและสอดรับกฎหมายไทย"),
-        ("Fujitsu Trusted Brand Heritage", "ผสานจุดแข็งด้าน Service Quality และมาตรฐานความปลอดภัยขั้นสูงของ Fujitsu เข้ากับนวัตกรรม AI ระดับโลกของ Microsoft")
+        ("First-Mover Advantage in Thailand", "FTH becomes the first partner offering a pre-packaged, AI-infused Thai Localization solution, creating a strong moat."),
+        ("High-Margin Reusable IP Asset", "Packaged as commercial IP, enabling rapid deployment across enterprise clients with lower implementation costs."),
+        ("Expands Japanese MNC & Enterprise Footprint", "Tailored to Japanese MNCs and major Thai conglomerates seeking modern, compliant ERP modernization."),
+        ("Reinforces Global Trusted Partner Brand", "Combines Fujitsu’s renowned Japanese quality and governance standards with Microsoft’s premier AI technology.")
     ]
     for title, desc in f_items:
         ft = ftf.add_paragraph()
@@ -381,15 +345,15 @@ def build_presentation():
         ft.font.name = "Segoe UI"
         ft.font.size = Pt(11)
         ft.font.bold = True
-        ft.font.color.rgb = TEXT_WHITE
+        ft.font.color.rgb = TEXT_TITLE
 
         run = ft.add_run()
         run.text = desc
         run.font.name = "Segoe UI"
-        run.font.size = Pt(10.5)
+        run.font.size = Pt(10)
         run.font.bold = False
-        run.font.color.rgb = TEXT_LIGHT
-        ft.space_after = Pt(6)
+        run.font.color.rgb = TEXT_BODY
+        ft.space_after = Pt(7)
 
     s3.notes_slide.notes_text_frame.text = (
         "【English Executive Host Script - Slide 3: Product Excellence & Fujitsu Value】\n\n"
@@ -413,12 +377,12 @@ def build_presentation():
     )
 
     # =========================================================================
-    # SLIDE 4: Executive Agenda & Transition to Interactive Pitch Deck
+    # SLIDE 4: Executive Agenda & Transition to Live Solution Pitch
     # =========================================================================
     s4 = add_slide_base(
         "Solution Roadmap & Live Demonstration",
-        "Executive Agenda & Transition to Live Interactive Solution Pitch",
-        "โครงสร้างเนื้อหาที่จะได้รับชมในวันนี้ และการส่งมอบเข้าสู่แพลตฟอร์มจำลองระบบจริง (Interactive Deck)",
+        "Executive Agenda & Transition to Live Solution Pitch",
+        "Today’s 12-slide walkthrough and formal handover into the live interactive demonstration platform.",
         4
     )
 
@@ -435,7 +399,7 @@ def build_presentation():
     atf.margin_left = atf.margin_right = atf.margin_top = Inches(0.35)
 
     p = atf.paragraphs[0]
-    p.text = "📑 4 ประเด็นสำคัญใน Live Interactive Solution Pitch (12 สไลด์)"
+    p.text = "📑 Key Milestones in Live Interactive Pitch (12 Slides)"
     p.font.name = "Segoe UI"
     p.font.size = Pt(15)
     p.font.bold = True
@@ -443,10 +407,10 @@ def build_presentation():
     p.space_after = Pt(10)
 
     agenda_items = [
-        ("1. Official Architecture", "สถาปัตยกรรมอ้างอิง Microsoft Copilot Studio & Multi-Agent Framework ที่ทำงานร่วมกับ D365 อย่างปลอดภัย"),
-        ("2. Top 5 Thai Use Cases", "สาธิต 5 รูปแบบการใช้งานจริง: AP Invoice, Tax Compliance, e-Tax Gateway, Continuous Reconciliation และ Knowledge Q&A"),
-        ("3. 8-Week POC Roadmap", "แผนการดำเนินงานโครงการนำร่อง 8 สัปดาห์ เพื่อประเมินผลความคุ้มค่า (ROI) และความพร้อมในการใช้งานจริง"),
-        ("4. Dual-Host AI Narration", "ระบบเสียงบรรยายจำลองแบบ Dual-Host รองรับทั้งภาษาอังกฤษและภาษาไทย พร้อมระบบเลื่อนสไลด์อัตโนมัติ")
+        ("1. Official Architecture", "Multi-Agent Framework and 100% secure enterprise integration with D365 via Dataverse."),
+        ("2. Top 5 Thai Use Cases", "Live walkthrough: AP Invoice Intelligence, Thai Tax Copilot, e-Tax Gateway, and Continuous Reconciliation."),
+        ("3. 8-Week POC Delivery Plan", "Pragmatic, low-risk deployment roadmap delivering fast measurable value and fast payback."),
+        ("4. Dual-Host AI Narration", "Production neural studio voice in English & Thai with automated auto-tour mode.")
     ]
     for num, txt in agenda_items:
         ap = atf.add_paragraph()
@@ -454,14 +418,14 @@ def build_presentation():
         ap.font.name = "Segoe UI"
         ap.font.size = Pt(11)
         ap.font.bold = True
-        ap.font.color.rgb = TEXT_WHITE
+        ap.font.color.rgb = TEXT_TITLE
 
         run = ap.add_run()
         run.text = txt
         run.font.name = "Segoe UI"
-        run.font.size = Pt(10.5)
+        run.font.size = Pt(10)
         run.font.bold = False
-        run.font.color.rgb = TEXT_LIGHT
+        run.font.color.rgb = TEXT_BODY
         ap.space_after = Pt(8)
 
     # Right Section: Handover Card & Direct URL
@@ -476,7 +440,7 @@ def build_presentation():
     ctf.margin_left = ctf.margin_right = ctf.margin_top = Inches(0.35)
 
     p = ctf.paragraphs[0]
-    p.text = "🚀 คำกล่าวส่งต่อและเปิดตัวระบบจำลอง (Live Handover)"
+    p.text = "🚀 Ready for Live Demonstration"
     p.font.name = "Segoe UI"
     p.font.size = Pt(14)
     p.font.bold = True
@@ -484,20 +448,20 @@ def build_presentation():
     p.space_after = Pt(10)
 
     p_hand = ctf.add_paragraph()
-    p_hand.text = "\"บัดนี้ ผมขอเรียนเชิญคณะผู้บริหารทุกท่าน ร่วมสัมผัสและทดสอบระบบจำลองจริงผ่าน Interactive Pitch Deck ได้ ณ บัดนี้ครับ...\""
+    p_hand.text = "\"Without further ado, let us now transition directly into the live interactive platform to experience the future of D365 and Copilot AI firsthand...\""
     p_hand.font.name = "Segoe UI"
-    p_hand.font.size = Pt(11.5)
+    p_hand.font.size = Pt(11)
     p_hand.font.italic = True
-    p_hand.font.color.rgb = RGBColor(167, 243, 208)
+    p_hand.font.color.rgb = TEXT_BODY
     p_hand.space_after = Pt(16)
 
     # Link button box
     p_btn = ctf.add_paragraph()
-    p_btn.text = "🌐 Direct Solution Link:"
+    p_btn.text = "🌐 Direct Platform Link (GitHub Pages):"
     p_btn.font.name = "Segoe UI"
-    p_btn.font.size = Pt(11)
+    p_btn.font.size = Pt(10.5)
     p_btn.font.bold = True
-    p_btn.font.color.rgb = TEXT_WHITE
+    p_btn.font.color.rgb = TEXT_TITLE
     p_btn.space_after = Pt(4)
 
     p_url = ctf.add_paragraph()
@@ -509,7 +473,7 @@ def build_presentation():
     p_url.space_after = Pt(14)
 
     p_sub_cue = ctf.add_paragraph()
-    p_sub_cue.text = "💡 คำแนะนำสำหรับพิธีกร:\nเมื่อกล่าวประโยคส่งมอบจบ สามารถคลิกเปิดลิงก์ด้านบน หรือสลับหน้าต่างไปยังเบราว์เซอร์เพื่อเริ่มระบบสไลด์จำลองได้ทันที"
+    p_sub_cue.text = "💡 Host Guidance:\nClick the live link or switch to the browser window to start the 12-slide interactive tour."
     p_sub_cue.font.name = "Segoe UI"
     p_sub_cue.font.size = Pt(9.5)
     p_sub_cue.font.color.rgb = TEXT_MUTED
@@ -541,7 +505,7 @@ def build_presentation():
     for p in out_pptx_paths:
         os.makedirs(os.path.dirname(p), exist_ok=True)
         prs.save(p)
-        print(f"Generated PowerPoint Deck -> {p} ({os.path.getsize(p)//1024} KB)")
+        print(f"Generated PowerPoint Deck (White Theme) -> {p} ({os.path.getsize(p)//1024} KB)")
 
 if __name__ == "__main__":
     build_presentation()
