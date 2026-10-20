@@ -149,9 +149,17 @@ def build_presentation():
     p4.font.bold = True
     p4.font.color.rgb = ACCENT_PURPLE
 
-    # Slide 1 Notes (Presenter Script)
+    # Slide 1 Notes (Bilingual Presenter Script)
     s1.notes_slide.notes_text_frame.text = (
-        "【บทพูดพิธีกร - สไลด์ที่ 1: ต้อนรับผู้บริหารและเกริ่นนำวิสัยทัศน์】\n\n"
+        "【English Executive Host Script - Slide 1: Welcome & Visionary Opening】\n\n"
+        "\"Good morning and welcome, esteemed executives, colleagues, and distinguished guests. Welcome to this strategic executive briefing "
+        "from Fujitsu Thailand (FTH) on 'Empowering Enterprise ERP with Microsoft Copilot AI'.\n\n"
+        "Today, we are thrilled to present our vision for advancing Microsoft Dynamics 365 Finance & Operations by natively infusing "
+        "Microsoft Copilot Studio and Azure AI into everyday financial and Thai tax compliance workflows.\n\n"
+        "Our purpose today is not merely introducing new AI features, but creating high-value Strategic Intellectual Property (IP) for FTH—strengthening "
+        "our market position as Thailand's most trusted partner in enterprise digital transformation.\"\n\n"
+        "----------------------------------------------------------------------\n"
+        "【บทพูดภาษาไทยสำหรับพิธีกร - สไลด์ที่ 1: ต้อนรับผู้บริหารและเกริ่นนำวิสัยทัศน์】\n\n"
         "\"กราบเรียนท่านผู้บริหาร คณะทำงาน และแขกผู้มีเกียรติทุกท่านครับ ผมขอต้อนรับทุกท่านเข้าสู่การนำเสนอเชิงกลยุทธ์ "
         "ของ ฟูจิตสึ ประเทศไทย (FTH) ในหัวข้อ 'Empowering Enterprise ERP with Microsoft Copilot AI' ครับ\n\n"
         "ในวันนี้ เรามีความยินดีเป็นอย่างยิ่งที่จะแบ่งปันวิสัยทัศน์ในการยกระดับระบบ Dynamics 365 Finance & Operations "
@@ -268,7 +276,17 @@ def build_presentation():
         pb.space_after = Pt(8)
 
     s2.notes_slide.notes_text_frame.text = (
-        "【บทพูดพิธีกร - สไลด์ที่ 2: ชี้ให้เห็นความท้าทายและโอกาส】\n\n"
+        "【English Executive Host Script - Slide 2: Industry Shift & Local Challenges】\n\n"
+        "\"Distinguished guests, looking at day-to-day operations across Thailand, traditional ERP systems have served effectively "
+        "as Systems of Record. However, the true operational bottleneck lies within Accounts Payable—where finance teams spend over 70% "
+        "of their time manually reviewing hundreds of PDF tax invoices.\n\n"
+        "From verifying 13-digit Tax IDs and 5-digit branch codes to 3-way matching and withholding tax calculations, manual workloads "
+        "create severe month-end crunches. Coupled with the Revenue Department's aggressive push toward e-Tax Invoice and e-Receipt mandates, "
+        "a single clerical oversight risks delayed filings and compliance penalties.\n\n"
+        "This is precisely why Fujitsu sees an unprecedented opportunity to elevate D365 into a 'System of Intelligence'—automating "
+        "repetitive burdens and equipping our finance professionals with predictive, pre-validated intelligence.\"\n\n"
+        "----------------------------------------------------------------------\n"
+        "【บทพูดภาษาไทยสำหรับพิธีกร - สไลด์ที่ 2: ชี้ให้เห็นความท้าทายและโอกาส】\n\n"
         "\"ทุกท่านครับ เมื่อมองย้อนกลับมาที่การดำเนินงานจริงในปัจจุบัน ระบบ ERP แบบดั้งเดิมทำหน้าที่บันทึกประวัติ หรือ System of Record "
         "ได้ดี แต่ปัญหาคอขวดที่แท้จริงขององค์กรธุรกิจในประเทศไทย คือภาระงานของทีมบัญชี (AP) ที่ต้องตรวจสอบเอกสารใบกำกับภาษี PDF "
         "จำนวนหลายร้อยหลายพันใบในแต่ละเดือน\n\n"
@@ -374,7 +392,17 @@ def build_presentation():
         ft.space_after = Pt(6)
 
     s3.notes_slide.notes_text_frame.text = (
-        "【บทพูดพิธีกร - สไลด์ที่ 3: เสริมแกร่งผลิตภัณฑ์และคุณค่าของ FTH】\n\n"
+        "【English Executive Host Script - Slide 3: Product Excellence & Fujitsu Value】\n\n"
+        "\"From a strategic value and ROI perspective, this initiative drives dual impact:\n\n"
+        "First, Product Excellence for Dynamics 365: By natively embedding Copilot Studio and Azure AI via Dataverse, enterprise data "
+        "remains 100% secure within company boundaries. AI extracts, cross-checks against Thai tax laws, and prepares draft vendor invoices—reducing "
+        "cycle time by over 70%, while strictly maintaining Human-in-the-Loop governance so that finance professionals retain full approval "
+        "authority before any journal posting.\n\n"
+        "Second, Unmatched Business Value for Fujitsu Thailand: FTH establishes a distinctive first-mover advantage by offering a pre-packaged, "
+        "AI-infused Thai Localization solution. This high-margin, reusable IP enables our sales and consulting teams to scale rapidly across "
+        "Japanese multinationals (MNCs) and top-tier Thai conglomerates—reinforcing Fujitsu’s global reputation for quality, governance, and trust.\"\n\n"
+        "----------------------------------------------------------------------\n"
+        "【บทพูดภาษาไทยสำหรับพิธีกร - สไลด์ที่ 3: เสริมแกร่งผลิตภัณฑ์และคุณค่าของ FTH】\n\n"
         "\"ในแง่ของความคุ้มค่าและผลประโยชน์เชิงกลยุทธ์ โครงการนี้ได้สร้างคุณค่าสองด้านพร้อมกันครับ\n\n"
         "ด้านแรก คือความแข็งแกร่งของผลิตภัณฑ์ Dynamics 365 ที่ได้รับการอัปเกรดให้มี AI ทำงานอยู่เบื้องหลังอย่างแท้จริง "
         "ช่วยเตรียมเอกสารร่าง ตรวจสอบกฎหมายภาษีไทย และคงมาตรฐานความปลอดภัยระดับสูงสุด โดยไม่ปล่อยให้ AI โพสต์ข้อมูลโดยพลการ\n\n"
@@ -487,7 +515,15 @@ def build_presentation():
     p_sub_cue.font.color.rgb = TEXT_MUTED
 
     s4.notes_slide.notes_text_frame.text = (
-        "【บทพูดพิธีกร - สไลด์ที่ 4: สรุปหัวข้อและส่งต่อเข้าสู่ Live Interactive Deck】\n\n"
+        "【English Executive Host Script - Slide 4: Agenda & Live Demonstration Handover】\n\n"
+        "\"Looking ahead to today’s session, we have prepared a comprehensive 12-slide Live Interactive Solution Pitch "
+        "that demonstrates the actual production-ready capabilities:\n\n"
+        "We will walk through the official Microsoft Copilot Studio multi-agent architecture, explore our top five Thai localization "
+        "use cases—from AP Invoice Intelligence to Continuous Reconciliation—and outline our practical 8-week POC delivery roadmap.\n\n"
+        "Without further ado, I would now like to invite our executive team to transition directly into the live interactive platform "
+        "to experience the future of Dynamics 365 and Copilot AI firsthand. Let us begin.\"\n\n"
+        "----------------------------------------------------------------------\n"
+        "【บทพูดภาษาไทยสำหรับพิธีกร - สไลด์ที่ 4: สรุปหัวข้อและส่งต่อเข้าสู่ Live Interactive Deck】\n\n"
         "\"และในลำดับถัดไป เพื่อให้ทุกท่านได้เห็นภาพการทำงานจริงอย่างเป็นรูปธรรม ทางทีมงานได้จัดเตรียม "
         "แพลตฟอร์มการนำเสนอแบบ Interactive Pitch Deck จำนวน 12 สไลด์ ที่จำลองการทำงานจริงอย่างละเอียด\n\n"
         "โดยประกอบด้วยสถาปัตยกรรมทางเทคนิค, 5 Use Cases หลักที่ออกแบบมาเพื่อภาษีไทยโดยเฉพาะ, "

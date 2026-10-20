@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="th" class="h-full bg-slate-950 text-slate-100">
+<html lang="en" class="h-full bg-slate-950 text-slate-100">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fujitsu Thailand (FTH) - Executive Opening Keynote (Host PPT)</title>
+  <title>Fujitsu Thailand (FTH) - Executive Opening Keynote (Host Deck)</title>
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,21 +48,31 @@
         </button>
       </div>
 
-      <!-- Right: Presenter Script Toggle, PPTX & PDF Download, Fullscreen, Launch Deck Link -->
+      <!-- Right: Language Switcher, Script Toggle, Downloads, Fullscreen, Launch Deck Link -->
       <div class="flex items-center gap-2">
+        <!-- Language Switcher (EN / TH) -->
+        <div class="flex items-center bg-slate-800 p-0.5 rounded-lg border border-slate-700">
+          <button id="btnLangEN" onclick="setLanguage('en')" class="px-2 py-0.5 rounded-md text-xs font-semibold transition-all bg-sky-600 text-white shadow">
+            🇬🇧 EN
+          </button>
+          <button id="btnLangTH" onclick="setLanguage('th')" class="px-2 py-0.5 rounded-md text-xs font-semibold transition-all text-slate-300 hover:text-white">
+            🇹🇭 ไทย
+          </button>
+        </div>
+
         <!-- Toggle Host Script Drawer -->
-        <button id="btnToggleScript" onclick="toggleScriptDrawer()" class="px-2.5 py-1 rounded-lg bg-sky-600/30 border border-sky-400 text-xs text-sky-200 font-bold transition-all" title="เปิด/ซ่อน บทพูดพิธีกร">
-          💬 บทพูดพิธีกร
+        <button id="btnToggleScript" onclick="toggleScriptDrawer()" class="px-2.5 py-1 rounded-lg bg-sky-600/30 border border-sky-400 text-xs text-sky-200 font-bold transition-all" title="Toggle Presenter Script Drawer">
+          💬 <span id="scriptBtnLabel">Host Script</span>
         </button>
 
         <!-- Download PPTX Button -->
-        <a href="FTH_D365_Executive_Opening_Deck.pptx" download class="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-red-600/20 hover:bg-red-600/35 border border-red-500/50 text-xs text-red-200 font-bold transition-all shadow" title="Download PowerPoint (.pptx) สำหรับพิธีกร">
+        <a href="FTH_D365_Executive_Opening_Deck.pptx" download class="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-red-600/20 hover:bg-red-600/35 border border-red-500/50 text-xs text-red-200 font-bold transition-all shadow" title="Download PowerPoint (.pptx) with embedded bilingual notes">
           <span>📥</span>
           <span>PPTX</span>
         </a>
 
         <!-- Download PDF Button -->
-        <a href="FTH_D365_Executive_Opening_Deck.pdf" download class="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-600/20 hover:bg-emerald-600/35 border border-emerald-500/50 text-xs text-emerald-200 font-bold transition-all shadow" title="Download PDF สำหรับพิธีกร">
+        <a href="FTH_D365_Executive_Opening_Deck.pdf" download class="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-600/20 hover:bg-emerald-600/35 border border-emerald-500/50 text-xs text-emerald-200 font-bold transition-all shadow" title="Download Executive 4-Page PDF">
           <span>📥</span>
           <span>PDF</span>
         </a>
@@ -96,13 +106,26 @@
         </div>
         <div class="flex-1 min-w-0">
           <div class="flex items-center justify-between mb-1.5 border-b border-slate-800 pb-1">
-            <span class="text-xs font-extrabold uppercase tracking-wider text-sky-300 flex items-center gap-2">
-              <span>บทพูดสำหรับพิธีกรที่เป็นคน (Human Host Executive Script)</span>
-              <span class="px-2 py-0.5 rounded bg-sky-950 text-sky-400 border border-sky-800/60 font-mono text-[10px]">สไลด์ที่ <span id="scriptSlideNum">1</span> / 4</span>
-            </span>
-            <button onclick="toggleScriptDrawer()" class="text-xs px-2 py-0.5 rounded bg-slate-800 hover:bg-red-900/60 text-slate-300 font-bold">
-              ✕ ซ่อนบทพูด
-            </button>
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-extrabold uppercase tracking-wider text-sky-300">
+                <span id="scriptHeaderTitle">Human Host Executive Script (บทพูดพิธีกร)</span>
+              </span>
+              <span class="px-2 py-0.5 rounded bg-sky-950 text-sky-400 border border-sky-800/60 font-mono text-[10px]">
+                Slide <span id="scriptSlideNum">1</span> / 4
+              </span>
+              <!-- Quick Inline Script Language Indicator -->
+              <span id="scriptLangBadge" class="px-1.5 py-0.2 rounded bg-slate-800 text-[10px] text-slate-300 font-bold border border-slate-700">
+                🇬🇧 English
+              </span>
+            </div>
+            <div class="flex items-center gap-2">
+              <button onclick="switchScriptLang()" class="text-xs px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-sky-300 font-semibold border border-slate-700" title="Switch Script Language">
+                🌐 Switch Lang (EN/TH)
+              </button>
+              <button onclick="toggleScriptDrawer()" class="text-xs px-2 py-0.5 rounded bg-slate-800 hover:bg-red-900/60 text-slate-300 font-bold">
+                ✕ Close
+              </button>
+            </div>
           </div>
           <div id="scriptContentText" class="text-xs md:text-sm text-slate-200 leading-relaxed max-h-32 overflow-y-auto pr-2">
             <!-- Script text injected by JS -->
@@ -113,43 +136,55 @@
   </main>
 
   <script>
+    let currentLang = 'en'; // Default English to match main deck
+
     const slidesData = [
       {
         id: 1,
-        shortTitle: "Executive Welcome",
-        badge: "Fujitsu Thailand (FTH) • Executive Opening Keynote",
-        title: "Empowering Enterprise ERP with Microsoft Copilot AI",
-        subtitle: "ยกระดับศักยภาพ Dynamics 365 Finance & Operations สู่ยุค Autonomous AI & สร้างความได้เปรียบเชิงกลยุทธ์ให้กับ ฟูจิตสึ ประเทศไทย",
-        renderHTML: () => `
+        shortTitleEN: "Executive Welcome",
+        shortTitleTH: "บทเปิดและต้อนรับ",
+        badgeEN: "FUJITSU THAILAND (FTH) • STRATEGIC KEYNOTE",
+        badgeTH: "ฟูจิตสึ ประเทศไทย (FTH) • สุนทรพจน์เปิดการประชุมเชิงกลยุทธ์",
+        titleEN: "Empowering Enterprise ERP with Microsoft Copilot AI",
+        titleTH: "Empowering Enterprise ERP with Microsoft Copilot AI",
+        subtitleEN: "Elevating Dynamics 365 Finance & Operations into Autonomous AI & Unlocking Strategic Value for Fujitsu Thailand",
+        subtitleTH: "ยกระดับศักยภาพ Dynamics 365 Finance & Operations สู่ยุค Autonomous AI & ขับเคลื่อนคุณค่าเชิงกลยุทธ์ให้ ฟูจิตสึ ประเทศไทย",
+        renderHTML: (lang) => `
           <div class="flex-1 flex flex-col justify-between max-w-6xl mx-auto w-full">
             <div class="border-b border-slate-800 pb-4 mb-4">
-              <span class="text-xs font-extrabold text-sky-400 tracking-widest uppercase">FUJITSU THAILAND (FTH) • STRATEGIC KEYNOTE</span>
+              <span class="text-xs font-extrabold text-sky-400 tracking-widest uppercase">${lang === 'en' ? 'FUJITSU THAILAND (FTH) • STRATEGIC KEYNOTE' : 'ฟูจิตสึ ประเทศไทย (FTH) • สุนทรพจน์เปิดการประชุม'}</span>
               <h1 class="text-2xl md:text-4xl font-black text-white mt-1">Empowering Enterprise ERP with Microsoft Copilot AI</h1>
-              <p class="text-sm md:text-base text-slate-300 mt-1">ยกระดับศักยภาพ Dynamics 365 Finance & Operations สู่ยุค Autonomous AI & ขับเคลื่อนคุณค่าเชิงกลยุทธ์ให้ ฟูจิตสึ ประเทศไทย</p>
+              <p class="text-sm md:text-base text-slate-300 mt-1">${lang === 'en' ? 'Elevating Dynamics 365 Finance & Operations into Autonomous AI & Unlocking Strategic Value for Fujitsu Thailand' : 'ยกระดับศักยภาพ Dynamics 365 Finance & Operations สู่ยุค Autonomous AI & ขับเคลื่อนคุณค่าเชิงกลยุทธ์ให้ ฟูจิตสึ ประเทศไทย'}</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-auto">
               <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700/80 shadow-lg hover:border-sky-500/50 transition-all">
                 <div class="w-10 h-10 rounded-xl bg-sky-500/20 text-sky-400 flex items-center justify-center text-xl mb-3 border border-sky-500/30">⚡</div>
-                <h3 class="text-base font-bold text-white mb-1.5">1. ก้าวสู่ Autonomous ERP</h3>
+                <h3 class="text-base font-bold text-white mb-1.5">${lang === 'en' ? '1. Transition to Autonomous ERP' : '1. ก้าวสู่ Autonomous ERP'}</h3>
                 <p class="text-xs text-slate-300 leading-relaxed">
-                  เปลี่ยนผ่านจากการบันทึกบัญชีแบบ Manual ซ้ำซ้อน สู่ระบบการเงินอัจฉริยะที่ช่วยอ่าน ตรวจสอบ และร่างเอกสารอัตโนมัติ รวดเร็วและแม่นยำ
+                  ${lang === 'en'
+                    ? 'Transforming manual accounting workflows into an intelligent system that reads, cross-verifies, and pre-drafts invoices with speed and precision.'
+                    : 'เปลี่ยนผ่านจากการบันทึกบัญชีแบบ Manual ซ้ำซ้อน สู่ระบบการเงินอัจฉริยะที่ช่วยอ่าน ตรวจสอบ และร่างเอกสารอัตโนมัติ รวดเร็วและแม่นยำ'}
                 </p>
               </div>
 
               <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700/80 shadow-lg hover:border-purple-500/50 transition-all">
                 <div class="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center text-xl mb-3 border border-purple-500/30">🏛️</div>
-                <h3 class="text-base font-bold text-white mb-1.5">2. ตอบโจทย์ภาษีไทย 100%</h3>
+                <h3 class="text-base font-bold text-white mb-1.5">${lang === 'en' ? '2. 100% Thai Tax Compliance' : '2. ตอบโจทย์ภาษีไทย 100%'}</h3>
                 <p class="text-xs text-slate-300 leading-relaxed">
-                  สอดรับข้อกำหนดของกรมสรรพากร ทั้งภาษีหัก ณ ที่จ่าย ภ.พ.30, ภ.ง.ด.3/53, หนังสือรับรอง 50 ทวิ, และ e-Tax Invoice แบบครบวงจร
+                  ${lang === 'en'
+                    ? 'Built for Thai Revenue Department requirements: Withholding Tax, VAT 7% (PP.30), PND 3/53, 50 Tawi certificates, and end-to-end e-Tax Invoicing.'
+                    : 'สอดรับข้อกำหนดของกรมสรรพากร ทั้งภาษีหัก ณ ที่จ่าย ภ.พ.30, ภ.ง.ด.3/53, หนังสือรับรอง 50 ทวิ, และ e-Tax Invoice แบบครบวงจร'}
                 </p>
               </div>
 
               <div class="p-5 rounded-2xl bg-slate-800/80 border border-slate-700/80 shadow-lg hover:border-red-500/50 transition-all">
                 <div class="w-10 h-10 rounded-xl bg-red-500/20 text-red-400 flex items-center justify-center text-xl mb-3 border border-red-500/30">🏆</div>
-                <h3 class="text-base font-bold text-white mb-1.5">3. เพิ่มมูลค่าเชิงกลยุทธ์ให้ FTH</h3>
+                <h3 class="text-base font-bold text-white mb-1.5">${lang === 'en' ? '3. Strategic Value for FTH' : '3. เพิ่มมูลค่าเชิงกลยุทธ์ให้ FTH'}</h3>
                 <p class="text-xs text-slate-300 leading-relaxed">
-                  สร้างความแตกต่างในฐานะเจ้าของ Intellectual Property (IP) ด้าน AI ERP ในไทย เสริมภาพลักษณ์ Trusted Partner ระดับสากล
+                  ${lang === 'en'
+                    ? 'Creating unique market differentiation as the owner of high-value AI ERP Intellectual Property (IP), reinforcing Fujitsu as the top trusted partner.'
+                    : 'สร้างความแตกต่างในฐานะเจ้าของ Intellectual Property (IP) ด้าน AI ERP ในไทย เสริมภาพลักษณ์ Trusted Partner ระดับสากล'}
                 </p>
               </div>
             </div>
@@ -157,32 +192,39 @@
             <div class="mt-4 p-4 rounded-xl bg-slate-900 border border-slate-800 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-400">
               <div class="flex items-center gap-2">
                 <span class="text-base">🎤</span>
-                <span><strong>ผู้ดำเนินรายการ:</strong> พิธีกรและผู้เชี่ยวชาญด้านโซลูชัน ฟูจิตสึ ประเทศไทย (FTH)</span>
+                <span><strong>${lang === 'en' ? 'Presenter:' : 'ผู้ดำเนินรายการ:'}</strong> ${lang === 'en' ? 'Solution Principal & Executive Host, Fujitsu Thailand (FTH)' : 'พิธีกรและผู้เชี่ยวชาญด้านโซลูชัน ฟูจิตสึ ประเทศไทย (FTH)'}</span>
               </div>
               <div class="flex items-center gap-3">
-                <span class="px-2.5 py-1 rounded bg-slate-800 text-sky-300 font-semibold border border-slate-700">⏱️ เวลาเกริ่นนำ: ~2 นาที</span>
+                <span class="px-2.5 py-1 rounded bg-slate-800 text-sky-300 font-semibold border border-slate-700">⏱️ ${lang === 'en' ? 'Opening Duration: ~2 min' : 'เวลาเกริ่นนำ: ~2 นาที'}</span>
                 <span class="text-slate-500">|</span>
-                <span class="text-emerald-400 font-bold">● พร้อมส่งต่อเข้าสู่ Live Demo</span>
+                <span class="text-emerald-400 font-bold">● ${lang === 'en' ? 'Ready for Live Demo Handover' : 'พร้อมส่งต่อเข้าสู่ Live Demo'}</span>
               </div>
             </div>
           </div>
         `,
-        script: `กราบเรียนท่านผู้บริหาร คณะทำงาน และแขกผู้มีเกียรติทุกท่านครับ ผมขอต้อนรับทุกท่านเข้าสู่การนำเสนอเชิงกลยุทธ์ของ ฟูจิตสึ ประเทศไทย (FTH) ในหัวข้อ 'Empowering Enterprise ERP with Microsoft Copilot AI' ครับ<br><br>
-ในวันนี้ เรามีความยินดีเป็นอย่างยิ่งที่จะแบ่งปันวิสัยทัศน์ในการยกระดับระบบ Dynamics 365 Finance & Operations โดยการนำเทคโนโลยีปัญญาประดิษฐ์ระดับองค์กรอย่าง Microsoft Copilot Studio และ Azure AI เข้ามาเสริมความแข็งแกร่งให้กับกระบวนการบัญชีและการเงินของไทย<br><br>
-เป้าหมายสำคัญของเราในวันนี้ ไม่ใช่เพียงการแนะนำเทคโนโลยีใหม่ แต่เป็นการสร้าง New Strategic Asset และเพิ่มมูลค่าการแข่งขันให้กับ FTH ในฐานะผู้นำโซลูชันด้านดิจิทัลทรานส์ฟอร์เมชันที่ได้รับความไว้วางใจสูงสุดในประเทศไทยครับ`
+        scriptEN: `Good morning and welcome, esteemed executives, colleagues, and distinguished guests. Welcome to this strategic executive briefing from Fujitsu Thailand (FTH) on <strong>'Empowering Enterprise ERP with Microsoft Copilot AI'</strong>.<br><br>
+Today, we are thrilled to present our vision for advancing <strong>Microsoft Dynamics 365 Finance & Operations</strong> by natively infusing Microsoft Copilot Studio and Azure AI into everyday financial and Thai tax compliance workflows.<br><br>
+Our purpose today is not merely introducing new AI features, but creating high-value <strong>Strategic Intellectual Property (IP)</strong> for FTH—strengthening our market position as Thailand's most trusted partner in enterprise digital transformation.`,
+        scriptTH: `กราบเรียนท่านผู้บริหาร คณะทำงาน และแขกผู้มีเกียรติทุกท่านครับ ผมขอต้อนรับทุกท่านเข้าสู่การนำเสนอเชิงกลยุทธ์ของ ฟูจิตสึ ประเทศไทย (FTH) ในหัวข้อ <strong>'Empowering Enterprise ERP with Microsoft Copilot AI'</strong> ครับ<br><br>
+ในวันนี้ เรามีความยินดีเป็นอย่างยิ่งที่จะแบ่งปันวิสัยทัศน์ในการยกระดับระบบ <strong>Dynamics 365 Finance & Operations</strong> โดยการนำเทคโนโลยีปัญญาประดิษฐ์ระดับองค์กรอย่าง Microsoft Copilot Studio และ Azure AI เข้ามาเสริมความแข็งแกร่งให้กับกระบวนการบัญชีและการเงินของไทย<br><br>
+เป้าหมายสำคัญของเราในวันนี้ ไม่ใช่เพียงการแนะนำเทคโนโลยีใหม่ แต่เป็นการสร้าง <strong>Strategic Intellectual Property (IP)</strong> และเพิ่มมูลค่าการแข่งขันให้กับ FTH ในฐานะผู้นำโซลูชันด้านดิจิทัลทรานส์ฟอร์เมชันที่ได้รับความไว้วางใจสูงสุดในประเทศไทยครับ`
       },
       {
         id: 2,
-        shortTitle: "Industry Shift",
-        badge: "Market Drivers & Business Challenges",
-        title: "The Shift: From System of Record to System of Intelligence",
-        subtitle: "ทำไม ERP ดั้งเดิมจึงต้องก้าวข้ามขีดจำกัด สู่การเป็นระบบอัจฉริยะที่ช่วยคิดและวิเคราะห์",
-        renderHTML: () => `
+        shortTitleEN: "Industry Shift",
+        shortTitleTH: "จุดเปลี่ยนของตลาด",
+        badgeEN: "MARKET DRIVERS & BUSINESS CHALLENGES",
+        badgeTH: "ความท้าทายและโอกาสทางธุรกิจ",
+        titleEN: "The Shift: From System of Record to System of Intelligence",
+        titleTH: "The Shift: From System of Record to System of Intelligence",
+        subtitleEN: "Why Traditional ERPs Must Evolve to Intelligent, Autonomous Workflows for Thai Compliance",
+        subtitleTH: "ทำไม ERP ดั้งเดิมจึงต้องก้าวข้ามขีดจำกัด สู่การเป็นระบบอัจฉริยะที่ช่วยคิดและวิเคราะห์",
+        renderHTML: (lang) => `
           <div class="flex-1 flex flex-col justify-between max-w-6xl mx-auto w-full">
             <div class="border-b border-slate-800 pb-3 mb-3">
-              <span class="text-xs font-extrabold text-sky-400 tracking-widest uppercase">MARKET DYNAMICS & BUSINESS CHALLENGES</span>
+              <span class="text-xs font-extrabold text-sky-400 tracking-widest uppercase">${lang === 'en' ? 'MARKET DYNAMICS & BUSINESS CHALLENGES' : 'ความท้าทายและโอกาสทางธุรกิจ'}</span>
               <h2 class="text-xl md:text-3xl font-extrabold text-white mt-1">The Shift: From System of Record to System of Intelligence</h2>
-              <p class="text-xs md:text-sm text-slate-300 mt-0.5">เจาะลึกความท้าทายของระบบการเงินและภาษีในประเทศไทย และโอกาสครั้งสำคัญของฟูจิตสึ</p>
+              <p class="text-xs md:text-sm text-slate-300 mt-0.5">${lang === 'en' ? 'Navigating Thai financial and tax complexities, and unlocking Fujitsu’s breakthrough opportunity.' : 'เจาะลึกความท้าทายของระบบการเงินและภาษีในประเทศไทย และโอกาสครั้งสำคัญของฟูจิตสึ'}</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-auto">
@@ -191,25 +233,25 @@
                 <div>
                   <div class="flex items-center gap-2 mb-2">
                     <span class="text-lg">⚠️</span>
-                    <h3 class="text-sm font-bold text-red-400 uppercase tracking-wider">ข้อจำกัดของ ERP ดั้งเดิม</h3>
+                    <h3 class="text-sm font-bold text-red-400 uppercase tracking-wider">${lang === 'en' ? 'Traditional ERP Limitations' : 'ข้อจำกัดของ ERP ดั้งเดิม'}</h3>
                   </div>
                   <ul class="space-y-2 text-xs text-slate-300">
                     <li class="flex items-start gap-1.5">
                       <span class="text-red-400 font-bold">•</span>
-                      <span><strong>งาน Manual ซ้ำซ้อน:</strong> พนักงาน AP ใช้เวลากว่า 70% ตรวจสอบใบแจ้งหนี้ PDF และใบเสร็จด้วยตาเปล่า</span>
+                      <span><strong>${lang === 'en' ? 'Heavy Manual Workload:' : 'งาน Manual ซ้ำซ้อน:'}</strong> ${lang === 'en' ? 'AP teams spend >70% of time manually checking PDF invoices and paper receipts.' : 'พนักงาน AP ใช้เวลากว่า 70% ตรวจสอบใบแจ้งหนี้ PDF และใบเสร็จด้วยตาเปล่า'}</span>
                     </li>
                     <li class="flex items-start gap-1.5">
                       <span class="text-red-400 font-bold">•</span>
-                      <span><strong>ความเสี่ยง Human Error:</strong> คีย์เลขผู้เสียภาษี 13 หลัก หรือรหัสสาขาผิด ส่งผลกระทบต่องวดภาษี</span>
+                      <span><strong>${lang === 'en' ? 'Human Error Risks:' : 'ความเสี่ยง Human Error:'}</strong> ${lang === 'en' ? 'Typos in 13-digit Tax IDs or 5-digit branch codes trigger tax reporting discrepancies.' : 'คีย์เลขผู้เสียภาษี 13 หลัก หรือรหัสสาขาผิด ส่งผลกระทบต่องวดภาษี'}</span>
                     </li>
                     <li class="flex items-start gap-1.5">
                       <span class="text-red-400 font-bold">•</span>
-                      <span><strong>ปิดงวดล่าช้า:</strong> เกิดคอขวดสะสมช่วงสิ้นเดือน กระทบต่อการบริหารสภาพคล่อง</span>
+                      <span><strong>${lang === 'en' ? 'Month-End Bottlenecks:' : 'ปิดงวดล่าช้า:'}</strong> ${lang === 'en' ? 'End-of-month volume spikes delay PP.30 filings and impact cash visibility.' : 'เกิดคอขวดสะสมช่วงสิ้นเดือน กระทบต่อการบริหารสภาพคล่อง'}</span>
                     </li>
                   </ul>
                 </div>
                 <div class="mt-3 pt-2 border-t border-slate-700/60 text-[11px] text-red-300 font-semibold">
-                  Cost Center & พนักงานเผชิญความเครียดสูง
+                  ${lang === 'en' ? 'Cost Center Burden & High Team Burnout' : 'Cost Center & พนักงานเผชิญความเครียดสูง'}
                 </div>
               </div>
 
@@ -218,25 +260,25 @@
                 <div>
                   <div class="flex items-center gap-2 mb-2">
                     <span class="text-lg">🏛️</span>
-                    <h3 class="text-sm font-bold text-purple-400 uppercase tracking-wider">ความเข้มงวดของกฎหมายไทย</h3>
+                    <h3 class="text-sm font-bold text-purple-400 uppercase tracking-wider">${lang === 'en' ? 'Strict Thai Tax Mandates' : 'ความเข้มงวดของกฎหมายไทย'}</h3>
                   </div>
                   <ul class="space-y-2 text-xs text-slate-300">
                     <li class="flex items-start gap-1.5">
                       <span class="text-purple-400 font-bold">•</span>
-                      <span><strong>e-Tax Mandate:</strong> กรมสรรพากรบังคับใช้มาตรฐาน XML / e-Filing ที่ต้องการความแม่นยำ 100%</span>
+                      <span><strong>${lang === 'en' ? 'e-Tax Mandate Enforcement:' : 'e-Tax Mandate:'}</strong> ${lang === 'en' ? 'Revenue Dept enforces strict XML / e-Filing schemas requiring 100% pre-validation.' : 'กรมสรรพากรบังคับใช้มาตรฐาน XML / e-Filing ที่ต้องการความแม่นยำ 100%'}</span>
                     </li>
                     <li class="flex items-start gap-1.5">
                       <span class="text-purple-400 font-bold">•</span>
-                      <span><strong>ภาษีหัก ณ ที่จ่ายซับซ้อน:</strong> เงื่อนไขอัตรา 1%, 2%, 3%, 5% ต้องคัดกรองตามประเภทบริการ</span>
+                      <span><strong>${lang === 'en' ? 'Complex WHT Rules:' : 'ภาษีหัก ณ ที่จ่ายซับซ้อน:'}</strong> ${lang === 'en' ? 'Variable 1%, 2%, 3%, 5% rates require exact categorization based on service nature.' : 'เงื่อนไขอัตรา 1%, 2%, 3%, 5% ต้องคัดกรองตามประเภทบริการ'}</span>
                     </li>
                     <li class="flex items-start gap-1.5">
                       <span class="text-purple-400 font-bold">•</span>
-                      <span><strong>ความเสี่ยงเบี้ยปรับ:</strong> ยื่นแบบล่าช้าหรือผิดพลาดสร้างภาระค่าปรับดอกเบี้ยที่ไม่จำเป็น</span>
+                      <span><strong>${lang === 'en' ? 'Penalty Exposure:' : 'ความเสี่ยงเบี้ยปรับ:'}</strong> ${lang === 'en' ? 'Late or miscalculated returns lead to unnecessary surcharges and audit risks.' : 'ยื่นแบบล่าช้าหรือผิดพลาดสร้างภาระค่าปรับดอกเบี้ยที่ไม่จำเป็น'}</span>
                     </li>
                   </ul>
                 </div>
                 <div class="mt-3 pt-2 border-t border-slate-700/60 text-[11px] text-purple-300 font-semibold">
-                  ต้องการระบบควบคุมและตรวจสอบแบบล่วงหน้า
+                  ${lang === 'en' ? 'Demands Continuous Pre-Validation' : 'ต้องการระบบควบคุมและตรวจสอบแบบล่วงหน้า'}
                 </div>
               </div>
 
@@ -245,50 +287,57 @@
                 <div>
                   <div class="flex items-center gap-2 mb-2">
                     <span class="text-lg">🚀</span>
-                    <h3 class="text-sm font-bold text-sky-400 uppercase tracking-wider">โอกาสของ Fujitsu (FTH)</h3>
+                    <h3 class="text-sm font-bold text-sky-400 uppercase tracking-wider">${lang === 'en' ? 'Fujitsu’s AI Opportunity' : 'โอกาสของ Fujitsu (FTH)'}</h3>
                   </div>
                   <ul class="space-y-2 text-xs text-slate-300">
                     <li class="flex items-start gap-1.5">
                       <span class="text-sky-400 font-bold">•</span>
-                      <span><strong>System of Intelligence:</strong> เปลี่ยน D365 ให้คิด วิเคราะห์ และตรวจทานข้อมูลก่อนส่งมอบ</span>
+                      <span><strong>${lang === 'en' ? 'System of Intelligence:' : 'System of Intelligence:'}</strong> ${lang === 'en' ? 'Transforming D365 to think, validate, and predict issues before transactions post.' : 'เปลี่ยน D365 ให้คิด วิเคราะห์ และตรวจทานข้อมูลก่อนส่งมอบ'}</span>
                     </li>
                     <li class="flex items-start gap-1.5">
                       <span class="text-sky-400 font-bold">•</span>
-                      <span><strong>Human-in-the-Loop:</strong> AI ช่วยร่างเอกสาร แต่ให้อำนาจการตัดสินใจแก่พนักงานเสมอ</span>
+                      <span><strong>${lang === 'en' ? 'Human-in-the-Loop:' : 'Human-in-the-Loop:'}</strong> ${lang === 'en' ? 'AI prepares and validates drafts, while accountants hold final approval authority.' : 'AI ช่วยร่างเอกสาร แต่ให้อำนาจการตัดสินใจแก่พนักงานเสมอ'}</span>
                     </li>
                     <li class="flex items-start gap-1.5">
                       <span class="text-sky-400 font-bold">•</span>
-                      <span><strong>ผู้นำตลาดที่แท้จริง:</strong> FTH ส่งมอบโซลูชันที่คู่แข่งในตลาดยังไม่สามารถทำได้</span>
+                      <span><strong>${lang === 'en' ? 'Market Differentiator:' : 'ผู้นำตลาดที่แท้จริง:'}</strong> ${lang === 'en' ? 'FTH delivers unmatched innovation that competitors in Thailand cannot match.' : 'FTH ส่งมอบโซลูชันที่คู่แข่งในตลาดยังไม่สามารถทำได้'}</span>
                     </li>
                   </ul>
                 </div>
                 <div class="mt-3 pt-2 border-t border-slate-700/60 text-[11px] text-emerald-300 font-semibold">
-                  Strategic Growth Engine & High Value
+                  ${lang === 'en' ? 'Strategic Growth Engine & High Value' : 'Strategic Growth Engine & High Value'}
                 </div>
               </div>
             </div>
 
             <div class="mt-3 p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs text-center text-slate-300">
-              💡 <strong>แก่นสำคัญ:</strong> ปลดล็อกเวลาของบุคลากรการเงินจากการคีย์ข้อมูล ให้สามารถโฟกัสกับการวิเคราะห์เชิงกลยุทธ์ได้อย่างเต็มที่
+              💡 <strong>${lang === 'en' ? 'Core Insight:' : 'แก่นสำคัญ:'}</strong> ${lang === 'en' ? 'Freeing finance professionals from repetitive data entry so they can focus on high-value strategic financial management.' : 'ปลดล็อกเวลาของบุคลากรการเงินจากการคีย์ข้อมูล ให้สามารถโฟกัสกับการวิเคราะห์เชิงกลยุทธ์ได้อย่างเต็มที่'}
             </div>
           </div>
         `,
-        script: `ทุกท่านครับ เมื่อมองย้อนกลับมาที่การดำเนินงานจริงในปัจจุบัน ระบบ ERP แบบดั้งเดิมทำหน้าที่บันทึกประวัติ หรือ System of Record ได้ดี แต่ปัญหาคอขวดที่แท้จริงขององค์กรธุรกิจในประเทศไทย คือภาระงานของทีมบัญชี (AP) ที่ต้องตรวจสอบเอกสารใบกำกับภาษี PDF จำนวนหลายร้อยหลายพันใบในแต่ละเดือนครับ<br><br>
+        scriptEN: `Distinguished guests, looking at day-to-day operations across Thailand, traditional ERP systems have served effectively as <strong>Systems of Record</strong>. However, the true operational bottleneck lies within Accounts Payable—where finance teams spend over 70% of their time manually reviewing hundreds of PDF tax invoices.<br><br>
+From verifying 13-digit Tax IDs and 5-digit branch codes to 3-way matching and withholding tax calculations, manual workloads create severe month-end crunches. Coupled with the Revenue Department's aggressive push toward <strong>e-Tax Invoice and e-Receipt mandates</strong>, a single clerical oversight risks delayed filings and compliance penalties.<br><br>
+This is precisely why Fujitsu sees an unprecedented opportunity to elevate D365 into a <strong>'System of Intelligence'</strong>—automating repetitive burdens and equipping our finance professionals with predictive, pre-validated intelligence.`,
+        scriptTH: `ทุกท่านครับ เมื่อมองย้อนกลับมาที่การดำเนินงานจริงในปัจจุบัน ระบบ ERP แบบดั้งเดิมทำหน้าที่บันทึกประวัติ หรือ System of Record ได้ดี แต่ปัญหาคอขวดที่แท้จริงขององค์กรธุรกิจในประเทศไทย คือภาระงานของทีมบัญชี (AP) ที่ต้องตรวจสอบเอกสารใบกำกับภาษี PDF จำนวนหลายร้อยหลายพันใบในแต่ละเดือนครับ<br><br>
 ทั้งการตรวจสอบเลขประจำตัวผู้เสียภาษี 13 หลัก, สาขา 5 หลัก, การจับคู่ 3-Way Matching, และการคำนวณภาษีหัก ณ ที่จ่าย ประกอบกับนโยบายของกรมสรรพากรที่กำลังขับเคลื่อนสู่ e-Tax Invoice อย่างเต็มรูปแบบ ความผิดพลาดแม้เพียงเล็กน้อย ย่อมหมายถึงความล่าช้าและผลกระทบทางภาษีครับ<br><br>
 นี่คือสาเหตุที่ ฟูจิตสึ เล็งเห็นโอกาสครั้งสำคัญ ในการเปลี่ยนผ่าน D365 ให้กลายเป็น 'System of Intelligence' เพื่อช่วยแบ่งเบาภาระงานซ้ำซ้อน และเพิ่มความแม่นยำให้กับการเงินขององค์กรครับ`
       },
       {
         id: 3,
-        shortTitle: "Product & FTH Value",
-        badge: "Product Excellence & Strategic Value",
-        title: "Strengthening D365 & Maximizing Fujitsu Value",
-        subtitle: "เสริมความแข็งแกร่งของโซลูชัน และสร้างมูลค่าเพิ่มมหาศาลให้กับ ฟูจิตสึ ประเทศไทย",
-        renderHTML: () => `
+        shortTitleEN: "Product & FTH Value",
+        shortTitleTH: "เสริมแกร่งผลิตภัณฑ์ & FTH",
+        badgeEN: "PRODUCT EXCELLENCE & FUJITSU STRATEGIC VALUE",
+        badgeTH: "เสริมแกร่งผลิตภัณฑ์ & มูลค่าของ FTH",
+        titleEN: "Strengthening D365 & Maximizing Fujitsu Value",
+        titleTH: "Strengthening D365 & Maximizing Fujitsu Value",
+        subtitleEN: "Delivering Win-Win Strategic Value for Enterprise Clients and Fujitsu Thailand",
+        subtitleTH: "การผสานพลังทางเทคโนโลยีที่สร้างผลลัพธ์คุ้มค่าแบบ Win-Win ให้ทั้งลูกค้าองค์กรและฟูจิตสึ",
+        renderHTML: (lang) => `
           <div class="flex-1 flex flex-col justify-between max-w-6xl mx-auto w-full">
             <div class="border-b border-slate-800 pb-3 mb-3">
-              <span class="text-xs font-extrabold text-sky-400 tracking-widest uppercase">PRODUCT EXCELLENCE & FUJITSU STRATEGIC VALUE</span>
+              <span class="text-xs font-extrabold text-sky-400 tracking-widest uppercase">${lang === 'en' ? 'PRODUCT EXCELLENCE & FUJITSU STRATEGIC VALUE' : 'เสริมแกร่งผลิตภัณฑ์ & มูลค่าของ FTH'}</span>
               <h2 class="text-xl md:text-3xl font-extrabold text-white mt-1">Strengthening D365 & Maximizing Fujitsu Value</h2>
-              <p class="text-xs md:text-sm text-slate-300 mt-0.5">การผสานพลังทางเทคโนโลยีที่สร้างผลลัพธ์คุ้มค่าแบบ Win-Win ให้ทั้งลูกค้าองค์กรและฟูจิตสึ</p>
+              <p class="text-xs md:text-sm text-slate-300 mt-0.5">${lang === 'en' ? 'A strategic technology fusion that drives mutual ROI for our clients and Fujitsu Thailand.' : 'การผสานพลังทางเทคโนโลยีที่สร้างผลลัพธ์คุ้มค่าแบบ Win-Win ให้ทั้งลูกค้าองค์กรและฟูจิตสึ'}</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-5 my-auto">
@@ -297,24 +346,24 @@
                 <div>
                   <div class="flex items-center gap-2 mb-3">
                     <span class="text-xl">💎</span>
-                    <h3 class="text-base font-extrabold text-sky-300">1. เสริมความแข็งแกร่งให้ผลิตภัณฑ์ (D365)</h3>
+                    <h3 class="text-base font-extrabold text-sky-300">${lang === 'en' ? '1. D365 Product Enhancement' : '1. เสริมความแข็งแกร่งให้ผลิตภัณฑ์ (D365)'}</h3>
                   </div>
                   <div class="space-y-3 text-xs">
                     <div class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-700/80">
                       <div class="font-bold text-white mb-0.5">● Native Copilot Fusion</div>
-                      <div class="text-slate-300 leading-relaxed">ผสาน Microsoft Copilot Studio และ Azure AI ผ่าน Dataverse และ standard API โดยตรง ไม่มีการส่งข้อมูลออกนอกระบบ</div>
+                      <div class="text-slate-300 leading-relaxed">${lang === 'en' ? 'Direct integration with Copilot Studio and Azure AI via Dataverse and standard APIs—zero external data leakage.' : 'ผสาน Microsoft Copilot Studio และ Azure AI ผ่าน Dataverse และ standard API โดยตรง ไม่มีการส่งข้อมูลออกนอกระบบ'}</div>
                     </div>
                     <div class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-700/80">
                       <div class="font-bold text-white mb-0.5">● Autonomous Draft Invoice Preparation</div>
-                      <div class="text-slate-300 leading-relaxed">AI ช่วยอ่านเอกสาร ตรวจสอบกฎระเบียบ และสร้างร่างใบแจ้งหนี้ล่วงหน้า ลดเวลาตรวจสอบของทีมงานลงกว่า 70%</div>
+                      <div class="text-slate-300 leading-relaxed">${lang === 'en' ? 'AI reads documents, validates 3-way matching rules, and creates draft vendor invoices—slashing AP review time by >70%.' : 'AI ช่วยอ่านเอกสาร ตรวจสอบกฎระเบียบ และสร้างร่างใบแจ้งหนี้ล่วงหน้า ลดเวลาตรวจสอบของทีมงานลงกว่า 70%'}</div>
                     </div>
                     <div class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-700/80">
                       <div class="font-bold text-white mb-0.5">● Strict Human-in-the-Loop Governance</div>
-                      <div class="text-slate-300 leading-relaxed">AI เตรียมเอกสารร่าง แต่พนักงานต้องเป็นผู้ตรวจสอบและกดอนุมัติ (Approve) เสมอก่อนโพสต์ลงสมุดบัญชีจริง</div>
+                      <div class="text-slate-300 leading-relaxed">${lang === 'en' ? 'AI prepares validated drafts; accountants retain exclusive approval authority before any journal posting.' : 'AI เตรียมเอกสารร่าง แต่พนักงานต้องเป็นผู้ตรวจสอบและกดอนุมัติ (Approve) เสมอก่อนโพสต์ลงสมุดบัญชีจริง'}</div>
                     </div>
                     <div class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-700/80">
                       <div class="font-bold text-white mb-0.5">● Total Thai Tax Compliance</div>
-                      <div class="text-slate-300 leading-relaxed">รองรับ ภ.พ.30, ภ.ง.ด.3, ภ.ง.ด.53, หนังสือรับรอง 50 ทวิ และ e-Tax Invoice ครบถ้วนตามมาตรฐานกรมสรรพากร</div>
+                      <div class="text-slate-300 leading-relaxed">${lang === 'en' ? 'Full support for PP.30, PND 3/53, 50 Tawi certificates, and Revenue Dept e-Tax XML formats.' : 'รองรับ ภ.พ.30, ภ.ง.ด.3, ภ.ง.ด.53, หนังสือรับรอง 50 ทวิ และ e-Tax Invoice ครบถ้วนตามมาตรฐานกรมสรรพากร'}</div>
                     </div>
                   </div>
                 </div>
@@ -325,24 +374,24 @@
                 <div>
                   <div class="flex items-center gap-2 mb-3">
                     <span class="text-xl">🏆</span>
-                    <h3 class="text-base font-extrabold text-red-400">2. เพิ่มมูลค่าและแต้มต่อให้ Fujitsu (FTH)</h3>
+                    <h3 class="text-base font-extrabold text-red-400">${lang === 'en' ? '2. Fujitsu (FTH) Strategic Value' : '2. เพิ่มมูลค่าและแต้มต่อให้ Fujitsu (FTH)'}</h3>
                   </div>
                   <div class="space-y-3 text-xs">
                     <div class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-700/80">
-                      <div class="font-bold text-white mb-0.5">● First-Mover Advantage ในประเทศไทย</div>
-                      <div class="text-slate-300 leading-relaxed">FTH ก้าวขึ้นเป็นผู้นำรายแรกที่นำเสนอโซลูชัน Thai Localization พร้อม AI สำเร็จรูป สร้างแต้มต่อที่ยากแก่การลอกเลียนแบบ</div>
+                      <div class="font-bold text-white mb-0.5">● First-Mover Advantage in Thailand</div>
+                      <div class="text-slate-300 leading-relaxed">${lang === 'en' ? 'FTH becomes the first partner offering a pre-packaged, AI-infused Thai Localization solution, creating a strong moat.' : 'FTH ก้าวขึ้นเป็นผู้นำรายแรกที่นำเสนอโซลูชัน Thai Localization พร้อม AI สำเร็จรูป สร้างแต้มต่อที่ยากแก่การลอกเลียนแบบ'}</div>
                     </div>
                     <div class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-700/80">
                       <div class="font-bold text-white mb-0.5">● High-Margin Reusable IP Asset</div>
-                      <div class="text-slate-300 leading-relaxed">สามารถแพ็กเกจเป็น Commercial IP Solution นำไปติดตั้งให้ลูกค้าองค์กรได้อย่างรวดเร็ว ลดเวลาและต้นทุน Implement</div>
+                      <div class="text-slate-300 leading-relaxed">${lang === 'en' ? 'Packaged as commercial IP, enabling rapid deployment across enterprise clients with lower implementation costs.' : 'สามารถแพ็กเกจเป็น Commercial IP Solution นำไปติดตั้งให้ลูกค้าองค์กรได้อย่างรวดเร็ว ลดเวลาและต้นทุน Implement'}</div>
                     </div>
                     <div class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-700/80">
-                      <div class="font-bold text-white mb-0.5">● ขยายตลาดกลุ่มลูกค้าญี่ปุ่นและองค์กรชั้นนำ</div>
-                      <div class="text-slate-300 leading-relaxed">ตอบโจทย์กลุ่ม Japanese MNCs และองค์กรชั้นนำในไทยที่ต้องการยกระดับ ERP ให้ทันสมัยและสอดรับกฎหมายไทย</div>
+                      <div class="font-bold text-white mb-0.5">● Expands Japanese MNC & Enterprise Footprint</div>
+                      <div class="text-slate-300 leading-relaxed">${lang === 'en' ? 'Tailored to Japanese MNCs and major Thai conglomerates seeking modern, compliant ERP modernization.' : 'ตอบโจทย์กลุ่ม Japanese MNCs และองค์กรชั้นนำในไทยที่ต้องการยกระดับ ERP ให้ทันสมัยและสอดรับกฎหมายไทย'}</div>
                     </div>
                     <div class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-700/80">
-                      <div class="font-bold text-white mb-0.5">● ตอกย้ำภาพลักษณ์ Trusted Partner ระดับโลก</div>
-                      <div class="text-slate-300 leading-relaxed">ผสานความพิถีพิถันด้าน Governance ของ Fujitsu เข้ากับเทคโนโลยี AI ชั้นนำของ Microsoft ได้อย่างสมบูรณ์แบบ</div>
+                      <div class="font-bold text-white mb-0.5">● Reinforces Global Trusted Partner Brand</div>
+                      <div class="text-slate-300 leading-relaxed">${lang === 'en' ? 'Combines Fujitsu’s renowned Japanese quality and governance standards with Microsoft’s premier AI technology.' : 'ผสานความพิถีพิถันด้าน Governance ของ Fujitsu เข้ากับเทคโนโลยี AI ชั้นนำของ Microsoft ได้อย่างสมบูรณ์แบบ'}</div>
                     </div>
                   </div>
                 </div>
@@ -350,64 +399,71 @@
             </div>
 
             <div class="mt-3 p-3 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-between text-xs text-slate-300">
-              <span>🎯 <strong>ผลลัพธ์:</strong> ยกระดับจากการรับทำโปรเจกต์ตามสั่ง สู่การเป็นผู้นำโซลูชันที่มีทรัพย์สินทางปัญญาเฉพาะตัว</span>
+              <span>🎯 <strong>${lang === 'en' ? 'Strategic Impact:' : 'ผลลัพธ์:'}</strong> ${lang === 'en' ? 'Transitioning from custom project implementation to leading the market with proprietary Intellectual Property.' : 'ยกระดับจากการรับทำโปรเจกต์ตามสั่ง สู่การเป็นผู้นำโซลูชันที่มีทรัพย์สินทางปัญญาเฉพาะตัว'}</span>
               <span class="text-emerald-400 font-bold">✓ High Margin ✓ Scalable ✓ Repeatable</span>
             </div>
           </div>
         `,
-        script: `ในแง่ของความคุ้มค่าและผลประโยชน์เชิงกลยุทธ์ โครงการนี้ได้สร้างคุณค่าสองด้านพร้อมกันครับ<br><br>
-ด้านแรก คือความแข็งแกร่งของผลิตภัณฑ์ Dynamics 365 ที่ได้รับการอัปเกรดให้มี AI ทำงานอยู่เบื้องหลังอย่างแท้จริง ช่วยเตรียมเอกสารร่าง ตรวจสอบกฎหมายภาษีไทย และคงมาตรฐานความปลอดภัยระดับสูงสุด โดยไม่ปล่อยให้ AI โพสต์ข้อมูลโดยพลการครับ<br><br>
-และด้านที่สอง ซึ่งสำคัญยิ่งต่อ ฟูจิตสึ ประเทศไทย คือการสร้าง 'ความแตกต่างที่เหนือกว่า' ในตลาด ERP เราจะไม่ได้เป็นเพียงผู้ Implement ระบบตามคู่มือทั่วไป แต่เราจะเป็นเจ้าของ Intellectual Property หรือทรัพย์สินทางปัญญาที่ตอบโจทย์ภาษีไทยด้วย AI ซึ่งสร้าง Margin ที่สูงขึ้น เปิดประตูสู่กลุ่มลูกค้าบริษัทข้ามชาติทั้งญี่ปุ่นและไทย และตอกย้ำภาพลักษณ์ของ Fujitsu ในฐานะผู้นำด้านนวัตกรรมองค์กรครับ`
+        scriptEN: `From a strategic value and ROI perspective, this initiative drives dual impact:<br><br>
+First, <strong>Product Excellence for Dynamics 365</strong>: By natively embedding Copilot Studio and Azure AI via Dataverse, enterprise data remains 100% secure within company boundaries. AI extracts, cross-checks against Thai tax laws, and prepares draft vendor invoices—reducing cycle time by over 70%, while strictly maintaining <strong>Human-in-the-Loop governance</strong> so that finance professionals retain full approval authority before any journal posting.<br><br>
+Second, <strong>Unmatched Business Value for Fujitsu Thailand</strong>: FTH establishes a distinctive first-mover advantage by offering a pre-packaged, AI-infused Thai Localization solution. This high-margin, reusable IP enables our sales and consulting teams to scale rapidly across Japanese multinationals (MNCs) and top-tier Thai conglomerates—reinforcing Fujitsu’s global reputation for quality, governance, and trust.`,
+        scriptTH: `ในแง่ของความคุ้มค่าและผลประโยชน์เชิงกลยุทธ์ โครงการนี้ได้สร้างคุณค่าสองด้านพร้อมกันครับ<br><br>
+ด้านแรก คือ ความแข็งแกร่งของผลิตภัณฑ์ Dynamics 365 ที่ได้รับการอัปเกรดให้มี AI ทำงานอยู่เบื้องหลังอย่างแท้จริง ผ่าน Copilot Studio และ Dataverse โดยไม่มีการส่งข้อมูลออกนอกองค์กร AI จะช่วยอ่านเอกสาร ตรวจสอบกฎหมายภาษีไทย และเตรียมร่างเอกสารใบแจ้งหนี้ล่วงหน้า ช่วยลดเวลาทำงานลงกว่า 70% โดยยึดหลัก Human-in-the-Loop เสมอ พนักงานจะเป็นผู้อนุมัติขั้นสุดท้ายก่อนโพสต์รายการเสมอครับ<br><br>
+และด้านที่สอง ซึ่งสำคัญยิ่งต่อ ฟูจิตสึ ประเทศไทย คือการสร้าง 'ความแตกต่างที่เหนือกว่า' ในตลาด ERP เราจะก้าวขึ้นเป็นผู้นำรายแรกๆ ในไทยที่มี Packaged Solution ด้าน Thai Localization พร้อม AI สำเร็จรูป ซึ่งเป็น High-Margin IP Asset ที่สามารถนำไปติดตั้งให้กับลูกค้าองค์กร ทั้งบริษัทข้ามชาติญี่ปุ่น (Japanese MNCs) และองค์กรชั้นนำในไทยได้อย่างรวดเร็ว ตอกย้ำภาพลักษณ์ของ Fujitsu ในฐานะ Trusted Partner ด้านนวัตกรรมองค์กรครับ`
       },
       {
         id: 4,
-        shortTitle: "Agenda & Live Launch",
-        badge: "Solution Roadmap & Live Demonstration",
-        title: "Executive Agenda & Transition to Live Solution Pitch",
-        subtitle: "โครงสร้างเนื้อหาที่จะได้รับชมในวันนี้ และการส่งมอบเข้าสู่แพลตฟอร์มจำลองระบบจริง",
-        renderHTML: () => `
+        shortTitleEN: "Agenda & Live Launch",
+        shortTitleTH: "กำหนดการ & เข้าสู่ Live Deck",
+        badgeEN: "SOLUTION ROADMAP & LIVE DEMONSTRATION",
+        badgeTH: "แผนผังการนำเสนอ & เข้าสู่ระบบจริง",
+        titleEN: "Executive Agenda & Transition to Live Solution Pitch",
+        titleTH: "Executive Agenda & Transition to Live Solution Pitch",
+        subtitleEN: "12-Slide Solution Deck Overview and Seamless Handover to the Live Interactive Platform",
+        subtitleTH: "โครงสร้างเนื้อหาที่จะได้รับชมในวันนี้ และการส่งมอบเข้าสู่แพลตฟอร์มจำลองระบบจริง",
+        renderHTML: (lang) => `
           <div class="flex-1 flex flex-col justify-between max-w-6xl mx-auto w-full">
             <div class="border-b border-slate-800 pb-3 mb-3">
-              <span class="text-xs font-extrabold text-sky-400 tracking-widest uppercase">SOLUTION ROADMAP & LIVE DEMONSTRATION</span>
+              <span class="text-xs font-extrabold text-sky-400 tracking-widest uppercase">${lang === 'en' ? 'SOLUTION ROADMAP & LIVE DEMONSTRATION' : 'แผนผังการนำเสนอ & เข้าสู่ระบบจริง'}</span>
               <h2 class="text-xl md:text-3xl font-extrabold text-white mt-1">Executive Agenda & Transition to Live Solution Pitch</h2>
-              <p class="text-xs md:text-sm text-slate-300 mt-0.5">ภาพรวมเนื้อหา 12 สไลด์หลัก และการส่งมอบเข้าสู่แพลตฟอร์มจำลองระบบจริง (Interactive Deck)</p>
+              <p class="text-xs md:text-sm text-slate-300 mt-0.5">${lang === 'en' ? 'Today’s 12-slide walkthrough and formal handover into the live interactive demonstration.' : 'ภาพรวมเนื้อหา 12 สไลด์หลัก และการส่งมอบเข้าสู่แพลตฟอร์มจำลองระบบจริง (Interactive Deck)'}</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-12 gap-5 my-auto">
               <!-- Left: Agenda (7 cols) -->
               <div class="md:col-span-7 p-5 rounded-2xl bg-slate-800/80 border border-slate-700/80 shadow-xl flex flex-col justify-between">
                 <div>
-                  <h3 class="text-sm font-extrabold text-sky-300 uppercase tracking-wider mb-3">📑 ประเด็นสำคัญใน Live Interactive Solution Pitch (12 สไลด์)</h3>
+                  <h3 class="text-sm font-extrabold text-sky-300 uppercase tracking-wider mb-3">📑 ${lang === 'en' ? 'Key Milestones in the Live Interactive Deck (12 Slides)' : 'ประเด็นสำคัญใน Live Interactive Solution Pitch (12 สไลด์)'}</h3>
                   <div class="space-y-2.5 text-xs">
                     <div class="flex items-start gap-2.5 p-2.5 rounded-xl bg-slate-900 border border-slate-800">
                       <span class="px-2 py-0.5 rounded bg-sky-950 text-sky-400 border border-sky-800 font-bold">1</span>
                       <div>
-                        <div class="font-bold text-white">Copilot Studio Official Architecture (สไลด์ 3)</div>
-                        <div class="text-slate-400">โครงสร้าง Multi-Agent และการเชื่อมโยง Dataverse อย่างปลอดภัย 100%</div>
+                        <div class="font-bold text-white">${lang === 'en' ? 'Copilot Studio Official Architecture (Slide 3)' : 'Copilot Studio Official Architecture (สไลด์ 3)'}</div>
+                        <div class="text-slate-400">${lang === 'en' ? 'Multi-Agent Framework and 100% secure enterprise integration with D365 via Dataverse.' : 'โครงสร้าง Multi-Agent และการเชื่อมโยง Dataverse อย่างปลอดภัย 100%'}</div>
                       </div>
                     </div>
 
                     <div class="flex items-start gap-2.5 p-2.5 rounded-xl bg-slate-900 border border-slate-800">
                       <span class="px-2 py-0.5 rounded bg-purple-950 text-purple-400 border border-purple-800 font-bold">2</span>
                       <div>
-                        <div class="font-bold text-white">Top 5 Thai Localization Use Cases (สไลด์ 4)</div>
-                        <div class="text-slate-400">สาธิต AP Invoice, Thai Tax Copilot, e-Tax Gateway, และ Continuous Reconciliation</div>
+                        <div class="font-bold text-white">${lang === 'en' ? 'Top 5 Thai Localization Use Cases (Slide 4)' : 'Top 5 Thai Localization Use Cases (สไลด์ 4)'}</div>
+                        <div class="text-slate-400">${lang === 'en' ? 'Live walkthrough: AP Invoice Intelligence, Thai Tax Copilot, e-Tax Gateway, and Continuous Reconciliation.' : 'สาธิต AP Invoice, Thai Tax Copilot, e-Tax Gateway, และ Continuous Reconciliation'}</div>
                       </div>
                     </div>
 
                     <div class="flex items-start gap-2.5 p-2.5 rounded-xl bg-slate-900 border border-slate-800">
                       <span class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800 font-bold">3</span>
                       <div>
-                        <div class="font-bold text-white">8-Week POC Delivery Plan & ROI (สไลด์ 10-11)</div>
-                        <div class="text-slate-400">กรอบเวลาการส่งมอบที่จับต้องได้ วัดผลความคุ้มค่า และคืนทุนได้อย่างรวดเร็ว</div>
+                        <div class="font-bold text-white">${lang === 'en' ? '8-Week POC Delivery Plan & Rapid ROI (Slides 10–11)' : '8-Week POC Delivery Plan & ROI (สไลด์ 10-11)'}</div>
+                        <div class="text-slate-400">${lang === 'en' ? 'Pragmatic, low-risk deployment roadmap delivering fast measurable value and fast payback.' : 'กรอบเวลาการส่งมอบที่จับต้องได้ วัดผลความคุ้มค่า และคืนทุนได้อย่างรวดเร็ว'}</div>
                       </div>
                     </div>
 
                     <div class="flex items-start gap-2.5 p-2.5 rounded-xl bg-slate-900 border border-slate-800">
                       <span class="px-2 py-0.5 rounded bg-red-950 text-red-400 border border-red-800 font-bold">4</span>
                       <div>
-                        <div class="font-bold text-white">Dual-Host AI Voice & Auto-Advance</div>
-                        <div class="text-slate-400">ระบบจำลองเสียงบรรยายผู้บริหาร 2 ภาษา (EN / TH) พร้อมการนำเสนอแบบอัตโนมัติ</div>
+                        <div class="font-bold text-white">${lang === 'en' ? 'Dual-Host AI Voice & Auto-Advance Narration' : 'Dual-Host AI Voice & Auto-Advance'}</div>
+                        <div class="text-slate-400">${lang === 'en' ? 'Production neural studio voice in English & Thai with automated auto-tour mode.' : 'ระบบจำลองเสียงบรรยายผู้บริหาร 2 ภาษา (EN / TH) พร้อมการนำเสนอแบบอัตโนมัติ'}</div>
                       </div>
                     </div>
                   </div>
@@ -419,39 +475,42 @@
                 <div>
                   <div class="flex items-center gap-2 mb-2 text-emerald-400">
                     <span class="text-xl">🚀</span>
-                    <h3 class="text-sm font-extrabold uppercase tracking-wider">พร้อมเข้าสู่ระบบจำลองจริง</h3>
+                    <h3 class="text-sm font-extrabold uppercase tracking-wider">${lang === 'en' ? 'Ready for Live Demonstration' : 'พร้อมเข้าสู่ระบบจำลองจริง'}</h3>
                   </div>
                   <p class="text-xs text-slate-300 italic mb-4">
-                    "บัดนี้ ผมขออนุญาตนำพาทุกท่านเข้าสู่ระบบจำลอง เพื่อรับชมการสาธิตอย่างเต็มรูปแบบครับ..."
+                    ${lang === 'en' ? '"Without further ado, let us now transition directly into the live interactive platform..."' : '"บัดนี้ ผมขออนุญาตนำพาทุกท่านเข้าสู่ระบบจำลอง เพื่อรับชมการสาธิตอย่างเต็มรูปแบบครับ..."'}
                   </p>
 
                   <div class="p-3 rounded-xl bg-slate-950/80 border border-slate-800 mb-4 text-xs space-y-1">
-                    <div class="text-slate-400">🌐 ลิงก์ระบบจำลอง (GitHub Pages):</div>
+                    <div class="text-slate-400">${lang === 'en' ? '🌐 Direct Platform Link (GitHub Pages):' : '🌐 ลิงก์ระบบจำลอง (GitHub Pages):'}</div>
                     <div class="font-mono text-sky-400 truncate">https://wititgithub.github.io/fth-d365-fo-copilot-deck/</div>
                   </div>
                 </div>
 
                 <div class="space-y-2">
                   <a href="index.html" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-500 to-sky-500 hover:from-emerald-400 hover:to-sky-400 text-slate-950 font-black text-xs md:text-sm shadow-lg shadow-emerald-500/30 flex items-center justify-center gap-2 transition-all transform hover:scale-[1.02]">
-                    <span>🚀 เข้าสู่ระบบจำลอง (Launch Live Deck)</span>
+                    <span>🚀 ${lang === 'en' ? 'Launch Live Deck (12 Slides)' : 'เข้าสู่ระบบจำลอง (Launch Live Deck)'}</span>
                     <span>→</span>
                   </a>
 
                   <div class="text-center text-[11px] text-slate-400">
-                    หรือกดปุ่มลูกศร <kbd class="px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-slate-300 font-mono">Next ▶</kbd> หรือคลิกที่ลิงก์ด้านบนเพื่อเริ่มทันที
+                    ${lang === 'en' ? 'Or press' : 'หรือกดปุ่มลูกศร'} <kbd class="px-1.5 py-0.5 rounded bg-slate-800 border border-slate-700 text-slate-300 font-mono">Next ▶</kbd> ${lang === 'en' ? 'to launch immediately' : 'เพื่อเริ่มทันที'}
                   </div>
                 </div>
               </div>
             </div>
 
             <div class="mt-3 p-3 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-400 flex items-center justify-between">
-              <span>💡 พิธีกรสามารถคลิกปุ่ม <strong>"Launch Live Deck"</strong> เพื่อสลับเข้าสู่หน้าจอการนำเสนอหลัก 12 สไลด์ได้ทันที</span>
+              <span>💡 ${lang === 'en' ? 'The MC can click <strong>"Launch Live Deck"</strong> to transition immediately into the 12-slide executive presentation.' : 'พิธีกรสามารถคลิกปุ่ม <strong>"Launch Live Deck"</strong> เพื่อสลับเข้าสู่หน้าจอการนำเสนอหลัก 12 สไลด์ได้ทันที'}</span>
               <span class="text-sky-400 font-semibold">Ready for Live Interactive Demo</span>
             </div>
           </div>
         `,
-        script: `และในลำดับถัดไป เพื่อให้ทุกท่านได้เห็นภาพการทำงานจริงอย่างเป็นรูปธรรม ทางทีมงานได้จัดเตรียมแพลตฟอร์มการนำเสนอแบบ Interactive Pitch Deck จำนวน 12 สไลด์ ที่จำลองการทำงานจริงอย่างละเอียดครับ<br><br>
-โดยประกอบด้วยสถาปัตยกรรมทางเทคนิค, 5 Use Cases หลักที่ออกแบบมาเพื่อภาษีไทยโดยเฉพาะ, และแผนการดำเนินงาน POC 8 สัปดาห์ พร้อมเสียงบรรยายจำลองแบบ Dual-Host ที่ปรับแต่งมาอย่างเป็นทางการ<br><br>
+        scriptEN: `Looking ahead to today’s session, we have prepared a comprehensive <strong>12-slide Live Interactive Solution Pitch</strong> that demonstrates the actual production-ready capabilities:<br><br>
+We will walk through the official Microsoft Copilot Studio multi-agent architecture, explore our <strong>top five Thai localization use cases</strong>—from AP Invoice Intelligence to Continuous Reconciliation—and outline our practical 8-week POC delivery roadmap.<br><br>
+Without further ado, I would now like to invite our executive team to transition directly into the live interactive platform to experience the future of Dynamics 365 and Copilot AI firsthand. Let us begin.`,
+        scriptTH: `และในลำดับถัดไป เพื่อให้ทุกท่านได้เห็นภาพการทำงานจริงอย่างเป็นรูปธรรม ทางทีมงานได้จัดเตรียมแพลตฟอร์มการนำเสนอแบบ Interactive Pitch Deck จำนวน 12 สไลด์ ที่จำลองการทำงานจริงอย่างละเอียดครับ<br><br>
+โดยประกอบด้วยสถาปัตยกรรมทางเทคนิค, 5 Use Cases หลักที่ออกแบบมาเพื่อภาษีไทยโดยเฉพาะ, และแผนการดำเนินงาน POC 8 สัปดาห์ พร้อมระบบเสียงบรรยายจำลองแบบ Dual-Host ที่ปรับแต่งมาอย่างเป็นทางการ<br><br>
 บัดนี้ ผมขออนุญาตนำพาทุกท่านเข้าสู่ระบบจำลองผ่านลิงก์โครงการ เพื่อร่วมทดสอบและสัมผัสประสบการณ์แห่งอนาคตของ Dynamics 365 และ Copilot AI ไปพร้อมกันได้ ณ บัดนี้ครับ ขอเรียนเชิญทุกท่านครับ`
       }
     ];
@@ -461,17 +520,20 @@
     function renderSlide() {
       const slide = slidesData[currentSlide];
       const viewport = document.getElementById('slideViewport');
-      viewport.innerHTML = `<div class="slide-enter flex-1 flex flex-col justify-between h-full">${slide.renderHTML()}</div>`;
+      viewport.innerHTML = `<div class="slide-enter flex-1 flex flex-col justify-between h-full">${slide.renderHTML(currentLang)}</div>`;
 
       document.getElementById('currentSlideNum').textContent = slide.id;
       document.getElementById('scriptSlideNum').textContent = slide.id;
-      document.getElementById('currentSlideShortTitle').textContent = slide.shortTitle;
-      document.getElementById('scriptContentText').innerHTML = slide.script;
+      document.getElementById('currentSlideShortTitle').textContent = currentLang === 'en' ? slide.shortTitleEN : slide.shortTitleTH;
+      
+      const scriptText = currentLang === 'en' ? slide.scriptEN : slide.scriptTH;
+      document.getElementById('scriptContentText').innerHTML = scriptText;
+      document.getElementById('scriptLangBadge').textContent = currentLang === 'en' ? '🇬🇧 English' : '🇹🇭 ภาษาไทย';
 
       document.getElementById('btnPrev').disabled = currentSlide === 0;
       const nextBtn = document.getElementById('btnNext');
       if (currentSlide === slidesData.length - 1) {
-        nextBtn.innerHTML = '🚀 เข้าสู่ Live Deck →';
+        nextBtn.innerHTML = currentLang === 'en' ? '🚀 Launch Live Deck →' : '🚀 เข้าสู่ Live Deck →';
         nextBtn.className = 'px-3 py-1 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-xs font-bold text-white flex items-center gap-1 shadow-md shadow-emerald-900/40 transition-all';
         nextBtn.onclick = () => { window.location.href = 'index.html'; };
       } else {
@@ -479,6 +541,27 @@
         nextBtn.className = 'px-3 py-1 rounded-lg bg-sky-600 hover:bg-sky-500 text-xs font-bold text-white flex items-center gap-1 shadow-md shadow-sky-900/40 transition-all';
         nextBtn.onclick = nextSlide;
       }
+    }
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      const btnEN = document.getElementById('btnLangEN');
+      const btnTH = document.getElementById('btnLangTH');
+      const label = document.getElementById('scriptBtnLabel');
+      if (lang === 'en') {
+        btnEN.className = "px-2 py-0.5 rounded-md text-xs font-semibold transition-all bg-sky-600 text-white shadow";
+        btnTH.className = "px-2 py-0.5 rounded-md text-xs font-semibold transition-all text-slate-300 hover:text-white";
+        label.textContent = "Host Script";
+      } else {
+        btnTH.className = "px-2 py-0.5 rounded-md text-xs font-semibold transition-all bg-red-600 text-white shadow";
+        btnEN.className = "px-2 py-0.5 rounded-md text-xs font-semibold transition-all text-slate-300 hover:text-white";
+        label.textContent = "บทพูดพิธีกร";
+      }
+      renderSlide();
+    }
+
+    function switchScriptLang() {
+      setLanguage(currentLang === 'en' ? 'th' : 'en');
     }
 
     function nextSlide() {
@@ -502,11 +585,11 @@
       const btn = document.getElementById('btnToggleScript');
       if (drawer.classList.contains('hidden')) {
         drawer.classList.remove('hidden');
-        btn.textContent = '💬 ซ่อนบทพูด';
+        btn.innerHTML = currentLang === 'en' ? '💬 Hide Script' : '💬 ซ่อนบทพูด';
         btn.className = 'px-2.5 py-1 rounded-lg bg-sky-600/30 border border-sky-400 text-xs text-sky-200 font-bold transition-all';
       } else {
         drawer.classList.add('hidden');
-        btn.textContent = '💬 บทพูดพิธีกร';
+        btn.innerHTML = currentLang === 'en' ? '💬 Host Script' : '💬 บทพูดพิธีกร';
         btn.className = 'px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs text-slate-300 font-semibold transition-all';
       }
     }
@@ -530,7 +613,8 @@
       if (e.key === 'f' || e.key === 'F') toggleFullscreen();
     });
 
-    renderSlide();
+    // Default start with English
+    setLanguage('en');
   </script>
 </body>
 </html>
