@@ -89,43 +89,69 @@
 </head>
 <body id="presentationRoot" class="bg-slate-950 text-slate-100 antialiased selection:bg-sky-500 selection:text-white h-screen w-screen flex flex-col justify-between overflow-hidden">
 
-  <!-- TOP NAVIGATION & CONTROL BAR (Compact Full-Width for MS Teams) -->
+  <!-- TOP NAVIGATION & CONTROL BAR (Compact 1-Line Default + Collapsible Row 2 for MS Teams) -->
   <header class="relative border-b border-slate-800/90 bg-slate-900/95 backdrop-blur-md px-3 py-1.5 z-50 flex-shrink-0">
-    <div class="w-full flex flex-wrap items-center justify-between gap-2">
+    <!-- HEADER ROW 1: Essential Controls Only (Prev, Slide Menu, Next + Play Voice, Fullscreen, Row 2 Toggle) -->
+    <div class="w-full flex items-center justify-between gap-2 overflow-x-auto no-scrollbar">
       <!-- Left: Brand + Prev / Slide Selector Dropdown / Next -->
-      <div class="flex items-center gap-2 flex-wrap">
+      <div class="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
         <div class="px-2 py-0.5 rounded bg-red-600/20 border border-red-500/40 text-red-400 font-bold text-xs tracking-wider uppercase flex items-center gap-1.5">
           <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
           <span class="hidden sm:inline">FTH Pitch</span>
         </div>
 
-        <!-- Prev Button (Top) -->
-        <button onclick="prevSlide()" id="btnPrev" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs font-bold text-slate-200 flex items-center gap-1 transition-all disabled:opacity-40" title="Previous Slide (Left Arrow)">
+        <!-- Prev Button (Row 1) -->
+        <button onclick="prevSlide()" id="btnPrev" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs font-bold text-slate-200 flex items-center gap-1 transition-all disabled:opacity-40 whitespace-nowrap" title="Previous Slide (Left Arrow)">
           ◀ Prev
         </button>
 
-        <!-- Slide-Down Menu Trigger Button (Top) -->
+        <!-- Slide-Down Menu Trigger Button (Row 1) -->
         <div class="relative">
-          <button onclick="toggleSlideMenu(event)" id="btnSlideMenu" class="px-3 py-1 rounded-lg bg-slate-950 hover:bg-slate-800 border border-sky-500/50 text-xs font-bold text-sky-300 flex items-center gap-2 shadow transition-all" title="Click to slide down and select any slide">
-            <span>📑 Slide <span id="currentSlideNum">1</span>/12: <span id="currentSlideShortTitle" class="text-white font-semibold hidden md:inline">Vision &amp; Hook</span></span>
+          <button onclick="toggleSlideMenu(event)" id="btnSlideMenu" class="px-3 py-1 rounded-lg bg-slate-950 hover:bg-slate-800 border border-sky-500/50 text-xs font-bold text-sky-300 flex items-center gap-2 shadow transition-all whitespace-nowrap" title="Click to slide down and select any slide">
+            <span>📑 Slide <span id="currentSlideNum">1</span>/12<span class="hidden md:inline">: <span id="currentSlideShortTitle" class="text-white font-semibold">Vision &amp; Hook</span></span></span>
             <span id="slideMenuChevron" class="text-sky-400 transition-transform duration-200">▾</span>
           </button>
         </div>
 
-        <!-- Next Button (Top) -->
-        <button onclick="nextSlide()" id="btnNext" class="px-3 py-1 rounded-lg bg-sky-600 hover:bg-sky-500 text-xs font-bold text-white flex items-center gap-1 shadow-md shadow-sky-900/40 transition-all" title="Next Slide (Right Arrow)">
+        <!-- Next Button (Row 1) -->
+        <button onclick="nextSlide()" id="btnNext" class="px-3 py-1 rounded-lg bg-sky-600 hover:bg-sky-500 text-xs font-bold text-white flex items-center gap-1 shadow-md shadow-sky-900/40 transition-all whitespace-nowrap" title="Next Slide (Right Arrow)">
           Next ▶
         </button>
       </div>
 
-      <!-- Right Controls: Timer, Language Toggle, Voice + Speed, Script Toggle, Fullscreen -->
-      <div class="flex items-center gap-1.5 flex-wrap">
-        <!-- Total Presentation Timer Badge (~8:00 Total) -->
-        <div class="hidden xl:flex items-center gap-1 px-2 py-1 rounded-lg bg-slate-800/90 border border-slate-700 text-xs text-slate-300">
-          <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-          <span id="slideDurationBadge">Slide 1: 0:26 / ~8:00 Total</span>
-        </div>
+      <!-- Right (Row 1): Play Voice + Fullscreen + Toggle Row 2 Button -->
+      <div class="flex items-center gap-1.5 sm:gap-2 flex-shrink-0">
+        <!-- AI Presenter Voice Button (Moved to Row 1) -->
+        <button id="btnVoiceToggle" onclick="toggleSpeech()" class="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-gradient-to-r from-purple-600 to-sky-600 hover:from-purple-500 hover:to-sky-500 text-white font-semibold text-xs shadow-md transition-all whitespace-nowrap">
+          <svg id="iconVoicePlay" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/></svg>
+          <span id="voiceBtnLabel">🎙️ Play Voice</span>
+        </button>
 
+        <!-- Fullscreen Toggle Button (Moved to Row 1) -->
+        <button id="btnFullscreen" onclick="toggleFullscreen()" class="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-red-600/20 hover:bg-red-600/35 border border-red-500/50 text-xs text-red-200 font-bold transition-all shadow whitespace-nowrap" title="Toggle Fullscreen (Shortcut: F)">
+          <span id="fullscreenIcon">⛶</span>
+          <span id="fullscreenLabel" class="hidden sm:inline">Fullscreen</span>
+        </button>
+
+        <!-- Toggle Header Row 2 Button (Show/Hide Secondary Controls) -->
+        <button id="btnToggleHeaderRow2" onclick="toggleHeaderRow2()" class="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs text-slate-300 font-semibold transition-all whitespace-nowrap" title="Show/Hide Secondary Header Controls (Language, Auto, Speed, Script, PDF)">
+          <span>⚙️</span>
+          <span id="headerRow2BtnLabel" class="hidden md:inline">Options</span>
+          <span id="headerRow2Chevron" class="text-sky-400 transition-transform duration-200">▾</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- HEADER ROW 2: Secondary Controls (Hidden by Default until user clicks '⚙️ Options ▾') -->
+    <div id="headerRow2" class="hidden w-full border-t border-slate-800/80 mt-1.5 pt-1.5 flex flex-wrap items-center justify-between gap-2 animate-slide-down">
+      <!-- Left of Row 2: Total Presentation Timer Badge (~8:00 Total) -->
+      <div class="flex items-center gap-1.5 px-2.5 py-0.5 rounded-lg bg-slate-800/90 border border-slate-700 text-xs text-slate-300">
+        <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span id="slideDurationBadge">Slide 1: 0:26 / ~8:00 Total</span>
+      </div>
+
+      <!-- Right of Row 2: Language Switcher (Default EN), Speed, Auto (Default ON), Script, PDF -->
+      <div class="flex items-center gap-1.5 flex-wrap">
         <!-- Language Switcher (EN / TH) -->
         <div class="flex items-center bg-slate-800 p-0.5 rounded-lg border border-slate-700">
           <button id="btnLangEN" onclick="setLanguage('en')" class="px-2 py-0.5 rounded-md text-xs font-semibold transition-all bg-sky-600 text-white shadow">
@@ -136,40 +162,28 @@
           </button>
         </div>
 
-        <!-- AI Presenter Voice Button -->
-        <button id="btnVoiceToggle" onclick="toggleSpeech()" class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-gradient-to-r from-purple-600 to-sky-600 hover:from-purple-500 hover:to-sky-500 text-white font-semibold text-xs shadow-md transition-all">
-          <svg id="iconVoicePlay" class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z"/></svg>
-          <span id="voiceBtnLabel">🎙️ ฟังเสียงบรรยาย</span>
-        </button>
-
-        <!-- Compact Speed Controls in Top Bar -->
-        <div class="hidden sm:flex items-center bg-slate-800/90 rounded-lg border border-slate-700 p-0.5 text-xs">
+        <!-- Compact Speed Controls -->
+        <div class="flex items-center bg-slate-800/90 rounded-lg border border-slate-700 p-0.5 text-xs">
           <button onclick="adjustPlaybackSpeed(-1)" class="px-1.5 py-0.5 rounded hover:bg-slate-700 text-sky-300 font-bold" title="Slower Speech (-)">−</button>
           <button onclick="cyclePlaybackSpeed()" id="btnSpeed" class="px-1.5 py-0.5 text-white font-mono font-bold min-w-[42px] text-center" title="Speech Speed">0.95x</button>
           <button onclick="adjustPlaybackSpeed(1)" class="px-1.5 py-0.5 rounded hover:bg-slate-700 text-emerald-300 font-bold" title="Faster Speech (+)">+</button>
         </div>
 
-        <!-- Auto-Advance Toggle -->
-        <button id="btnAutoPlay" onclick="toggleAutoTour()" class="px-2 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs text-slate-300 font-medium transition-all" title="Auto-advance slides with voice">
-          ⚡ Auto
+        <!-- Auto-Advance Toggle (Default: ON) -->
+        <button id="btnAutoPlay" onclick="toggleAutoTour()" class="px-2.5 py-1 rounded-lg bg-emerald-600/30 border border-emerald-400 text-xs text-emerald-200 font-bold transition-all" title="Auto-advance slides with voice">
+          ⚡ Auto: ON
         </button>
 
         <!-- Toggle Bottom Presenter Script Drawer (Hidden by Default) -->
         <button id="btnToggleScriptDrawer" onclick="toggleScriptDrawer()" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs text-slate-300 font-semibold transition-all" title="Show/Hide Presenter Script & Audio Bar">
-          💬 บทพูด
+          💬 Script / บทพูด
         </button>
 
         <!-- Download 14-Page PDF Button (Includes Full-Page Slide 3 & 4 Diagrams) -->
         <a id="btnDownloadPDF" href="FTH_D365_Copilot_Pitch_Deck.pdf" download="FTH_D365_Copilot_Pitch_Deck.pdf" target="_blank" class="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-emerald-600/25 hover:bg-emerald-600/40 border border-emerald-500/50 text-xs text-emerald-200 font-bold transition-all shadow" title="Download 14-Page Executive PDF (Slides 1–12 + Full-Page Architecture & Use Case Diagrams)">
           <span>📥</span>
-          <span class="hidden sm:inline">PDF</span>
+          <span>PDF</span>
         </a>
-
-        <!-- Fullscreen Toggle Button -->
-        <button id="btnFullscreen" onclick="toggleFullscreen()" class="flex items-center gap-1 px-2.5 py-1 rounded-lg bg-red-600/20 hover:bg-red-600/35 border border-red-500/50 text-xs text-red-200 font-bold transition-all shadow" title="Toggle Fullscreen (Shortcut: F)">
-          <span id="fullscreenIcon">⛶</span>
-          <span id="fullscreenLabel" class="hidden md:inline">Fullscreen</span>
-        </button>
       </div>
     </div>
 
@@ -1401,15 +1415,35 @@
     // STATE & STUDIO NEURAL MP3 AUDIO CONTROLLER
     // =========================================================================
     let currentIndex = 0;
-    let currentLang = 'th';
+    let currentLang = 'en'; // Default: EN
     let isPlayingAudio = false;
-    let autoTourEnabled = false;
+    let autoTourEnabled = true; // Default: Auto ON
     let activeSlide4Case = 1; // Tracks which of the 5 Use Cases is highlighted on Slide 4
     let playbackSpeeds = [0.75, 0.80, 0.85, 0.90, 0.95, 1.00, 1.10, 1.25];
     let speedIndex = 4; // Default to comfortable 0.95x
     let finaleAnimFrame = null;
 
     const audioEl = document.getElementById('neuralAudioPlayer');
+
+    function toggleHeaderRow2() {
+      const row2 = document.getElementById('headerRow2');
+      const btn = document.getElementById('btnToggleHeaderRow2');
+      const chev = document.getElementById('headerRow2Chevron');
+      if (!row2) return;
+      if (row2.classList.contains('hidden')) {
+        row2.classList.remove('hidden');
+        if (btn) {
+          btn.className = 'flex items-center gap-1 px-2.5 py-1 rounded-lg bg-sky-600/30 border border-sky-400 text-xs text-sky-200 font-bold transition-all whitespace-nowrap';
+        }
+        if (chev) chev.style.transform = 'rotate(180deg)';
+      } else {
+        row2.classList.add('hidden');
+        if (btn) {
+          btn.className = 'flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs text-slate-300 font-semibold transition-all whitespace-nowrap';
+        }
+        if (chev) chev.style.transform = 'rotate(0deg)';
+      }
+    }
 
     function toggleSlideMenu(event) {
       if (event) event.stopPropagation();
@@ -1725,11 +1759,10 @@
       const btn = document.getElementById('btnAutoPlay');
       if (autoTourEnabled) {
         btn.textContent = '⚡ Auto: ON';
-        btn.className = 'px-2 py-1 rounded-lg bg-emerald-600/30 border border-emerald-400 text-xs text-emerald-200 font-bold transition-all';
-        if (!isPlayingAudio) toggleSpeech();
+        btn.className = 'px-2.5 py-1 rounded-lg bg-emerald-600/30 border border-emerald-400 text-xs text-emerald-200 font-bold transition-all';
       } else {
-        btn.textContent = '⚡ Auto';
-        btn.className = 'px-2 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs text-slate-300 font-medium transition-all';
+        btn.textContent = '⚡ Auto: OFF';
+        btn.className = 'px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-xs text-slate-300 font-medium transition-all';
       }
     }
 
@@ -1828,8 +1861,8 @@
       if (e.key === 'f' || e.key === 'F') toggleFullscreen();
     });
 
-    // Start in Thai language mode so user can immediately test the fixed Thai neural audio
-    setLanguage('th');
+    // Default startup: Language = EN, Auto = ON
+    setLanguage('en');
   </script>
 </body>
 </html>
