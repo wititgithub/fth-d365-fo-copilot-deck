@@ -1,106 +1,92 @@
-# 🎤 Fujitsu Thailand (FTH) — Executive Host Presentation Guide
-## สคริปต์และคู่มือการบรรยาย 2 ภาษา สำหรับพิธีกร (Bilingual Human MC / Host Script)
-### หัวข้อ: "Empowering Enterprise ERP with Microsoft Copilot AI" (Dynamics 365 Finance & Operations)
+# 🎤 Fujitsu Thailand (FTH) — Executive Keynote Presenter Guide
+## Formal English Host Script & Presentation Guide (4-Slide PPT Deck)
+### Subject: "Empowering Enterprise ERP with Microsoft Copilot AI" (Dynamics 365 Finance & Operations)
 
 ---
 
-### ⏱️ กำหนดเวลาภาพรวม (Overall Timing)
-- **สไลด์เปิดตัว (Opening Deck - 4 หน้า)**: ประมาณ 2 – 3 นาที
-- **สไลด์ระบบจำลองหลัก (Interactive Pitch Deck - 12 หน้า)**: ประมาณ 6 – 8 นาที
-- **ถาม-ตอบ (Q&A & Executive Discussion)**: 5 – 10 นาที
+### ⏱️ Session Overview & Timing
+- **Opening Keynote Deck (4 Slides in PowerPoint)**: ~2 Minutes
+- **Live Interactive Solution Platform Handover (12 Slides)**: ~6–8 Minutes
+- **Executive Discussion & Q&A**: 5–10 Minutes
 
 ---
 
-## 📑 สคริปต์การพูดทีละหน้า (Slide-by-Slide Bilingual Scripts)
+## 📑 Slide-by-Slide Formal English Presenter Script
 
 ---
 
-### 📌 สไลด์ที่ 1: Title & Executive Welcome (บทเปิดและต้อนรับผู้บริหาร)
-- **สไลด์ในระบบ**: Slide 1/4 • `Executive Welcome`
-- **เป้าหมาย**: ต้อนรับคณะผู้บริหาร สร้างบรรยากาศที่น่าเชื่อถือ ชี้ให้เห็นถึงวิสัยทัศน์ของฟูจิตสึ
+### 📌 Slide 1: Title & Executive Welcome
+- **Slide Reference**: Slide 1 of 4 • `Empowering Enterprise ERP with Microsoft Copilot AI`
+- **Objective**: Welcome executive leadership, establish Fujitsu's vision, and state the strategic purpose of the briefing.
+- **Presenter Guidance**: Stand tall, make welcoming eye contact across the boardroom, speak with measured executive authority.
 
-#### 🇬🇧 English Script (ระยะเวลา ~40 วินาที)
-> *"Good morning and welcome, esteemed executives, colleagues, and distinguished guests. Welcome to this strategic executive briefing from Fujitsu Thailand (FTH) on **'Empowering Enterprise ERP with Microsoft Copilot AI'**.*
->
-> *Today, we are thrilled to present our vision for advancing **Microsoft Dynamics 365 Finance & Operations** by natively infusing Microsoft Copilot Studio and Azure AI into everyday financial and Thai tax compliance workflows.*
->
-> *Our purpose today is not merely introducing new AI features, but creating high-value **Strategic Intellectual Property (IP)** for FTH—strengthening our market position as Thailand's most trusted partner in enterprise digital transformation."*
-
-#### 🇹🇭 บทพูดภาษาไทย (ระยะเวลา ~45 วินาที)
-> *"กราบเรียนท่านผู้บริหาร คณะทำงาน และแขกผู้มีเกียรติทุกท่านครับ ผมขอต้อนรับทุกท่านเข้าสู่การนำเสนอเชิงกลยุทธ์ของ ฟูจิตสึ ประเทศไทย (FTH) ในหัวข้อ **'Empowering Enterprise ERP with Microsoft Copilot AI'** ครับ*
->
-> *ในวันนี้ ฟูจิตสึมีความยินดีเป็นอย่างยิ่งที่จะแบ่งปันวิสัยทัศน์ในการยกระดับระบบ **Dynamics 365 Finance & Operations** โดยการนำเทคโนโลยีปัญญาประดิษฐ์ระดับองค์กรอย่าง Microsoft Copilot Studio และ Azure AI เข้ามาเสริมความแข็งแกร่งให้กับกระบวนการบัญชีและการเงินของไทยครับ*
->
-> *เป้าหมายสำคัญของเราในวันนี้ ไม่ใช่เพียงการแนะนำฟีเจอร์ใหม่ แต่เป็นการสร้าง **Strategic Intellectual Property (IP)** และเพิ่มมูลค่าการแข่งขันให้กับ FTH ในฐานะผู้นำโซลูชันด้าน Digital Transformation ที่ได้รับความไว้วางใจสูงสุดในประเทศไทยครับ"*
+> **Formal Presenter Script:**  
+> *"Good morning, members of the executive leadership team, esteemed colleagues, and distinguished guests.*  
+>  
+> *On behalf of Fujitsu Thailand, it is my distinct privilege to welcome you to today’s executive briefing: **'Empowering Enterprise ERP with Microsoft Copilot AI.'***  
+>  
+> *As organizations navigate rapid digital evolution and intensifying regulatory demands in Thailand, traditional enterprise resource planning systems must evolve beyond passive data recording. Today, we are proud to present Fujitsu’s strategic vision for Dynamics 365 Finance & Operations—natively enhanced by Microsoft Copilot Studio and Azure AI.*  
+>  
+> *Our objective this morning is twofold: first, to demonstrate how autonomous AI streamlines everyday accounting, accounts payable, and Thai tax compliance; and second, to illustrate how this initiative creates proprietary, high-margin Intellectual Property that solidifies Fujitsu Thailand’s position as the premier digital transformation partner in the region.*  
+>  
+> *Thank you for your time, and we look forward to an insightful session."*
 
 ---
 
-### 📌 สไลด์ที่ 2: The Industry Paradigm Shift: From System of Record to System of Intelligence
-- **สไลด์ในระบบ**: Slide 2/4 • `Industry Shift`
-- **เป้าหมาย**: ชี้ให้เห็น Pain Point จริงในตลาด ความเข้มงวดของกฎหมายภาษีไทย และโอกาสทางธุรกิจของฟูจิตสึ
+### 📌 Slide 2: The Industry Paradigm Shift: From System of Record to System of Intelligence
+- **Slide Reference**: Slide 2 of 4 • `The Paradigm Shift: From System of Record to System of Intelligence`
+- **Objective**: Articulate the acute operational bottlenecks in Thailand's AP departments and the Revenue Department's stringent compliance mandates.
+- **Presenter Guidance**: Use a thoughtful, problem-solving tone. Emphasize the contrast between "passive historical recording" and "proactive intelligence".
 
-#### 🇬🇧 English Script (ระยะเวลา ~45 วินาที)
-> *"Distinguished guests, looking at day-to-day operations across Thailand, traditional ERP systems have served effectively as **Systems of Record**. However, the true operational bottleneck lies within Accounts Payable—where finance teams spend over 70% of their time manually reviewing hundreds of PDF tax invoices.*
->
-> *From verifying 13-digit Tax IDs and 5-digit branch codes to 3-way matching and withholding tax calculations, manual workloads create severe month-end crunches. Coupled with the Revenue Department's aggressive push toward **e-Tax Invoice and e-Receipt mandates**, a single clerical oversight risks delayed filings and compliance penalties.*
->
-> *This is precisely why Fujitsu sees an unprecedented opportunity to elevate D365 into a **'System of Intelligence'**—automating repetitive burdens and equipping our finance professionals with predictive, pre-validated intelligence."*
-
-#### 🇹🇭 บทพูดภาษาไทย (ระยะเวลา ~45 วินาที)
-> *"ทุกท่านครับ เมื่อมองย้อนกลับมาที่การดำเนินงานจริงในปัจจุบัน ระบบ ERP แบบดั้งเดิมทำหน้าที่บันทึกประวัติ หรือ **System of Record** ได้ดีครับ แต่ปัญหาคอขวดที่แท้จริงขององค์กรธุรกิจในประเทศไทย คือภาระงานของทีมบัญชี (AP) ที่ต้องตรวจสอบเอกสารใบกำกับภาษี PDF จำนวนหลายร้อยหลายพันใบในแต่ละเดือน*
->
-> *ทั้งการตรวจสอบเลขประจำตัวผู้เสียภาษี 13 หลัก, สาขา 5 หลัก, การจับคู่ 3-Way Matching, และการคำนวณภาษีหัก ณ ที่จ่าย ประกอบกับนโยบายของกรมสรรพากรที่กำลังขับเคลื่อนสู่ **e-Tax Invoice และ e-Receipt** อย่างเต็มรูปแบบ ความผิดพลาดแม้เพียงเล็กน้อย ย่อมหมายถึงความล่าช้าและผลกระทบทางภาษีครับ*
->
-> *นี่คือสาเหตุที่ ฟูจิตสึ เล็งเห็นโอกาสครั้งสำคัญ ในการเปลี่ยนผ่าน D365 ให้กลายเป็น **'System of Intelligence'** เพื่อช่วยแบ่งเบาภาระงานซ้ำซ้อน และเพิ่มความแม่นยำให้กับการเงินขององค์กรครับ"*
+> **Formal Presenter Script:**  
+> *"Turning to Slide 2, let us examine the operational realities and regulatory drivers shaping modern corporate finance.*  
+>  
+> *Historically, ERP systems were designed as Systems of Record—reliable at logging historical transactions, but fundamentally passive. In practice, our finance and Accounts Payable teams across Thailand continue to bear an immense manual burden. More than 70% of an AP accountant's time is consumed by repetitive administrative tasks: scrutinizing hundreds of PDF tax invoices, cross-referencing purchase orders, and validating 13-digit Tax Identification Numbers and branch codes line by line.*  
+>  
+> *Compounding this challenge is Thailand’s rapidly tightening regulatory landscape. The Revenue Department’s ongoing transition toward mandatory e-Tax Invoices and e-Receipts, coupled with intricate Withholding Tax classifications, means that even a minor typographical error can stall monthly PP.30 filings or invite statutory penalties.*  
+>  
+> *This operational friction represents a transformative opportunity for Fujitsu. By elevating Dynamics 365 into a **'System of Intelligence'**, we introduce proactive AI agents that validate data, match transactions, and flag discrepancies before posting—converting the finance department from a transactional cost center into an agile, strategic growth driver."*
 
 ---
 
-### 📌 สไลด์ที่ 3: Strengthening D365 Product & Maximizing Fujitsu (FTH) Value
-- **สไลด์ในระบบ**: Slide 3/4 • `Product & FTH Value`
-- **เป้าหมาย**: อธิบายคุณค่าแบบ Win-Win ทั้งด้านความแกร่งของตัวระบบ (D365) และมูลค่าเชิงธุรกิจของ FTH
+### 📌 Slide 3: Strengthening D365 Product & Maximizing Fujitsu (FTH) Strategic Value
+- **Slide Reference**: Slide 3 of 4 • `Strengthening Dynamics 365 & Maximizing Fujitsu (FTH) Value`
+- **Objective**: Explain the dual-sided ROI: direct product capability enhancement and commercial market differentiation for Fujitsu Thailand.
+- **Presenter Guidance**: Project confidence. Emphasize "Human-in-the-Loop" for governance, and "Proprietary IP Asset" for commercial value.
 
-#### 🇬🇧 English Script (ระยะเวลา ~60 วินาที)
-> *"From a strategic value and ROI perspective, this initiative drives dual impact:*
->
-> *First, **Product Excellence for Dynamics 365**: By natively embedding Copilot Studio and Azure AI via Dataverse, enterprise data remains 100% secure within company boundaries. AI extracts, cross-checks against Thai tax laws, and prepares draft vendor invoices—reducing cycle time by over 70%, while strictly maintaining **Human-in-the-Loop governance** so that finance professionals retain full approval authority before any journal posting.*
->
-> *Second, **Unmatched Business Value for Fujitsu Thailand**: FTH establishes a distinctive first-mover advantage by offering a pre-packaged, AI-infused Thai Localization solution. This high-margin, reusable IP enables our sales and consulting teams to scale rapidly across Japanese multinationals (MNCs) and top-tier Thai conglomerates—reinforcing Fujitsu’s global reputation for quality, governance, and trust."*
-
-#### 🇹🇭 บทพูดภาษาไทย (ระยะเวลา ~60 วินาที)
-> *"ในมิติของความคุ้มค่าและผลประโยชน์เชิงกลยุทธ์ โครงการนี้ได้สร้างคุณค่าสองด้านพร้อมกันครับ*
->
-> *ด้านแรก คือ **ความแข็งแกร่งของผลิตภัณฑ์ Dynamics 365** ที่ได้รับการอัปเกรดให้มี AI ทำงานอยู่เบื้องหลังอย่างแท้จริง ผ่าน Copilot Studio และ Dataverse โดยไม่มีการส่งข้อมูลออกนอกองค์กร AI จะช่วยอ่านเอกสาร ตรวจสอบกฎหมายภาษีไทย และเตรียมร่างเอกสารใบแจ้งหนี้ล่วงหน้า ช่วยลดเวลาทำงานลงกว่า 70% โดยยึดหลัก **Human-in-the-Loop** เสมอ พนักงานจะเป็นผู้อนุมัติขั้นสุดท้ายก่อนโพสต์รายการเสมอครับ*
->
-> *และด้านที่สอง ซึ่งสำคัญยิ่งต่อ **ฟูจิตสึ ประเทศไทย** คือการสร้าง **'ความแตกต่างที่เหนือกว่า'** ในตลาด ERP เราจะก้าวขึ้นเป็นผู้นำรายแรกๆ ในไทยที่มี Packaged Solution ด้าน Thai Localization พร้อม AI สำเร็จรูป ซึ่งเป็น High-Margin IP Asset ที่สามารถนำไปติดตั้งให้กับลูกค้าองค์กร ทั้งบริษัทข้ามชาติญี่ปุ่น (Japanese MNCs) และองค์กรชั้นนำในไทยได้อย่างรวดเร็ว ตอกย้ำภาพลักษณ์ของ Fujitsu ในฐานะ Trusted Partner ด้านนวัตกรรมองค์กรครับ"*
+> **Formal Presenter Script:**  
+> *"On Slide 3, we illustrate how this initiative generates substantial, balanced value across both the product platform and Fujitsu Thailand’s commercial portfolio.*  
+>  
+> *From a product enhancement perspective, we are embedding Microsoft Copilot Studio and Azure AI directly into Dynamics 365 via Microsoft Dataverse. This architectural design ensures that enterprise data never leaves your secure tenant. Rather than replacing human judgment, Copilot functions as an autonomous drafting co-pilot: extracting invoice details, validating against 3-way matching rules, and pre-populating draft vendor journals. Crucially, we enforce strict **Human-in-the-Loop governance**: no transaction is ever committed to the general ledger without explicit review and approval by an authorized accountant.*  
+>  
+> *From Fujitsu Thailand’s strategic perspective, this initiative establishes a decisive **first-mover advantage**. By transforming custom localization scripts into a packaged, repeatable AI-powered Thai Localization IP asset, we significantly reduce project implementation time while commanding higher consulting margins. This offering directly addresses the acute compliance needs of Japanese multinationals and major domestic enterprises in Thailand, reinforcing Fujitsu’s legacy of Japanese engineering quality, robust governance, and trusted delivery."*
 
 ---
 
-### 📌 สไลด์ที่ 4: Executive Agenda & Transition to Live Solution Pitch
-- **สไลด์ในระบบ**: Slide 4/4 • `Agenda & Live Launch`
-- **เป้าหมาย**: สรุปสิ่งที่จะได้ชมในระบบจำลองจริง และกล่าวประโยคส่งมอบ (Handover Cue) เพื่อเข้าสู่ลิงก์
+### 📌 Slide 4: Executive Agenda & Transition to Live Solution Demonstration
+- **Slide Reference**: Slide 4 of 4 • `Executive Agenda & Transition to Live Solution Pitch`
+- **Objective**: Preview the 12-slide live interactive demo platform and execute an inviting, seamless handover.
+- **Presenter Guidance**: Use an energetic, forward-looking tone. Deliver the handover cue, then click the URL or switch windows to the live demo.
 
-#### 🇬🇧 English Script (ระยะเวลา ~30 วินาที)
-> *"Looking ahead to today’s session, we have prepared a comprehensive **12-slide Live Interactive Solution Pitch** that demonstrates the actual production-ready capabilities:*
->
-> *We will walk through the official Microsoft Copilot Studio multi-agent architecture, explore our **top five Thai localization use cases**—from AP Invoice Intelligence to Continuous Reconciliation—and outline our practical 8-week POC delivery roadmap.*
->
+> **Formal Presenter Script:**  
+> *"Finally, on Slide 4, let us outline the interactive journey we have prepared for you today.*  
+>  
+> *Following this opening briefing, we will transition directly into our production-grade Live Interactive Pitch Platform, which walks through four core pillars across twelve executive slides:*  
+> *1. First, the official Microsoft Copilot Studio reference architecture, detailing enterprise security, Dataverse integration, and multi-agent coordination;*  
+> *2. Second, an in-depth walkthrough of our top five Thai localization use cases—spanning AP Invoice Intelligence, Thai Tax Copilot, e-Tax Gateway pre-validation, Continuous Reconciliation, and Policy Q&A;*  
+> *3. Third, a pragmatic 8-week Proof of Concept delivery roadmap, engineered to deliver measurable ROI and verified business value within two months; and*  
+> *4. Fourth, an interactive presentation experience equipped with dual-host narration and real-time scenario simulation.*  
+>  
 > *(With an inviting handover gesture)*  
-> *Without further ado, I would now like to invite our executive team to transition directly into the live interactive platform to experience the future of Dynamics 365 and Copilot AI firsthand. Let us begin."*  
-> *(Click 'Launch Live Deck' button or navigate to https://wititgithub.github.io/fth-d365-fo-copilot-deck/)*
-
-#### 🇹🇭 บทพูดภาษาไทย (ระยะเวลา ~30 วินาที)
-> *"และในลำดับถัดไป เพื่อให้ทุกท่านได้เห็นภาพการทำงานจริงอย่างเป็นรูปธรรม ทางทีมงานได้จัดเตรียม **แพลตฟอร์มการนำเสนอแบบ Interactive Pitch Deck จำนวน 12 สไลด์** ที่จำลองการทำงานจริงอย่างละเอียดครับ*
->
-> *โดยประกอบด้วยสถาปัตยกรรมทางเทคนิค, 5 Use Cases หลักที่ออกแบบมาเพื่อภาษีไทยโดยเฉพาะ, และแผนการดำเนินงาน POC 8 สัปดาห์ พร้อมระบบเสียงบรรยายจำลองแบบ Dual-Host ที่ปรับแต่งมาอย่างเป็นทางการ*
->
-> *(ผายมือหรือชี้ไปที่จอภาพ)*  
-> *บัดนี้ ผมขออนุญาตนำพาทุกท่านเข้าสู่ระบบจำลองผ่านลิงก์โครงการ เพื่อร่วมทดสอบและสัมผัสประสบการณ์แห่งอนาคตของ Dynamics 365 และ Copilot AI ไปพร้อมกันได้ ณ บัดนี้ครับ ขอเรียนเชิญทุกท่านครับ"*  
-> *(คลิกปุ่ม Launch Live Deck หรือเปิดลิงก์โครงการ)*
+> *Without further delay, I invite our executive team to transition with me into the live interactive platform to witness the future of Dynamics 365 and Copilot AI in action.*  
+>  
+> *Please join me as we launch the live demonstration."*  
+> *(Click the direct link: https://wititgithub.github.io/fth-d365-fo-copilot-deck/)*
 
 ---
 
-## 🛠️ แหล่งรวมไฟล์นำเสนอ (File Assets & Formats)
-1. **ไฟล์ PowerPoint (.pptx)**: [FTH_D365_Executive_Opening_Deck.pptx](file:///c:/FTH/FTH-D365_FO/FTH_D365_Executive_Opening_Deck.pptx) *(มีบันทึก Note สคริปต์ 2 ภาษา EN/TH ในตัวทุกหน้า)*
-2. **ไฟล์ PDF สไลด์ 4 หน้า**: [FTH_D365_Executive_Opening_Deck.pdf](file:///c:/FTH/FTH-D365_FO/FTH_D365_Executive_Opening_Deck.pdf)
-3. **ไฟล์เว็บสไลด์เกริ่นนำ 4 หน้า (Bilingual EN/TH Web Deck)**: [FTH_D365_Executive_Opening_Deck.html](file:///c:/FTH/FTH-D365_FO/FTH_D365_Executive_Opening_Deck.html)
-4. **ลิงก์ระบบจำลองหลัก 12 สไลด์ (GitHub Pages)**: [https://wititgithub.github.io/fth-d365-fo-copilot-deck/](https://wititgithub.github.io/fth-d365-fo-copilot-deck/)
+## 📂 File Deliverables
+1. **PowerPoint Presentation (.pptx)**: [FTH_D365_Executive_Opening_Deck.pptx](file:///c:/FTH/FTH-D365_FO/FTH_D365_Executive_Opening_Deck.pptx)  
+   *(Pre-loaded with these exact formal scripts in the Presenter Notes section of each slide)*
+2. **Executive Companion PDF**: [FTH_D365_Executive_Opening_Deck.pdf](file:///c:/FTH/FTH-D365_FO/FTH_D365_Executive_Opening_Deck.pdf)
+3. **Live Demonstration Platform (12 Slides)**: [https://wititgithub.github.io/fth-d365-fo-copilot-deck/](https://wititgithub.github.io/fth-d365-fo-copilot-deck/)
