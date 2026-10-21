@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>D365FO Thai Localization Evaluation & AI Strategy - Fujitsu Thailand (FTH)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Sarabun:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 10mm 12mm 12mm 12mm;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', 'Sarabun', 'Leelawadee UI', Tahoma, sans-serif;
+      color: #0f172a;
+      background-color: #ffffff;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      line-height: 1.42;
+      margin: 0;
+      padding: 0;
+    }
+    .page-container {
+      width: 100%;
+      min-height: 270mm;
+      max-height: 270mm;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      page-break-after: always;
+      break-after: page;
+      padding: 3mm 2mm;
+    }
+    .page-container:last-child {
+      page-break-after: auto;
+      break-after: auto;
+    }
+    .card-box {
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 10px 14px;
+      background: #ffffff;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+    .badge-tag {
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+  </style>
+</head>
+<body class="text-slate-900 text-xs">
+
+  <!-- ==================== PAGE 1: EXECUTIVE COVER & DASHBOARD ==================== -->
+  <div class="page-container">
+    <div>
+      <!-- Top Branding Bar -->
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3 mb-4">
+        <div class="flex items-center gap-3">
+          <div class="px-3 py-1 bg-red-600 text-white font-extrabold text-[11px] tracking-wider rounded uppercase">
+            FUJITSU THAILAND
+          </div>
+          <span class="text-slate-300">|</span>
+          <span class="text-[11px] font-bold text-slate-600 uppercase tracking-wide">Enterprise Advisory &amp; AI Practice</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-[11px] font-semibold text-slate-500">Platform:</span>
+          <span class="px-2.5 py-0.5 rounded bg-sky-50 text-sky-700 border border-sky-200 font-bold text-[11px]">Microsoft Dynamics 365 F&amp;O</span>
+        </div>
+      </div>
+
+      <!-- Main Title Block -->
+      <div class="space-y-2 max-w-3xl mb-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 text-white text-[10px] font-bold uppercase tracking-wider">
+          <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+          Strategic Advisory Assessment &amp; AI Modernization
+        </div>
+
+        <h1 class="text-2xl font-black text-slate-900 tracking-tight leading-tight">
+          บทวิเคราะห์เชิงกลยุทธ์: ข้อเสนอ D365FO Thai Localization (17 รายการ)
+        </h1>
+        <p class="text-sm font-bold text-sky-700">
+          ประเมินเปรียบเทียบ Traditional X++ vs. AI-Augmented, การระบุจุดเสี่ยง และแนวทางปรับปรุงสู่ Smart AI Package
+        </p>
+        <p class="text-[11px] text-slate-600 leading-relaxed font-normal">
+          รายงานวิเคราะห์ข้อเสนอการพัฒนาเพิ่มเติมสำหรับระบบ Microsoft Dynamics 365 Finance &amp; Operations Thai Localization 
+          ตามเอกสารประมาณการของทีมงาน (168 Man-Days) เพื่อตอบโจทย์ 3 ประเด็นหลักของผู้บริหาร: 
+          <strong>1) แต่ละข้อคืออะไร, 2) ทำโดยไม่ใช้ AI ได้หรือไม่ และถ้าใช้ AI จะเป็นอย่างไร, 3) จุดเสี่ยงที่อาจเกิดปัญหาและข้อเสนอแนะเชิงกลยุทธ์</strong>
+        </p>
+      </div>
+
+      <!-- Executive KPI Comparison Grid -->
+      <div class="grid grid-cols-4 gap-3 mb-4">
+        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200 text-center">
+          <div class="text-[10px] font-bold text-slate-500 uppercase mb-0.5">Original Proposal</div>
+          <div class="text-xl font-black text-slate-800">168 MD</div>
+          <p class="text-[9px] text-slate-500">17 Items • 3 Phases • ~4-5 เดือน</p>
+        </div>
+        <div class="p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-center">
+          <div class="text-[10px] font-bold text-emerald-700 uppercase mb-0.5">Optimized with AI</div>
+          <div class="text-xl font-black text-emerald-600">~95 MD</div>
+          <p class="text-[9px] text-emerald-700">ประหยัด Effort ได้ถึง <strong>-43%</strong></p>
+        </div>
+        <div class="p-3 rounded-xl bg-rose-50 border border-rose-200 text-center">
+          <div class="text-[10px] font-bold text-rose-700 uppercase mb-0.5">High-Risk Customization</div>
+          <div class="text-xl font-black text-rose-600">4 Items</div>
+          <p class="text-[9px] text-rose-700">เสี่ยงกระทบ Core Posting &amp; Audit</p>
+        </div>
+        <div class="p-3 rounded-xl bg-sky-50 border border-sky-200 text-center">
+          <div class="text-[10px] font-bold text-sky-700 uppercase mb-0.5">Strategic Value</div>
+          <div class="text-xl font-black text-sky-600">Smart IP</div>
+          <p class="text-[9px] text-sky-700">ยกระดับเป็น AI-Ready Asset ของ FTH</p>
+        </div>
+      </div>
+
+      <!-- Visual Callout Banner -->
+      <div class="p-3.5 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-xl mb-3 shadow-xs">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="text-[10px] font-black text-amber-400 uppercase tracking-wider mb-0.5">Executive Summary Note</div>
+            <p class="text-[11px] text-slate-200 leading-snug">
+              การพัฒนาแบบเดิมทั้งหมด 168 Man-Days เป็นไปได้ทางเทคนิค 100% แต่สร้าง <strong>หนี้ทางเทคนิค (Technical Debt)</strong> และเสี่ยงต่อการพังเมื่อ Microsoft อัปเดต One Version ทางเลือกที่ดีที่สุดคือการใช้ <strong>Hybrid Strategy:</strong> ทำเฉพาะ Core ภาษีด้วย X++ แล้วใช้ Copilot AI แทนที่งานฟอร์มสอบถามและเอกสาร ช่วยลดงบประมาณลง 40% และได้โซลูชันที่ทันสมัยกว่า
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Metadata Footer of Cover Page -->
+    <div class="border-t border-slate-200 pt-2 flex items-center justify-between text-[10px] text-slate-500">
+      <div>
+        <span class="font-bold text-slate-800">Fujitsu (Thailand) Co., Ltd. (FTH)</span> | Enterprise Application Practice
+      </div>
+      <div>
+        <span>Document Ref: <strong>FTH-EVAL-LOCALIZATION-2026</strong></span> • <span>October 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 2: BREAKDOWN OF 17 PROPOSED ITEMS ==================== -->
+  <div class="page-container">
+    <div>
+      <!-- Section Title -->
+      <div class="flex items-center justify-between border-b-2 border-slate-900 pb-1.5 mb-2.5">
+        <div>
+          <span class="text-[10px] font-black tracking-widest text-red-600 uppercase">Proposal Breakdown</span>
+          <h2 class="text-base font-black text-slate-900">1. สรุปรายละเอียดข้อเสนอการพัฒนาทั้ง 17 รายการ (168 Man-Days)</h2>
+        </div>
+        <div class="text-right">
+          <span class="px-2 py-0.5 bg-slate-100 rounded text-[9px] font-bold text-slate-600">Source: FTH Localization Effort Plan</span>
+        </div>
+      </div>
+
+      <!-- Table of 17 Items -->
+      <div class="border border-slate-200 rounded-xl overflow-hidden mb-2 shadow-xs">
+        <table class="w-full text-[10px] text-left">
+          <thead class="bg-slate-900 text-white font-bold uppercase text-[9px]">
+            <tr>
+              <th class="p-2 w-8 text-center">No.</th>
+              <th class="p-2 w-2/5">รายการที่ทีมงานนำเสนอ (Topic &amp; Scope)</th>
+              <th class="p-2 w-16 text-center">Effort</th>
+              <th class="p-2 w-16 text-center">Timeline</th>
+              <th class="p-2">ลักษณะงานทางเทคนิค (Technical Scope)</th>
+              <th class="p-2 w-20 text-center">หมวดหมู่</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200 text-slate-700">
+            <!-- Group 1: Tax -->
+            <tr class="bg-amber-50/30">
+              <td class="p-1.5 text-center font-bold">1</td>
+              <td class="p-1.5 font-bold text-slate-900">Additional Reverse Unrealized VAT</td>
+              <td class="p-1.5 text-center font-bold text-amber-700">12 MD</td>
+              <td class="p-1.5 text-center">2 Wks</td>
+              <td class="p-1.5">เพิ่มฟิลด์ Tax Reg No., Branch, Vendor และออกรายงานภาษีซื้อไม่ถึงกำหนด</td>
+              <td class="p-1.5 text-center"><span class="badge-tag bg-amber-100 text-amber-800">Thai Tax</span></td>
+            </tr>
+            <tr class="bg-amber-50/30">
+              <td class="p-1.5 text-center font-bold">2</td>
+              <td class="p-1.5 font-bold text-slate-900">AR Withholding Tax Journal Report (TH)</td>
+              <td class="p-1.5 text-center font-bold text-amber-700">6 MD</td>
+              <td class="p-1.5 text-center">1 Wk</td>
+              <td class="p-1.5">แก้ไข SSRS Report ภาษีหัก ณ ที่จ่ายลูกหนี้ ให้แสดงข้อมูลถูกต้องตามสรรพากร</td>
+              <td class="p-1.5 text-center"><span class="badge-tag bg-amber-100 text-amber-800">Thai Tax</span></td>
+            </tr>
+            <tr class="bg-amber-50/30">
+              <td class="p-1.5 text-center font-bold">3</td>
+              <td class="p-1.5 font-bold text-slate-900">DMF for Journal (Import Tax Information)</td>
+              <td class="p-1.5 text-center font-bold text-amber-700">9 MD</td>
+              <td class="p-1.5 text-center">2 Wks</td>
+              <td class="p-1.5">สร้าง Entity ใน DMF เพื่อนำเข้าเลขใบกำกับ, วันที่, Tax Branch และ Tax ID</td>
+              <td class="p-1.5 text-center"><span class="badge-tag bg-amber-100 text-amber-800">Data Import</span></td>
+            </tr>
+            <tr class="bg-rose-50/40">
+              <td class="p-1.5 text-center font-bold">4</td>
+              <td class="p-1.5 font-bold text-slate-900">Combine Related Voucher with Main Voucher</td>
+              <td class="p-1.5 text-center font-bold text-rose-700">17 MD</td>
+              <td class="p-1.5 text-center">3 Wks</td>
+              <td class="p-1.5">แก้ Posting Logic ยุบรวม Voucher ภาษี, WHT, และ FX Gain/Loss เข้าใบหลัก</td>
+              <td class="p-1.5 text-center"><span class="badge-tag bg-rose-100 text-rose-800">High Risk</span></td>
+            </tr>
+            <tr class="bg-amber-50/30">
+              <td class="p-1.5 text-center font-bold">8</td>
+              <td class="p-1.5 font-bold text-slate-900">Receipt / Tax Invoice (Detail &amp; Summary)</td>
+              <td class="p-1.5 text-center font-bold text-amber-700">23 MD</td>
+              <td class="p-1.5 text-center">4 Wks</td>
+              <td class="p-1.5">ปรับแต่งแบบฟอร์มใบเสร็จ/ใบกำกับภาษีเต็มรูป ทั้งก่อนและหลังรับชำระ</td>
+              <td class="p-1.5 text-center"><span class="badge-tag bg-amber-100 text-amber-800">Thai Tax</span></td>
+            </tr>
+
+            <!-- Group 2: Inquiries & Printing -->
+            <tr class="bg-sky-50/30">
+              <td class="p-1.5 text-center font-bold">6</td>
+              <td class="p-1.5 font-bold text-slate-900">Sales Order Line Inquiry (Order/Packing/Inv Qty)</td>
+              <td class="p-1.5 text-center font-bold text-sky-700">10 MD</td>
+              <td class="p-1.5 text-center">2 Wks</td>
+              <td class="p-1.5">พัฒนาฟอร์มใหม่แสดงยอดสั่ง, ยอดส่งของ (Packing Slip) และยอดค้างส่ง</td>
+              <td class="p-1.5 text-center"><span class="badge-tag bg-sky-100 text-sky-800">Inquiry</span></td>
+            </tr>
+            <tr class="bg-sky-50/30">
+              <td class="p-1.5 text-center font-bold">7</td>
+              <td class="p-1.5 font-bold text-slate-900">Purchase Order Line Inquiry (Order/Receipt/Inv Qty)</td>
+              <td class="p-1.5 text-center font-bold text-sky-700">10 MD</td>
+              <td class="p-1.5 text-center">2 Wks</td>
+              <td class="p-1.5">พัฒนาฟอร์มใหม่แสดงยอดสั่งซื้อ, ยอดรับสินค้า (Product Receipt) และยอดค้างรับ</td>
+              <td class="p-1.5 text-center"><span class="badge-tag bg-sky-100 text-sky-800">Inquiry</span></td>
+            </tr>
+            <tr class="bg-sky-50/30">
+              <td class="p-1.5 text-center font-bold">11</td>
+              <td class="p-1.5 font-bold text-slate-900">Print Non-Posted Voucher for PO/SO</td>
+              <td class="p-1.5 text-center font-bold text-sky-700">7 MD</td>
+              <td class="p-1.5 text-center">1 Wk</td>
+              <td class="p-1.5">อนุญาตให้ผู้ใช้พิมพ์เอกสาร Voucher ล่วงหน้าก่อนกดโพสต์จริง</td>
+              <td class="p-1.5 text-center"><span class="badge-tag bg-sky-100 text-sky-800">Reporting</span></td>
+            </tr>
+            <tr class="bg-sky-50/30">
+              <td class="p-1.5 text-center font-bold">14</td>
+              <td class="p-1.5 font-bold text-slate-900">Print Multiple Vouchers Simultaneously</td>
+              <td class="p-1.5 text-center font-bold text-sky-700">19 MD</td>
+              <td class="p-1.5 text-center">3 Wks</td>
+              <td class="p-1.5">พัฒนาฟังก์ชันเลือกพิมพ์ Voucher หลายใบพร้อมกันตามช่วงเลขที่หรือ Batch</td>
+              <td class="p-1.5 text-center"><span class="badge-tag bg-sky-100 text-sky-800">Reporting</span></td>
+            </tr>
+            <tr class="bg-sky-50/30">
+              <td class="p-1.5 text-center font-bold">15</td>
+              <td class="p-1.5 font-bold text-slate-900">Picking List Display Sales Unit</td>
+              <td class="p-1.5 text-center font-bold text-sky-700">7 MD</td>
+              <td class="p-1.5 text-center">1 Wk</td>
+              <td class="p-1.5">ปรับรายงาน Picking List ให้แสดงทั้งหน่วยคลังและหน่วยขาย (Sales Unit)</td>
+              <td class="p-1.5 text-center"><span class="badge-tag bg-slate-100 text-slate-800">Standard</span></td>
+            </tr>
+
+            <!-- Group 3: FX & Banking -->
+            <tr>
+              <td class="p-1.5 text-center font-bold">5</td>
+              <td class="p-1.5 font-bold text-slate-900">Exchange Rate for Free Text Invoice</td>
+              <td class="p-1.5 text-center font-bold text-slate-700">6 MD</td>
+              <td class="p-1.5 text-center">1 Wk</td>
+              <td class="p-1.5">เพิ่มฟิลด์ Exchange Rate ใน Free Text Invoice และกำหนด Fixed Rate ได้</td>
+              <td class="p-1.5 text-center"><span class="badge-tag bg-slate-100 text-slate-800">Config</span></td>
+            </tr>
+            <tr>
+              <td class="p-1.5 text-center font-bold">9</td>
+              <td class="p-1.5 font-bold text-slate-900">Bank Advance (Import Without Route Number)</td>
+              <td class="p-1.5 text-center font-bold text-slate-700">5 MD</td>
+              <td class="p-1.5 text-center">1 Wk</td>
+              <td class="p-1.5">แก้โค้ดตัดเงื่อนไข Route Number ในการนำเข้าไฟล์ Bank Statement</td>
+              <td class="p-1.5 text-center"><span class="badge-tag bg-slate-100 text-slate-800">Banking</span></td>
+            </tr>
+            <tr>
+              <td class="p-1.5 text-center font-bold">10</td>
+              <td class="p-1.5 font-bold text-slate-900">Currency Selling / Buying Exchange Rate</td>
+              <td class="p-1.5 text-center font-bold text-slate-700">10 MD</td>
+              <td class="p-1.5 text-center">2 Wks</td>
+              <td class="p-1.5">แยกประเภทอัตราแลกเปลี่ยน ซื้อ-ขาย และสร้างตัวกรองแสดงผลเฉพาะเจาะจง</td>
+              <td class="p-1.5 text-center"><span class="badge-tag bg-slate-100 text-slate-800">FX Rate</span></td>
+            </tr>
+
+            <!-- Group 4: Ops & FA -->
+            <tr>
+              <td class="p-1.5 text-center font-bold">12</td>
+              <td class="p-1.5 font-bold text-slate-900">Split Fixed Asset by Quantity</td>
+              <td class="p-1.5 text-center font-bold text-slate-700">11 MD</td>
+              <td class="p-1.5 text-center">2 Wks</td>
+              <td class="p-1.5">เพิ่มฟังก์ชันแบ่งแยกการถือครองสินทรัพย์ถาวรตามปริมาณจำนวนนับ</td>
+              <td class="p-1.5 text-center"><span class="badge-tag bg-slate-100 text-slate-800">Fixed Asset</span></td>
+            </tr>
+            <tr>
+              <td class="p-1.5 text-center font-bold">13</td>
+              <td class="p-1.5 font-bold text-slate-900">Number Sequence Group for Return Order</td>
+              <td class="p-1.5 text-center font-bold text-slate-700">5 MD</td>
+              <td class="p-1.5 text-center">1 Wk</td>
+              <td class="p-1.5">ผูก Number Sequence Group อัตโนมัติตามประเภทการคืนสินค้า</td>
+              <td class="p-1.5 text-center"><span class="badge-tag bg-slate-100 text-slate-800">Config</span></td>
+            </tr>
+            <tr>
+              <td class="p-1.5 text-center font-bold">16</td>
+              <td class="p-1.5 font-bold text-slate-900">Separate Movement Journal for Issue and Receipt</td>
+              <td class="p-1.5 text-center font-bold text-slate-700">6 MD</td>
+              <td class="p-1.5 text-center">1 Wk</td>
+              <td class="p-1.5">แยกสมุดรายวันตัดจ่ายและรับเข้าออกจากกัน บังคับใส่ยอดลบอัตโนมัติเมื่อเบิก</td>
+              <td class="p-1.5 text-center"><span class="badge-tag bg-slate-100 text-slate-800">Inventory</span></td>
+            </tr>
+            <tr class="bg-rose-50/40">
+              <td class="p-1.5 text-center font-bold">17</td>
+              <td class="p-1.5 font-bold text-slate-900">Restore Voided Sales Orders / Purchase Orders</td>
+              <td class="p-1.5 text-center font-bold text-rose-700">5 MD</td>
+              <td class="p-1.5 text-center">1 Wk</td>
+              <td class="p-1.5">สร้างฟังก์ชันกู้คืนเอกสาร SO/PO ที่ถูกยกเลิก (Voided) ให้กลับมาใช้งานใหม่</td>
+              <td class="p-1.5 text-center"><span class="badge-tag bg-rose-100 text-rose-800">Audit Risk</span></td>
+            </tr>
+            <!-- Total -->
+            <tr class="bg-slate-100 font-black text-slate-900">
+              <td colspan="2" class="p-2 text-right">รวมประมาณการ Effort ทั้งสิ้น (Total Man-Days):</td>
+              <td class="p-2 text-center text-red-600 text-xs font-black">168 MD</td>
+              <td colspan="3" class="p-2 text-slate-500 font-normal">ระยะเวลาพัฒนาจริงประมาณ 18–23 สัปดาห์ (3 Phases)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="border-t border-slate-200 pt-1 text-[10px] text-slate-400 text-right">
+      Section 1: Detailed Breakdown of Proposed 17 Items
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 3: COMPARATIVE ANALYSIS (NON-AI VS AI) ==================== -->
+  <div class="page-container">
+    <div>
+      <!-- Section Title -->
+      <div class="flex items-center justify-between border-b-2 border-slate-900 pb-1.5 mb-3">
+        <div>
+          <span class="text-[10px] font-black tracking-widest text-sky-700 uppercase">Methodology Comparison</span>
+          <h2 class="text-base font-black text-slate-900">2. เปรียบเทียบ: ทำแบบเดิม (ไม่ใช้ AI) vs. ถ้านำ AI มาประยุกต์ใช้</h2>
+        </div>
+        <div class="text-right">
+          <span class="px-2 py-0.5 bg-sky-50 text-sky-800 rounded text-[9px] font-bold">Architecture &amp; User Experience</span>
+        </div>
+      </div>
+
+      <!-- Comparative Table -->
+      <div class="border border-slate-200 rounded-xl overflow-hidden mb-3 shadow-xs">
+        <table class="w-full text-[10px] text-left">
+          <thead class="bg-slate-900 text-white font-bold uppercase text-[9px]">
+            <tr>
+              <th class="p-2.5 w-1/4">หมวดหมู่การใช้งาน</th>
+              <th class="p-2.5 w-3/8 bg-slate-800 text-slate-300">แนวทางเดิม (Traditional Non-AI)<br><span class="font-normal text-[8px] text-slate-400">พัฒนาด้วย X++ / SSRS / DMF</span></th>
+              <th class="p-2.5 w-3/8 bg-emerald-950/80 text-emerald-200">แนวทางใหม่ (AI-Augmented Copilot)<br><span class="font-normal text-[8px] text-emerald-400">Azure AI Document Intelligence + Copilot Studio</span></th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200 text-slate-700">
+            <tr class="bg-white">
+              <td class="p-2 font-bold text-slate-900">
+                1. การนำเข้าข้อมูลภาษี<br>
+                <span class="text-[9px] text-slate-500 font-normal">(ข้อ 3: DMF for Journal - 9 MD)</span>
+              </td>
+              <td class="p-2">
+                ผู้ใช้ต้องนั่งพิมพ์ข้อมูลใบกำกับภาษีลงใน Excel ตามโครงสร้าง DMF Entity แล้วอัปโหลดเข้า D365 หากมีพิมพ์ตกหล่น ระบบจะติด Error ทำให้เสียเวลาคีย์ข้อมูลซ้ำซ้อน
+              </td>
+              <td class="p-2 bg-emerald-50/50 text-emerald-950 font-medium">
+                <strong>Azure Document Intelligence + Copilot:</strong> ผู้ใช้วางไฟล์ PDF หรือรูปถ่ายบิล Copilot สกัดเลข 13 หลัก, สาขา, ยอด VAT แล้วสร้าง Tax Journal ให้อัตโนมัติใน 10 วินาที <em>(ลดงานเอกสาร 90%)</em>
+              </td>
+            </tr>
+            <tr class="bg-slate-50/50">
+              <td class="p-2 font-bold text-slate-900">
+                2. การติดตามยอดค้างส่ง/รับ<br>
+                <span class="text-[9px] text-slate-500 font-normal">(ข้อ 6 &amp; 7: SO/PO Inquiries - 20 MD)</span>
+              </td>
+              <td class="p-2">
+                เขียนหน้าจอ Form X++ ใหม่ 2 หน้าจอ ผู้ใช้ต้องเข้ามาคลิกฟิลเตอร์ ค้นหา และเลื่อนดูทีละบรรทัดบนเดสก์ท็อปเท่านั้น ไม่ตอบโจทย์ผู้บริหารที่ต้องการดูสรุปแบบรวดเร็ว
+              </td>
+              <td class="p-2 bg-emerald-50/50 text-emerald-950 font-medium">
+                <strong>Copilot Natural Language Query:</strong> ไม่ต้องเขียนฟอร์ม ผู้ใช้พิมพ์ถามใน MS Teams/D365: <em>"สรุป PO เดือนนี้ที่ของยังไม่ส่ง"</em> Copilot ดึงข้อมูลสรุปเป็นตารางพร้อมการแจ้งเตือนทันที <em>(ประหยัด 20 MD)</em>
+              </td>
+            </tr>
+            <tr class="bg-white">
+              <td class="p-2 font-bold text-slate-900">
+                3. การตรวจสอบ Voucher ก่อนโพสต์<br>
+                <span class="text-[9px] text-slate-500 font-normal">(ข้อ 11 &amp; 14: Print Vouchers - 26 MD)</span>
+              </td>
+              <td class="p-2">
+                เขียนระบบจำลอง TempDB เพื่อเรนเดอร์รายงาน SSRS ออกมาดูทีละใบ และเขียนลูปสั่งพิมพ์เป็นชุด ช้าและกินทรัพยากรเซิร์ฟเวอร์
+              </td>
+              <td class="p-2 bg-emerald-50/50 text-emerald-950 font-medium">
+                <strong>Copilot Accounting Explainer &amp; Batch:</strong> ให้ Copilot สรุปผลกระทบทางบัญชี (Debit/Credit/VAT) ก่อนกดโพสต์ และแพ็กเกจส่งออก PDF หลายใบเป็นไฟล์ ZIP ในคลิกเดียว
+              </td>
+            </tr>
+            <tr class="bg-slate-50/50">
+              <td class="p-2 font-bold text-slate-900">
+                4. การพัฒนา Core ภาษีสรรพากร<br>
+                <span class="text-[9px] text-slate-500 font-normal">(ข้อ 1, 2, 8: ภาษีไทย - 41 MD)</span>
+              </td>
+              <td class="p-2">
+                นักพัฒนาเขียนโค้ด X++ เองทั้งหมด, เขียน Test script และทำเอกสาร Functional/Technical ด้วยมือ ใช้เวลานาน 41 MD
+              </td>
+              <td class="p-2 bg-emerald-50/50 text-emerald-950 font-medium">
+                <strong>GitHub Copilot Acceleration:</strong> ยังคงต้องใช้ X++ เพื่อความแม่นยำตามกฎหมาย 100% แต่ใช้ AI ช่วยร่างโครงสร้างโค้ดและสร้าง Test Case อัตโนมัติ <em>(ประหยัดเวลาลง 30-40%)</em>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Key Insight Callout -->
+      <div class="p-3 bg-sky-50 border border-sky-200 rounded-xl">
+        <div class="text-[10px] font-black text-sky-900 uppercase tracking-wide mb-1">
+          💡 สรุปความคุ้มค่าของการนำ AI มาประยุกต์ใช้
+        </div>
+        <p class="text-[10px] text-slate-700 leading-relaxed">
+          หากทำแบบเดิมทั้งหมด เราจะได้แค่ <strong>"หน้าจอแบบเก่าที่เพิ่มภาระการดูแลรักษา"</strong> แต่ถ้าปรับนำ AI เข้ามาเสริมในจุดที่เหมาะสม เราจะสามารถ <strong>ตัดงานเขียนหน้าจอแบบ Static ทิ้งไปได้ถึง 40–50 Man-Days</strong> และเปลี่ยนให้กลายเป็น <strong>ระบบอัจฉริยะแบบ Interactive</strong> ที่ผู้ใช้งานพูดคุยสั่งการได้จริง
+        </p>
+      </div>
+    </div>
+
+    <div class="border-t border-slate-200 pt-1 text-[10px] text-slate-400 text-right">
+      Section 2: Non-AI vs. AI-Augmented Comparative Analysis
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 4: DETAILED RISKS & PAIN POINTS ==================== -->
+  <div class="page-container">
+    <div>
+      <!-- Section Title -->
+      <div class="flex items-center justify-between border-b-2 border-rose-600 pb-1.5 mb-3">
+        <div>
+          <span class="text-[10px] font-black tracking-widest text-rose-600 uppercase">Risk &amp; Vulnerability Assessment</span>
+          <h2 class="text-base font-black text-slate-900">3. จุดที่เกิดปัญหา &amp; ความเสี่ยงวิกฤตในข้อเสนอของทีมงาน</h2>
+        </div>
+        <span class="px-2 py-0.5 bg-rose-50 text-rose-700 rounded text-[9px] font-bold">Critical Review</span>
+      </div>
+
+      <!-- Risk Cards Grid -->
+      <div class="space-y-2.5 text-[10px]">
+        <!-- Risk 1 -->
+        <div class="p-2.5 rounded-xl border-l-4 border-l-rose-600 border border-slate-200 bg-white shadow-xs">
+          <div class="flex items-center justify-between mb-1">
+            <h3 class="font-black text-slate-900 text-[11px] flex items-center gap-1.5">
+              <span class="text-rose-600">⚠️ จุดเสี่ยงที่ 1:</span>
+              การแทรกแซง Core Posting Engine (ข้อ 4: Combine Related Voucher - 17 MD)
+            </h3>
+            <span class="badge-tag bg-rose-100 text-rose-800">Critical Architecture Risk</span>
+          </div>
+          <p class="text-slate-600 mb-1">
+            <strong>ปัญหา:</strong> ทีมงานเสนอให้ปรับแต่งระบบเพื่อยุบรวม Voucher ของการกลับรายการภาษีซื้อไม่ถึงกำหนด (Reverse Unrealized VAT), ภาษีหัก ณ ที่จ่าย (WHT), และกำไรขาดทุนจากอัตราแลกเปลี่ยน (FX Gain/Loss) ให้มาใช้เลข Voucher เดียวกับเอกสารหลัก
+          </p>
+          <div class="p-1.5 bg-rose-50 text-rose-950 rounded text-[9px] leading-snug">
+            <strong>ผลกระทบ:</strong> สถาปัตยกรรม General Ledger ของ D365 แยก Sub-ledger Voucher เพื่อรักษา <strong>Audit Trail (การตรวจสอบย้อนกลับ)</strong> การฝืนรวม Voucher เสี่ยงอย่างยิ่งที่จะทำให้ <em>ยอดงบทดลอง (Trial Balance) ไม่ดุล, ปัญหา Foreign Currency Revaluation พัง, และอาจถูกผู้สอบบัญชี (External Auditor) ปฏิเสธรายงาน</em> เนื่องจากขัดต่อมาตรฐานการบัญชีสากล
+          </div>
+        </div>
+
+        <!-- Risk 2 -->
+        <div class="p-2.5 rounded-xl border-l-4 border-l-amber-500 border border-slate-200 bg-white shadow-xs">
+          <div class="flex items-center justify-between mb-1">
+            <h3 class="font-black text-slate-900 text-[11px] flex items-center gap-1.5">
+              <span class="text-amber-600">⚠️ จุดเสี่ยงที่ 2:</span>
+              การพัฒนาฟังก์ชันซ้ำซ้อนกับมาตรฐาน D365 (ข้อ 6 &amp; 7: SO/PO Line Inquiries - 20 MD)
+            </h3>
+            <span class="badge-tag bg-amber-100 text-amber-800">Low ROI / Waste Effort</span>
+          </div>
+          <p class="text-slate-600 mb-1">
+            <strong>ปัญหา:</strong> การขอพัฒนาหน้าจอใหม่ 2 หน้าจอ เพื่อดู Order, Packing Slip, Product Receipt และ Invoice Quantity รวม 20 Man-Days
+          </p>
+          <div class="p-1.5 bg-amber-50 text-amber-950 rounded text-[9px] leading-snug">
+            <strong>ผลกระทบ:</strong> ระบบมาตรฐานของ D365 มีหน้าจอ <em>Open Sales Order Lines</em> และ <em>Open Purchase Order Lines</em> รวมถึง Workspaces ที่สามารถปรับแต่ง (Personalize) คอลัมน์เหล่านี้ได้อยู่แล้วโดยไม่ต้องเขียนโค้ดแม้แต่บรรทัดเดียว การลงทุน 20 MD ถือเป็นการสูญเสียงบประมาณโดยไม่จำเป็น
+          </div>
+        </div>
+
+        <!-- Risk 3 -->
+        <div class="p-2.5 rounded-xl border-l-4 border-l-rose-500 border border-slate-200 bg-white shadow-xs">
+          <div class="flex items-center justify-between mb-1">
+            <h3 class="font-black text-slate-900 text-[11px] flex items-center gap-1.5">
+              <span class="text-rose-600">⚠️ จุดเสี่ยงที่ 3:</span>
+              การกู้คืนเอกสารที่ยกเลิกไปแล้ว ขัดต่อการควบคุมภายใน (ข้อ 17: Restore Voided SO/PO - 5 MD)
+            </h3>
+            <span class="badge-tag bg-rose-100 text-rose-800">Governance &amp; Fraud Risk</span>
+          </div>
+          <p class="text-slate-600 mb-1">
+            <strong>ปัญหา:</strong> เสนอให้ทำปุ่มกู้คืนเอกสารใบสั่งซื้อ/สั่งขายที่ถูก Void ไปแล้วให้กลับมาเปิดใหม่ได้
+          </p>
+          <div class="p-1.5 bg-rose-50 text-rose-950 rounded text-[9px] leading-snug">
+            <strong>ผลกระทบ:</strong> ขัดต่อหลักการ Internal Control ของระบบ ERP ชั้นนำ เอกสารที่ Void แล้วต้องมีสถานะยกเลิกถาวรเพื่อป้องกันการทุจริต การเปิดให้กู้คืนจะทำให้สถานะการจองสต็อก (Reservation) และเครดิตลิมิตของลูกค้าเกิดความสับสน แนวทางสากลที่ถูกต้องคือการใช้ฟังก์ชัน <em>"Copy from all"</em> เพื่อสร้างใบใหม่แทน
+          </div>
+        </div>
+
+        <!-- Risk 4 -->
+        <div class="p-2.5 rounded-xl border-l-4 border-l-slate-500 border border-slate-200 bg-white shadow-xs">
+          <div class="flex items-center justify-between mb-1">
+            <h3 class="font-black text-slate-900 text-[11px] flex items-center gap-1.5">
+              <span class="text-slate-700">⚠️ จุดเสี่ยงที่ 4:</span>
+              ภาระการดูแลรักษาเมื่อ Microsoft อัปเดต One Version (Technical Debt)
+            </h3>
+            <span class="badge-tag bg-slate-100 text-slate-800">Long-term Maintenance</span>
+          </div>
+          <p class="text-slate-600 mb-1">
+            <strong>ปัญหา:</strong> การมี Customization ถึง 17 จุด ที่กระจายตัวในโมดูล Ledger, Tax, AR, AP, และ Inventory
+          </p>
+          <div class="p-1.5 bg-slate-100 text-slate-800 rounded text-[9px] leading-snug">
+            <strong>ผลกระทบ:</strong> Microsoft ปล่อยอัปเดต Service Update ปีละหลายครั้ง โค้ดที่ไปแตะโครงสร้างตารางหลักจะเกิด Regression Risk ส่งผลให้ลูกค้าต้องจ่ายค่าบำรุงรักษา (Maintenance) เพื่อแก้บั๊กอย่างต่อเนื่อง
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-slate-200 pt-1 text-[10px] text-slate-400 text-right">
+      Section 3: Comprehensive Risk &amp; Pain Point Analysis
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 5: STRATEGIC RECOMMENDATIONS & HYBRID ROADMAP ==================== -->
+  <div class="page-container">
+    <div>
+      <!-- Section Title -->
+      <div class="flex items-center justify-between border-b-2 border-emerald-600 pb-1.5 mb-2.5">
+        <div>
+          <span class="text-[10px] font-black tracking-widest text-emerald-700 uppercase">Strategic Action Plan</span>
+          <h2 class="text-base font-black text-slate-900">4. ข้อเสนอแนะเชิงกลยุทธ์: กรอบการทำงาน Hybrid 3-Bucket</h2>
+        </div>
+        <span class="px-2 py-0.5 bg-emerald-50 text-emerald-800 rounded text-[9px] font-bold">FTH Executive Roadmap</span>
+      </div>
+
+      <p class="text-[10px] text-slate-600 mb-2">
+        เพื่อให้โครงการคุ้มค่าการลงทุนสูงสุด ลดความเสี่ยงทางเทคนิค และได้โซลูชันที่ทันสมัย ขอเสนอให้จัดกลุ่มรายการพัฒนาใหม่เป็น <strong>3 กลุ่มกลยุทธ์ (Hybrid 3-Bucket Framework):</strong>
+      </p>
+
+      <!-- 3 Buckets Grid -->
+      <div class="grid grid-cols-3 gap-2.5 mb-3 text-[10px]">
+        <!-- Bucket A -->
+        <div class="p-2.5 rounded-xl bg-amber-50/60 border border-amber-200">
+          <div class="flex items-center justify-between mb-1 border-b border-amber-200 pb-1">
+            <span class="font-extrabold text-amber-900 text-[11px]">กลุ่ม A: Must-Do X++</span>
+            <span class="badge-tag bg-amber-200 text-amber-900">~62 MD</span>
+          </div>
+          <div class="text-[9px] font-bold text-slate-800 mb-1">กฎหมายภาษีไทยแท้จริง (Core Compliance)</div>
+          <p class="text-slate-600 text-[9px] mb-2">
+            ต้องเขียน X++ Extension เพราะต้องการความแม่นยำทางบัญชีและกฎหมาย 100%:
+          </p>
+          <ul class="list-disc list-inside space-y-0.5 text-[9px] text-slate-700 font-medium">
+            <li>ข้อ 1: Reverse Unrealized VAT (12 MD)</li>
+            <li>ข้อ 2: AR WHT Journal Report (6 MD)</li>
+            <li>ข้อ 8: Receipt / Tax Invoice (23 MD)</li>
+            <li>ข้อ 10: Selling/Buying FX Rate (10 MD)</li>
+            <li>ข้อ 12: Split Fixed Asset (11 MD)</li>
+          </ul>
+          <div class="mt-2 text-[8px] text-amber-800 bg-white p-1 rounded border border-amber-200">
+            *ใช้ GitHub Copilot เร่งสปีด Dev ลดเหลือ ~45 MD
+          </div>
+        </div>
+
+        <!-- Bucket B -->
+        <div class="p-2.5 rounded-xl bg-sky-50/60 border border-sky-200">
+          <div class="flex items-center justify-between mb-1 border-b border-sky-200 pb-1">
+            <span class="font-extrabold text-sky-900 text-[11px]">กลุ่ม B: AI-Supercharged</span>
+            <span class="badge-tag bg-sky-200 text-sky-900">~28 MD</span>
+          </div>
+          <div class="text-[9px] font-bold text-slate-800 mb-1">ยกระดับด้วย AI (สร้างจุดขายพรีเมียม)</div>
+          <p class="text-slate-600 text-[9px] mb-2">
+            แทนที่จะเขียนหน้าจอหรือสคริปต์แบบเดิม ให้ใช้ Azure AI &amp; Copilot Studio:
+          </p>
+          <ul class="list-disc list-inside space-y-0.5 text-[9px] text-slate-700 font-medium">
+            <li>ข้อ 3: DMF Tax Info &rarr; <strong>AI OCR อ่านบิล</strong></li>
+            <li>ข้อ 6, 7: SO/PO Inquiries &rarr; <strong>Copilot Chat</strong></li>
+            <li>ข้อ 11, 14: Print Vouchers &rarr; <strong>AI Summary</strong></li>
+          </ul>
+          <div class="mt-2 text-[8px] text-sky-800 bg-white p-1 rounded border border-sky-200">
+            *ประหยัดเวลากว่า 30 MD และสร้างความพึงพอใจสูง
+          </div>
+        </div>
+
+        <!-- Bucket C -->
+        <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-200">
+          <div class="flex items-center justify-between mb-1 border-b border-slate-200 pb-1">
+            <span class="font-extrabold text-slate-900 text-[11px]">กลุ่ม C: Standard Workaround</span>
+            <span class="badge-tag bg-emerald-100 text-emerald-800">ประหยัด 38 MD</span>
+          </div>
+          <div class="text-[9px] font-bold text-slate-800 mb-1">ตัดทิ้ง/ใช้ Standard (ลดความเสี่ยง)</div>
+          <p class="text-slate-600 text-[9px] mb-2">
+            ใช้ Config หรือ Process แทนการเขียนโค้ด เพื่อลดหนี้ทางเทคนิค:
+          </p>
+          <ul class="list-disc list-inside space-y-0.5 text-[9px] text-slate-700 font-medium">
+            <li><strong>ตัดข้อ 4:</strong> ไม่แตะ Voucher รวม (เสี่ยง Audit)</li>
+            <li><strong>ตัดข้อ 17:</strong> ปฏิเสธ Restore Voided (เสี่ยงทุจริต)</li>
+            <li>ข้อ 5, 9, 13, 15, 16: ใช้ Standard GER/Config</li>
+          </ul>
+          <div class="mt-2 text-[8px] text-emerald-800 bg-white p-1 rounded border border-emerald-200">
+            *ตัดความเสี่ยงระบบพังเมื่ออัปเดต One Version
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparison Summary Bar -->
+      <div class="p-3 bg-gradient-to-r from-red-50 to-orange-50 border border-red-200 rounded-xl mb-3">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="text-[10px] font-black text-red-700 uppercase tracking-wide mb-0.5">🏆 บทสรุปผลประโยชน์ทางธุรกิจสำหรับ Fujitsu Thailand</div>
+            <p class="text-[10px] text-slate-800 leading-snug">
+              ลด Effort จาก <strong>168 MD เหลือเพียง ~90–100 MD (ลดลง 40%)</strong> ย่นระยะเวลาส่งมอบจาก 23 สัปดาห์เหลือเพียง <strong>10–12 สัปดาห์</strong> พร้อมเปลี่ยนจากงานรับจ้างเขียนโค้ดธรรมดา กลายเป็น <strong>"Fujitsu Smart AI Thai Localization Package"</strong> ที่เป็นทรัพย์สินทางปัญญา (IP Asset) นำไปขายซ้ำให้กลุ่มทุนญี่ปุ่นและลูกค้าองค์กรในไทยได้อย่างยั่งยืน
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sign-off Block -->
+    <div class="border-t border-slate-200 pt-2 flex items-center justify-between text-[10px] text-slate-500">
+      <div>
+        <span class="font-bold text-slate-800">Fujitsu (Thailand) Co., Ltd.</span> | 22nd Floor, Column Tower, Sukhumvit Road, Bangkok, Thailand<br>
+        Web: <a href="https://wititgithub.github.io/fth-d365-fo-copilot-deck/" class="text-sky-600 underline">https://wititgithub.github.io/fth-d365-fo-copilot-deck/</a>
+      </div>
+      <div class="text-right font-medium">
+        Contact: Enterprise AI Consulting Practice<br>
+        Email: consulting@th.fujitsu.com
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
