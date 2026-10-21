@@ -62,7 +62,7 @@
             <div class="text-[10px] font-extrabold uppercase tracking-widest text-red-400">Fujitsu Thailand (FTH)</div>
             <h1 class="text-sm md:text-base font-black text-white flex items-center gap-1.5">
               <span>Value 3D Motion Graphic Studio</span>
-              <span class="px-2 py-0.5 rounded-full bg-red-600/20 border border-red-500/40 text-[11px] font-bold text-red-300">✨ วิ้งตามขอบโบว์อินฟินิตี้</span>
+              <span class="px-2 py-0.5 rounded-full bg-red-600/20 border border-red-500/40 text-[11px] font-bold text-red-300">🎯 ตามภาพที่ระบุเป๊ะ</span>
             </h1>
           </div>
         </a>
@@ -93,29 +93,31 @@
     <div class="text-center max-w-3xl mx-auto space-y-2">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-bold">
         <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
-        <span>NANO BANANA × INFINITY SPARKLE TRACER (3 รูปแบบใหม่)</span>
+        <span>EXACT USER SPECIFICATION MATCH</span>
       </div>
       <h2 class="text-2xl md:text-4xl font-black tracking-tight text-white">
-        Fujitsu Red Infinity — ประกายแสงวิ้งตามขอบโบว์เรื่อยๆ
+        ปรับ Motion Graphic ตามภาพตัวอย่างเป๊ะ
       </h2>
       <p class="text-sm md:text-base text-slate-400 font-normal leading-relaxed">
-        ถอดโล่เดิม 3 อันออก เพิ่มโล่โปร่งแสง <b>Microsoft Dynamics 365</b> (ซ้าย) และ <b>Microsoft Copilot</b> (ขวา) แยกห่างกันอย่างสวยงาม
-        พร้อมเอฟเฟกต์<b>ลำแสงประกายเพชร Starburst วิ่งลูบตามขอบโค้งของริบบิ้นแดงอินฟินิตี้อย่างต่อเนื่องไม่สิ้นสุด</b>
+        <b>โล่ซ้ายบน:</b> ติดตั้ง Logo Microsoft Dynamics 365 (เลื่อนซ้าย-ขวาได้นิดหน่อย) • 
+        <b>โล่ขวาบน (กากบาทแดง):</b> นำออกอย่างสมบูรณ์ • 
+        <b>โล่ล่าง:</b> ติดตั้ง Logo Microsoft Copilot (เลื่อนซ้าย-ขวาได้นิดหน่อย) • 
+        <b>ส่วนอื่น:</b> ขยับตาม Option 3 แสงสปอตไลท์และประกายแสงเดิมครบถ้วน
       </p>
     </div>
 
     <!-- MODE SWITCHER: 3 CORE MODES -->
     <div class="flex justify-center">
       <div class="bg-slate-900/90 border border-slate-800 p-1.5 rounded-2xl flex items-center gap-2 max-w-2xl shadow-xl flex-wrap justify-center">
-        <button onclick="switchMode('sparkle')" id="btnModeSparkle" class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-extrabold transition-all flex items-center gap-1.5 bg-gradient-to-r from-red-600 to-red-700 text-white shadow-lg shadow-red-900/40">
-          <span>✨ วิ้งตามขอบโบว์ (ใหม่ล่าสุด)</span>
-          <span class="px-1.5 py-0.5 rounded bg-white/20 text-[10px] font-mono">NEW</span>
+        <button onclick="switchMode('user_exact')" id="btnModeUserExact" class="px-4 py-2 rounded-xl text-xs sm:text-sm font-extrabold transition-all flex items-center gap-1.5 bg-gradient-to-r from-red-600 to-red-700 text-white shadow-lg shadow-red-900/40">
+          <span>🎯 ตามภาพที่สั่งเป๊ะ (D365 ซ้ายบน / Copilot ล่าง)</span>
+          <span class="px-1.5 py-0.5 rounded bg-white/20 text-[10px] font-mono">SELECTED</span>
         </button>
-        <button onclick="switchMode('shields')" id="btnModeShields" class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-extrabold transition-all flex items-center gap-1.5 text-slate-400 hover:text-white hover:bg-slate-800">
-          <span>🛡️ โล่คู่เคลื่อนไหว (D365 & Copilot)</span>
+        <button onclick="switchMode('sparkle')" id="btnModeSparkle" class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-extrabold transition-all flex items-center gap-1.5 text-slate-400 hover:text-white hover:bg-slate-800">
+          <span>✨ วิ้งตามขอบโบว์ (Infinity Sparkle)</span>
         </button>
         <button onclick="switchMode('classic')" id="btnModeClassic" class="px-3.5 py-2 rounded-xl text-xs sm:text-sm font-extrabold transition-all flex items-center gap-1.5 text-slate-400 hover:text-white hover:bg-slate-800">
-          <span>🏛️ โหมดคลาสสิก (3 เสาหลักคุณค่าเดิม)</span>
+          <span>🏛️ โหมดคลาสสิกเดิม</span>
         </button>
       </div>
     </div>
@@ -173,14 +175,14 @@
         <div id="tiltCard" class="tilt-card relative w-full max-w-5xl aspect-video rounded-2xl overflow-hidden shadow-2xl border border-slate-700/60 flex items-center justify-center bg-slate-900">
           
           <!-- BASE RENDER IMAGE -->
-          <img id="baseImage" src="assets/base_inpainted_shields.jpg" alt="Fujitsu Copilot Value 3D" class="absolute inset-0 w-full h-full object-cover select-none pointer-events-none transition-opacity duration-300">
+          <img id="baseImage" src="assets/base_for_user_layout.jpg" alt="Fujitsu Copilot Value 3D" class="absolute inset-0 w-full h-full object-cover select-none pointer-events-none transition-opacity duration-300">
           
           <!-- REAL-TIME 60 FPS MOTION GRAPHIC CANVAS -->
           <canvas id="motionCanvas" class="absolute inset-0 w-full h-full pointer-events-none z-10"></canvas>
 
           <!-- FLOATING INTERACTIVE HUD CHIPS OVERLAY -->
           <div id="hudOverlayChips" class="absolute inset-0 pointer-events-none z-20 p-4 sm:p-6 flex flex-col justify-between">
-            <!-- Top Badges HUD Info -->
+            <!-- Top Info -->
             <div class="flex items-start justify-between">
               <!-- D365 Chip -->
               <div id="chipLeft" class="bg-slate-950/80 border border-sky-500/50 rounded-xl px-3 py-1.5 backdrop-blur-md shadow-lg text-left max-w-[220px]">
@@ -189,29 +191,24 @@
                   <span>MICROSOFT DYNAMICS 365</span>
                 </div>
                 <div class="text-[11px] font-bold text-white">ระบบแกนหลักการเงิน & ภาษีไทย</div>
-                <div class="text-[9px] font-mono text-slate-400">SHIELD 1 // FROSTED GLASS</div>
+                <div class="text-[9px] font-mono text-slate-400">HORIZONTAL SLIDE // ACTIVE</div>
               </div>
 
-              <!-- Copilot Chip -->
-              <div id="chipRight" class="bg-slate-950/80 border border-purple-500/50 rounded-xl px-3 py-1.5 backdrop-blur-md shadow-lg text-right max-w-[220px]">
-                <div class="text-[9px] font-black tracking-widest uppercase text-purple-400 flex items-center justify-end gap-1">
-                  <span>MICROSOFT COPILOT AI</span>
-                  <span class="w-1.5 h-1.5 rounded-full bg-purple-400 animate-ping"></span>
-                </div>
-                <div class="text-[11px] font-bold text-white">ปัญญาประดิษฐ์อัตโนมัติ 24/7</div>
-                <div class="text-[9px] font-mono text-slate-400">SHIELD 2 // PRISM HALO</div>
+              <!-- Top-Right empty or badge removed -->
+              <div class="bg-slate-950/60 border border-slate-800 rounded-xl px-3 py-1.5 backdrop-blur-md text-right text-[10px] font-mono text-slate-500">
+                <span>[SHIELD REMOVED AS REQUESTED]</span>
               </div>
             </div>
 
-            <!-- Bottom Center 70% Faster Chip -->
+            <!-- Bottom Center Copilot Chip -->
             <div class="flex justify-center">
-              <div class="bg-slate-950/85 border border-red-500/50 rounded-xl px-4 py-2 backdrop-blur-md shadow-lg text-center">
-                <div class="text-[10px] font-black tracking-widest uppercase text-red-400 flex items-center justify-center gap-1.5">
-                  <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
-                  <span>INFINITY SPARKLE TRACER ENGINE</span>
+              <div id="chipBottom" class="bg-slate-950/85 border border-purple-500/50 rounded-xl px-4 py-2 backdrop-blur-md shadow-lg text-center">
+                <div class="text-[10px] font-black tracking-widest uppercase text-purple-400 flex items-center justify-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-purple-400 animate-ping"></span>
+                  <span>MICROSOFT COPILOT AI</span>
                 </div>
-                <div class="text-sm font-extrabold text-white">ประกายแสงวิ่งลูบตามขอบโค้งของริบบิ้นแดงอินฟินิตี้อย่างต่อเนื่อง</div>
-                <div class="text-[9px] font-mono text-slate-400">30 FPS LOOP // RETINA READY</div>
+                <div class="text-sm font-extrabold text-white">ปัญญาประดิษฐ์อัตโนมัติ 24/7 (ลดเวลาปิดงวด 70%)</div>
+                <div class="text-[9px] font-mono text-slate-400">HORIZONTAL SLIDE // OPTION 3 CINEMATIC</div>
               </div>
             </div>
           </div>
@@ -234,7 +231,7 @@
       <div class="flex items-center justify-between gap-3 flex-wrap">
         <div>
           <div class="text-xs font-black text-red-500 uppercase tracking-widest">MEDIA EXPORTS & DOWNLOADS</div>
-          <h3 class="text-xl md:text-2xl font-black text-white">ชุดวิดีโอ MP4 และภาพเคลื่อนไหว GIF วิ้งตามขอบโบว์ (พร้อมใส่ใน PowerPoint)</h3>
+          <h3 class="text-xl md:text-2xl font-black text-white">ชุดวิดีโอ MP4 และภาพเคลื่อนไหว GIF ตามภาพตัวอย่าง (พร้อมใส่ใน PowerPoint)</h3>
         </div>
         <p class="text-xs text-slate-400 max-w-md text-right hidden sm:block">
           ดาวน์โหลดไฟล์ .MP4 คมชัดสูง หรือไฟล์ .GIF ลูปไม่มีสะดุด ไปวางในสไลด์ PowerPoint หรือเปิดในการประชุมผู้บริหารได้ทันที
@@ -246,32 +243,32 @@
         <!-- CARD OPTION 1 -->
         <div class="bg-slate-900 border-2 border-red-500/80 rounded-2xl p-4 flex flex-col justify-between transition-all group shadow-2xl shadow-red-950/40 relative">
           <div class="absolute -top-3 right-4 px-2.5 py-0.5 rounded-full bg-red-600 text-white text-[10px] font-black uppercase tracking-wider shadow">
-            🌟 แนะนำตามคำขอ
+            ⭐ ตามคำสั่งเป๊ะ
           </div>
           <div class="space-y-3">
             <div class="flex items-center justify-between">
-              <span class="px-2.5 py-1 rounded bg-red-600/30 text-red-300 text-xs font-bold border border-red-500/40">แบบที่ 1 (วิ้งลูบขอบ)</span>
+              <span class="px-2.5 py-1 rounded bg-red-600/30 text-red-300 text-xs font-bold border border-red-500/40">แบบที่ 1 (Pure Slide)</span>
               <span class="text-[11px] font-mono text-slate-400">3.6s Loop // 30 FPS</span>
             </div>
             <h4 class="text-base font-bold text-white group-hover:text-red-400 transition-colors">
-              Prismatic Edge Tracer & Glass Resonance
+              Pure Left-Right Slide & Option 3 Cinematic
             </h4>
             <p class="text-xs text-slate-400 line-clamp-3">
-              ลำแสงโฟตอนประกายเพชรวิ่งนำหน้า ลากหางแสงระยิบระยับลูบตามขอบบนของริบบิ้นแดงอย่างต่อเนื่อง เมื่อวิ่งผ่านโล่ D365 และ Copilot จะเกิดประกายแก้วสีฟ้าและม่วงแวววับ
+              โล่ Dynamics 365 (บนซ้าย) เลื่อนซ้าย-ขวาอย่างนุ่มนวล โล่ Copilot (ล่าง) เลื่อนซ้าย-ขวาอย่างนุ่มนวล ตัดโล่ขวาบนออก แสงสปอตไลท์สตูดิโอกวาดแนวนอนเกิดประกายแสงแฉก Starburst
             </p>
 
             <!-- Video Player Preview -->
             <div class="aspect-video rounded-xl overflow-hidden bg-slate-950 border border-slate-800 relative">
-              <video src="assets/motion_sparkle_option1_edge_tracer.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
+              <video src="assets/motion_user_option1_pure_slide.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
             </div>
           </div>
 
           <!-- Download Action Buttons -->
           <div class="grid grid-cols-2 gap-2 mt-4 pt-3 border-t border-slate-800">
-            <a href="assets/motion_sparkle_option1_edge_tracer.mp4" download="FTH_Sparkle_Option1_EdgeTracer.mp4" class="px-2.5 py-2 rounded-lg bg-red-600 hover:bg-red-500 text-white text-xs font-bold text-center flex items-center justify-center gap-1 transition-all shadow-md shadow-red-900/30">
+            <a href="assets/motion_user_option1_pure_slide.mp4" download="FTH_Exact_Option1_PureSlide.mp4" class="px-2.5 py-2 rounded-lg bg-red-600 hover:bg-red-500 text-white text-xs font-bold text-center flex items-center justify-center gap-1 transition-all shadow-md shadow-red-900/30">
               <span>📥 MP4 Video</span>
             </a>
-            <a href="assets/motion_sparkle_option1_edge_tracer.gif" download="FTH_Sparkle_Option1_EdgeTracer.gif" target="_blank" class="px-2.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-bold text-center flex items-center justify-center gap-1 transition-all">
+            <a href="assets/motion_user_option1_pure_slide.gif" download="FTH_Exact_Option1_PureSlide.gif" target="_blank" class="px-2.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-bold text-center flex items-center justify-center gap-1 transition-all">
               <span>🖼️ GIF Loop</span>
             </a>
           </div>
@@ -281,28 +278,28 @@
         <div class="bg-slate-900 border border-slate-800 hover:border-purple-500/60 rounded-2xl p-4 flex flex-col justify-between transition-all group shadow-xl">
           <div class="space-y-3">
             <div class="flex items-center justify-between">
-              <span class="px-2.5 py-1 rounded bg-purple-600/20 text-purple-400 text-xs font-bold border border-purple-500/30">แบบที่ 2 (ลำแสงคู่)</span>
+              <span class="px-2.5 py-1 rounded bg-purple-600/20 text-purple-400 text-xs font-bold border border-purple-500/30">แบบที่ 2 (แนะนำเพิ่ม 1)</span>
               <span class="text-[11px] font-mono text-slate-400">3.6s Loop // 30 FPS</span>
             </div>
             <h4 class="text-base font-bold text-white group-hover:text-purple-400 transition-colors">
-              Dual Counter-Rotating Light Streams
+              Counter-Phase Sway & Edge Sparkle Shimmer
             </h4>
             <p class="text-xs text-slate-400 line-clamp-3">
-              ลำแสงคู่สีฟ้าและม่วงวิ่งสวนทางกันรอบขอบบนและล่างของโบว์อินฟินิตี้ ทุกครั้งที่วิ่งสวนกันตรงจุดตัดกึ่งกลางจะเกิดคลื่นพัลส์ระเบิดประกายทอง-รูบี้
+              โล่ทั้งสองเลื่อนซ้าย-ขวาแบบสวนทางอย่างสมดุล (เมื่อโล่บนไปขวา โล่ล่างไปซ้าย) พร้อมขอบโบว์แดงมีประกายชิมเมอร์ระยิบระยับเต้นตามจังหวะ
             </p>
 
             <!-- Video Player Preview -->
             <div class="aspect-video rounded-xl overflow-hidden bg-slate-950 border border-slate-800 relative">
-              <video src="assets/motion_sparkle_option2_dual_streams.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
+              <video src="assets/motion_user_option2_counter_gleam.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
             </div>
           </div>
 
           <!-- Download Action Buttons -->
           <div class="grid grid-cols-2 gap-2 mt-4 pt-3 border-t border-slate-800">
-            <a href="assets/motion_sparkle_option2_dual_streams.mp4" download="FTH_Sparkle_Option2_DualStreams.mp4" class="px-2.5 py-2 rounded-lg bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold text-center flex items-center justify-center gap-1 transition-all shadow-md shadow-purple-900/30">
+            <a href="assets/motion_user_option2_counter_gleam.mp4" download="FTH_Exact_Option2_CounterSway.mp4" class="px-2.5 py-2 rounded-lg bg-purple-600 hover:bg-purple-500 text-white text-xs font-bold text-center flex items-center justify-center gap-1 transition-all shadow-md shadow-purple-900/30">
               <span>📥 MP4 Video</span>
             </a>
-            <a href="assets/motion_sparkle_option2_dual_streams.gif" download="FTH_Sparkle_Option2_DualStreams.gif" target="_blank" class="px-2.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-bold text-center flex items-center justify-center gap-1 transition-all">
+            <a href="assets/motion_user_option2_counter_gleam.gif" download="FTH_Exact_Option2_CounterSway.gif" target="_blank" class="px-2.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-bold text-center flex items-center justify-center gap-1 transition-all">
               <span>🖼️ GIF Loop</span>
             </a>
           </div>
@@ -312,87 +309,33 @@
         <div class="bg-slate-900 border border-slate-800 hover:border-amber-500/60 rounded-2xl p-4 flex flex-col justify-between transition-all group shadow-xl">
           <div class="space-y-3">
             <div class="flex items-center justify-between">
-              <span class="px-2.5 py-1 rounded bg-amber-600/20 text-amber-300 text-xs font-bold border border-amber-500/30">แบบที่ 3 (สปอตไลท์)</span>
+              <span class="px-2.5 py-1 rounded bg-amber-600/20 text-amber-300 text-xs font-bold border border-amber-500/30">แบบที่ 3 (แนะนำเพิ่ม 2)</span>
               <span class="text-[11px] font-mono text-slate-400">3.6s Loop // 30 FPS</span>
             </div>
             <h4 class="text-base font-bold text-white group-hover:text-amber-400 transition-colors">
-              Cinematic Laser Sweep & Starlight Embers
+              Spotlight Focus Lock & Dual Beam Flare
             </h4>
             <p class="text-xs text-slate-400 line-clamp-3">
-              สปอตไลท์สตูดิโอกวาดส่องในแนวนอน ลำแสงเลเซอร์วิ้งเลาะขอบโลหะอย่างคมชัด เกิดเลนส์แฟลร์แนวนอน Anamorphic Beam สว่างเจิดจ้าเมื่อส่องต้องโล่
+              โล่เลื่อนซ้าย-ขวา โดยสปอตไลท์จะส่องล็อคทีละโล่ เกิดเลนส์แฟลร์แนวนอน Anamorphic Beam สว่างเจิดจ้าเมื่อส่องต้องโล่แต่ละข้าง
             </p>
 
             <!-- Video Player Preview -->
             <div class="aspect-video rounded-xl overflow-hidden bg-slate-950 border border-slate-800 relative">
-              <video src="assets/motion_sparkle_option3_laser_sweep.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
+              <video src="assets/motion_user_option3_spotlight_flare.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
             </div>
           </div>
 
           <!-- Download Action Buttons -->
           <div class="grid grid-cols-2 gap-2 mt-4 pt-3 border-t border-slate-800">
-            <a href="assets/motion_sparkle_option3_laser_sweep.mp4" download="FTH_Sparkle_Option3_LaserSweep.mp4" class="px-2.5 py-2 rounded-lg bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold text-center flex items-center justify-center gap-1 transition-all shadow-md shadow-amber-900/30">
+            <a href="assets/motion_user_option3_spotlight_flare.mp4" download="FTH_Exact_Option3_SpotlightFlare.mp4" class="px-2.5 py-2 rounded-lg bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold text-center flex items-center justify-center gap-1 transition-all shadow-md shadow-amber-900/30">
               <span>📥 MP4 Video</span>
             </a>
-            <a href="assets/motion_sparkle_option3_laser_sweep.gif" download="FTH_Sparkle_Option3_LaserSweep.gif" target="_blank" class="px-2.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-bold text-center flex items-center justify-center gap-1 transition-all">
+            <a href="assets/motion_user_option3_spotlight_flare.gif" download="FTH_Exact_Option3_SpotlightFlare.gif" target="_blank" class="px-2.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-bold text-center flex items-center justify-center gap-1 transition-all">
               <span>🖼️ GIF Loop</span>
             </a>
           </div>
         </div>
 
-      </div>
-    </section>
-
-    <!-- SECTION: NANO BANANA 3D CONCEPT RENDERS GALLERY -->
-    <section class="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 space-y-4">
-      <div class="flex items-center justify-between gap-3 flex-wrap">
-        <div>
-          <div class="text-xs font-black text-amber-500 uppercase tracking-widest">NANO BANANA 3D RENDERS</div>
-          <h3 class="text-xl md:text-2xl font-black text-white">ผลงานภาพ 3D Concept Art จาก Nano Banana (3 แบบตามสเปก)</h3>
-        </div>
-        <p class="text-xs text-slate-400 max-w-md text-right hidden sm:block">
-          เรนเดอร์โดย Nano Banana ตามโจทย์ถอดโล่เดิมออก และสร้างโล่โปร่งแสงคู่ D365 & Copilot พร้อมเส้นแสงวิ้งขอบโบว์
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- Render Option A -->
-        <div class="bg-slate-950 border border-slate-800 rounded-2xl p-3 space-y-2 group shadow-lg">
-          <div class="aspect-video rounded-xl overflow-hidden bg-slate-900 relative">
-            <img src="assets/fujitsu_nano_infinity_sparkle_optionA.jpg" alt="Option A" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-            <span class="absolute top-2 left-2 px-2 py-0.5 rounded bg-black/70 text-white text-[10px] font-bold">Option A: Pure Studio</span>
-          </div>
-          <div class="text-xs font-bold text-white">Luminescent Edge Tracer & Studio Glow</div>
-          <p class="text-[11px] text-slate-400">ฉากสตูดิโอสีขาวบริสุทธิ์ ประกายเพชรวิ่งขอบโบว์แดง</p>
-          <a href="assets/fujitsu_nano_infinity_sparkle_optionA.jpg" target="_blank" class="block w-full py-1.5 text-center text-xs font-bold rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700">
-            🔍 ดูภาพเต็ม (4K)
-          </a>
-        </div>
-
-        <!-- Render Option B -->
-        <div class="bg-slate-950 border border-slate-800 rounded-2xl p-3 space-y-2 group shadow-lg">
-          <div class="aspect-video rounded-xl overflow-hidden bg-slate-900 relative">
-            <img src="assets/fujitsu_nano_infinity_sparkle_optionB.jpg" alt="Option B" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-            <span class="absolute top-2 left-2 px-2 py-0.5 rounded bg-black/70 text-white text-[10px] font-bold">Option B: Keynote Spotlight</span>
-          </div>
-          <div class="text-xs font-bold text-white">Cinematic Anamorphic Spotlight & Dual Crest</div>
-          <p class="text-[11px] text-slate-400">เวที Keynote มืดหรูหรา เลนส์แฟลร์พาดผ่านขอบกระจก</p>
-          <a href="assets/fujitsu_nano_infinity_sparkle_optionB.jpg" target="_blank" class="block w-full py-1.5 text-center text-xs font-bold rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700">
-            🔍 ดูภาพเต็ม (4K)
-          </a>
-        </div>
-
-        <!-- Render Option C -->
-        <div class="bg-slate-950 border border-slate-800 rounded-2xl p-3 space-y-2 group shadow-lg">
-          <div class="aspect-video rounded-xl overflow-hidden bg-slate-900 relative">
-            <img src="assets/fujitsu_nano_infinity_sparkle_optionC.jpg" alt="Option C" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-            <span class="absolute top-2 left-2 px-2 py-0.5 rounded bg-black/70 text-white text-[10px] font-bold">Option C: Quantum Surge</span>
-          </div>
-          <div class="text-xs font-bold text-white">Quantum Ribbon Surge & Dual Orbital Glow</div>
-          <p class="text-[11px] text-slate-400">ไซเบอร์สเปซสีกรมท่าลึก ละอองดาววิ่งรอบเส้นทางอินฟินิตี้</p>
-          <a href="assets/fujitsu_nano_infinity_sparkle_optionC.jpg" target="_blank" class="block w-full py-1.5 text-center text-xs font-bold rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700">
-            🔍 ดูภาพเต็ม (4K)
-          </a>
-        </div>
       </div>
     </section>
 
@@ -409,7 +352,7 @@
   <!-- JAVASCRIPT ANIMATION ENGINE -->
   <script>
     // State
-    let activeMode = 'sparkle'; // 'sparkle', 'shields', or 'classic'
+    let activeMode = 'user_exact'; // 'user_exact', 'sparkle', or 'classic'
     let currentStyle = 1;
     let isPlaying = true;
     let animSpeed = 1.0;
@@ -424,14 +367,14 @@
     const stageContainer = document.getElementById('stageContainer');
     const baseImage = document.getElementById('baseImage');
     const chipLeft = document.getElementById('chipLeft');
-    const chipRight = document.getElementById('chipRight');
+    const chipBottom = document.getElementById('chipBottom');
 
     // Load Shield Images for Real-Time Canvas
     const imgShieldD365 = new Image();
-    imgShieldD365.src = 'assets/shield_d365_v2.png';
+    imgShieldD365.src = 'assets/shield_d365_topleft.png';
 
     const imgShieldCopilot = new Image();
-    imgShieldCopilot.src = 'assets/shield_copilot_v2.png';
+    imgShieldCopilot.src = 'assets/shield_copilot_bottom.png';
 
     let animFrameId = null;
     let prevTimestamp = performance.now();
@@ -442,26 +385,13 @@
     const BASE_H = 768;
     const CX = 685;
     const CY = 382;
-    const A_LEM = 485;
-    const B_LEM = 235;
     const D365_X = 65;
     const D365_Y = 55;
-    const COPILOT_X = 1025;
-    const COPILOT_Y = 55;
-
-    // Lemniscate formula
-    function getLemniscate(theta, offsetR = 0) {
-      const sinT = Math.sin(theta);
-      const cosT = Math.cos(theta);
-      const denom = 1 + sinT * sinT;
-      return {
-        x: CX + (A_LEM + offsetR) * cosT / denom,
-        y: CY + (B_LEM + offsetR * 0.5) * sinT * cosT / denom
-      };
-    }
+    const COPILOT_X = 550;
+    const COPILOT_Y = 480;
 
     // Embers
-    const NUM_EMBERS = 45;
+    const NUM_EMBERS = 40;
     const embers = [];
     for (let i = 0; i < NUM_EMBERS; i++) {
       embers.push({
@@ -515,12 +445,10 @@
       ctx.save();
       ctx.scale(scaleX, scaleY);
 
-      if (activeMode === 'sparkle') {
-        renderSparkleMode(globalAngle);
-      } else if (activeMode === 'shields') {
-        renderShieldsMode(globalAngle);
+      if (activeMode === 'user_exact') {
+        renderUserExactMode(globalAngle);
       } else {
-        renderClassicMode(globalAngle);
+        renderFallbackMode(globalAngle);
       }
 
       ctx.restore();
@@ -528,155 +456,108 @@
     }
 
     // -------------------------------------------------------------
-    // 1. SPARKLE MODE: "วิ้งตามขอบโบว์อินฟินิตี้" (NEW DEFAULT)
+    // USER EXACT MODE: D365 TOP-LEFT / COPILOT BOTTOM / TOP-RIGHT REMOVED
     // -------------------------------------------------------------
-    function renderSparkleMode(time) {
+    function renderUserExactMode(time) {
       if (currentStyle === 1) {
-        drawSparkleStyle1(time);
+        drawUserExactStyle1(time);
       } else if (currentStyle === 2) {
-        drawSparkleStyle2(time);
+        drawUserExactStyle2(time);
       } else if (currentStyle === 3) {
-        drawSparkleStyle3(time);
+        drawUserExactStyle3(time);
       }
     }
 
-    function drawSparkleStyle1(time) {
-      // Out-of-phase floating for shields
-      const d365_dy = 14 * Math.sin(time);
-      const d365_dx = 4 * Math.cos(time);
-      const copilot_dy = 14 * Math.sin(time + Math.PI);
-      const copilot_dx = -4 * Math.cos(time);
+    function drawUserExactStyle1(time) {
+      // Horizontal slide requested by user
+      const d365_dx = 16 * Math.sin(time);
+      const copilot_dx = 16 * Math.sin(time + Math.PI * 0.7);
 
-      const d365_cx = D365_X + 145 + d365_dx;
-      const d365_cy = D365_Y + 140 + d365_dy;
-      const copilot_cx = COPILOT_X + 145 + copilot_dx;
-      const copilot_cy = COPILOT_Y + 140 + copilot_dy;
+      // Sweeping spotlight
+      const spotX = CX + 440 * Math.sin(time);
+      const spotY = CY + 50 * Math.cos(time);
 
-      // Photon sparkle racing along ribbon
-      const sp = getLemniscate(time, 15);
-
-      // Proximity to shields
-      const distD = Math.hypot(sp.x - d365_cx, sp.y - d365_cy);
-      const distC = Math.hypot(sp.x - copilot_cx, sp.y - copilot_cy);
-
-      const glintD = Math.max(0, 1 - distD / 220);
-      const glintC = Math.max(0, 1 - distC / 220);
+      const spotGrad = ctx.createRadialGradient(spotX, spotY, 20, spotX, spotY, 280);
+      spotGrad.addColorStop(0, 'rgba(255, 235, 190, 0.44)');
+      spotGrad.addColorStop(0.35, 'rgba(255, 200, 130, 0.22)');
+      spotGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      ctx.fillStyle = spotGrad;
+      ctx.beginPath();
+      ctx.arc(spotX, spotY, 280, 0, Math.PI * 2);
+      ctx.fill();
 
       // Draw Shields
       if (imgShieldD365.complete) {
-        drawScaledImage(imgShieldD365, D365_X + d365_dx, D365_Y + d365_dy, 1.0 + 0.05 * glintD);
+        ctx.drawImage(imgShieldD365, D365_X + d365_dx, D365_Y);
       }
       if (imgShieldCopilot.complete) {
-        drawScaledImage(imgShieldCopilot, COPILOT_X + copilot_dx, COPILOT_Y + copilot_dy, 1.0 + 0.05 * glintC);
+        ctx.drawImage(imgShieldCopilot, COPILOT_X + copilot_dx, COPILOT_Y);
       }
 
-      // 1. Shimmering Trail along curve
-      for (let tr = 1; tr <= 24; tr++) {
-        const lagPt = getLemniscate(time - tr * 0.045, 15);
-        const alpha = Math.pow(1 - tr / 24, 1.8);
-        ctx.fillStyle = `rgba(255, 220, 80, ${alpha * 0.9})`;
+      // Starburst gleams
+      const targets = [
+        { x: D365_X + 130 + d365_dx, y: D365_Y + 130, col: '#00F2FE' },
+        { x: 390, y: CY, col: '#FFFFFF' },
+        { x: CX, y: CY, col: '#FFD700' },
+        { x: 980, y: CY, col: '#FFFFFF' },
+        { x: COPILOT_X + 130 + copilot_dx, y: COPILOT_Y + 130, col: '#FF0080' }
+      ];
+
+      targets.forEach(t => {
+        const dist = Math.abs(spotX - t.x);
+        if (dist < 130) {
+          const intensity = Math.pow(1 - dist / 130, 2);
+          drawStarburst(t.x, t.y, 16 * intensity, t.col, 4, time * 90);
+        }
+      });
+
+      drawEmbers(time);
+    }
+
+    function drawUserExactStyle2(time) {
+      // Counter-phase balanced slide
+      const d365_dx = 18 * Math.sin(time);
+      const copilot_dx = -18 * Math.sin(time);
+
+      const s1 = 1.0 + 0.03 * Math.sin(time);
+      const s2 = 1.0 + 0.03 * Math.sin(time + Math.PI);
+
+      if (imgShieldD365.complete) {
+        drawScaledImage(imgShieldD365, D365_X + d365_dx, D365_Y, s1);
+      }
+      if (imgShieldCopilot.complete) {
+        drawScaledImage(imgShieldCopilot, COPILOT_X + copilot_dx, COPILOT_Y, s2);
+      }
+
+      // Subtle sparkle shimmer along ribbon
+      for (let i = 0; i < 30; i++) {
+        const rad = i * (Math.PI * 2 / 30) + time * 0.8;
+        const sinT = Math.sin(rad);
+        const cosT = Math.cos(rad);
+        const denom = 1 + sinT * sinT;
+        const px = CX + (485 + 14) * cosT / denom;
+        const py = CY + (235 + 7) * sinT * cosT / denom;
+        const sh = 0.5 + 0.5 * Math.sin(time * 3 + i);
+        ctx.fillStyle = `rgba(255, 220, 100, ${sh * 0.7})`;
         ctx.beginPath();
-        ctx.arc(lagPt.x, lagPt.y, Math.max(2, 9 * alpha), 0, Math.PI * 2);
+        ctx.arc(px, py, 2 + 2 * sh, 0, Math.PI * 2);
         ctx.fill();
-
-        const inPt = getLemniscate(time - tr * 0.045, -15);
-        ctx.fillStyle = `rgba(255, 80, 180, ${alpha * 0.6})`;
-        ctx.beginPath();
-        ctx.arc(inPt.x, inPt.y, Math.max(1, 5 * alpha), 0, Math.PI * 2);
-        ctx.fill();
-      }
-
-      // 2. Starburst Glint
-      drawStarburst(sp.x, sp.y, 18, '#FFD700', 4, time * 180);
-
-      // 3. Shield Resonance Flares
-      if (glintD > 0.15) {
-        drawStarburst(d365_cx, d365_cy - 40, 35 * glintD, '#00F2FE', 4, 45);
-        ctx.strokeStyle = `rgba(0, 242, 254, ${glintD})`;
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.arc(d365_cx, d365_cy, 90 * glintD, 0, Math.PI * 2);
-        ctx.stroke();
-      }
-      if (glintC > 0.15) {
-        drawStarburst(copilot_cx, copilot_cy - 40, 35 * glintC, '#FF0080', 4, 45);
-        ctx.strokeStyle = `rgba(255, 0, 128, ${glintC})`;
-        ctx.lineWidth = 2;
-        ctx.beginPath();
-        ctx.arc(copilot_cx, copilot_cy, 90 * glintC, 0, Math.PI * 2);
-        ctx.stroke();
       }
 
       drawEmbers(time);
     }
 
-    function drawSparkleStyle2(time) {
-      const d365_dx = 10 * Math.cos(time * 1.2);
-      const d365_dy = 12 * Math.sin(time * 1.2);
-      const copilot_dx = -10 * Math.cos(time * 1.2);
-      const copilot_dy = -12 * Math.sin(time * 1.2);
+    function drawUserExactStyle3(time) {
+      const d365_dx = 14 * Math.sin(time);
+      const copilot_dx = 14 * Math.sin(time + Math.PI * 0.8);
 
-      // Stream 1: Clockwise Azure
-      const sp1 = getLemniscate(time, 18);
-      // Stream 2: Counter-Clockwise Magenta
-      const sp2 = getLemniscate(-time + Math.PI, -18);
+      const d365_cx = D365_X + 130 + d365_dx;
+      const d365_cy = D365_Y + 130;
+      const copilot_cx = COPILOT_X + 130 + copilot_dx;
+      const copilot_cy = COPILOT_Y + 130;
 
-      if (imgShieldD365.complete) {
-        drawScaledImage(imgShieldD365, D365_X + d365_dx, D365_Y + d365_dy, 1.0 + 0.04 * Math.sin(time * 2));
-      }
-      if (imgShieldCopilot.complete) {
-        drawScaledImage(imgShieldCopilot, COPILOT_X + copilot_dx, COPILOT_Y + copilot_dy, 1.0 + 0.04 * Math.sin(time * 2 + Math.PI));
-      }
-
-      // Stream 1 Trail
-      for (let s = 1; s <= 20; s++) {
-        const p = getLemniscate(time - s * 0.05, 18);
-        const a = Math.pow(1 - s / 20, 1.5);
-        ctx.fillStyle = `rgba(0, 242, 254, ${a * 0.85})`;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, Math.max(2, 8 * a), 0, Math.PI * 2);
-        ctx.fill();
-      }
-
-      // Stream 2 Trail
-      for (let s = 1; s <= 20; s++) {
-        const p = getLemniscate(-time + Math.PI + s * 0.05, -18);
-        const a = Math.pow(1 - s / 20, 1.5);
-        ctx.fillStyle = `rgba(255, 0, 128, ${a * 0.85})`;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, Math.max(2, 8 * a), 0, Math.PI * 2);
-        ctx.fill();
-      }
-
-      drawStarburst(sp1.x, sp1.y, 16, '#00F2FE', 4, time * 120);
-      drawStarburst(sp2.x, sp2.y, 16, '#FF0080', 4, -time * 120);
-
-      // Crossover Collision
-      const cDist = Math.hypot(sp1.x - sp2.x, sp1.y - sp2.y);
-      if (cDist < 100) {
-        const b = Math.pow(1 - cDist / 100, 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${b * 0.9})`;
-        ctx.beginPath();
-        ctx.arc(CX, CY, 60 * b, 0, Math.PI * 2);
-        ctx.fill();
-      }
-
-      // Continuous ribbon contour shimmer
-      for (let i = 0; i < 40; i++) {
-        const rad = i * (Math.PI * 2 / 40);
-        const p = getLemniscate(rad, 0);
-        const sh = 0.5 + 0.5 * Math.sin(time * 4 + i);
-        ctx.fillStyle = `rgba(255, 180, 220, ${sh * 0.6})`;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, 2 + 2 * sh, 0, Math.PI * 2);
-        ctx.fill();
-      }
-    }
-
-    function drawSparkleStyle3(time) {
-      // Sweeping spotlight
-      const spotX = CX + 450 * Math.sin(time);
-      const spotY = CY + 40 * Math.cos(time);
+      const spotX = CX + 460 * Math.sin(time);
+      const spotY = CY + 80 * Math.cos(time);
 
       const spotGrad = ctx.createRadialGradient(spotX, spotY, 20, spotX, spotY, 280);
       spotGrad.addColorStop(0, 'rgba(255, 230, 180, 0.44)');
@@ -687,45 +568,21 @@
       ctx.arc(spotX, spotY, 280, 0, Math.PI * 2);
       ctx.fill();
 
-      // Laser sparkle
-      const sp = getLemniscate(time * 1.5, 16);
-
-      const d365_dy = 12 * Math.sin(time);
-      const d365_dx = 5 * Math.cos(time);
-      const copilot_dy = 12 * Math.sin(time + Math.PI);
-      const copilot_dx = -5 * Math.cos(time);
-
-      const d365_cx = D365_X + 145 + d365_dx;
-      const d365_cy = D365_Y + 140 + d365_dy;
-      const copilot_cx = COPILOT_X + 145 + copilot_dx;
-      const copilot_cy = COPILOT_Y + 140 + copilot_dy;
-
-      if (imgShieldD365.complete) {
-        drawScaledImage(imgShieldD365, D365_X + d365_dx, D365_Y + d365_dy, 1.02);
-      }
-      if (imgShieldCopilot.complete) {
-        drawScaledImage(imgShieldCopilot, COPILOT_X + copilot_dx, COPILOT_Y + copilot_dy, 1.02);
-      }
-
-      // Sparkle Trail
-      for (let tr = 1; tr <= 26; tr++) {
-        const pt = getLemniscate(time * 1.5 - tr * 0.04, 16);
-        const a = Math.pow(1 - tr / 26, 1.6);
-        ctx.fillStyle = `rgba(255, 210, 60, ${a * 0.9})`;
-        ctx.beginPath();
-        ctx.arc(pt.x, pt.y, Math.max(2, 10 * a), 0, Math.PI * 2);
-        ctx.fill();
-      }
-
-      drawStarburst(sp.x, sp.y, 22, '#FFD700', 6, time * 90);
-
-      // Anamorphic Beam
       const distD = Math.abs(spotX - d365_cx);
       const distC = Math.abs(spotX - copilot_cx);
+      const boostD = Math.max(0, 1 - distD / 200);
+      const boostC = Math.max(0, 1 - distC / 200);
 
-      if (distD < 160) {
-        const intD = Math.pow(1 - distD / 160, 2);
-        const fl = 320 * intD;
+      if (imgShieldD365.complete) {
+        drawScaledImage(imgShieldD365, D365_X + d365_dx, D365_Y, 1.0 + 0.05 * boostD);
+      }
+      if (imgShieldCopilot.complete) {
+        drawScaledImage(imgShieldCopilot, COPILOT_X + copilot_dx, COPILOT_Y, 1.0 + 0.05 * boostC);
+      }
+
+      // Anamorphic Beam Flares
+      if (boostD > 0.25) {
+        const fl = 300 * ((boostD - 0.25) / 0.75);
         ctx.strokeStyle = '#00F2FE';
         ctx.lineWidth = 2;
         ctx.beginPath();
@@ -733,9 +590,8 @@
         ctx.lineTo(d365_cx + fl, d365_cy);
         ctx.stroke();
       }
-      if (distC < 160) {
-        const intC = Math.pow(1 - distC / 160, 2);
-        const fl = 320 * intC;
+      if (boostC > 0.25) {
+        const fl = 300 * ((boostC - 0.25) / 0.75);
         ctx.strokeStyle = '#FF0080';
         ctx.lineWidth = 2;
         ctx.beginPath();
@@ -747,7 +603,10 @@
       drawVignette();
     }
 
-    // Starburst Helper
+    function renderFallbackMode(time) {
+      drawUserExactStyle1(time);
+    }
+
     function drawStarburst(cx, cy, rad, color, points = 4, angleDeg = 0) {
       const angleRad = angleDeg * Math.PI / 180;
       for (let p = 0; p < points; p++) {
@@ -775,7 +634,6 @@
       ctx.fill();
     }
 
-    // Helper: Draw scaled image centered at pos
     function drawScaledImage(img, x, y, scale) {
       const w = img.width;
       const h = img.height;
@@ -786,7 +644,6 @@
       ctx.drawImage(img, sx, sy, sw, sh);
     }
 
-    // Helper: Embers
     function drawEmbers(time) {
       embers.forEach(e => {
         e.y -= (e.speed * animSpeed) * 0.016;
@@ -804,7 +661,6 @@
       });
     }
 
-    // Helper: Vignette
     function drawVignette() {
       const vigGrad = ctx.createRadialGradient(CX, CY, BASE_W * 0.4, CX, CY, BASE_W * 0.75);
       vigGrad.addColorStop(0, 'rgba(0,0,0,0)');
@@ -813,39 +669,35 @@
       ctx.fillRect(0, 0, BASE_W, BASE_H);
     }
 
-    // Mode Switching
     function switchMode(mode) {
       activeMode = mode;
+      const btnUserExact = document.getElementById('btnModeUserExact');
       const btnSparkle = document.getElementById('btnModeSparkle');
-      const btnShields = document.getElementById('btnModeShields');
       const btnClassic = document.getElementById('btnModeClassic');
 
-      [btnSparkle, btnShields, btnClassic].forEach(b => {
+      [btnUserExact, btnSparkle, btnClassic].forEach(b => {
         b.className = "px-3.5 py-2 rounded-xl text-xs sm:text-sm font-extrabold transition-all flex items-center gap-1.5 text-slate-400 hover:text-white hover:bg-slate-800";
       });
 
-      if (mode === 'sparkle') {
-        btnSparkle.className = "px-3.5 py-2 rounded-xl text-xs sm:text-sm font-extrabold transition-all flex items-center gap-1.5 bg-gradient-to-r from-red-600 to-red-700 text-white shadow-lg shadow-red-900/40";
-        baseImage.src = 'assets/base_inpainted_shields.jpg';
+      if (mode === 'user_exact') {
+        btnUserExact.className = "px-4 py-2 rounded-xl text-xs sm:text-sm font-extrabold transition-all flex items-center gap-1.5 bg-gradient-to-r from-red-600 to-red-700 text-white shadow-lg shadow-red-900/40";
+        baseImage.src = 'assets/base_for_user_layout.jpg';
         chipLeft.innerHTML = `
           <div class="text-[9px] font-black tracking-widest uppercase text-sky-400 flex items-center gap-1">
             <span class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-ping"></span>
             <span>MICROSOFT DYNAMICS 365</span>
           </div>
           <div class="text-[11px] font-bold text-white">ระบบแกนหลักการเงิน & ภาษีไทย</div>
-          <div class="text-[9px] font-mono text-slate-400">SHIELD 1 // FROSTED GLASS</div>
+          <div class="text-[9px] font-mono text-slate-400">HORIZONTAL SLIDE // ACTIVE</div>
         `;
-        chipRight.innerHTML = `
-          <div class="text-[9px] font-black tracking-widest uppercase text-purple-400 flex items-center justify-end gap-1">
+        chipBottom.innerHTML = `
+          <div class="text-[10px] font-black tracking-widest uppercase text-purple-400 flex items-center justify-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-purple-400 animate-ping"></span>
             <span>MICROSOFT COPILOT AI</span>
-            <span class="w-1.5 h-1.5 rounded-full bg-purple-400 animate-ping"></span>
           </div>
-          <div class="text-[11px] font-bold text-white">ปัญญาประดิษฐ์อัตโนมัติ 24/7</div>
-          <div class="text-[9px] font-mono text-slate-400">SHIELD 2 // PRISM HALO</div>
+          <div class="text-sm font-extrabold text-white">ปัญญาประดิษฐ์อัตโนมัติ 24/7 (ลดเวลาปิดงวด 70%)</div>
+          <div class="text-[9px] font-mono text-slate-400">HORIZONTAL SLIDE // OPTION 3 CINEMATIC</div>
         `;
-      } else if (mode === 'shields') {
-        btnShields.className = "px-3.5 py-2 rounded-xl text-xs sm:text-sm font-extrabold transition-all flex items-center gap-1.5 bg-gradient-to-r from-sky-600 to-sky-700 text-white shadow-lg shadow-sky-900/40";
-        baseImage.src = 'assets/base_inpainted_shields.jpg';
       } else {
         btnClassic.className = "px-3.5 py-2 rounded-xl text-xs sm:text-sm font-extrabold transition-all flex items-center gap-1.5 bg-gradient-to-r from-slate-700 to-slate-800 text-white shadow-lg";
         baseImage.src = 'assets/fujitsu_copilot_value_3d.jpg';
@@ -856,77 +708,57 @@
 
     function populateTabs() {
       const container = document.getElementById('styleTabsContainer');
-      if (activeMode === 'sparkle') {
-        container.innerHTML = `
-          <button onclick="switchStyle(1)" id="tabStyle1" class="px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5">
-            <span>🌟 แบบที่ 1</span>
-            <span>Prismatic Edge Tracer (วิ่งลูบขอบเรื่อยๆ)</span>
-          </button>
-          <button onclick="switchStyle(2)" id="tabStyle2" class="px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5">
-            <span>⚡ แบบที่ 2</span>
-            <span>Dual Counter Streams (ลำแสงคู่วิ่งสวนกัน)</span>
-          </button>
-          <button onclick="switchStyle(3)" id="tabStyle3" class="px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5">
-            <span>🎬 แบบที่ 3</span>
-            <span>Cinematic Laser Sweep (สปอตไลท์ & เลเซอร์)</span>
-          </button>
-        `;
-      } else {
-        container.innerHTML = `
-          <button onclick="switchStyle(1)" id="tabStyle1" class="px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5">
-            <span>🌟 แบบที่ 1</span>
-            <span>Harmonic 3D Hover & Glass Glint</span>
-          </button>
-          <button onclick="switchStyle(2)" id="tabStyle2" class="px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5">
-            <span>⚡ แบบที่ 2</span>
-            <span>Quantum Pulse & Dual Energy Tethers</span>
-          </button>
-          <button onclick="switchStyle(3)" id="tabStyle3" class="px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5">
-            <span>🎬 แบบที่ 3</span>
-            <span>Cinematic Spotlight Lock & Gyro Focus</span>
-          </button>
-        `;
-      }
+      container.innerHTML = `
+        <button onclick="switchStyle(1)" id="tabStyle1" class="px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5">
+          <span>🌟 แบบที่ 1</span>
+          <span>Pure Slide & Option 3 (ตามสั่งเป๊ะ)</span>
+        </button>
+        <button onclick="switchStyle(2)" id="tabStyle2" class="px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5">
+          <span>⚡ แบบที่ 2</span>
+          <span>Counter-Phase Sway & Sparkle</span>
+        </button>
+        <button onclick="switchStyle(3)" id="tabStyle3" class="px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5">
+          <span>🎬 แบบที่ 3</span>
+          <span>Spotlight Focus Lock & Flare</span>
+        </button>
+      `;
     }
 
-    const SPARKLE_INFO = {
+    const USER_INFO = {
       1: {
-        title: "🌟 แบบที่ 1: Prismatic Edge Tracer & Glass Resonance (ประกายเพชรวิ่งลูบขอบโบว์เรื่อยๆ)",
-        subtitle: "แนวคิด: ลำแสงโฟตอนประกายเพชรวิ่งวนตามเส้นขอบริบบิ้นแดงอินฟินิตี้ ลากหางแสงระยิบระยับ และสะท้อนแสงวาบที่ขอบโล่คู่",
+        title: "🌟 แบบที่ 1: Pure Left-Right Slide & Option 3 Cinematic (ตามที่ระบุในภาพเป๊ะๆ)",
+        subtitle: "แนวคิด: โล่ Dynamics 365 (บนซ้าย) เลื่อนซ้าย-ขวา • โล่ Copilot (ล่าง) เลื่อนซ้าย-ขวา • ตัดโล่ขวาบนออก • แสงสปอตไลท์และโบว์แดงเคลื่อนไหวตามเดิมครบถ้วน",
         bullets: [
-          "<b>Continuous Edge Tracing:</b> ลำแสงดาว Starburst ความสว่างสูงวิ่งเลาะตามขอบโค้งของโบว์สีแดงอย่างต่อเนื่องไม่สิ้นสุด",
-          "<b>Glass Refraction Flare:</b> เมื่อลำแสงวิ่งผ่านโล่ Dynamics 365 จะสะท้อนแสงแก้วสีฟ้าคราม และเมื่อผ่านโล่ Copilot จะสะท้อนแสงสีม่วงชมพู",
-          "<b>Balanced Spacing:</b> โล่ทั้งสองข้างแยกห่างกันอย่างสวยงาม ชัดเจน ไม่ทับซ้อนกัน",
-          "<b>การใช้งาน:</b> เหมาะสำหรับสไลด์เปิดตัวและสไลด์ปิดท้ายที่ต้องการความพรีเมียม สดใส มีชีวิตชีวา"
+          "<b>Exact Shield Placement:</b> โล่ Dynamics 365 อยู่ตำแหน่งบนซ้าย, โล่ Copilot อยู่ตำแหน่งล่างขวาตรงกลาง, และตัดโล่บนขวาออก 100%",
+          "<b>Subtle Horizontal Slide:</b> โล่ทั้งสองเลื่อนสไลด์ซ้าย-ขวาเบาๆ นุ่มนวลตามคำขอ",
+          "<b>Integrated Branding:</b> โลโก้ฝังลงในผิวกระจกฟรอสต์กลมกลืน ไร้กล่องขาวสี่เหลี่ยม สะท้อนแสงสตูดิโอสวยงาม",
+          "<b>Option 3 Continuity:</b> แสงสปอตไลท์สตูดิโอกวาดแนวนอน ประกายแฉก Starburst และละอองทอง-รูบี้ขยับตามเดิมทุกประการ"
         ],
         badgeColor: "border-red-500/40 text-red-400 bg-red-500/10"
       },
       2: {
-        title: "⚡ แบบที่ 2: Dual Counter-Rotating Light Streams (ลำแสงคู่สองทิศทางวิ่งรอบโบว์)",
-        subtitle: "แนวคิด: ลำแสง 2 สี (ฟ้า Dynamics 365 & ม่วง Copilot) วิ่งสวนทางกันรอบขอบบน-ล่าง เกิดคลื่นพัลส์ที่จุดตัด",
+        title: "⚡ แบบที่ 2: Counter-Phase Sway & Edge Sparkle Shimmer (แนะนำเพิ่มเติม 1)",
+        subtitle: "แนวคิด: เลื่อนซ้าย-ขวาแบบสมดุลสวนทาง (Out-of-Phase) พร้อมประกายชิมเมอร์ระยิบระยับตามขอบโบว์แดง",
         bullets: [
-          "<b>Twin Opposing Streams:</b> ลำแสงสีฟ้าวิ่งตามเข็ม ลำแสงสีม่วงวิ่งทวนเข็มตามแนวขอบโบว์แดง",
-          "<b>Nexus Collision Pulse:</b> ทุกครั้งที่ลำแสงทั้งสองวิ่งสวนกันตรงจุดตัดกึ่งกลาง จะเกิดคลื่นพัลส์ระเบิดประกายทอง-รูบี้",
-          "<b>Continuous Perimeter Shimmer:</b> ขอบริบบิ้นทั้งวงมีประกายชิมเมอร์ระยิบระยับเต้นตลอดเวลา",
-          "<b>การใช้งาน:</b> เหมาะสำหรับสไลด์ที่เน้นความเฉลียวฉลาด การผสานระบบ AI กับ ERP แบบเรียลไทม์"
+          "<b>Counter-Phase Balance:</b> เมื่อโล่บนซ้ายเลื่อนไปขวา โล่ล่างจะเลื่อนไปซ้าย สร้างมิติความสมดุลทางสายตา",
+          "<b>Perimeter Shimmer:</b> ขอบริบบิ้นแดงมีแสงชิมเมอร์ระยิบระยับเต้นเบาๆ เพิ่มความมีชีวิตชีวา",
+          "<b>Breathing Scale:</b> โล่ทั้งสองขยาย-ยุบเบาๆ ตามจังหวะการรับส่งพลังงาน"
         ],
         badgeColor: "border-purple-500/40 text-purple-400 bg-purple-500/10"
       },
       3: {
-        title: "🎬 แบบที่ 3: Cinematic Laser Sweep & Starlight Embers (สปอตไลท์ & เลเซอร์ขอบโบว์)",
-        subtitle: "แนวคิด: ผสานลำแสงสปอตไลท์สตูดิโอกวาดแนวนอน ร่วมกับลำแสงเลเซอร์วิ้งขอบโบว์ ก่อเลนส์แฟลร์ภาพยนตร์",
+        title: "🎬 แบบที่ 3: Spotlight Focus Lock & Dual Beam Flare (แนะนำเพิ่มเติม 2)",
+        subtitle: "แนวคิด: เลื่อนซ้าย-ขวาพร้อมการส่องล็อคของสปอตไลท์ เกิดเลนส์แฟลร์ภาพยนตร์แนวนอนเมื่อส่องต้องโล่แต่ละข้าง",
         bullets: [
-          "<b>Studio Spotlight + Edge Laser:</b> ลำแสงสปอตไลท์กวาดผ่านฉาก พร้อมแสงเลเซอร์ประกายดาววิ่งเลาะขอบโลหะอย่างคมชัด",
-          "<b>Anamorphic Lens Flare:</b> เกิดลำแสงแนวนอนพาดผ่านหน้าจอเมื่อสปอตไลท์ส่องต้องโล่แต่ละข้าง",
-          "<b>Keynote Elegance:</b> ให้มิติความลึก แสงเงา คอนทราสต์ และความสง่างามระดับสูงสุด",
-          "<b>การใช้งาน:</b> เหมาะสำหรับสไลด์นำเสนอต่อบอร์ดบริหาร หรือผู้บริหารระดับ C-Level"
+          "<b>Dual Anamorphic Flares:</b> เมื่อสปอตไลท์กวาดโดนโล่ Dynamics 365 เกิดแสงสีฟ้าแนวนอน และเมื่อโดนโล่ Copilot เกิดแสงสีชมพูทอง",
+          "<b>Keynote Impact:</b> สร้างความโดดเด่นและตระการตาสูงสุดสำหรับการนำเสนอบนเวทีผู้บริหารระดับสูง"
         ],
         badgeColor: "border-amber-500/40 text-amber-400 bg-amber-500/10"
       }
     };
 
     function updateDescriptionBox(styleNum) {
-      const data = SPARKLE_INFO[styleNum];
+      const data = USER_INFO[styleNum];
       const box = document.getElementById('styleDescriptionBox');
       box.innerHTML = `
         <div class="flex items-center justify-between mb-2 flex-wrap gap-2">
