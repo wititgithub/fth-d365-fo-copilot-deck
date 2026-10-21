@@ -84,7 +84,7 @@ export const slides = [
       'For Production Control and Costing, variance reports already exist. Standard-cost variance analysis also depends on the costing model and order status. A community case about a disabled variance option was resolved by checking that prerequisite. We are not proposing AI to repair that button or replace the report. The opportunity to explore is connecting report figures with BOM or route versions, material consumption and shift notes. The output would be a concise evidence brief for the production controller. A suggested cause remains a hypothesis until an expert confirms it. This case depends more heavily on data quality than AP, so we would place it later and compare it with Microsoft’s evolving Finance Agent capabilities.'),
   },
   {
-    id:'architecture', duration:45, theme:'light', visual:'architecture', chapter:'07 / HOW IT CAN WORK',
+    id:'architecture', duration:45, theme:'dark', visual:'architecture', chapter:'07 / HOW IT CAN WORK',
     title:bi('เชื่อมผ่านสิทธิ์เดิม\nตัดสินใจด้วยหลักฐาน','Connect with existing rights.\nDecide with evidence.'),
     subtitle:bi('Copilot Studio + D365 + Approved knowledge','Copilot Studio + D365 + Approved knowledge'),
     takeaway:bi('อ่านก่อน · อ้างอิงได้ · คนอนุมัติ','Read first · Cite evidence · Human approval'),
@@ -104,7 +104,7 @@ export const slides = [
       'If we start with one case, my recommendation is an AP exception workflow. We can define a narrow scope, such as receipt mismatches in one legal entity, identify an accountable owner and compare against the current method. Inventory close and warehouse investigations can follow. Production needs stronger operational context. This sequence is a design recommendation, rather than a measured ranking of customer pain. The process owner should confirm it using resolved cases. We should also run the same tasks through existing configuration and Copilot capabilities. If standard tools already meet the need, the right engagement may be configuration and adoption, without building another agent.'),
   },
   {
-    id:'pilot', duration:45, theme:'light', visual:'pilot', chapter:'09 / THE PILOT DECISION',
+    id:'pilot', duration:45, theme:'dark', visual:'pilot', chapter:'09 / THE PILOT DECISION',
     title:bi('พิสูจน์ก่อนขยายผล','Prove value before scaling'),
     subtitle:bi('แผนตัวอย่าง 6 สัปดาห์ — ปรับตามความพร้อม','Illustrative six-week plan — subject to readiness'),
     takeaway:bi('อนุมัติให้สำรวจ pilot พร้อมเจ้าของงานและข้อมูล','Sponsor a scoped pilot with an owner and data access'),
