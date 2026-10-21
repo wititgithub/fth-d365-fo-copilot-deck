@@ -169,137 +169,235 @@
         num: 1,
         tag: "FUJITSU THAILAND // EXECUTIVE PRESENTATION // SLIDE 1",
         title: "The Autonomous Enterprise: Augmenting Microsoft Dynamics 365 with Copilot AI",
-        subtitle: "ยกระดับระบบ ERP จาก 'ระบบบันทึกข้อมูลแบบดั้งเดิม' สู่ 'ระบบอัจฉริยะที่ตัดสินใจและทำงานเชิงรุก' (System of Intelligence)",
+        subtitle: "ยกระดับระบบ ERP จาก 'ระบบบันทึกธุรกรรมดั้งเดิม' (System of Record) สู่ 'ระบบอัจฉริยะที่คิด วิเคราะห์ และเตือนภัยล่วงหน้า' (System of Intelligence)",
         isTitle: true,
-        scriptTh: "สวัสดีท่านผู้บริหารทุกท่านครับ วันนี้ผมขออนุญาตนำเสนอวิสัยทัศน์ที่จะเปลี่ยนวิธีที่องค์กรของเราขับเคลื่อนธุรกิจด้วย Microsoft Dynamics 365 และ Copilot AI... ตลอดหลายปีที่ผ่านมา ERP คือหัวใจในการบันทึกข้อมูลธุรกรรม แต่ในยุคปี 2026 นี้ แค่บันทึกอย่างเดียวไม่เพียงพอแล้วครับ สิ่งที่เราต้องการคือระบบที่สามารถคิด วิเคราะห์ และช่วยทีมงานตัดสินใจเชิงรุกได้ทันทีในทุกโมดูลครับ",
-        scriptEn: "Good morning, executive leaders. Today, I am excited to share a transformative vision for how our organization can elevate Microsoft Dynamics 365 using Copilot AI. For years, ERP has served as our robust system of record. But in 2026, mere record-keeping is no longer enough. We need an intelligent, autonomous ERP that actively reasons, predicts, and empowers our teams to act proactively.",
+        scriptTh: "กราบเรียนท่านประธาน และคณะกรรมการบริหารทุกท่านครับ วันนี้ผมขออนุญาตนำเสนอทิศทางเชิงกลยุทธ์ในการยกระดับ Microsoft Dynamics 365 ด้วย Copilot AI... ตลอดหลายปีที่ผ่านมา ERP ทำหน้าที่เป็น 'System of Record' ที่บันทึกข้อมูลอย่างแม่นยำ แต่วันนี้ข้อมูลที่บันทึกไว้เฉยๆ ไม่เพียงพอที่จะสร้างความได้เปรียบทางธุรกิจ สิ่งที่เราต้องการคือ 'System of Intelligence' ที่สามารถคิด วิเคราะห์ ช่วยตัดสินใจ และทำงานเชิงรุกได้ครอบคลุมทุกโมดูลหลักขององค์กรครับ",
+        scriptEn: "Good morning, members of the Board and Executive Committee. Today, I present our strategic roadmap for augmenting Microsoft Dynamics 365 with Copilot AI. While D365 has long served as our reliable System of Record, recorded data alone is no longer enough to outpace market volatility. We must evolve into a System of Intelligence—an autonomous enterprise where AI reasons, predicts, and empowers human decision-making across all core business modules.",
         time: "0:00 - 0:45"
       },
       {
         num: 2,
-        tag: "THE REALITY GAP // SLIDE 2 OF 10",
-        title: "The Enterprise Reality Gap: Where Standard D365 Stops",
-        subtitle: "ทำไม ERP ชั้นนำระดับโลก ถึงยังเหลือภาระงาน Manual ให้ทีมงานกว่า 60%?",
+        tag: "MODULE 1: FINANCE & THAI TAX // SLIDE 2 OF 10",
+        title: "Module 1: Finance & Thai Tax Localization",
+        subtitle: "แก้ Pain Point งานบัญชีเจ้าหนี้ และภาษีไทยที่ Standard D365 ไม่ยืดหยุ่นพอ",
         cards: [
-          { title: "1. Unstructured Data Blindspot", detail: "Standard D365 ประมวลผลได้เฉพาะข้อมูลตาราง (SQL) แต่เอกสารจริง 80% คือ PDF ใบแจ้งหนี้, สัญญา, แชท, และอีเมล ที่ระบบอ่านไม่ออก ต้องใช้คนคีย์ซ้ำ", color: "border-red-500/40 text-red-400" },
-          { title: "2. Reactive & Deterministic Rules", detail: "ระบบบอกได้แค่ว่า 'เกิดอะไรขึ้นแล้วในอดีต' และทำตามกฎตายตัว ไม่สามารถคาดการณ์ความเสี่ยงคู่ค้า หรือความผันผวนของตลาดล่วงหน้าได้", color: "border-amber-500/40 text-amber-400" },
-          { title: "3. High Cognitive & Thai Tax Complexity", detail: "งานกระทบยอดภาษีไทย (หัก ณ ที่จ่าย ภ.ง.ด., e-Tax), 3-Way Matching ที่ไม่ตรงกัน และการแกะข้อผิดพลาด ยังต้องพึ่งพาคนนั่งตรวจทีละบรรทัด", color: "border-sky-500/40 text-sky-400" }
+          {
+            title: "ภาพความเป็นจริง & Pain Point",
+            detail: "• Standard 3-Way Match แข็งตัวเกินไป: ถ้าใบแจ้งหนี้มีค่าขนส่งรวมมา หรือเศษทศนิยมต่าง 5 สตางค์ ระบบจะสั่ง Hold ทันที ต้องใช้คนไปไล่สืบอีเมล\n• ความซับซ้อนของภาษีไทย: การตรวจใบหัก ณ ที่จ่าย ภ.ง.ด. 3, 53 และการกระทบยอด e-Tax Invoice ต้องใช้แรงงานคนตรวจทีละบรรทัด สิ้นเดือนทำงานหามรุ่งหามค่ำ",
+            color: "border-red-500/40 text-red-400"
+          },
+          {
+            title: "Copilot AI เข้ามาช่วยอย่างไร",
+            detail: "• เสมือน 'ผู้ช่วยนักบัญชีอาวุโส': อ่านเอกสาร PDF หลากหลายรูปแบบ ดึงข้อมูลอัตโนมัติ (Document Intelligence)\n• เมื่อพบราคาคลาดเคลื่อน Copilot จะตรวจสอบประวัติสัญญา และวิเคราะห์ว่าอยู่ในเกณฑ์ยอมรับได้หรือไม่ พร้อมร่าง Adjustment Voucher ให้กดอนุมัติในคลิกเดียว\n• จับคู่กระทบยอดภาษีหัก ณ ที่จ่ายกับระบบสรรพากรอัตโนมัติ",
+            color: "border-blue-500/40 text-blue-400"
+          },
+          {
+            title: "ผลลัพธ์ที่จับต้องได้ (Impact)",
+            detail: "⚡ ปิดงวดบัญชีเร็วขึ้น 70% (จาก 5 วัน เหลือไม่กี่ชั่วโมง)\n📉 ลดปัญหายอดค้างจ่ายในระบบ (Blocked Invoices) ได้กว่า 85%\n🛡️ ขจัดความเสี่ยงจากการถูกสรรพากรปรับเรื่องภาษีหัก ณ ที่จ่าย 100%",
+            color: "border-emerald-500/40 text-emerald-400"
+          }
         ],
-        scriptTh: "ก่อนอื่นเราต้องยอมรับความจริงข้อหนึ่งครับ... แม้ว่า Dynamics 365 จะเป็นระบบ ERP ชั้นยอด แต่ทำไมทีมบัญชี จัดซื้อ และซัพพลายเชนของเรายังต้องเสียเวลาส่วนใหญ่ไปกับ Excel และงานคีย์ข้อมูลมือ? นั่นเป็นเพราะ Standard D365 มีจุดบอด 3 ประการ: มันอ่านเอกสารที่ไม่เป็นโครงสร้างไม่ออก, มันทำงานแบบรอให้เรื่องเกิดก่อน (Reactive), และกฎหมายภาษีของไทยมีความซับซ้อนเกินกว่าระบบสำเร็จรูปจะจัดการได้อัตโนมัติครับ",
-        scriptEn: "Let's begin with an honest reality check. While Dynamics 365 is a world-class platform, why do our finance, procurement, and operations teams still spend over 60% of their time trapped in Excel and manual reconciliation? Because standard ERP has three inherent blind spots: it cannot understand unstructured documents like PDFs or emails, it only tells us what happened in the past, and complex local requirements like Thai tax reconciliation require heavy human intervention.",
+        scriptTh: "ในโมดูลแรก คือการเงินและบัญชีครับ Pain Point จริงที่พบบ่อยมากคือ Standard 3-Way Match ใน D365 มีตรรกะที่แข็งตัวมากครับ หากใบแจ้งหนี้จากคู่ค้ามีค่าขนส่งเพิ่มมา หรือเศษสตางค์ไม่ตรงกับ PO ระบบจะสั่ง Hold การจ่ายเงินทันที ทำให้เกิดการค้างจ่ายและนักบัญชีต้องไปไล่สืบเอกสารทีละใบ ยิ่งไปกว่านั้น ภาษีหัก ณ ที่จ่าย ภ.ง.ด. 3, 53 และ e-Tax ของไทย ต้องใช้คนตรวจทีละบรรทัด... Copilot AI เข้ามาเป็นเสมือนผู้ช่วยนักบัญชีอาวุโส อ่าน PDF สแกน ตรวจสอบบริบทสัญญา หากอยู่ในเกณฑ์จะร่างใบปรับปรุงยอดให้อนุมัติในคลิกเดียว พร้อมกระทบยอดภาษีกับสรรพากรอัตโนมัติ ช่วยให้ปิดงบเร็วขึ้นถึง 70% ครับ",
+        scriptEn: "In our first module, Finance & Thai Tax, standard D365's 3-way matching logic is strictly deterministic. If an invoice diverges by even a few pennies or includes an off-PO delivery fee, processing halts instantly, creating manual bottlenecks. Compounding this, reconciling Thai withholding tax forms ภ.ง.ด. 3, 53 and e-Tax requires tedious line-by-line checks. Copilot AI functions like a seasoned senior accountant: it reads unstructured PDFs, understands contract tolerance, drafts one-click adjustment journals, and auto-reconciles statutory taxes, cutting closing time by 70%.",
         time: "0:45 - 1:35"
       },
       {
         num: 3,
-        tag: "STRATEGIC ARCHITECTURE // SLIDE 3 OF 10",
-        title: "Strategic Blueprint: The Copilot AI Augmentation Layer",
-        subtitle: "สถาปัตยกรรมอัจฉริยะที่ผสานเข้ากับ D365 Dataverse ภายใต้ความปลอดภัยระดับสูงสุด",
+        tag: "MODULE 2: SOURCING & PROCUREMENT // SLIDE 3 OF 10",
+        title: "Module 2: Sourcing & Procurement Intelligence",
+        subtitle: "เปลี่ยนจัดซื้อจากการตั้งรับ สู่การรู้ทันแนวโน้มราคาตลาดและป้องกันความเสี่ยงสัญญา",
         cards: [
-          { title: "Multi-Modal Cognitive Ingestion", detail: "Copilot ถอดรหัสเอกสารทุกรูปแบบ (PDF, รูปถ่าย, เอกสารภาษี) แปลงเป็นตรรกะทางธุรกิจอัตโนมัติ", color: "border-sky-500/40 text-sky-400" },
-          { title: "Enterprise Isolated Tenant Security", detail: "ข้อมูลองค์กร 100% อยู่ใน Tenant ส่วนตัว ข้อมูลไม่ถูกนำไปเทรนโมเดลสาธารณะ พร้อมการเข้ารหัส AES-256", color: "border-emerald-500/40 text-emerald-400" },
-          { title: "Human-in-the-Loop Governance", detail: "AI เสนอแนวทางและร่างเอกสาร แต่การอนุมัติขั้นสุดท้าย (Sign-off) ยังคงอยู่ในการควบคุมของผู้บริหาร 100%", color: "border-purple-500/40 text-purple-400" }
+          {
+            title: "ภาพความเป็นจริง & Pain Point",
+            detail: "• ซื้อตามราคากลางเดิม: Standard D365 อิงราคาจาก Trade Agreement เก่า ตาบอดต่อความผันผวนของราคาตลาดโลก (น้ำมัน, เหล็ก, ค่าระวางเรือ)\n• สัญญาคู่ค้าแฝงความเสี่ยง: เวลาเปิดประมูล (RFQ) ฝ่ายจัดซื้อไม่มีเวลาอ่านสัญญาละเอียดยิบ มักมองข้ามเงื่อนไขค่าปรับหรือการรับประกันที่เสียเปรียบ",
+            color: "border-red-500/40 text-red-400"
+          },
+          {
+            title: "Copilot AI เข้ามาช่วยอย่างไร",
+            detail: "• เสมือน 'ที่ปรึกษาจัดซื้อเชิงกลยุทธ์': เชื่อมโยงดัชนีราคาสินค้าโภคภัณฑ์โลก ผสานกับประวัติคุณภาพคู่ค้าใน D365\n• สแกนร่างสัญญาคู่ค้าอัตโนมัติ ทำการ Redline ไฮไลต์ข้อความที่เป็นความเสี่ยงทางกฎหมาย\n• สรุปจุดแข็ง-จุดอ่อนของแต่ละใบเสนอราคา และร่างบทเจรจาต่อรองให้ผู้จัดซื้อนำไปใช้คุยกับคู่ค้าได้ทันที",
+            color: "border-blue-500/40 text-blue-400"
+          },
+          {
+            title: "ผลลัพธ์ที่จับต้องได้ (Impact)",
+            detail: "💰 ประหยัดต้นทุนจัดซื้อ (Cost Avoidance) เฉลี่ย 10 - 15%\n⏱️ ลดเวลาการเปรียบเทียบ RFQ จาก 3 วัน เหลือ 30 นาที\n🔒 ป้องกันข้อพิพาททางสัญญาและค่าปรับแฝงได้ล่วงหน้า 100%",
+            color: "border-emerald-500/40 text-emerald-400"
+          }
         ],
-        scriptTh: "นี่คือจุดที่ Copilot AI เข้ามาเสริมครับ เราไม่ได้มารื้อระบบ D365 เดิม แต่เรานำเลเยอร์ปัญญาประดิษฐ์มาสวมทับบน Dataverse ที่มีอยู่เดิม โดยมีหัวใจสำคัญคือความปลอดภัยระดับ Enterprise ข้อมูลของเราจะไม่รั่วไหลออกนอก Tenant และทุกการตัดสินใจสำคัญยังคงมี 'Human-in-the-Loop' คือให้ AI เตรียมงานและวิเคราะห์ แล้วให้พนักงานเป็นผู้อนุมัติครับ",
-        scriptEn: "Here is our strategic architecture. We are not replacing or overhauling Dynamics 365; we are augmenting it with an intelligent cognitive layer powered by Azure OpenAI and Copilot Studio. Crucially for our leadership, this operates inside our isolated enterprise tenant with zero data leakage, and always maintains a Human-in-the-Loop governance model where AI assists and humans approve.",
+        scriptTh: "โมดูลที่สอง ฝ่ายจัดซื้อครับ ปัจจุบัน D365 ทำงานโดยอิงจากราคากลางในอดีต แต่ราคาวัตถุดิบและค่าระวางเรือในตลาดโลกผันผวนตลอดเวลา ทำให้เราอาจซื้อของแพงกว่าราคาตลาดโดยไม่รู้ตัว นอกจากนี้ สัญญาคู่ค้าที่มีข้อความทางกฎหมายซับซ้อน ฝ่ายจัดซื้อมักไม่มีเวลาตรวจละเอียด... Copilot AI ทำหน้าที่เป็นที่ปรึกษาจัดซื้อเชิงกลยุทธ์ คอยมอนิเตอร์ราคาตลาดโลก เปรียบเทียบใบเสนอราคาหลายเจ้าพร้อมกัน และตรวจจับข้อสัญญาที่อาจทำให้เราเสียเปรียบ พร้อมแนะนำข้อเจรจาต่อรอง ช่วยให้เราประหยัดต้นทุนจัดซื้อได้ทันที 10 ถึง 15% ครับ",
+        scriptEn: "Moving to Procurement: standard D365 relies on static price catalogs and historical purchase agreements, blind to real-time global commodity swings. Furthermore, reviewing lengthy vendor contracts often leads to overlooked legal risks or unfavorable penalty terms. Copilot acts as a strategic procurement advisor: it cross-references global commodity price trends with internal vendor scorecards, automatically redlines high-risk clauses in contracts, and prepares negotiation scripts—yielding an estimated 10 to 15% in direct cost avoidance.",
         time: "1:35 - 2:25"
       },
       {
         num: 4,
-        tag: "MODULE 1: FINANCE // SLIDE 4 OF 10",
-        title: "Module 1: Finance & Thai Tax Modernization",
-        subtitle: "แก้ Pain Point งานบัญชีและการกระทบยอดภาษีไทยที่ Standard D365 ทำไม่ได้",
+        tag: "MODULE 3: SUPPLY CHAIN & INVENTORY // SLIDE 4 OF 10",
+        title: "Module 3: Supply Chain Resiliency & Inventory",
+        subtitle: "เรดาร์ตรวจจับวิกฤตโลจิสติกส์ล่วงหน้า ป้องกันสินค้าขาดมือโดยไม่ต้องจมสต็อก",
         cards: [
-          { title: "Pain ใน Standard D365", detail: "• ใบแจ้งหนี้ไม่ตรง PO (มีค่าขนส่งแฝง, ส่วนลดพิเศษ) ทำให้ 3-Way Matching ค้าง\n• การกระทบยอด ภ.ง.ด. 3, 53 และ e-Tax Invoice XML ต้องใช้คนตรวจคู่มือภาษี", color: "border-red-500/40 text-red-400" },
-          { title: "Use Case 1: Autonomous 3-Way Audit", detail: "Copilot อ่านเอกสารเทียบ PO และ GRN หากพบส่วนต่าง ระบบจะอธิบายเหตุผลเป็นภาษาไทย และร่าง Adjustment Voucher ให้อัตโนมัติ", color: "border-sky-500/40 text-sky-400" },
-          { title: "Use Case 2: Thai Tax Auto-Reconciliation", detail: "ตรวจสอบเลขอ้างอิงและลายมือชื่อดิจิทัลกับกรมสรรพากรอัตโนมัติ ลดเวลาปิดงวดบัญชีจาก 5 วันเหลือ 4 ชั่วโมง", color: "border-emerald-500/40 text-emerald-400" }
+          {
+            title: "ภาพความเป็นจริง & Pain Point",
+            detail: "• Standard MRP ทำงานแบบตาบอด: คำนวณจากตัวเลขใน ERP เท่านั้น ไม่รู้ว่าท่าเรือปลายทางหยุดงาน เรือติดพายุ หรือโรงงานต้นทางสะดุด\n• รู้ตัวเมื่อสายเกินแก้: กว่าจะรู้ว่าวัตถุดิบมาไม่ทัน ก็ตอนเลยกำหนดส่งแล้ว ผลคือสายการผลิตหยุด หรือต้องแบก Safety Stock มหาศาลจนจมกระแสเงินสด",
+            color: "border-red-500/40 text-red-400"
+          },
+          {
+            title: "Copilot AI เข้ามาช่วยอย่างไร",
+            detail: "• เสมือน 'เรดาร์ตรวจจับวิกฤตซัพพลายเชน 24/7': เชื่อมโยงข้อมูลสภาพอากาศ การจราจรทางเรือ และข่าวสารท่าเรือ เข้ากับใบสั่งซื้อใน D365\n• แจ้งเตือนความล่าช้าล่วงหน้า 10-14 วัน ก่อนเกิดปัญหาจริง\n• จำลองทางเลือกแก้ไขปัญหา (Scenario Simulation) เช่น แนะนำคลังสำรองที่สามารถสลับของ หรือแนะนำซัพพลายเออร์ใกล้เคียงที่ส่งทดแทนได้",
+            color: "border-blue-500/40 text-blue-400"
+          },
+          {
+            title: "ผลลัพธ์ที่จับต้องได้ (Impact)",
+            detail: "📦 ลดปริมาณสต็อกสำรอง (Safety Stock) ลง 20 - 25% โดยไม่กระทบยอดขาย\n🚨 ลดความเสี่ยงสายการผลิตหยุดชะงัก (Downtime) จากของขาดได้ 80%\n💵 ปลดล็อกเงินทุนหมุนเวียน (Working Capital) คืนสู่กระแสเงินสดองค์กร",
+            color: "border-emerald-500/40 text-emerald-400"
+          }
         ],
-        scriptTh: "ในโมดูลการเงินครับ Pain ที่พบบ่อยที่สุดคือเมื่อใบแจ้งหนี้จากคู่ค้ามีค่าขนส่งหรือส่วนลดที่ไม่ได้ระบุใน PO ระบบ D365 มาตรฐานจะติดล็อก 3-Way Matching ทันที ต้องรอคนไปไล่ถามอีเมล... ด้วย Copilot AI ระบบจะอ่านและเข้าใจเงื่อนไข ทำการอธิบายสาเหตุเป็นภาษาไทย และร่างใบปรับปรุงบัญชีให้เสร็จสรรพ พร้อมตรวจกระทบยอด e-Tax ภาษีหัก ณ ที่จ่ายกับกรมสรรพากรแบบไร้รอยต่อครับ",
-        scriptEn: "In Finance, our biggest bottleneck is 3-way matching exceptions. When a vendor adds freight surcharges or off-invoice discounts, standard D365 simply halts processing, requiring accountants to manually chase emails. With Copilot, the AI understands the discrepancies in plain context, drafts adjustment journals, and validates Thai e-Tax and withholding tax digital signatures automatically, slashing month-end closing from five days down to four hours.",
+        scriptTh: "ในโมดูลที่สาม ซัพพลายเชนและคลังสินค้าครับ ปัญหาคลาสสิกของ Standard MRP คือมันมองไม่เห็นโลกภายนอก มันไม่รู้ว่ามีมรสุมเข้า หรือท่าเรือแหลมฉบังกำลังติดขัด กว่าที่ระบบจะรู้ว่าของไม่มาส่ง ก็คือเลยวันนัดไปแล้ว ทำให้โรงงานผลิตต่อไม่ได้ หรือเราต้องแก้ปัญหาด้วยการสต็อกของไว้เยอะๆ จนเงินจม... Copilot AI เข้ามาเป็นเรดาร์ตรวจจับวิกฤต แจ้งเตือนล่วงหน้า 10 ถึง 14 วัน พร้อมจำลองแผนแก้ไขให้ทันที เช่น สลับของจากคลังอื่น ช่วยให้เราลดเงินจมใน Safety Stock ได้ถึง 20-25% ครับ",
+        scriptEn: "In Supply Chain and Inventory, standard MRP plans blindly using only internal database timestamps. It has zero awareness of external port congestion, strikes, or typhoons. Delays are discovered only after missing customer dock dates, forcing companies to carry bloated safety stock. Copilot acts as a 24/7 disruption radar: ingesting external maritime telematics and weather feeds, anticipating shortages 10 to 14 days ahead, and simulating rerouting options. This allows us to cut safety inventory holding by 20 to 25%.",
         time: "2:25 - 3:15"
       },
       {
         num: 5,
-        tag: "MODULE 2: PROCUREMENT // SLIDE 5 OF 10",
-        title: "Module 2: Procurement & Sourcing Intelligence",
-        subtitle: "จากงานจัดซื้อเชิงรับ สู่การคัดเลือกและเจรจาต่อรองคู่ค้าด้วยปัญญาประดิษฐ์",
+        tag: "MODULE 4: MANUFACTURING // SLIDE 5 OF 10",
+        title: "Module 4: Smart Manufacturing & Operations",
+        subtitle: "วิเคราะห์หาสาเหตุของเสีย (Scrap) ในไม่กี่นาที และจัดตารางผลิตแบบยืดหยุ่น",
         cards: [
-          { title: "Pain ใน Standard D365", detail: "• การประเมินคู่ค้าดูได้แค่วันที่ส่งของในอดีต (Lagging KPI) ไม่รู้สถานะการเงินจริงหรือความเสี่ยงภายนอก\n• การตรวจสัญญาและเปรียบเทียบ RFQ หลายเจ้าทำได้ช้า", color: "border-red-500/40 text-red-400" },
-          { title: "Use Case 1: Predictive AI Vendor Selection", detail: "วิเคราะห์ประวัติคุณภาพใน D365 ร่วมกับแนวโน้มราคาสินค้าโภคภัณฑ์โลกและข่าวความเสี่ยง แนะนำสัดส่วนการสั่งซื้อที่คุ้มค่าที่สุด", color: "border-sky-500/40 text-sky-400" },
-          { title: "Use Case 2: Contract Risk & Negotiation Copilot", detail: "สแกนข้อสัญญาที่อาจเสียเปรียบ สรุปข้อเบี่ยงเบน และร่างแนวทางเจรจาต่อรองราคาช่วยทีมจัดซื้อ ประหยัดต้นทุนได้ 15%", color: "border-purple-500/40 text-purple-400" }
+          {
+            title: "ภาพความเป็นจริง & Pain Point",
+            detail: "• สืบหาสาเหตุของเสียล่าช้า: เมื่อชิ้นงานตกเกณฑ์ (Scrap Spike) ข้อมูลกระจัดกระจายอยู่ในเครื่องจักร IoT, สภาพแวดล้อม และล็อตวัตถุดิบ\n• วิศวกรต้องใช้เวลาครึ่งวันเปิดดูหลายระบบเพื่อหาสาเหตุ ทำให้เสียเวลาและผลิตของเสียเพิ่มขึ้นเรื่อยๆ",
+            color: "border-red-500/40 text-red-400"
+          },
+          {
+            title: "Copilot AI เข้ามาช่วยอย่างไร",
+            detail: "• เสมือน 'หัวหน้าวิศวกรโรงงานอัจฉริยะ': นำข้อมูลเซนเซอร์ IoT, อุณหภูมิโรงงาน และประวัติล็อตวัตถุดิบ (Lot Genealogy) มาวิเคราะห์ร่วมกัน\n• สรุปรายงานหาสาเหตุต้นตอ (Root Cause Analysis) ให้วิศวกรได้ภายในไม่กี่นาที\n• ปรับเปลี่ยนคิวงานผลิต (Dynamic Dispatching) ไปยังเครื่องสำรองใน D365 โดยอัตโนมัติ",
+            color: "border-blue-500/40 text-blue-400"
+          },
+          {
+            title: "ผลลัพธ์ที่จับต้องได้ (Impact)",
+            detail: "⏱️ ลดเวลาการวินิจฉัยปัญหาของเสียจาก 4 ชั่วโมง เหลือไม่เกิน 15 นาที\n📉 ลดอัตราของเสีย (Scrap Rate) ในสายการผลิตลง 18 - 25%\n⚙️ ยกระดับ Overall Equipment Effectiveness (OEE) ของเครื่องจักรหลัก",
+            color: "border-emerald-500/40 text-emerald-400"
+          }
         ],
-        scriptTh: "ถัดมาคือฝ่ายจัดซื้อครับ ปกติ D365 จะให้คะแนนคู่ค้าจากประวัติการส่งของในอดีตเท่านั้น ซึ่งไม่ช่วยเตือนภัยล่วงหน้าเลยครับ... Copilot จะดึงข้อมูลต้นทุนโภคภัณฑ์โลก ข่าวความเสี่ยง และผลงานในอดีตมารวมกัน เพื่อแนะนำว่าควรซื้อจากเจ้าไหนในสัดส่วนเท่าไร พร้อมสแกนเงื่อนไขสัญญาว่ามีข้อผูกมัดหรือเบี้ยปรับใดที่องค์กรเราเสียเปรียบหรือไม่ ช่วยให้เราประหยัดต้นทุนจัดซื้อได้ทันที 15% ครับ",
-        scriptEn: "In Procurement, standard D365 evaluates vendors purely on historical delivery timestamps. It cannot see impending supplier insolvency or global raw material inflation. Copilot synthesizes internal purchase history with live global commodity trends and news sentiment to recommend optimal vendor allocations. It even reviews supplier contracts to flag high-risk liability clauses and draft data-backed negotiation strategies.",
+        scriptTh: "โมดูลที่สี่ ฝ่ายผลิตและควบคุมคุณภาพครับ เมื่อเกิดของเสียในสายการผลิต หรือเครื่องจักรเริ่มมีอาการสะดุด ปัญหาคือข้อมูลอยู่กระจัดกระจายมากครับ ทั้งเซนเซอร์ความร้อน สภาพอากาศ และล็อตวัตถุดิบ วิศวกรต้องเสียเวลาหลายชั่วโมงในการสืบหาต้นตอ... Copilot AI จะเชื่อมโยงข้อมูล IoT และประวัติใน D365 เข้าด้วยกัน สรุป Root Cause ให้วิศวกรได้ในเวลาไม่กี่นาที พร้อมปรับลำดับงานผลิตไปยังเครื่องจักรสำรองได้ทันที ช่วยลดอัตราของเสียลงได้ถึง 18-25% ครับ",
+        scriptEn: "On the Manufacturing shop floor, diagnosing quality drift and equipment failures requires cross-referencing disparate IoT logs, factory ambient humidity, and batch genealogy. Engineers often spend half a day investigating the cause while defective parts accumulate. Copilot correlates real-time IoT telemetry with D365 batch records, generating root-cause diagnostics within minutes and dynamically adjusting production schedules to alternative work centers, reducing scrap rates by 18 to 25%.",
         time: "3:15 - 4:05"
       },
       {
         num: 6,
-        tag: "MODULE 3: SUPPLY CHAIN // SLIDE 6 OF 10",
-        title: "Module 3: Autonomous Supply Chain Resiliency",
-        subtitle: "พลิกโฉมการวางแผนคลังสินค้า รับมือวิกฤตโลจิสติกส์ได้ล่วงหน้า",
+        tag: "MODULE 5: PROJECT OPERATIONS // SLIDE 6 OF 10",
+        title: "Module 5: Project Operations & Professional Services",
+        subtitle: "เตือนภัยกำไรรั่วไหล (Margin Bleed) และแปลงข้อสรุปประชุมเป็น Change Order",
         cards: [
-          { title: "Pain ใน Standard D365", detail: "• Master Planning (MRP) คำนวณแบบคงที่ ไม่รู้ข้อมูลพายุ ท่าเรือปิด หรือตู้คอนเทนเนอร์ตกค้าง\n• คลังสินค้าต้องถือ Safety Stock สูงเพื่อกันของขาด ทำให้จมทุนมหาศาล", color: "border-red-500/40 text-red-400" },
-          { title: "Use Case 1: Proactive Disruption Rerouting", detail: "ตรวจจับความล่าช้าของการขนส่งทั่วโลก และเสนอแผนสลับ PO หรือโอนย้ายสินค้าข้ามคลัง (Cross-docking) ล่วงหน้า 2 สัปดาห์", color: "border-sky-500/40 text-sky-400" },
-          { title: "Use Case 2: Contextual Demand Sensing", detail: "พยากรณ์ความต้องการสินค้าแม่นยำขึ้น ลดต้นทุนการถือครองสินค้า (Carrying Cost) ลงได้ถึง 25%", color: "border-emerald-500/40 text-emerald-400" }
+          {
+            title: "ภาพความเป็นจริง & Pain Point",
+            detail: "• กำไรรั่วไหลแบบเงียบๆ (Silent Margin Bleed): ลูกค้าขอแก้งานหรือเพิ่มงานเล็กๆ ในที่ประชุม (Scope Creep) แต่ทีมหน้างานไม่ได้บันทึกหรือออกบิล\n• รู้ตัวว่าขาดทุนเมื่อจบโปรเจกต์: เสียเวลาในการสรุปเอกสารเพื่อขออนุมัติงานเพิ่ม ทำให้ไม่ได้เรียกเก็บเงินตามจริง",
+            color: "border-red-500/40 text-red-400"
+          },
+          {
+            title: "Copilot AI เข้ามาช่วยอย่างไร",
+            detail: "• เสมือน 'ผู้ช่วยผู้จัดการโครงการ': มอนิเตอร์อัตราการใช้ชั่วโมงงานและงบประมาณเทียบกับ Milestone แบบ Real-time\n• เตือนภัยล่วงหน้า 3-4 สัปดาห์ ก่อนที่งบประมาณจะบานปลายเกินกำไรที่ตั้งไว้\n• ถอดบันทึกการประชุม แปลงเป็นร่างเอกสาร Change Order พร้อมคำนวณมูลค่างานเพิ่มให้อัตโนมัติ เพื่อส่งให้ลูกค้าอนุมัติก่อนเริ่มทำ",
+            color: "border-blue-500/40 text-blue-400"
+          },
+          {
+            title: "ผลลัพธ์ที่จับต้องได้ (Impact)",
+            detail: "📈 ปกป้องอัตรากำไรโครงการ (Project Profit Margin) เพิ่มขึ้น 12 - 18%\n📝 เก็บเงินค่างานเพิ่ม (Unbilled Scope Creep) ได้ครบถ้วน 100%\n⚡ ลดเวลาจัดทำเอกสาร Change Order และ SOW ลง 80%",
+            color: "border-emerald-500/40 text-emerald-400"
+          }
         ],
-        scriptTh: "ในด้านห่วงโซ่อุปทาน การคำนวณ MRP ของระบบทั่วไปไม่เคยรู้ว่าเส้นทางขนส่งทางทะเลติดขัดหรือมีพายุเข้า ทำให้เกิดปัญหาของขาดสต็อก หรือเราต้องถือสินค้าเผื่อไว้จนเงินจม... Copilot เชื่อมโยงข้อมูลโลจิสติกส์ภายนอก แจ้งเตือนความเสี่ยงล่วงหน้า 2 สัปดาห์ และเสนอทางเลือกให้โอนย้ายสินค้าระหว่างสาขาได้ทันที ทำให้เราลดมูลค่าสต็อกจมลงได้ถึง 25% ครับ",
-        scriptEn: "In Supply Chain, conventional MRP calculations are blind to external disruptions such as port congestions or adverse weather, forcing us to hold excessive safety stock. Copilot injects external logistics telemetry into D365, predicting stockout risks two weeks in advance and suggesting cross-warehouse transfers. This predictive demand sensing enables us to cut inventory carrying costs by up to 25%.",
+        scriptTh: "โมดูลที่ห้า งานบริหารโครงการและบริการครับ ปัญหาคลาสสิกที่ทำให้โครงการขาดทุนคือ 'Margin Bleed' หรือกำไรที่รั่วไหลจากงานงอกในที่ประชุม ลูกค้าขอให้ช่วยทำเพิ่มนิดหน่อย ทีมงานก็ทำให้โดยไม่ได้ออกเอกสารขอแก้งาน กว่าผู้บริหารจะรู้ว่าขาดทุนก็คือตอนปิดโครงการแล้ว... Copilot AI ทำหน้าที่เป็นเรดาร์ตรวจจับอัตราการใช้งบ เตือนล่วงหน้า 4 สัปดาห์ก่อนกำไรติดลบ และสามารถถอดเทปการประชุม แปลงเป็นร่าง Change Order พร้อมคิดราคาค่างานเพิ่มให้ลูกค้าเซ็นอนุมัติได้ทันทีครับ",
+        scriptEn: "In Project Operations and Professional Services, unbilled scope creep is the primary driver of silent margin erosion. Client requests made during meetings are executed by engineers without formal change orders, only discovering project losses at final review. Copilot monitors labor burn rates against project milestones, alerting management 4 weeks before margin bleed occurs, and translates meeting transcripts into billable Change Orders ready for client sign-off, protecting project profitability by 12 to 18%.",
         time: "4:05 - 4:55"
       },
       {
         num: 7,
-        tag: "MODULE 4: MANUFACTURING // SLIDE 7 OF 10",
-        title: "Module 4: Smart Manufacturing & Shopfloor AI",
-        subtitle: "ยกระดับสายการผลิตด้วยการเชื่อมโยงข้อมูลหน้างานและการวินิจฉัยของเสียแบบเรียลไทม์",
+        tag: "TOOLS & ARCHITECTURE // SLIDE 7 OF 10",
+        title: "Enterprise Technology Stack & Architecture",
+        subtitle: "สรุปเครื่องมือหลักที่ใช้ขับเคลื่อนระบบ ภายใต้ความปลอดภัยระดับ Enterprise",
         cards: [
-          { title: "Pain ใน Standard D365", detail: "• ตารางการผลิตไม่ปรับเปลี่ยนอัตโนมัติเมื่อเครื่องจักรขัดข้อง หรือมีอัตราของเสีย (Scrap) พุ่งสูง\n• การหาสาเหตุของเสียต้องอาศัยวิศวกรไล่ดูบันทึกย้อนหลังหลายวัน", color: "border-red-500/40 text-red-400" },
-          { title: "Use Case 1: Real-time Telemetry Dispatching", detail: "เมื่อเซนเซอร์แจ้งเตือนความร้อนหรือแรงสั่นสะเทือน ระบบจะจัดลำดับ Work Order ใหม่ไปยังเครื่องจักรสำรองทันที", color: "border-sky-500/40 text-sky-400" },
-          { title: "Use Case 2: Automated Scrap Diagnostics", detail: "ประมวลผลข้อมูลล็อตวัตถุดิบ อุณหภูมิ และกะการทำงาน เพื่อสรุปสาเหตุของเสียให้หัวหน้างานใน 3 นาที", color: "border-purple-500/40 text-purple-400" }
+          {
+            title: "1. Cognitive & AI Engine",
+            detail: "• Microsoft Copilot Studio: เครื่องมือสร้างและปรับแต่ง AI Agents ให้เข้าใจขั้นตอนเฉพาะขององค์กร\n• Dynamics 365 Copilot: ฟังก์ชัน AI พื้นฐานที่ฝังมาในแต่ละโมดูลของ D365\n• Azure OpenAI Service: โมเดล GPT-4o รันบน Private Tenant ไม่แชร์ข้อมูลกับภายนอก",
+            color: "border-purple-500/40 text-purple-400"
+          },
+          {
+            title: "2. Data Integration Layer",
+            detail: "• Microsoft Dataverse: ฐานข้อมูลกลางที่เก็บ Transaction และโครงสร้างของ D365\n• Azure Document Intelligence: แปลงเอกสารสแกน PDF ใบกำกับภาษี และสัญญา เป็นข้อมูลเชิงโครงสร้าง\n• Power Platform: เชื่อมต่อ API ภายนอก (กรมสรรพากร, อัตราแลกเปลี่ยน, ข้อมูลท่าเรือ)",
+            color: "border-blue-500/40 text-blue-400"
+          },
+          {
+            title: "3. Security & Governance",
+            detail: "• Isolated Tenant: ข้อมูลองค์กรถูกจำกัดอยู่ภายใน Tenant เรา 100% ไม่ถูกนำไปเทรนโมเดลสาธารณะ\n• AES-256 Encryption: เข้ารหัสข้อมูลทั้งในขณะพักและขณะรับส่ง\n• Human-in-the-Loop: AI มีหน้าที่วิเคราะห์และร่างข้อเสนอ แต่ผู้มีอำนาจตัดสินใจอนุมัติขั้นสุดท้ายคือผู้บริหาร",
+            color: "border-emerald-500/40 text-emerald-400"
+          }
         ],
-        scriptTh: "สำหรับสายการผลิตในโรงงานครับ เมื่อเครื่องจักรเกิดอาการสั่นผิดปกติหรือของเสียสูงขึ้นในกะดึก ระบบ D365 ปกติจะไม่ปรับตารางงานให้เอง... ด้วย Copilot ที่เชื่อมกับ IoT หน้างาน ระบบจะจัดลำดับคิวงานใหม่ไปยังเครื่องสำรองทันที และวินิจฉัยหาสาเหตุของเสียจากล็อตวัตถุดิบและสภาพแวดล้อมได้ภายใน 3 นาที แทนที่จะต้องรอวิศวกรสอบสวนเป็นสัปดาห์ครับ",
-        scriptEn: "On the Manufacturing shopfloor, standard production scheduling fails to dynamically adapt when machines experience telemetry anomalies or sudden defect spikes. Copilot integrates IoT sensor alerts with work orders, re-routing production to backup machines before catastrophic failure occurs, and diagnosing scrap root causes across material batches and shift conditions in minutes rather than days.",
+        scriptTh: "สำหรับเครื่องมือและเทคโนโลยีที่ใช้ครับ เราใช้เทคโนโลยีมาตรฐานระดับ Enterprise ของ Microsoft ที่ทำงานร่วมกันอย่างไร้รอยต่อ: 1. ด้าน AI เราใช้ Copilot Studio และ Azure OpenAI Service รันโมเดลบน Private Tenant ของเราเอง 2. ด้านข้อมูล เราใช้ Dataverse และ Azure Document Intelligence ในการสกัดเอกสาร PDF และสัญญา 3. ที่สำคัญที่สุดคือความปลอดภัย ข้อมูลองค์กร 100% จะไม่มีวันรั่วไหลไปเทรน AI สาธารณะ และใช้หลักการ Human-in-the-Loop โดยผู้บริหารและพนักงานของเรายังคงมีอำนาจตัดสินใจอนุมัติขั้นสุดท้ายเสมอครับ",
+        scriptEn: "Regarding the technology stack, we leverage Microsoft's enterprise-grade architecture: 1. The AI engine combines Copilot Studio, embedded D365 Copilot, and Azure OpenAI Service operating within a private tenant. 2. Data integration is managed via Dataverse and Azure Document Intelligence for robust unstructured document extraction. 3. Most importantly, enterprise security is paramount: zero data leakage, AES-256 encryption, and a strict Human-in-the-Loop governance model where AI proposes, but humans always retain ultimate approval authority.",
         time: "4:55 - 5:45"
       },
       {
         num: 8,
-        tag: "MODULE 5: PROJECT OPERATIONS // SLIDE 8 OF 10",
-        title: "Module 5: Project Operations & Governance",
-        subtitle: "ควบคุมกำไรของโครงการแบบเรียลไทม์ ป้องกันต้นทุนบานปลายก่อนสายเกินไป",
+        tag: "FRAMEWORK & TIMELINE // SLIDE 8 OF 10",
+        title: "Implementation Framework & Timeline",
+        subtitle: "ขั้นตอนการดำเนินงานมาตรฐาน 4 เฟส ในกรอบเวลา 8 - 12 สัปดาห์ (เปิดกว้าง ยังไม่ผูกมัดเลือกข้อใด)",
+        isTimeline: true,
         cards: [
-          { title: "Pain ใน Standard D365", detail: "• การจัดสรรบุคลากรดูแค่ปฏิทินว่าง ไม่รู้ทักษะเชิงลึกหรือภาระงานจริง\n• รับรู้ว่าโครงการขาดทุน (Margin Slippage) เมื่อปิดบัญชีสิ้นงวด ซึ่งสายเกินแก้", color: "border-red-500/40 text-red-400" },
-          { title: "Use Case 1: Predictive Margin Bleed Warning", detail: "วิเคราะห์อัตราการเบิกจ่าย Timesheet เทียบกับผลงานจริง แจ้งเตือนความเสี่ยงงบบานปลายล่วงหน้า 4 สัปดาห์", color: "border-sky-500/40 text-sky-400" },
-          { title: "Use Case 2: Automated SOW & Change Order", detail: "แปลงบทสนทนาและมติในที่ประชุมให้เป็นเอกสาร Change Request พร้อมประเมินผลกระทบต่อกำไรทันที", color: "border-emerald-500/40 text-emerald-400" }
+          {
+            title: "Phase 1: Readiness & Discovery\n(สัปดาห์ที่ 1 - 2)",
+            detail: "• สำรวจกระบวนการทำงานและคุณภาพข้อมูลในแต่ละโมดูล\n• ประเมินความพร้อมด้านความปลอดภัยและสิทธิ์การเข้าถึง\n• นำเสนอผลการประเมินเพื่อให้ผู้บริหารพิจารณาคัดเลือกโมดูลที่เหมาะสมที่สุดสำหรับเริ่มต้น",
+            color: "border-blue-500/40 text-blue-400"
+          },
+          {
+            title: "Phase 2: Foundation & Setup\n(สัปดาห์ที่ 3 - 4)",
+            detail: "• ติดตั้งสภาพแวดล้อม Copilot Studio และ Azure OpenAI บน Private Tenant\n• กำหนดนโยบายความปลอดภัยและ Data Governance\n• เชื่อมต่อ Dataverse และระบบเอกสารที่เกี่ยวข้อง",
+            color: "border-purple-500/40 text-purple-400"
+          },
+          {
+            title: "Phase 3: Pilot & Iteration\n(สัปดาห์ที่ 5 - 8)",
+            detail: "• เริ่มต้นทดลองใช้งานในขอบเขตที่คัดเลือก\n• ปรับจูน Prompt และ Knowledge Base ตามบริบทธุรกิจจริง\n• ทดสอบความแม่นยำร่วมกับ Key Users ในสภาพแวดล้อมควบคุม",
+            color: "border-amber-500/40 text-amber-400"
+          },
+          {
+            title: "Phase 4: Scale & Evaluation\n(สัปดาห์ที่ 9 - 12)",
+            detail: "• อบรมผู้ใช้งาน (Upskilling) และจัดการการเปลี่ยนแปลง (Change Management)\n• วัดผลสัมฤทธิ์ทางธุรกิจและ ROI จริงเทียบกับเป้าหมาย\n• วางแผนขยายผล (Rollout) สู่โมดูลอื่นๆ ตามลำดับความสำคัญ",
+            color: "border-emerald-500/40 text-emerald-400"
+          }
         ],
-        scriptTh: "ในส่วนของการบริหารโครงการครับ ผู้บริหารมักจะทราบว่างบประมาณบานปลายก็ต่อเมื่อสิ้นเดือนไปแล้ว... Copilot จะคอยจับตาดูอัตราการใช้ชั่วโมงการทำงานเทียบกับความคืบหน้าจริง เพื่อส่งสัญญาณเตือนล่วงหน้า 4 สัปดาห์ก่อนที่กำไรจะติดลบ และยังช่วยร่างเอกสาร Change Order จากบันทึกการประชุมเพื่อเรียกเก็บเงินลูกค้าได้อย่างแม่นยำครับ",
-        scriptEn: "For Project Operations, executives typically discover budget overruns weeks after the damage is done. Copilot monitors milestone burn rates and timesheet velocity against deliverables, issuing margin erosion alerts four weeks in advance. It also converts meeting transcripts and client emails directly into formal Scope of Work change orders, safeguarding our project profitability.",
+        scriptTh: "ในด้านขั้นตอนและระยะเวลา เราวางกรอบการทำงานมาตรฐานไว้ 4 เฟส รวมระยะเวลาประมาณ 8 ถึง 12 สัปดาห์ โดยในจุดนี้ เรายังไม่ได้เจาะจงว่าจะเลือกโมดูลไหนมาทำก่อนครับ แต่เราจะเริ่มที่ Phase 1 คือการทำ Discovery ร่วมกันเพื่อประเมินความพร้อมของข้อมูลในแต่ละโมดูล แล้วให้ผู้บริหารเป็นผู้เลือกจุดที่สร้าง Impact สูงสุด จากนั้นใน Phase 2 จะเป็นการวางระบบความปลอดภัย Phase 3 คือการทดลองใช้และปรับจูนความแม่นยำ และ Phase 4 คือการขยายผลพร้อมวัดผลตอบแทน ROI จริง เพื่อให้การลงทุนมีความเสี่ยงต่ำและคุ้มค่าที่สุดครับ",
+        scriptEn: "Our implementation approach follows a proven 4-phase enterprise framework spanning 8 to 12 weeks. Importantly, we do not pre-select a specific POC module today. Instead, Phase 1 conducts a thorough readiness assessment across all modules, empowering leadership to prioritize the highest-impact opportunity. Phase 2 establishes our secure foundation. Phase 3 executes the pilot and prompt tuning with key users, and Phase 4 scales adoption while measuring tangible business ROI. This ensures a controlled, agile, and low-risk journey.",
         time: "5:45 - 6:30"
       },
       {
         num: 9,
-        tag: "BUSINESS CASE & ROADMAP // SLIDE 9 OF 10",
-        title: "Business Case & 90-Day Enterprise Roadmap",
-        subtitle: "ความคุ้มค่าที่วัดผลได้ และแผนงานทดสอบสู่การใช้งานจริงใน 3 เดือน",
+        tag: "DUAL ROI ANALYSIS // SLIDE 9 OF 10",
+        title: "Dual-Perspective ROI: Value for Customer & Value for Our Organization",
+        subtitle: "ความคุ้มค่าที่ชัดเจนทั้งในมุมมองของลูกค้าผู้ใช้งาน และในมุมมองขององค์กรเรา (Fujitsu)",
+        isDualRoi: true,
         cards: [
-          { title: "Key Tangible ROI Metrics", detail: "• ลดเวลาปิดงวดบัญชีและภาษี 70% (จาก 5 วันเหลือ 4 ชม.)\n• ลดต้นทุนจัดซื้อ 15% จากการต่อรองด้วยข้อมูล AI\n• ลดต้นทุนสต็อกจม 25% ด้วย Predictive SCM", color: "border-emerald-500/40 text-emerald-400" },
-          { title: "Phase 1: Proof of Value (Days 1-30)", detail: "โฟกัสที่ AP Matching & Thai Tax Automation วัดผลความแม่นยำและเวลาที่ประหยัดได้จริงบนข้อมูลทดสอบ", color: "border-sky-500/40 text-sky-400" },
-          { title: "Phase 2 & 3: Scale (Days 31-90)", detail: "ขยายผลสู่ Procurement Intelligence และ Supply Chain พร้อมฝึกอบรมทีมงาน 100%", color: "border-purple-500/40 text-purple-400" }
+          {
+            title: "🎯 ความคุ้มค่าสำหรับลูกค้า (Client Enterprise ROI)",
+            detail: "• ปิดบัญชีเร็วขึ้น 70%: ปลดล็อกเวลาของทีมนักบัญชีสู่การวางแผนการเงิน\n• ประหยัดต้นทุนจัดซื้อ 10-15%: จากการรู้ทันแนวโน้มราคาตลาดและการเจรจาต่อรอง\n• ลดเงินจมใน Safety Stock 20-25%: กระแสเงินสดหมุนเวียนเพิ่มขึ้นทันที\n• ลดความเสี่ยงทางภาษีและสัญญา 100%: ป้องกันเบี้ยปรับและข้อพิพาททางกฎหมาย\n• ยกระดับพนักงาน: ลดงานคีย์ข้อมูลซ้ำซาก เพิ่มความพึงพอใจในการทำงานของบุคลากร",
+            color: "border-blue-500/50 text-blue-400"
+          },
+          {
+            title: "🏆 ความคุ้มค่าสำหรับองค์กรของเรา (Fujitsu Partner ROI)",
+            detail: "• ก้าวสู่ Strategic AI Transformation Partner: ขยับจากผู้ติดตั้ง ERP ดั้งเดิม สู่ที่ปรึกษา AI ระดับสูงที่มี Margin มากขึ้น\n• ส่งมอบโครงการเร็วขึ้น 30-40%: ใช้ AI ช่วยทดสอบและ Migrate ข้อมูล ลดภาระ Man-days ของทีมงานเรา\n• สร้างกระแสรายได้ใหม่ต่อเนื่อง (Recurring Revenue): จากบริการ AI Advisory, Knowledge Tuning, และ AI Managed Services\n• เพิ่มขีดความสามารถในการแข่งขัน (Win Rate สูงขึ้น): ข้อเสนอโครงการของเราโดดเด่นและเหนือกว่าคู่แข่งในตลาดอย่างชัดเจน",
+            color: "border-red-500/50 text-red-400"
+          }
         ],
-        scriptTh: "หากพิจารณาด้านความคุ้มค่าในการลงทุน (ROI) ครับ การเสริมศักยภาพนี้จะช่วยคืนทุนอย่างรวดเร็ว: ปิดงวดเร็วขึ้น 70%, ประหยัดต้นทุนจัดซื้อ 15%, และลดสต็อกจม 25%... โดยเราวางแผนการทำงานเป็น 3 ระยะอย่างรัดกุม เริ่มต้นด้วย Proof of Value ใน 30 วันแรกกับงานภาษีและบัญชีเจ้าหนี้ จากนั้นจึงขยายสู่โมดูลอื่นๆ จนใช้งานได้เต็มรูปแบบภายใน 90 วันครับ",
-        scriptEn: "To summarize the business case: we are targeting hard, quantifiable returns: a 70% reduction in financial closing cycle times, a 15% procurement cost avoidance, and a 25% reduction in dead inventory. We recommend a structured 90-day roadmap, beginning with a 30-day Proof of Value focused on Accounts Payable and Thai tax automation before enterprise-wide scaling.",
+        scriptTh: "สไลด์นี้คือหัวใจสำคัญครับ คือผลตอบแทนที่คุ้มค่าทั้ง 2 ด้าน: ฝั่งลูกค้า ได้ประโยชน์โดยตรงทั้งการปิดบัญชีเร็วขึ้น 70%, ประหยัดต้นทุนจัดซื้อ 10-15%, ลดเงินจมในสต็อก 20-25% และลดความเสี่ยงข้อผิดพลาด... ขณะเดียวกัน ฝั่งองค์กรของเรา (Fujitsu) เรายกระดับจากการเป็นเพียงผู้ติดตั้งระบบ ERP ธรรมดา สู่การเป็น 'Strategic AI Transformation Partner' ซึ่งมีกำไรต่อโครงการสูงขึ้น ส่งมอบงานได้เร็วขึ้น ลด Man-days ของทีมงานเรา และเปิดช่องทางรายได้ใหม่จากการดูแลระบบ AI อย่างต่อเนื่อง เป็นผลประโยชน์ร่วมกันแบบ Win-Win อย่างแท้จริงครับ",
+        scriptEn: "Slide 9 presents our business justification from a dual-perspective ROI. For the customer, the value is immediate: 70% faster financial close, 10 to 15% procurement cost avoidance, 20 to 25% lower inventory carrying costs, and total compliance safeguard. Simultaneously, for Fujitsu as their trusted partner, this elevates us from a traditional ERP system integrator into a high-margin Strategic AI Transformation Partner, reducing delivery man-days by up to 40%, increasing our win-rate in competitive tenders, and generating sustainable recurring AI advisory revenue.",
         time: "6:30 - 7:15"
       },
       {
         num: 10,
         tag: "FUJITSU RED INFINITY ✕ MICROSOFT COPILOT // SLIDE 10 OF 10",
-        title: "Pioneering the Intelligent Enterprise Ecosystem",
-        subtitle: "Fujitsu Thailand × Microsoft Copilot: พันธมิตรที่จะขับเคลื่อนองค์กรสู่อนาคต",
+        title: "The Executive Finale: Partnership Synergy",
+        subtitle: "Fujitsu Red Infinity × Dynamics 365 & Copilot AI",
         isFinale: true,
         cards: [
-          { title: "The Infinite Synergy", detail: "การผสานรวมระหว่างความเชี่ยวชาญระดับองค์กรของ Fujitsu Red Infinity เข้ากับขุมพลังปัญญาประดิษฐ์ Microsoft Copilot" },
-          { title: "Tailored for Thailand Enterprise", detail: "เข้าใจระบบภาษี ระเบียบปฏิบัติ และวัฒนธรรมการทำงานขององค์กรไทยอย่างแท้จริง" },
-          { title: "Next Steps for Executive Action", detail: "อนุมัติเปิดโครงการ 30-Day Executive POC เพื่อสัมผัสผลลัพธ์จริงบนข้อมูลจำลองขององค์กร" }
+          { title: "1. Infinite Transformation", detail: "สัญลักษณ์ Fujitsu Red Infinity สะท้อนความมุ่งมั่นที่ไม่สิ้นสุดในการส่งมอบคุณค่าและขับเคลื่อนธุรกิจสู่อนาคต" },
+          { title: "2. Seamless Augmentation", detail: "ผสานความมั่นคงของระบบ D365 เข้ากับพลังปัญญาประดิษฐ์ Copilot AI ได้อย่างสมบูรณ์แบบโดยไม่ต้องรื้อระบบเดิม" },
+          { title: "3. Readiness for Action", detail: "พร้อมเริ่มต้นขั้นตอนประเมินความพร้อมและนำเสนอผลลัพธ์ที่เป็นรูปธรรมต่อผู้บริหารในทุกโมดูล" }
         ],
-        scriptTh: "และในสไลด์สุดท้ายนี้ครับ สัญลักษณ์ Fujitsu Red Infinity ที่โอบล้อม Microsoft Dynamics 365 และ Copilot คือความมุ่งมั่นของ Fujitsu Thailand ในการเป็นพันธมิตรที่นำความเชี่ยวชาญระดับโลกและโซลูชันที่ตอบโจทย์ประเทศไทย มาช่วยให้องค์กรของท่านก้าวสู่การเป็น Autonomous Enterprise อย่างแท้จริง... ขอขอบคุณทุกท่าน และยินดีตอบทุกข้อซักถามครับ",
-        scriptEn: "In closing, the Fujitsu Red Infinity ribbon seamlessly uniting Microsoft Dynamics 365 and Copilot symbolizes our shared commitment to empowering your leadership. Fujitsu Thailand brings deep localization expertise, world-class enterprise delivery, and unmatched AI engineering to make your autonomous enterprise a reality. Thank you for your time, and I welcome any questions.",
+        scriptTh: "ทุกท่านครับ บนหน้าจอสุดท้ายนี้ คือภาพเคลื่อนไหวของสัญลักษณ์ 'Fujitsu Red Infinity' ที่สะท้อนถึงคำมั่นสัญญาที่ไม่สิ้นสุดในการขับเคลื่อนนวัตกรรมสู่ความยั่งยืน... เมื่อเราผสานรากฐานที่แข็งแกร่งของ Dynamics 365 เข้ากับพลังการเรียนรู้และคาดการณ์ของ Copilot AI เราไม่ได้เพียงแค่อัปเกรดระบบ ERP แต่เรากำลังสร้างองค์กรที่พร้อมรับมือกับทุกความท้าทาย ดำเนินการได้อย่างชาญฉลาด และก้าวขึ้นเป็นผู้นำในอุตสาหกรรมอย่างแท้จริง ขอขอบคุณท่านคณะกรรมการบริหารทุกท่าน และยินดีตอบทุกข้อซักถามครับ",
+        scriptEn: "Distinguished board members, our final slide presents the animated Fujitsu Red Infinity loop—representing our infinite commitment to sustainable transformation and customer success. By unifying the structured operational rigor of Dynamics 365 with the predictive intelligence of Copilot AI, we empower both our clients and ourselves to achieve unprecedented agility and market leadership. Thank you very much for your time, and I welcome your strategic questions and guidance.",
         time: "7:15 - 8:00"
       }
     ];
@@ -382,8 +480,84 @@
             <div>Open for Executive Q&A</div>
           </div>
         `;
+      } else if (s.isDualRoi) {
+        // SLIDE 9: Dual ROI (2 Large Columns Side-by-Side)
+        vp.className = "w-full aspect-[16/9] bg-slate-900 rounded-3xl border border-slate-800 shadow-2xl overflow-hidden relative flex flex-col justify-between p-6 md:p-8 slide-enter text-white";
+        vp.innerHTML = `
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-slate-300 text-xs font-mono font-bold mb-2">
+              <span class="w-2 h-2 rounded-full bg-red-500"></span>
+              <span>${s.tag}</span>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-black text-white tracking-tight">
+              ${s.title}
+            </h2>
+            <p class="text-xs md:text-sm text-slate-400 font-semibold mt-1">
+              ${s.subtitle}
+            </p>
+          </div>
+
+          <!-- 2 Large Columns for Dual ROI -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-auto">
+            ${s.cards.map(c => `
+              <div class="bg-slate-950/80 border ${c.color || 'border-slate-800'} rounded-2xl p-6 flex flex-col justify-between shadow-2xl">
+                <div>
+                  <h3 class="font-black text-base md:text-lg text-white mb-3 pb-3 border-b border-slate-800 flex items-center gap-2">
+                    ${c.title}
+                  </h3>
+                  <div class="text-xs md:text-sm text-slate-300 leading-relaxed whitespace-pre-line font-normal space-y-2">
+                    ${c.detail}
+                  </div>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+
+          <div class="border-t border-slate-800 pt-2 flex items-center justify-between text-[11px] text-slate-500 font-mono">
+            <div>Win-Win Value Proposition: Customer & Partner</div>
+            <div>Slide ${s.num} of 10</div>
+          </div>
+        `;
+      } else if (s.isTimeline) {
+        // SLIDE 8: 4-Phase Timeline (4 Columns)
+        vp.className = "w-full aspect-[16/9] bg-slate-900 rounded-3xl border border-slate-800 shadow-2xl overflow-hidden relative flex flex-col justify-between p-6 md:p-8 slide-enter text-white";
+        vp.innerHTML = `
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-slate-300 text-xs font-mono font-bold mb-2">
+              <span class="w-2 h-2 rounded-full bg-red-500"></span>
+              <span>${s.tag}</span>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-black text-white tracking-tight">
+              ${s.title}
+            </h2>
+            <p class="text-xs md:text-sm text-slate-400 font-semibold mt-1">
+              ${s.subtitle}
+            </p>
+          </div>
+
+          <!-- 4 Columns for 4 Phases -->
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-3 my-auto">
+            ${s.cards.map(c => `
+              <div class="bg-slate-950/80 border ${c.color || 'border-slate-800'} rounded-2xl p-4 flex flex-col justify-between shadow-xl">
+                <div>
+                  <h3 class="font-black text-xs md:text-sm text-white mb-2 pb-2 border-b border-slate-800/80 flex items-center gap-1.5 whitespace-pre-line">
+                    ${c.title}
+                  </h3>
+                  <div class="text-[11px] md:text-xs text-slate-300 leading-relaxed whitespace-pre-line font-normal">
+                    ${c.detail}
+                  </div>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+
+          <div class="border-t border-slate-800 pt-2 flex items-center justify-between text-[11px] text-slate-500 font-mono">
+            <div>Agile & Scalable Implementation Framework</div>
+            <div>Slide ${s.num} of 10</div>
+          </div>
+        `;
       } else {
-        // Standard Module Slides (3 Cards)
+        // Standard Module Slides (3 Cards: Pain Point -> Copilot Solution -> Impact)
         vp.className = "w-full aspect-[16/9] bg-slate-900 rounded-3xl border border-slate-800 shadow-2xl overflow-hidden relative flex flex-col justify-between p-6 md:p-8 slide-enter text-white";
         vp.innerHTML = `
           <div>
@@ -421,6 +595,21 @@
           </div>
         `;
       }
+
+      // Update Scripts
+      document.getElementById('scriptContentTh').textContent = s.scriptTh;
+      document.getElementById('scriptContentEn').textContent = s.scriptEn;
+
+      // Stop previous voice if playing
+      if (window.speechSynthesis && isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        updateVoiceButtonState();
+      }
+
+      // Update Dots
+      renderDots();
+    }
 
       // Update Scripts
       document.getElementById('scriptContentTh').textContent = s.scriptTh;
