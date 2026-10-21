@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="th" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D365 & Copilot AI Modernization — Executive Deck (10 Slides)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Sarabun:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Sarabun', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            fujitsu: { red: '#E60012', darkred: '#B3000E' },
+            ms: { blue: '#0078D4', purple: '#7928CA', cyan: '#00F2FE' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Plus Jakarta Sans', Sarabun, sans-serif; }
+    .slide-enter { animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.6); }
+    ::-webkit-scrollbar-thumb { background: rgba(100, 116, 139, 0.5); border-radius: 9999px; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-red-600 selection:text-white">
+
+  <!-- TOP BAR -->
+  <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur-xl sticky top-0 z-50 px-4 py-2.5">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-3 flex-wrap">
+      <!-- Brand & Title -->
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="flex items-center gap-2 group">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center font-black text-white text-base shadow-md shadow-red-900/40">
+            ∞
+          </div>
+          <div>
+            <div class="text-[10px] font-extrabold uppercase tracking-widest text-red-400">Fujitsu Thailand (FTH)</div>
+            <h1 class="text-sm md:text-base font-black text-white flex items-center gap-1.5">
+              <span>Executive Deck: D365 & Copilot AI</span>
+              <span class="px-2 py-0.5 rounded-full bg-red-600/20 border border-red-500/40 text-[11px] font-bold text-red-300">10 Slides</span>
+            </h1>
+          </div>
+        </a>
+      </div>
+
+      <!-- Controls & Download -->
+      <div class="flex items-center gap-2 flex-wrap text-xs font-bold">
+        <!-- Presentation Timer -->
+        <div class="px-3 py-1.5 rounded-lg bg-slate-950 border border-slate-800 text-slate-300 font-mono flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+          <span>เวลาพูด:</span>
+          <span id="speechTimer" class="text-emerald-400 font-bold">08:00</span>
+        </div>
+
+        <!-- Language Script Toggle -->
+        <button onclick="toggleScriptLang()" id="btnLangToggle" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 flex items-center gap-1">
+          <span>🌐 บทพูด:</span>
+          <span id="langLabel" class="text-red-400">ภาษาไทย</span>
+        </button>
+
+        <!-- PPTX Download -->
+        <a href="FTH_D365_Copilot_AI_Executive_Presentation.pptx" download class="px-3 py-1.5 rounded-lg bg-red-600 hover:bg-red-500 text-white flex items-center gap-1 shadow-md shadow-red-900/40">
+          <span>📥 ดาวน์โหลด PPTX (10 สไลด์)</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN SLIDE VIEWER -->
+  <main class="max-w-7xl mx-auto px-4 py-6 w-full flex-1 flex flex-col gap-6">
+
+    <!-- SLIDE VIEWPORT CONTAINER -->
+    <div class="w-full aspect-[16/9] bg-slate-900 rounded-3xl border border-slate-800 shadow-2xl overflow-hidden relative flex flex-col justify-between p-6 md:p-10" id="slideViewport">
+      <!-- Injected by JavaScript -->
+    </div>
+
+    <!-- SLIDE CONTROLS & THUMBNAIL TRACK -->
+    <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-3 flex items-center justify-between gap-4 flex-wrap">
+      <!-- Prev / Next Buttons -->
+      <div class="flex items-center gap-2">
+        <button onclick="prevSlide()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs flex items-center gap-1 border border-slate-700">
+          <span>⬅️ ย้อนกลับ</span>
+        </button>
+        <span class="text-xs font-mono text-slate-400 px-2" id="slideCounter">
+          Slide 1 / 10
+        </span>
+        <button onclick="nextSlide()" class="px-4 py-2 rounded-xl bg-red-600 hover:bg-red-500 text-white font-bold text-xs flex items-center gap-1 shadow-md shadow-red-900/30">
+          <span>ถัดไป ➡️</span>
+        </button>
+      </div>
+
+      <!-- Quick Slide Dots -->
+      <div class="flex items-center gap-1.5 flex-wrap" id="dotsContainer">
+        <!-- Rendered by JS -->
+      </div>
+
+      <!-- Fullscreen & Help -->
+      <div class="text-[11px] font-mono text-slate-400 hidden sm:block">
+        กดปุ่ม <kbd class="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-700">←</kbd> <kbd class="px-1.5 py-0.5 bg-slate-800 rounded border border-slate-700">→</kbd> บนคีย์บอร์ดเพื่อเลื่อนสไลด์
+      </div>
+    </div>
+
+    <!-- SPEAKER NOTES / SCRIPT DRAWER (บทพูด 8 นาที) -->
+    <section class="bg-slate-900/90 border border-slate-800 rounded-2xl p-5 space-y-3">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-red-500"></span>
+          <h3 class="text-xs font-black uppercase tracking-widest text-red-400">
+            SPEAKER SCRIPT FOR THIS SLIDE (บทพูดสำหรับสไลด์นี้ ~45 วินาที)
+          </h3>
+        </div>
+        <span class="text-[11px] font-mono text-slate-400" id="scriptTimeEstimate">0:00 - 0:48</span>
+      </div>
+
+      <!-- Thai Script -->
+      <div id="scriptContentTh" class="text-sm text-slate-200 leading-relaxed font-normal bg-slate-950/60 p-4 rounded-xl border border-slate-800/80">
+        <!-- Injected by JS -->
+      </div>
+
+      <!-- English Script -->
+      <div id="scriptContentEn" class="text-sm text-slate-300 leading-relaxed font-normal bg-slate-950/60 p-4 rounded-xl border border-slate-800/80 hidden">
+        <!-- Injected by JS -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 bg-slate-900/60 py-3 px-4 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-2 flex-wrap">
+      <div>Fujitsu Thailand (FTH) — Microsoft Dynamics 365 & Copilot AI Modernization</div>
+      <div class="font-mono text-[11px]">10-Slide C-Level Executive Presentation // 8-Minute Speech</div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT ENGINE -->
+  <script>
+    const slides = [
+      {
+        num: 1,
+        tag: "FUJITSU THAILAND // EXECUTIVE PRESENTATION // SLIDE 1",
+        title: "The Autonomous Enterprise: Augmenting Microsoft Dynamics 365 with Copilot AI",
+        subtitle: "ยกระดับระบบ ERP จาก 'ระบบบันทึกข้อมูลแบบดั้งเดิม' สู่ 'ระบบอัจฉริยะที่ตัดสินใจและทำงานเชิงรุก' (System of Intelligence)",
+        isTitle: true,
+        scriptTh: "สวัสดีท่านผู้บริหารทุกท่านครับ วันนี้ผมขออนุญาตนำเสนอวิสัยทัศน์ที่จะเปลี่ยนวิธีที่องค์กรของเราขับเคลื่อนธุรกิจด้วย Microsoft Dynamics 365 และ Copilot AI... ตลอดหลายปีที่ผ่านมา ERP คือหัวใจในการบันทึกข้อมูลธุรกรรม แต่ในยุคปี 2026 นี้ แค่บันทึกอย่างเดียวไม่เพียงพอแล้วครับ สิ่งที่เราต้องการคือระบบที่สามารถคิด วิเคราะห์ และช่วยทีมงานตัดสินใจเชิงรุกได้ทันทีในทุกโมดูลครับ",
+        scriptEn: "Good morning, executive leaders. Today, I am excited to share a transformative vision for how our organization can elevate Microsoft Dynamics 365 using Copilot AI. For years, ERP has served as our robust system of record. But in 2026, mere record-keeping is no longer enough. We need an intelligent, autonomous ERP that actively reasons, predicts, and empowers our teams to act proactively.",
+        time: "0:00 - 0:45"
+      },
+      {
+        num: 2,
+        tag: "THE REALITY GAP // SLIDE 2 OF 10",
+        title: "The Enterprise Reality Gap: Where Standard D365 Stops",
+        subtitle: "ทำไม ERP ชั้นนำระดับโลก ถึงยังเหลือภาระงาน Manual ให้ทีมงานกว่า 60%?",
+        cards: [
+          { title: "1. Unstructured Data Blindspot", detail: "Standard D365 ประมวลผลได้เฉพาะข้อมูลตาราง (SQL) แต่เอกสารจริง 80% คือ PDF ใบแจ้งหนี้, สัญญา, แชท, และอีเมล ที่ระบบอ่านไม่ออก ต้องใช้คนคีย์ซ้ำ", color: "border-red-500/40 text-red-400" },
+          { title: "2. Reactive & Deterministic Rules", detail: "ระบบบอกได้แค่ว่า 'เกิดอะไรขึ้นแล้วในอดีต' และทำตามกฎตายตัว ไม่สามารถคาดการณ์ความเสี่ยงคู่ค้า หรือความผันผวนของตลาดล่วงหน้าได้", color: "border-amber-500/40 text-amber-400" },
+          { title: "3. High Cognitive & Thai Tax Complexity", detail: "งานกระทบยอดภาษีไทย (หัก ณ ที่จ่าย ภ.ง.ด., e-Tax), 3-Way Matching ที่ไม่ตรงกัน และการแกะข้อผิดพลาด ยังต้องพึ่งพาคนนั่งตรวจทีละบรรทัด", color: "border-sky-500/40 text-sky-400" }
+        ],
+        scriptTh: "ก่อนอื่นเราต้องยอมรับความจริงข้อหนึ่งครับ... แม้ว่า Dynamics 365 จะเป็นระบบ ERP ชั้นยอด แต่ทำไมทีมบัญชี จัดซื้อ และซัพพลายเชนของเรายังต้องเสียเวลาส่วนใหญ่ไปกับ Excel และงานคีย์ข้อมูลมือ? นั่นเป็นเพราะ Standard D365 มีจุดบอด 3 ประการ: มันอ่านเอกสารที่ไม่เป็นโครงสร้างไม่ออก, มันทำงานแบบรอให้เรื่องเกิดก่อน (Reactive), และกฎหมายภาษีของไทยมีความซับซ้อนเกินกว่าระบบสำเร็จรูปจะจัดการได้อัตโนมัติครับ",
+        scriptEn: "Let's begin with an honest reality check. While Dynamics 365 is a world-class platform, why do our finance, procurement, and operations teams still spend over 60% of their time trapped in Excel and manual reconciliation? Because standard ERP has three inherent blind spots: it cannot understand unstructured documents like PDFs or emails, it only tells us what happened in the past, and complex local requirements like Thai tax reconciliation require heavy human intervention.",
+        time: "0:45 - 1:35"
+      },
+      {
+        num: 3,
+        tag: "STRATEGIC ARCHITECTURE // SLIDE 3 OF 10",
+        title: "Strategic Blueprint: The Copilot AI Augmentation Layer",
+        subtitle: "สถาปัตยกรรมอัจฉริยะที่ผสานเข้ากับ D365 Dataverse ภายใต้ความปลอดภัยระดับสูงสุด",
+        cards: [
+          { title: "Multi-Modal Cognitive Ingestion", detail: "Copilot ถอดรหัสเอกสารทุกรูปแบบ (PDF, รูปถ่าย, เอกสารภาษี) แปลงเป็นตรรกะทางธุรกิจอัตโนมัติ", color: "border-sky-500/40 text-sky-400" },
+          { title: "Enterprise Isolated Tenant Security", detail: "ข้อมูลองค์กร 100% อยู่ใน Tenant ส่วนตัว ข้อมูลไม่ถูกนำไปเทรนโมเดลสาธารณะ พร้อมการเข้ารหัส AES-256", color: "border-emerald-500/40 text-emerald-400" },
+          { title: "Human-in-the-Loop Governance", detail: "AI เสนอแนวทางและร่างเอกสาร แต่การอนุมัติขั้นสุดท้าย (Sign-off) ยังคงอยู่ในการควบคุมของผู้บริหาร 100%", color: "border-purple-500/40 text-purple-400" }
+        ],
+        scriptTh: "นี่คือจุดที่ Copilot AI เข้ามาเสริมครับ เราไม่ได้มารื้อระบบ D365 เดิม แต่เรานำเลเยอร์ปัญญาประดิษฐ์มาสวมทับบน Dataverse ที่มีอยู่เดิม โดยมีหัวใจสำคัญคือความปลอดภัยระดับ Enterprise ข้อมูลของเราจะไม่รั่วไหลออกนอก Tenant และทุกการตัดสินใจสำคัญยังคงมี 'Human-in-the-Loop' คือให้ AI เตรียมงานและวิเคราะห์ แล้วให้พนักงานเป็นผู้อนุมัติครับ",
+        scriptEn: "Here is our strategic architecture. We are not replacing or overhauling Dynamics 365; we are augmenting it with an intelligent cognitive layer powered by Azure OpenAI and Copilot Studio. Crucially for our leadership, this operates inside our isolated enterprise tenant with zero data leakage, and always maintains a Human-in-the-Loop governance model where AI assists and humans approve.",
+        time: "1:35 - 2:25"
+      },
+      {
+        num: 4,
+        tag: "MODULE 1: FINANCE // SLIDE 4 OF 10",
+        title: "Module 1: Finance & Thai Tax Modernization",
+        subtitle: "แก้ Pain Point งานบัญชีและการกระทบยอดภาษีไทยที่ Standard D365 ทำไม่ได้",
+        cards: [
+          { title: "Pain ใน Standard D365", detail: "• ใบแจ้งหนี้ไม่ตรง PO (มีค่าขนส่งแฝง, ส่วนลดพิเศษ) ทำให้ 3-Way Matching ค้าง\n• การกระทบยอด ภ.ง.ด. 3, 53 และ e-Tax Invoice XML ต้องใช้คนตรวจคู่มือภาษี", color: "border-red-500/40 text-red-400" },
+          { title: "Use Case 1: Autonomous 3-Way Audit", detail: "Copilot อ่านเอกสารเทียบ PO และ GRN หากพบส่วนต่าง ระบบจะอธิบายเหตุผลเป็นภาษาไทย และร่าง Adjustment Voucher ให้อัตโนมัติ", color: "border-sky-500/40 text-sky-400" },
+          { title: "Use Case 2: Thai Tax Auto-Reconciliation", detail: "ตรวจสอบเลขอ้างอิงและลายมือชื่อดิจิทัลกับกรมสรรพากรอัตโนมัติ ลดเวลาปิดงวดบัญชีจาก 5 วันเหลือ 4 ชั่วโมง", color: "border-emerald-500/40 text-emerald-400" }
+        ],
+        scriptTh: "ในโมดูลการเงินครับ Pain ที่พบบ่อยที่สุดคือเมื่อใบแจ้งหนี้จากคู่ค้ามีค่าขนส่งหรือส่วนลดที่ไม่ได้ระบุใน PO ระบบ D365 มาตรฐานจะติดล็อก 3-Way Matching ทันที ต้องรอคนไปไล่ถามอีเมล... ด้วย Copilot AI ระบบจะอ่านและเข้าใจเงื่อนไข ทำการอธิบายสาเหตุเป็นภาษาไทย และร่างใบปรับปรุงบัญชีให้เสร็จสรรพ พร้อมตรวจกระทบยอด e-Tax ภาษีหัก ณ ที่จ่ายกับกรมสรรพากรแบบไร้รอยต่อครับ",
+        scriptEn: "In Finance, our biggest bottleneck is 3-way matching exceptions. When a vendor adds freight surcharges or off-invoice discounts, standard D365 simply halts processing, requiring accountants to manually chase emails. With Copilot, the AI understands the discrepancies in plain context, drafts adjustment journals, and validates Thai e-Tax and withholding tax digital signatures automatically, slashing month-end closing from five days down to four hours.",
+        time: "2:25 - 3:15"
+      },
+      {
+        num: 5,
+        tag: "MODULE 2: PROCUREMENT // SLIDE 5 OF 10",
+        title: "Module 2: Procurement & Sourcing Intelligence",
+        subtitle: "จากงานจัดซื้อเชิงรับ สู่การคัดเลือกและเจรจาต่อรองคู่ค้าด้วยปัญญาประดิษฐ์",
+        cards: [
+          { title: "Pain ใน Standard D365", detail: "• การประเมินคู่ค้าดูได้แค่วันที่ส่งของในอดีต (Lagging KPI) ไม่รู้สถานะการเงินจริงหรือความเสี่ยงภายนอก\n• การตรวจสัญญาและเปรียบเทียบ RFQ หลายเจ้าทำได้ช้า", color: "border-red-500/40 text-red-400" },
+          { title: "Use Case 1: Predictive AI Vendor Selection", detail: "วิเคราะห์ประวัติคุณภาพใน D365 ร่วมกับแนวโน้มราคาสินค้าโภคภัณฑ์โลกและข่าวความเสี่ยง แนะนำสัดส่วนการสั่งซื้อที่คุ้มค่าที่สุด", color: "border-sky-500/40 text-sky-400" },
+          { title: "Use Case 2: Contract Risk & Negotiation Copilot", detail: "สแกนข้อสัญญาที่อาจเสียเปรียบ สรุปข้อเบี่ยงเบน และร่างแนวทางเจรจาต่อรองราคาช่วยทีมจัดซื้อ ประหยัดต้นทุนได้ 15%", color: "border-purple-500/40 text-purple-400" }
+        ],
+        scriptTh: "ถัดมาคือฝ่ายจัดซื้อครับ ปกติ D365 จะให้คะแนนคู่ค้าจากประวัติการส่งของในอดีตเท่านั้น ซึ่งไม่ช่วยเตือนภัยล่วงหน้าเลยครับ... Copilot จะดึงข้อมูลต้นทุนโภคภัณฑ์โลก ข่าวความเสี่ยง และผลงานในอดีตมารวมกัน เพื่อแนะนำว่าควรซื้อจากเจ้าไหนในสัดส่วนเท่าไร พร้อมสแกนเงื่อนไขสัญญาว่ามีข้อผูกมัดหรือเบี้ยปรับใดที่องค์กรเราเสียเปรียบหรือไม่ ช่วยให้เราประหยัดต้นทุนจัดซื้อได้ทันที 15% ครับ",
+        scriptEn: "In Procurement, standard D365 evaluates vendors purely on historical delivery timestamps. It cannot see impending supplier insolvency or global raw material inflation. Copilot synthesizes internal purchase history with live global commodity trends and news sentiment to recommend optimal vendor allocations. It even reviews supplier contracts to flag high-risk liability clauses and draft data-backed negotiation strategies.",
+        time: "3:15 - 4:05"
+      },
+      {
+        num: 6,
+        tag: "MODULE 3: SUPPLY CHAIN // SLIDE 6 OF 10",
+        title: "Module 3: Autonomous Supply Chain Resiliency",
+        subtitle: "พลิกโฉมการวางแผนคลังสินค้า รับมือวิกฤตโลจิสติกส์ได้ล่วงหน้า",
+        cards: [
+          { title: "Pain ใน Standard D365", detail: "• Master Planning (MRP) คำนวณแบบคงที่ ไม่รู้ข้อมูลพายุ ท่าเรือปิด หรือตู้คอนเทนเนอร์ตกค้าง\n• คลังสินค้าต้องถือ Safety Stock สูงเพื่อกันของขาด ทำให้จมทุนมหาศาล", color: "border-red-500/40 text-red-400" },
+          { title: "Use Case 1: Proactive Disruption Rerouting", detail: "ตรวจจับความล่าช้าของการขนส่งทั่วโลก และเสนอแผนสลับ PO หรือโอนย้ายสินค้าข้ามคลัง (Cross-docking) ล่วงหน้า 2 สัปดาห์", color: "border-sky-500/40 text-sky-400" },
+          { title: "Use Case 2: Contextual Demand Sensing", detail: "พยากรณ์ความต้องการสินค้าแม่นยำขึ้น ลดต้นทุนการถือครองสินค้า (Carrying Cost) ลงได้ถึง 25%", color: "border-emerald-500/40 text-emerald-400" }
+        ],
+        scriptTh: "ในด้านห่วงโซ่อุปทาน การคำนวณ MRP ของระบบทั่วไปไม่เคยรู้ว่าเส้นทางขนส่งทางทะเลติดขัดหรือมีพายุเข้า ทำให้เกิดปัญหาของขาดสต็อก หรือเราต้องถือสินค้าเผื่อไว้จนเงินจม... Copilot เชื่อมโยงข้อมูลโลจิสติกส์ภายนอก แจ้งเตือนความเสี่ยงล่วงหน้า 2 สัปดาห์ และเสนอทางเลือกให้โอนย้ายสินค้าระหว่างสาขาได้ทันที ทำให้เราลดมูลค่าสต็อกจมลงได้ถึง 25% ครับ",
+        scriptEn: "In Supply Chain, conventional MRP calculations are blind to external disruptions such as port congestions or adverse weather, forcing us to hold excessive safety stock. Copilot injects external logistics telemetry into D365, predicting stockout risks two weeks in advance and suggesting cross-warehouse transfers. This predictive demand sensing enables us to cut inventory carrying costs by up to 25%.",
+        time: "4:05 - 4:55"
+      },
+      {
+        num: 7,
+        tag: "MODULE 4: MANUFACTURING // SLIDE 7 OF 10",
+        title: "Module 4: Smart Manufacturing & Shopfloor AI",
+        subtitle: "ยกระดับสายการผลิตด้วยการเชื่อมโยงข้อมูลหน้างานและการวินิจฉัยของเสียแบบเรียลไทม์",
+        cards: [
+          { title: "Pain ใน Standard D365", detail: "• ตารางการผลิตไม่ปรับเปลี่ยนอัตโนมัติเมื่อเครื่องจักรขัดข้อง หรือมีอัตราของเสีย (Scrap) พุ่งสูง\n• การหาสาเหตุของเสียต้องอาศัยวิศวกรไล่ดูบันทึกย้อนหลังหลายวัน", color: "border-red-500/40 text-red-400" },
+          { title: "Use Case 1: Real-time Telemetry Dispatching", detail: "เมื่อเซนเซอร์แจ้งเตือนความร้อนหรือแรงสั่นสะเทือน ระบบจะจัดลำดับ Work Order ใหม่ไปยังเครื่องจักรสำรองทันที", color: "border-sky-500/40 text-sky-400" },
+          { title: "Use Case 2: Automated Scrap Diagnostics", detail: "ประมวลผลข้อมูลล็อตวัตถุดิบ อุณหภูมิ และกะการทำงาน เพื่อสรุปสาเหตุของเสียให้หัวหน้างานใน 3 นาที", color: "border-purple-500/40 text-purple-400" }
+        ],
+        scriptTh: "สำหรับสายการผลิตในโรงงานครับ เมื่อเครื่องจักรเกิดอาการสั่นผิดปกติหรือของเสียสูงขึ้นในกะดึก ระบบ D365 ปกติจะไม่ปรับตารางงานให้เอง... ด้วย Copilot ที่เชื่อมกับ IoT หน้างาน ระบบจะจัดลำดับคิวงานใหม่ไปยังเครื่องสำรองทันที และวินิจฉัยหาสาเหตุของเสียจากล็อตวัตถุดิบและสภาพแวดล้อมได้ภายใน 3 นาที แทนที่จะต้องรอวิศวกรสอบสวนเป็นสัปดาห์ครับ",
+        scriptEn: "On the Manufacturing shopfloor, standard production scheduling fails to dynamically adapt when machines experience telemetry anomalies or sudden defect spikes. Copilot integrates IoT sensor alerts with work orders, re-routing production to backup machines before catastrophic failure occurs, and diagnosing scrap root causes across material batches and shift conditions in minutes rather than days.",
+        time: "4:55 - 5:45"
+      },
+      {
+        num: 8,
+        tag: "MODULE 5: PROJECT OPERATIONS // SLIDE 8 OF 10",
+        title: "Module 5: Project Operations & Governance",
+        subtitle: "ควบคุมกำไรของโครงการแบบเรียลไทม์ ป้องกันต้นทุนบานปลายก่อนสายเกินไป",
+        cards: [
+          { title: "Pain ใน Standard D365", detail: "• การจัดสรรบุคลากรดูแค่ปฏิทินว่าง ไม่รู้ทักษะเชิงลึกหรือภาระงานจริง\n• รับรู้ว่าโครงการขาดทุน (Margin Slippage) เมื่อปิดบัญชีสิ้นงวด ซึ่งสายเกินแก้", color: "border-red-500/40 text-red-400" },
+          { title: "Use Case 1: Predictive Margin Bleed Warning", detail: "วิเคราะห์อัตราการเบิกจ่าย Timesheet เทียบกับผลงานจริง แจ้งเตือนความเสี่ยงงบบานปลายล่วงหน้า 4 สัปดาห์", color: "border-sky-500/40 text-sky-400" },
+          { title: "Use Case 2: Automated SOW & Change Order", detail: "แปลงบทสนทนาและมติในที่ประชุมให้เป็นเอกสาร Change Request พร้อมประเมินผลกระทบต่อกำไรทันที", color: "border-emerald-500/40 text-emerald-400" }
+        ],
+        scriptTh: "ในส่วนของการบริหารโครงการครับ ผู้บริหารมักจะทราบว่างบประมาณบานปลายก็ต่อเมื่อสิ้นเดือนไปแล้ว... Copilot จะคอยจับตาดูอัตราการใช้ชั่วโมงการทำงานเทียบกับความคืบหน้าจริง เพื่อส่งสัญญาณเตือนล่วงหน้า 4 สัปดาห์ก่อนที่กำไรจะติดลบ และยังช่วยร่างเอกสาร Change Order จากบันทึกการประชุมเพื่อเรียกเก็บเงินลูกค้าได้อย่างแม่นยำครับ",
+        scriptEn: "For Project Operations, executives typically discover budget overruns weeks after the damage is done. Copilot monitors milestone burn rates and timesheet velocity against deliverables, issuing margin erosion alerts four weeks in advance. It also converts meeting transcripts and client emails directly into formal Scope of Work change orders, safeguarding our project profitability.",
+        time: "5:45 - 6:30"
+      },
+      {
+        num: 9,
+        tag: "BUSINESS CASE & ROADMAP // SLIDE 9 OF 10",
+        title: "Business Case & 90-Day Enterprise Roadmap",
+        subtitle: "ความคุ้มค่าที่วัดผลได้ และแผนงานทดสอบสู่การใช้งานจริงใน 3 เดือน",
+        cards: [
+          { title: "Key Tangible ROI Metrics", detail: "• ลดเวลาปิดงวดบัญชีและภาษี 70% (จาก 5 วันเหลือ 4 ชม.)\n• ลดต้นทุนจัดซื้อ 15% จากการต่อรองด้วยข้อมูล AI\n• ลดต้นทุนสต็อกจม 25% ด้วย Predictive SCM", color: "border-emerald-500/40 text-emerald-400" },
+          { title: "Phase 1: Proof of Value (Days 1-30)", detail: "โฟกัสที่ AP Matching & Thai Tax Automation วัดผลความแม่นยำและเวลาที่ประหยัดได้จริงบนข้อมูลทดสอบ", color: "border-sky-500/40 text-sky-400" },
+          { title: "Phase 2 & 3: Scale (Days 31-90)", detail: "ขยายผลสู่ Procurement Intelligence และ Supply Chain พร้อมฝึกอบรมทีมงาน 100%", color: "border-purple-500/40 text-purple-400" }
+        ],
+        scriptTh: "หากพิจารณาด้านความคุ้มค่าในการลงทุน (ROI) ครับ การเสริมศักยภาพนี้จะช่วยคืนทุนอย่างรวดเร็ว: ปิดงวดเร็วขึ้น 70%, ประหยัดต้นทุนจัดซื้อ 15%, และลดสต็อกจม 25%... โดยเราวางแผนการทำงานเป็น 3 ระยะอย่างรัดกุม เริ่มต้นด้วย Proof of Value ใน 30 วันแรกกับงานภาษีและบัญชีเจ้าหนี้ จากนั้นจึงขยายสู่โมดูลอื่นๆ จนใช้งานได้เต็มรูปแบบภายใน 90 วันครับ",
+        scriptEn: "To summarize the business case: we are targeting hard, quantifiable returns: a 70% reduction in financial closing cycle times, a 15% procurement cost avoidance, and a 25% reduction in dead inventory. We recommend a structured 90-day roadmap, beginning with a 30-day Proof of Value focused on Accounts Payable and Thai tax automation before enterprise-wide scaling.",
+        time: "6:30 - 7:15"
+      },
+      {
+        num: 10,
+        tag: "FUJITSU RED INFINITY ✕ MICROSOFT COPILOT // SLIDE 10 OF 10",
+        title: "Pioneering the Intelligent Enterprise Ecosystem",
+        subtitle: "Fujitsu Thailand × Microsoft Copilot: พันธมิตรที่จะขับเคลื่อนองค์กรสู่อนาคต",
+        isFinale: true,
+        cards: [
+          { title: "The Infinite Synergy", detail: "การผสานรวมระหว่างความเชี่ยวชาญระดับองค์กรของ Fujitsu Red Infinity เข้ากับขุมพลังปัญญาประดิษฐ์ Microsoft Copilot" },
+          { title: "Tailored for Thailand Enterprise", detail: "เข้าใจระบบภาษี ระเบียบปฏิบัติ และวัฒนธรรมการทำงานขององค์กรไทยอย่างแท้จริง" },
+          { title: "Next Steps for Executive Action", detail: "อนุมัติเปิดโครงการ 30-Day Executive POC เพื่อสัมผัสผลลัพธ์จริงบนข้อมูลจำลองขององค์กร" }
+        ],
+        scriptTh: "และในสไลด์สุดท้ายนี้ครับ สัญลักษณ์ Fujitsu Red Infinity ที่โอบล้อม Microsoft Dynamics 365 และ Copilot คือความมุ่งมั่นของ Fujitsu Thailand ในการเป็นพันธมิตรที่นำความเชี่ยวชาญระดับโลกและโซลูชันที่ตอบโจทย์ประเทศไทย มาช่วยให้องค์กรของท่านก้าวสู่การเป็น Autonomous Enterprise อย่างแท้จริง... ขอขอบคุณทุกท่าน และยินดีตอบทุกข้อซักถามครับ",
+        scriptEn: "In closing, the Fujitsu Red Infinity ribbon seamlessly uniting Microsoft Dynamics 365 and Copilot symbolizes our shared commitment to empowering your leadership. Fujitsu Thailand brings deep localization expertise, world-class enterprise delivery, and unmatched AI engineering to make your autonomous enterprise a reality. Thank you for your time, and I welcome any questions.",
+        time: "7:15 - 8:00"
+      }
+    ];
+
+    let currentSlide = 0;
+    let isThaiScript = true;
+
+    function renderSlide(index) {
+      currentSlide = index;
+      const s = slides[index];
+      const vp = document.getElementById('slideViewport');
+
+      // Update Top Status
+      document.getElementById('slideCounter').textContent = `Slide ${s.num} / ${slides.length}`;
+      document.getElementById('scriptTimeEstimate').textContent = `ช่วงเวลาพูด: ${s.time}`;
+
+      // Render Viewport
+      if (s.isTitle) {
+        vp.className = "w-full aspect-[16/9] bg-gradient-to-br from-slate-950 via-slate-900 to-red-950/40 rounded-3xl border border-red-500/30 shadow-2xl overflow-hidden relative flex flex-col justify-between p-6 md:p-12 slide-enter";
+        vp.innerHTML = `
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-600/20 border border-red-500/40 text-red-400 text-xs font-mono font-bold mb-4">
+              <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+              <span>${s.tag}</span>
+            </div>
+            <h2 class="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight max-w-4xl">
+              ${s.title}
+            </h2>
+            <p class="text-base md:text-xl text-slate-300 font-semibold mt-4 max-w-3xl leading-relaxed">
+              ${s.subtitle}
+            </p>
+          </div>
+
+          <div class="border-t border-slate-800 pt-6 flex items-center justify-between text-xs text-slate-400 font-mono">
+            <div>Target Audience: C-Level Executives (CEO, CFO, CIO, COO)</div>
+            <div>Speech: ~8 Minutes // Prepared by Fujitsu Thailand</div>
+          </div>
+        `;
+      } else if (s.isFinale) {
+        // SLIDE 10: Features the exact uploaded image with motion graphic!
+        vp.className = "w-full aspect-[16/9] bg-white rounded-3xl border border-slate-200 shadow-2xl overflow-hidden relative flex flex-col justify-between p-6 md:p-8 slide-enter text-slate-900";
+        vp.innerHTML = `
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100 border border-red-300 text-red-600 text-xs font-mono font-bold mb-2">
+              <span class="w-2 h-2 rounded-full bg-red-600 animate-ping"></span>
+              <span>${s.tag}</span>
+            </div>
+            <h2 class="text-2xl md:text-4xl font-black text-slate-950 tracking-tight">
+              ${s.title}
+            </h2>
+            <p class="text-sm md:text-base text-slate-600 font-semibold mt-1">
+              ${s.subtitle}
+            </p>
+          </div>
+
+          <!-- SPLIT: MOTION GRAPHIC IMAGE + 3 TAKEAWAYS -->
+          <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center flex-1 my-2">
+            <!-- Motion Graphic Render of Exact Uploaded Image -->
+            <div class="md:col-span-7 rounded-2xl overflow-hidden border border-slate-200 bg-slate-50 shadow-lg relative group">
+              <img src="assets/slide10_fujitsu_red_infinity_motion.gif" alt="Fujitsu Red Infinity Motion" class="w-full h-full object-cover">
+              <div class="absolute bottom-2 left-2 px-2.5 py-1 rounded-md bg-black/75 backdrop-blur-md text-[11px] font-mono text-white flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+                <span>Active 3D Motion Graphic // Fujitsu Red Infinity × D365 & Copilot</span>
+              </div>
+            </div>
+
+            <!-- 3 Executive Key Takeaways -->
+            <div class="md:col-span-5 flex flex-col gap-3">
+              ${s.cards.map((c, i) => `
+                <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 shadow-sm">
+                  <div class="font-extrabold text-sm ${i === 0 ? 'text-red-600' : 'text-blue-600'} mb-1">${c.title}</div>
+                  <div class="text-xs text-slate-600 leading-relaxed">${c.detail}</div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <div class="border-t border-slate-200 pt-3 flex items-center justify-between text-xs text-slate-500 font-mono">
+            <div>Fujitsu Thailand (FTH) × Microsoft Copilot AI Partnership</div>
+            <div>Open for Executive Q&A</div>
+          </div>
+        `;
+      } else {
+        // Standard Module Slides (3 Cards)
+        vp.className = "w-full aspect-[16/9] bg-slate-900 rounded-3xl border border-slate-800 shadow-2xl overflow-hidden relative flex flex-col justify-between p-6 md:p-8 slide-enter text-white";
+        vp.innerHTML = `
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 text-slate-300 text-xs font-mono font-bold mb-2">
+              <span class="w-2 h-2 rounded-full bg-red-500"></span>
+              <span>${s.tag}</span>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-black text-white tracking-tight">
+              ${s.title}
+            </h2>
+            <p class="text-xs md:text-sm text-slate-400 font-semibold mt-1">
+              ${s.subtitle}
+            </p>
+          </div>
+
+          <!-- 3 Columns Layout -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-auto">
+            ${s.cards.map(c => `
+              <div class="bg-slate-950/80 border ${c.color || 'border-slate-800'} rounded-2xl p-4 flex flex-col justify-between shadow-xl">
+                <div>
+                  <h3 class="font-black text-sm text-white mb-2 pb-2 border-b border-slate-800/80 flex items-center gap-1.5">
+                    ${c.title}
+                  </h3>
+                  <div class="text-xs text-slate-300 leading-relaxed whitespace-pre-line font-normal">
+                    ${c.detail}
+                  </div>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+
+          <div class="border-t border-slate-800 pt-2 flex items-center justify-between text-[11px] text-slate-500 font-mono">
+            <div>D365 & Copilot AI Augmentation Layer</div>
+            <div>Slide ${s.num} of 10</div>
+          </div>
+        `;
+      }
+
+      // Update Scripts
+      document.getElementById('scriptContentTh').textContent = s.scriptTh;
+      document.getElementById('scriptContentEn').textContent = s.scriptEn;
+
+      // Update Dots
+      renderDots();
+    }
+
+    function renderDots() {
+      const container = document.getElementById('dotsContainer');
+      container.innerHTML = slides.map((s, i) => `
+        <button onclick="renderSlide(${i})" class="w-6 h-6 rounded-lg text-[10px] font-mono font-bold transition-all ${i === currentSlide ? 'bg-red-600 text-white shadow-md shadow-red-900/40' : 'bg-slate-800 text-slate-400 hover:bg-slate-700'}">
+          ${s.num}
+        </button>
+      `).join('');
+    }
+
+    function nextSlide() {
+      if (currentSlide < slides.length - 1) renderSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) renderSlide(currentSlide - 1);
+    }
+
+    function toggleScriptLang() {
+      isThaiScript = !isThaiScript;
+      document.getElementById('langLabel').textContent = isThaiScript ? "ภาษาไทย" : "English";
+      if (isThaiScript) {
+        document.getElementById('scriptContentTh').classList.remove('hidden');
+        document.getElementById('scriptContentEn').classList.add('hidden');
+      } else {
+        document.getElementById('scriptContentTh').classList.add('hidden');
+        document.getElementById('scriptContentEn').classList.remove('hidden');
+      }
+    }
+
+    // Keyboard navigation
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft') {
+        prevSlide();
+      }
+    });
+
+    // Init
+    renderSlide(0);
+  </script>
+</body>
+</html>
