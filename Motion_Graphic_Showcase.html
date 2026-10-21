@@ -122,7 +122,7 @@
       <div class="flex items-center justify-between gap-3 mb-4 flex-wrap border-b border-slate-800/80 pb-3">
         <!-- Style Tabs -->
         <div class="flex items-center gap-1.5 bg-slate-950/80 p-1 rounded-xl border border-slate-800 flex-wrap">
-          <button onclick="switchStyle(1)" id="tabStyle1" class="px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 bg-red-600 text-white shadow-lg shadow-red-900/40">
+          <button onclick="switchStyle(1)" id="tabStyle1" class="px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 text-slate-400 hover:text-white hover:bg-slate-800">
             <span>⚡ แบบที่ 1</span>
             <span>Quantum Energy Pulse</span>
           </button>
@@ -130,9 +130,9 @@
             <span>🎯 แบบที่ 2</span>
             <span>Cybernetic HUD Radar</span>
           </button>
-          <button onclick="switchStyle(3)" id="tabStyle3" class="px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 text-slate-400 hover:text-white hover:bg-slate-800">
-            <span>🎬 แบบที่ 3</span>
-            <span>Cinematic Spotlight</span>
+          <button onclick="switchStyle(3)" id="tabStyle3" class="px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 bg-amber-600 text-white shadow-lg shadow-amber-900/40 border border-amber-400/50">
+            <span>⭐ แบบที่ 3</span>
+            <span>Cinematic Spotlight (Selected)</span>
           </button>
         </div>
 
@@ -311,11 +311,14 @@
           </div>
         </div>
 
-        <!-- CARD OPTION 3 -->
-        <div class="bg-slate-900 border border-slate-800 hover:border-amber-500/50 rounded-2xl p-4 flex flex-col justify-between transition-all group shadow-xl">
+        <!-- CARD OPTION 3 (SELECTED CHOICE) -->
+        <div class="bg-slate-900 border-2 border-amber-500/80 rounded-2xl p-4 flex flex-col justify-between transition-all group shadow-2xl shadow-amber-950/40 relative">
+          <div class="absolute -top-3 right-4 px-2.5 py-0.5 rounded-full bg-amber-500 text-slate-950 text-[10px] font-black uppercase tracking-wider shadow">
+            ⭐ Selected Choice (แบบที่เลือกใช้งาน)
+          </div>
           <div class="space-y-3">
             <div class="flex items-center justify-between">
-              <span class="px-2.5 py-1 rounded bg-amber-600/20 text-amber-400 text-xs font-bold border border-amber-500/30">แบบที่ 3</span>
+              <span class="px-2.5 py-1 rounded bg-amber-600/30 text-amber-300 text-xs font-bold border border-amber-400/50">แบบที่ 3 (Selected)</span>
               <span class="text-[11px] font-mono text-slate-400">3.6s Loop // 30 FPS</span>
             </div>
             <h4 class="text-base font-bold text-white group-hover:text-amber-400 transition-colors">
@@ -391,7 +394,7 @@
   <!-- JAVASCRIPT: 60 FPS HTML5 CANVAS ENGINE & INTERACTION -->
   <script>
     // State
-    let currentStyle = 1;
+    let currentStyle = 3;
     let isPlaying = true;
     let animSpeed = 1.0;
     let isDarkTheme = true;
@@ -956,8 +959,8 @@
       }
     }
 
-    // Init
-    updateDescriptionBox(1);
+    // Init (Default to Option 3: Cinematic Spotlight as selected)
+    switchStyle(3);
     resizeCanvas();
     animFrameId = requestAnimationFrame(render);
   </script>
