@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="th" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fujitsu Copilot Value 3D — Motion Graphic Showcase (3 แบบ)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Sarabun:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Sarabun', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            fujitsu: {
+              red: '#E60012',
+              darkred: '#B3000E',
+              glow: 'rgba(230, 0, 18, 0.4)'
+            },
+            copilot: {
+              azure: '#00D2FF',
+              cyan: '#00F2FE',
+              violet: '#7928CA',
+              magenta: '#FF0080'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', Sarabun, sans-serif;
+      transition: background-color 0.4s ease, color 0.4s ease;
+    }
+    .perspective-container {
+      perspective: 1400px;
+    }
+    .tilt-card {
+      transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+      transform-style: preserve-3d;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.6; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.04); }
+    }
+    .animate-pulse-glow {
+      animation: pulseGlow 3s ease-in-out infinite;
+    }
+    /* Custom scrollbars */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.6); }
+    ::-webkit-scrollbar-thumb { background: rgba(100, 116, 139, 0.5); border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(148, 163, 184, 0.8); }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col justify-between selection:bg-red-600 selection:text-white">
+
+  <!-- TOP APP HEADER -->
+  <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur-xl sticky top-0 z-50 px-4 py-2.5">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-3 flex-wrap">
+      <!-- Brand & Title -->
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="flex items-center gap-2 group">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center font-black text-white text-base shadow-md shadow-red-900/40 group-hover:scale-105 transition-transform">
+            ∞
+          </div>
+          <div>
+            <div class="text-[10px] font-extrabold uppercase tracking-widest text-red-400">Fujitsu Thailand (FTH)</div>
+            <h1 class="text-sm md:text-base font-black text-white flex items-center gap-1.5">
+              <span>Value 3D Motion Graphic Studio</span>
+              <span class="px-2 py-0.5 rounded-full bg-red-600/20 border border-red-500/40 text-[11px] font-bold text-red-300">3 แบบ</span>
+            </h1>
+          </div>
+        </a>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="flex items-center gap-2 flex-wrap text-xs font-bold">
+        <!-- Return to Deck -->
+        <a href="index.html" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 flex items-center gap-1.5 transition-all">
+          <span>🚀 Live Deck (12 Slides)</span>
+        </a>
+        <a href="PPT_3_Options_Preview.html" class="px-3 py-1.5 rounded-lg bg-purple-900/40 hover:bg-purple-800/60 text-purple-200 border border-purple-500/40 flex items-center gap-1.5 transition-all">
+          <span>🎤 Host Opening Deck</span>
+        </a>
+        <a href="FTH_D365_Procurement_Intelligence_Whitepaper.pdf" download target="_blank" class="px-3 py-1.5 rounded-lg bg-teal-900/40 hover:bg-teal-800/60 text-teal-200 border border-teal-500/40 flex items-center gap-1.5 transition-all">
+          <span>🎯 Procurement PDF</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN SHOWCASE CONTAINER -->
+  <main class="max-w-7xl mx-auto px-4 py-6 w-full flex-1 flex flex-col gap-8">
+
+    <!-- HERO INTRO -->
+    <div class="text-center max-w-3xl mx-auto space-y-2">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/30 text-red-400 text-xs font-bold">
+        <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+        <span>SYMBOLIC ENTERPRISE MOTION GRAPHIC CONCEPT</span>
+      </div>
+      <h2 class="text-2xl md:text-4xl font-black tracking-tight text-white">
+        Fujitsu Red Infinity × Microsoft Copilot AI Core
+      </h2>
+      <p class="text-sm md:text-base text-slate-400 font-normal leading-relaxed">
+        ผสานสัญลักษณ์แห่งการปฏิรูป <b>Fujitsu Red Infinity Loop</b> คล้องผ่านผลึกปัญญาประดิษฐ์ <b>Microsoft Copilot Core</b> 
+        ล้อมรอบด้วย 3 เสาหลักคุณค่า: <b>IP Asset Protection</b>, <b>Human-in-the-Loop</b>, และ <b>70% Efficiency Acceleration</b>
+      </p>
+    </div>
+
+    <!-- INTERACTIVE 3D MOTION STAGE -->
+    <section class="bg-slate-900/80 border border-slate-800 rounded-3xl p-4 md:p-6 shadow-2xl relative overflow-hidden backdrop-blur-xl">
+      
+      <!-- STAGE TOOLBAR CONTROLS -->
+      <div class="flex items-center justify-between gap-3 mb-4 flex-wrap border-b border-slate-800/80 pb-3">
+        <!-- Style Tabs -->
+        <div class="flex items-center gap-1.5 bg-slate-950/80 p-1 rounded-xl border border-slate-800 flex-wrap">
+          <button onclick="switchStyle(1)" id="tabStyle1" class="px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 bg-red-600 text-white shadow-lg shadow-red-900/40">
+            <span>⚡ แบบที่ 1</span>
+            <span>Quantum Energy Pulse</span>
+          </button>
+          <button onclick="switchStyle(2)" id="tabStyle2" class="px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 text-slate-400 hover:text-white hover:bg-slate-800">
+            <span>🎯 แบบที่ 2</span>
+            <span>Cybernetic HUD Radar</span>
+          </button>
+          <button onclick="switchStyle(3)" id="tabStyle3" class="px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 text-slate-400 hover:text-white hover:bg-slate-800">
+            <span>🎬 แบบที่ 3</span>
+            <span>Cinematic Spotlight</span>
+          </button>
+        </div>
+
+        <!-- Canvas Controls -->
+        <div class="flex items-center gap-2 flex-wrap text-xs font-semibold">
+          <!-- Play / Pause -->
+          <button onclick="togglePlayPause()" id="btnPlayPause" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 flex items-center gap-1">
+            <span id="playPauseIcon">⏸️</span>
+            <span id="playPauseText">หยุดชั่วคราว</span>
+          </button>
+
+          <!-- Speed -->
+          <select id="speedSelect" onchange="changeSpeed(this.value)" class="px-2.5 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-slate-200 text-xs font-bold">
+            <option value="0.5">ความเร็ว 0.5x</option>
+            <option value="1.0" selected>ความเร็ว 1.0x (ปกติ)</option>
+            <option value="1.5">ความเร็ว 1.5x</option>
+            <option value="2.0">ความเร็ว 2.0x</option>
+          </select>
+
+          <!-- Theme Backdrop Switcher -->
+          <button onclick="toggleBackdropTheme()" id="btnThemeToggle" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 flex items-center gap-1" title="สลับพื้นหลัง Dark Matrix / Studio Light">
+            <span id="themeIcon">🌌</span>
+            <span id="themeText">ฉากหลัง: มืด (Dark)</span>
+          </button>
+
+          <!-- Audio FX Synthesizer -->
+          <button onclick="toggleAudioFX()" id="btnAudioToggle" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 flex items-center gap-1" title="เปิด/ปิดเสียงเอฟเฟกต์บรรยากาศจำลอง">
+            <span id="audioIcon">🔇</span>
+            <span id="audioText">เสียงเอฟเฟกต์</span>
+          </button>
+
+          <!-- Fullscreen -->
+          <button onclick="toggleStageFullscreen()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 flex items-center gap-1" title="ดูแบบเต็มจอ Fullscreen">
+            <span>⛶</span>
+            <span>เต็มจอ</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 3D VIEWPORT STAGE WITH PERSPECTIVE -->
+      <div id="stageContainer" class="perspective-container relative w-full rounded-2xl overflow-hidden bg-slate-950 flex items-center justify-center p-2 sm:p-4">
+        
+        <!-- CARD THAT TILTS IN 3D WITH MOUSE -->
+        <div id="tiltCard" class="tilt-card relative w-full max-w-5xl aspect-video rounded-2xl overflow-hidden shadow-2xl border border-slate-700/60 flex items-center justify-center bg-slate-900">
+          
+          <!-- BASE RENDER IMAGE -->
+          <img id="baseImage" src="assets/fujitsu_copilot_value_3d.jpg" alt="Fujitsu Copilot Value 3D" class="absolute inset-0 w-full h-full object-cover select-none pointer-events-none transition-opacity duration-300">
+          
+          <!-- REAL-TIME 60 FPS MOTION GRAPHIC CANVAS -->
+          <canvas id="motionCanvas" class="absolute inset-0 w-full h-full pointer-events-none z-10"></canvas>
+
+          <!-- FLOATING INTERACTIVE HUD CHIPS OVERLAY -->
+          <div id="hudOverlayChips" class="absolute inset-0 pointer-events-none z-20 p-4 sm:p-6 flex flex-col justify-between">
+            <!-- Top Badges HUD Info -->
+            <div class="flex items-start justify-between">
+              <!-- IP Asset Chip -->
+              <div class="bg-slate-950/75 border border-sky-500/40 rounded-xl px-3 py-1.5 backdrop-blur-md shadow-lg text-left max-w-[200px]">
+                <div class="text-[9px] font-black tracking-widest uppercase text-sky-400 flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-sky-400 animate-ping"></span>
+                  <span>IP ASSET SHIELD</span>
+                </div>
+                <div class="text-[11px] font-bold text-white">ปกป้องความรู้ & ลิขสิทธิ์องค์กร</div>
+                <div class="text-[9px] font-mono text-slate-400">ISOLATED TENANT // AES-256</div>
+              </div>
+
+              <!-- Human in the Loop Chip -->
+              <div class="bg-slate-950/75 border border-purple-500/40 rounded-xl px-3 py-1.5 backdrop-blur-md shadow-lg text-right max-w-[200px]">
+                <div class="text-[9px] font-black tracking-widest uppercase text-purple-400 flex items-center justify-end gap-1">
+                  <span>HUMAN-IN-THE-LOOP</span>
+                  <span class="w-1.5 h-1.5 rounded-full bg-purple-400 animate-ping"></span>
+                </div>
+                <div class="text-[11px] font-bold text-white">ผู้ใช้คือผู้มีอำนาจตัดสินใจ 100%</div>
+                <div class="text-[9px] font-mono text-slate-400">CONFIDENCE THRESHOLD &gt; 95%</div>
+              </div>
+            </div>
+
+            <!-- Bottom Center 70% Faster Chip -->
+            <div class="flex justify-center">
+              <div class="bg-slate-950/85 border border-red-500/50 rounded-xl px-4 py-2 backdrop-blur-md shadow-lg text-center">
+                <div class="text-[10px] font-black tracking-widest uppercase text-red-400 flex items-center justify-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+                  <span>ACCELERATION FACTOR</span>
+                </div>
+                <div class="text-sm font-extrabold text-white">ลดเวลาปิดงวด & ตรวจเอกสารภาษี 70%</div>
+                <div class="text-[9px] font-mono text-slate-400">FROM 5 DAYS TO 4 HOURS</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- MOUSE INTERACTION HINT -->
+          <div class="absolute bottom-2 right-3 z-30 pointer-events-none text-[10px] font-mono text-slate-400/80 bg-slate-950/60 px-2.5 py-1 rounded-full border border-slate-800 backdrop-blur-sm">
+            🖱️ เลื่อนเมาส์ไปมาเพื่อหมุนเอียง 3D Parallax Tilt
+          </div>
+        </div>
+      </div>
+
+      <!-- CURRENT STYLE EXPLANATION CARD -->
+      <div id="styleDescriptionBox" class="mt-4 p-4 rounded-2xl bg-slate-950/70 border border-slate-800 transition-all">
+        <!-- Rendered dynamically by JS -->
+      </div>
+    </section>
+
+    <!-- SECTION: PRE-RENDERED MP4 VIDEOS & GIF DOWNLOAD DECK -->
+    <section class="space-y-4">
+      <div class="flex items-center justify-between gap-3 flex-wrap">
+        <div>
+          <div class="text-xs font-black text-red-500 uppercase tracking-widest">MEDIA EXPORTS & DOWNLOADS</div>
+          <h3 class="text-xl md:text-2xl font-black text-white">ชุดวิดีโอ MP4 และภาพเคลื่อนไหว GIF ทั้ง 3 แบบ (พร้อมนำไปใช้ใน PowerPoint)</h3>
+        </div>
+        <p class="text-xs text-slate-400 max-w-md text-right hidden sm:block">
+          ดาวน์โหลดไฟล์ .MP4 คมชัดสูง หรือไฟล์ .GIF ลูปไม่มีสะดุด ไปวางในสไลด์ PowerPoint หรือเปิดในการประชุมผู้บริหารได้ทันที
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        <!-- CARD OPTION 1 -->
+        <div class="bg-slate-900 border border-slate-800 hover:border-red-500/50 rounded-2xl p-4 flex flex-col justify-between transition-all group shadow-xl">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 rounded bg-red-600/20 text-red-400 text-xs font-bold border border-red-500/30">แบบที่ 1</span>
+              <span class="text-[11px] font-mono text-slate-400">3.6s Loop // 30 FPS</span>
+            </div>
+            <h4 class="text-base font-bold text-white group-hover:text-red-400 transition-colors">
+              Quantum Neural Pulse & Infinity Flow
+            </h4>
+            <p class="text-xs text-slate-400 line-clamp-3">
+              อนุภาคแสงสีแดงและไซยานไหลเวียนตามเส้นทางเลข 8 ต่อเนื่องไม่สิ้นสุด พร้อมการเต้นพัลส์แบบ Caustic ของผลึก Copilot ในแกนกลาง
+            </p>
+
+            <!-- Video Player Preview -->
+            <div class="aspect-video rounded-xl overflow-hidden bg-slate-950 border border-slate-800 relative">
+              <video src="assets/motion_option1_quantum_pulse.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
+            </div>
+          </div>
+
+          <!-- Download Action Buttons -->
+          <div class="grid grid-cols-2 gap-2 mt-4 pt-3 border-t border-slate-800">
+            <a href="assets/motion_option1_quantum_pulse.mp4" download="FTH_Value3D_Option1_QuantumPulse.mp4" class="px-2.5 py-2 rounded-lg bg-red-600 hover:bg-red-500 text-white text-xs font-bold text-center flex items-center justify-center gap-1 transition-all shadow-md shadow-red-900/30">
+              <span>📥 MP4 Video</span>
+            </a>
+            <a href="assets/motion_option1_quantum_pulse.gif" download="FTH_Value3D_Option1_QuantumPulse.gif" target="_blank" class="px-2.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-bold text-center flex items-center justify-center gap-1 transition-all">
+              <span>🖼️ GIF Loop</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- CARD OPTION 2 -->
+        <div class="bg-slate-900 border border-slate-800 hover:border-sky-500/50 rounded-2xl p-4 flex flex-col justify-between transition-all group shadow-xl">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 rounded bg-sky-600/20 text-sky-400 text-xs font-bold border border-sky-500/30">แบบที่ 2</span>
+              <span class="text-[11px] font-mono text-slate-400">3.6s Loop // 30 FPS</span>
+            </div>
+            <h4 class="text-base font-bold text-white group-hover:text-sky-400 transition-colors">
+              Executive Cybernetic HUD & Telemetry Orbit
+            </h4>
+            <p class="text-xs text-slate-400 line-clamp-3">
+              วงแหวนเรดาร์ HUD ซ้อน 2 ชั้นหมุนสวนทางกัน พร้อมกรอบเล็งเป้าหมายล็อคค่าความปลอดภัยและเส้นข้อมูลส่งตรงเข้าสู่เสาหลักคุณค่า
+            </p>
+
+            <!-- Video Player Preview -->
+            <div class="aspect-video rounded-xl overflow-hidden bg-slate-950 border border-slate-800 relative">
+              <video src="assets/motion_option2_cyber_hud.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
+            </div>
+          </div>
+
+          <!-- Download Action Buttons -->
+          <div class="grid grid-cols-2 gap-2 mt-4 pt-3 border-t border-slate-800">
+            <a href="assets/motion_option2_cyber_hud.mp4" download="FTH_Value3D_Option2_CyberHUD.mp4" class="px-2.5 py-2 rounded-lg bg-sky-600 hover:bg-sky-500 text-white text-xs font-bold text-center flex items-center justify-center gap-1 transition-all shadow-md shadow-sky-900/30">
+              <span>📥 MP4 Video</span>
+            </a>
+            <a href="assets/motion_option2_cyber_hud.gif" download="FTH_Value3D_Option2_CyberHUD.gif" target="_blank" class="px-2.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-bold text-center flex items-center justify-center gap-1 transition-all">
+              <span>🖼️ GIF Loop</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- CARD OPTION 3 -->
+        <div class="bg-slate-900 border border-slate-800 hover:border-amber-500/50 rounded-2xl p-4 flex flex-col justify-between transition-all group shadow-xl">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-2.5 py-1 rounded bg-amber-600/20 text-amber-400 text-xs font-bold border border-amber-500/30">แบบที่ 3</span>
+              <span class="text-[11px] font-mono text-slate-400">3.6s Loop // 30 FPS</span>
+            </div>
+            <h4 class="text-base font-bold text-white group-hover:text-amber-400 transition-colors">
+              Cinematic Spotlight & Metallic Gleam
+            </h4>
+            <p class="text-xs text-slate-400 line-clamp-3">
+              ลำแสงสปอตไลท์สตูดิโอกวาดผ่านผิวโลหะสีแดงแบบ Anamorphic ก่อประกายแสงแฉกสะท้อนความหรูหรา พร้อมละอองทองลอยละล่องอย่างสง่างาม
+            </p>
+
+            <!-- Video Player Preview -->
+            <div class="aspect-video rounded-xl overflow-hidden bg-slate-950 border border-slate-800 relative">
+              <video src="assets/motion_option3_cinematic_spotlight.mp4" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
+            </div>
+          </div>
+
+          <!-- Download Action Buttons -->
+          <div class="grid grid-cols-2 gap-2 mt-4 pt-3 border-t border-slate-800">
+            <a href="assets/motion_option3_cinematic_spotlight.mp4" download="FTH_Value3D_Option3_CinematicSpotlight.mp4" class="px-2.5 py-2 rounded-lg bg-amber-600 hover:bg-amber-500 text-white text-xs font-bold text-center flex items-center justify-center gap-1 transition-all shadow-md shadow-amber-900/30">
+              <span>📥 MP4 Video</span>
+            </a>
+            <a href="assets/motion_option3_cinematic_spotlight.gif" download="FTH_Value3D_Option3_CinematicSpotlight.gif" target="_blank" class="px-2.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-bold text-center flex items-center justify-center gap-1 transition-all">
+              <span>🖼️ GIF Loop</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- STRATEGIC PRESENTATION USAGE GUIDE -->
+    <section class="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 space-y-4">
+      <h3 class="text-lg font-bold text-white flex items-center gap-2">
+        <span>💡 คำแนะนำเชิงกลยุทธ์: จังหวะการเลือกใช้ Motion Graphic แต่ละแบบในการนำเสนอ</span>
+      </h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs leading-relaxed">
+        <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
+          <div class="font-extrabold text-red-400 mb-1">⚡ แบบที่ 1: เหมาะสำหรับ "Visionary Keynote & Opening"</div>
+          <p class="text-slate-400">
+            ให้ความรู้สึกถึงพลังงานที่เคลื่อนไหวไม่หยุดนิ่ง เหมาะมากสำหรับสไลด์เปิดตัว หรือสไลด์ที่ต้องการกระตุ้นความตื่นเต้นเรื่องความร่วมมือระหว่าง Fujitsu และ Microsoft Copilot
+          </p>
+        </div>
+        <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
+          <div class="font-extrabold text-sky-400 mb-1">🎯 แบบที่ 2: เหมาะสำหรับ "Architecture & Security Deep-Dive"</div>
+          <p class="text-slate-400">
+            ให้ความรู้สึกถึงความแม่นยำทางวิศวกรรม ความปลอดภัยของข้อมูลขั้นสูง และระบบตรวจจับเรียลไทม์ เหมาะสำหรับการคุยกับ CIO, CISO หรือทีมไอทีระดับสูง
+          </p>
+        </div>
+        <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800">
+          <div class="font-extrabold text-amber-400 mb-1">🎬 แบบที่ 3: เหมาะสำหรับ "Executive Board & Finale Sign-off"</div>
+          <p class="text-slate-400">
+            เน้นความหรูหรา ภูมิฐาน น่าเชื่อถือ แสงเงานุ่มนวลระดับภาพยนตร์ เหมาะสำหรับนำเสนอต่อ CEO, CFO, หรือปิดท้าย Keynote สรุปข้อตกลงความร่วมมือ
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 bg-slate-950 py-4 px-4 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+      <div>© 2026 Fujitsu Thailand (FTH) — Enterprise Business Solutions & AI Innovation</div>
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="hover:text-slate-300 transition-colors">Live Deck (12 Slides)</a>
+        <span>•</span>
+        <a href="PPT_3_Options_Preview.html" class="hover:text-slate-300 transition-colors">Host Opening PPT</a>
+        <span>•</span>
+        <a href="FTH_D365_Procurement_Intelligence_Whitepaper.pdf" class="hover:text-slate-300 transition-colors">Procurement Whitepaper</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT: 60 FPS HTML5 CANVAS ENGINE & INTERACTION -->
+  <script>
+    // State
+    let currentStyle = 1;
+    let isPlaying = true;
+    let animSpeed = 1.0;
+    let isDarkTheme = true;
+    let audioEnabled = false;
+    let audioCtx = null;
+    let audioOsc = null;
+    let audioGain = null;
+
+    // Canvas setup
+    const canvas = document.getElementById('motionCanvas');
+    const ctx = canvas.getContext('2d');
+    const tiltCard = document.getElementById('tiltCard');
+    const stageContainer = document.getElementById('stageContainer');
+    const baseImage = document.getElementById('baseImage');
+
+    let animFrameId = null;
+    let startTime = performance.now();
+    let prevTimestamp = performance.now();
+    let globalAngle = 0;
+
+    // Coordinate mapping (based on 1376x768 base aspect ratio)
+    const BASE_W = 1376;
+    const BASE_H = 768;
+    const CX = 685;
+    const CY = 382;
+    const A_LEM = 475;
+    const B_LEM = 230;
+
+    // Badges coordinates
+    const BADGES = [
+      { name: "IP Asset", cx: 195, cy: 190, w: 180, h: 180, color: '#00F2FE' },
+      { name: "Human-in-the-Loop", cx: 1180, cy: 190, w: 180, h: 180, color: '#A855F7' },
+      { name: "70% Faster", cx: 685, cy: 650, w: 190, h: 150, color: '#E60012' }
+    ];
+
+    // Style 1 Particles
+    const NUM_PARTICLES = 50;
+    const particles = [];
+    for (let i = 0; i < NUM_PARTICLES; i++) {
+      particles.push({
+        theta: i * (2 * Math.PI / NUM_PARTICLES),
+        speed: (i % 2 === 0 ? 1.0 : 1.3) * (0.8 + Math.random() * 0.4),
+        colorType: i % 3,
+        size: 2.5 + Math.random() * 3.5
+      });
+    }
+
+    // Style 3 Embers
+    const NUM_EMBERS = 50;
+    const embers = [];
+    for (let i = 0; i < NUM_EMBERS; i++) {
+      embers.push({
+        x: 200 + Math.random() * (BASE_W - 400),
+        y: Math.random() * BASE_H,
+        speed: 25 + Math.random() * 60,
+        size: 1.5 + Math.random() * 3,
+        hue: Math.random() > 0.5 ? 45 : 355 // Gold or Ruby
+      });
+    }
+
+    function resizeCanvas() {
+      const rect = tiltCard.getBoundingClientRect();
+      if (canvas.width !== rect.width || canvas.height !== rect.height) {
+        canvas.width = rect.width;
+        canvas.height = rect.height;
+      }
+    }
+    window.addEventListener('resize', resizeCanvas);
+
+    // Lemniscate formula
+    function getLemniscate(theta) {
+      const sinT = Math.sin(theta);
+      const cosT = Math.cos(theta);
+      const denom = 1 + sinT * sinT;
+      return {
+        x: CX + (A_LEM * cosT) / denom,
+        y: CY + (B_LEM * sinT * cosT) / denom
+      };
+    }
+
+    // 3D Mouse Parallax Tilt
+    tiltCard.addEventListener('mousemove', (e) => {
+      const rect = tiltCard.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const xCenter = rect.width / 2;
+      const yCenter = rect.height / 2;
+      const rotateX = ((y - yCenter) / yCenter) * -9; // Max 9 deg
+      const rotateY = ((x - xCenter) / xCenter) * 11; // Max 11 deg
+      tiltCard.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+    });
+
+    tiltCard.addEventListener('mouseleave', () => {
+      tiltCard.style.transform = `rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+    });
+
+    // Main Animation Loop
+    function render(timestamp) {
+      if (isPlaying) {
+        const dt = (timestamp - prevTimestamp) / 1000;
+        globalAngle += dt * animSpeed * 1.6;
+      }
+      prevTimestamp = timestamp;
+
+      resizeCanvas();
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      const scaleX = canvas.width / BASE_W;
+      const scaleY = canvas.height / BASE_H;
+
+      ctx.save();
+      ctx.scale(scaleX, scaleY);
+
+      if (currentStyle === 1) {
+        drawOption1(globalAngle);
+      } else if (currentStyle === 2) {
+        drawOption2(globalAngle);
+      } else if (currentStyle === 3) {
+        drawOption3(globalAngle);
+      }
+
+      ctx.restore();
+      animFrameId = requestAnimationFrame(render);
+    }
+
+    // -------------------------------------------------------------
+    // STYLE 1: QUANTUM ENERGY PULSE & INFINITY FLOW
+    // -------------------------------------------------------------
+    function drawOption1(time) {
+      // 1. Core Pulsing Aura
+      const pulse = 0.5 + 0.5 * Math.sin(time * 2.2);
+      const coreR = 140 + 35 * pulse;
+      
+      const grad = ctx.createRadialGradient(CX, CY, 10, CX, CY, coreR);
+      grad.addColorStop(0, 'rgba(255, 255, 255, 0.85)');
+      grad.addColorStop(0.3, 'rgba(0, 242, 254, 0.45)');
+      grad.addColorStop(0.7, 'rgba(121, 40, 202, 0.25)');
+      grad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+      
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.arc(CX, CY, coreR, 0, Math.PI * 2);
+      ctx.fill();
+
+      // 2. Concentric Expanding Shockwaves
+      for (let i = 0; i < 3; i++) {
+        const ringProg = ((time * 0.4 + i / 3) % 1);
+        const rRad = 40 + ringProg * 280;
+        const rAlpha = (1 - ringProg) * 0.55;
+        ctx.strokeStyle = `rgba(0, 210, 255, ${rAlpha})`;
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        ctx.arc(CX, CY, rRad, 0, Math.PI * 2);
+        ctx.stroke();
+      }
+
+      // 3. Infinity Flowing Photons
+      particles.forEach((p) => {
+        const curTheta = p.theta + time * p.speed * 0.9;
+        const pt = getLemniscate(curTheta);
+
+        // Distance from crystal boosts intensity
+        const dist = Math.hypot(pt.x - CX, pt.y - CY);
+        const boost = Math.max(0, 1 - dist / 380);
+
+        let color = 'rgba(255, 42, 61, 0.85)';
+        if (p.colorType === 0) color = 'rgba(0, 242, 254, 0.95)';
+        else if (p.colorType === 1) color = 'rgba(255, 0, 128, 0.9)';
+
+        // Draw particle head
+        ctx.fillStyle = color;
+        ctx.shadowColor = color;
+        ctx.shadowBlur = 10 + boost * 15;
+        ctx.beginPath();
+        ctx.arc(pt.x, pt.y, p.size + boost * 2.5, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Draw particle motion trail
+        for (let tStep = 1; tStep <= 5; tStep++) {
+          const trailTheta = curTheta - tStep * 0.05 * p.speed;
+          const tPt = getLemniscate(trailTheta);
+          const alpha = (1 - tStep / 6) * 0.6;
+          ctx.fillStyle = color.replace(/[\d\.]+\)$/, `${alpha})`);
+          ctx.beginPath();
+          ctx.arc(tPt.x, tPt.y, Math.max(1, p.size * (1 - tStep / 6)), 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.shadowBlur = 0;
+      });
+
+      // 4. Subtle Shimmer across badges
+      const shimmerX = ((time * 300) % (BASE_W + 400)) - 200;
+      BADGES.forEach(b => {
+        if (Math.abs(shimmerX - b.cx) < 120) {
+          const sGrad = ctx.createLinearGradient(b.cx - 60, b.cy - 60, b.cx + 60, b.cy + 60);
+          sGrad.addColorStop(0, 'rgba(255,255,255,0)');
+          sGrad.addColorStop(0.5, 'rgba(255,255,255,0.4)');
+          sGrad.addColorStop(1, 'rgba(255,255,255,0)');
+          ctx.fillStyle = sGrad;
+          ctx.beginPath();
+          ctx.arc(b.cx, b.cy, b.w / 2, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      });
+    }
+
+    // -------------------------------------------------------------
+    // STYLE 2: CYBERNETIC HUD & TELEMETRY ORBIT
+    // -------------------------------------------------------------
+    function drawOption2(time) {
+      const rot = time * 0.8;
+      
+      // 1. Outer Segmented Ring
+      ctx.save();
+      ctx.translate(CX, CY);
+      ctx.rotate(rot);
+      ctx.strokeStyle = '#00F2FE';
+      ctx.lineWidth = 2.5;
+      for (let i = 0; i < 4; i++) {
+        ctx.beginPath();
+        ctx.arc(0, 0, 240, i * Math.PI / 2 + 0.1, (i + 1) * Math.PI / 2 - 0.25);
+        ctx.stroke();
+      }
+      ctx.restore();
+
+      // 2. Inner Counter-Rotating Precision Ticks
+      ctx.save();
+      ctx.translate(CX, CY);
+      ctx.rotate(-rot * 1.4);
+      ctx.strokeStyle = '#FF0055';
+      ctx.lineWidth = 1.5;
+      for (let i = 0; i < 24; i++) {
+        const rad = (i * Math.PI * 2) / 24;
+        const x1 = 175 * Math.cos(rad);
+        const y1 = 175 * Math.sin(rad);
+        const x2 = 188 * Math.cos(rad);
+        const y2 = 188 * Math.sin(rad);
+        ctx.beginPath();
+        ctx.moveTo(x1, y1);
+        ctx.lineTo(x2, y2);
+        ctx.stroke();
+      }
+      ctx.restore();
+
+      // 3. Radar Sweeper Beam
+      const radarAngle = rot * 2.2;
+      const rGrad = ctx.createRadialGradient(CX, CY, 10, CX, CY, 350);
+      rGrad.addColorStop(0, 'rgba(0, 242, 254, 0.4)');
+      rGrad.addColorStop(1, 'rgba(0, 242, 254, 0)');
+      
+      ctx.save();
+      ctx.translate(CX, CY);
+      ctx.rotate(radarAngle);
+      ctx.fillStyle = rGrad;
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.arc(0, 0, 350, 0, -Math.PI / 4, true);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.strokeStyle = '#FFFFFF';
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.moveTo(0, 0);
+      ctx.lineTo(350, 0);
+      ctx.stroke();
+      ctx.restore();
+
+      // 4. Tactical Brackets on Badges + Telemetry Lines
+      BADGES.forEach((b, idx) => {
+        // Connector line to center
+        ctx.strokeStyle = 'rgba(0, 242, 254, 0.35)';
+        ctx.lineWidth = 1;
+        ctx.setLineDash([4, 4]);
+        ctx.beginPath();
+        ctx.moveTo(CX, CY);
+        ctx.lineTo(b.cx, b.cy);
+        ctx.stroke();
+        ctx.setLineDash([]);
+
+        // Pulse dot traveling
+        const dotProg = ((time * 1.5 + idx / 3) % 1);
+        const dotX = CX + (b.cx - CX) * dotProg;
+        const dotY = CY + (b.cy - CY) * dotProg;
+        ctx.fillStyle = '#00F2FE';
+        ctx.shadowColor = '#00F2FE';
+        ctx.shadowBlur = 8;
+        ctx.beginPath();
+        ctx.arc(dotX, dotY, 4, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+
+        // Brackets [ ]
+        const bw = b.w * 0.45;
+        const bh = b.h * 0.45;
+        const kLen = 16;
+        ctx.strokeStyle = '#00F2FE';
+        ctx.lineWidth = 2;
+
+        // TL
+        ctx.beginPath();
+        ctx.moveTo(b.cx - bw, b.cy - bh + kLen);
+        ctx.lineTo(b.cx - bw, b.cy - bh);
+        ctx.lineTo(b.cx - bw + kLen, b.cy - bh);
+        ctx.stroke();
+        // TR
+        ctx.beginPath();
+        ctx.moveTo(b.cx + bw - kLen, b.cy - bh);
+        ctx.lineTo(b.cx + bw, b.cy - bh);
+        ctx.lineTo(b.cx + bw, b.cy - bh + kLen);
+        ctx.stroke();
+        // BL
+        ctx.beginPath();
+        ctx.moveTo(b.cx - bw, b.cy + bh - kLen);
+        ctx.lineTo(b.cx - bw, b.cy + bh);
+        ctx.lineTo(b.cx - bw + kLen, b.cy + bh);
+        ctx.stroke();
+        // BR
+        ctx.beginPath();
+        ctx.moveTo(b.cx + bw - kLen, b.cy + bh);
+        ctx.lineTo(b.cx + bw, b.cy + bh);
+        ctx.lineTo(b.cx + bw, b.cy + bh - kLen);
+        ctx.stroke();
+
+        // Lock text
+        ctx.font = '600 11px "JetBrains Mono"';
+        ctx.fillStyle = '#00F2FE';
+        ctx.fillText(`LOCK: ${(99.1 + 0.6 * Math.sin(time * 3 + idx)).toFixed(1)}%`, b.cx - bw, b.cy + bh + 16);
+      });
+    }
+
+    // -------------------------------------------------------------
+    // STYLE 3: CINEMATIC SPOTLIGHT & METALLIC GLEAM
+    // -------------------------------------------------------------
+    function drawOption3(time) {
+      // 1. Sweeping Horizontal Spotlight
+      const spotX = CX + 420 * Math.sin(time * 0.9);
+      const spotY = CY + 60 * Math.cos(time * 0.9);
+
+      // Anamorphic flare streak
+      const flareGrad = ctx.createRadialGradient(spotX, spotY, 20, spotX, spotY, 320);
+      flareGrad.addColorStop(0, 'rgba(255, 230, 180, 0.45)');
+      flareGrad.addColorStop(0.3, 'rgba(255, 180, 80, 0.25)');
+      flareGrad.addColorStop(1, 'rgba(0, 0, 0, 0)');
+
+      ctx.fillStyle = flareGrad;
+      ctx.beginPath();
+      ctx.arc(spotX, spotY, 320, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Horizontal anamorphic streak
+      ctx.fillStyle = 'rgba(255, 240, 200, 0.25)';
+      ctx.fillRect(spotX - 450, spotY - 8, 900, 16);
+
+      // 2. Metallic Crest Gleams
+      const crests = [
+        { x: 390, y: CY },
+        { x: CX, y: CY },
+        { x: 980, y: CY }
+      ];
+
+      crests.forEach(c => {
+        const dist = Math.abs(spotX - c.x);
+        if (dist < 140) {
+          const intensity = Math.pow(1 - dist / 140, 2);
+          const gRad = 35 * intensity;
+
+          ctx.strokeStyle = 'rgba(255, 255, 255, 0.9)';
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.moveTo(c.x - gRad * 3.5, c.y);
+          ctx.lineTo(c.x + gRad * 3.5, c.y);
+          ctx.moveTo(c.x, c.y - gRad * 2.2);
+          ctx.lineTo(c.x, c.y + gRad * 2.2);
+          ctx.stroke();
+
+          ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+          ctx.beginPath();
+          ctx.arc(c.x, c.y, gRad * 0.7, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      });
+
+      // 3. Floating Golden & Ruby Embers
+      embers.forEach(e => {
+        e.y -= (e.speed * animSpeed) * 0.016;
+        if (e.y < 0) e.y = BASE_H;
+        e.x += Math.sin(time + e.speed) * 0.5;
+
+        const color = e.hue === 45 ? 'rgba(255, 200, 80, 0.75)' : 'rgba(255, 40, 60, 0.75)';
+        ctx.fillStyle = color;
+        ctx.shadowColor = color;
+        ctx.shadowBlur = 6;
+        ctx.beginPath();
+        ctx.arc(e.x, e.y, e.size, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      });
+
+      // 4. Subtle Vignette
+      const vigGrad = ctx.createRadialGradient(CX, CY, BASE_W * 0.4, CX, CY, BASE_W * 0.75);
+      vigGrad.addColorStop(0, 'rgba(0,0,0,0)');
+      vigGrad.addColorStop(1, 'rgba(0,0,0,0.4)');
+      ctx.fillStyle = vigGrad;
+      ctx.fillRect(0, 0, BASE_W, BASE_H);
+    }
+
+    // Descriptions Data
+    const STYLE_INFO = {
+      1: {
+        title: "⚡ แบบที่ 1: Quantum Neural Pulse & Infinity Energy Flow",
+        subtitle: "แนวคิด: พลังงานควอนตัมและการไหลเวียนอินฟินิตี้ (Futuristic AI Energy & Seamless Continuity)",
+        bullets: [
+          "<b>Infinity Particle Stream:</b> ลำอนุภาคโฟตอนสีแดง Fujitsu และสีฟ้า Copilot วิ่งวนตามเส้นทางเลข 8 อย่างต่อเนื่องไม่สิ้นสุด และเร่งความเร็วเมื่อวิ่งผ่านผลึกแกนกลาง",
+          "<b>Caustic Core Pulse:</b> แกนผลึก Copilot เต้นเป็นจังหวะพัลส์เปล่งคลื่นกระเพื่อม (Caustic Shockwaves) กระจายสู่รอบข้างอย่างกลมกลืน",
+          "<b>Badge Levitation & Shimmer:</b> โล่กระจกทั้ง 3 เสาหลักลอยเบา ๆ พร้อมลำแสงประกายกวาดผ่านพื้นผิวอย่างมีมิติ",
+          "<b>สถานการณ์ที่แนะนำ:</b> สไลด์เปิดตัว Keynote Presentation หรือสไลด์เล่าวิสัยทัศน์ความร่วมมือ FTH × Microsoft"
+        ],
+        badgeColor: "border-red-500/40 text-red-400 bg-red-500/10"
+      },
+      2: {
+        title: "🎯 แบบที่ 2: Executive Cybernetic HUD & Telemetry Orbit",
+        subtitle: "แนวคิด: วงแหวนสแกนข้อมูลและเทเลเมตรีความปลอดภัย (Enterprise Security & Real-Time Telemetry)",
+        bullets: [
+          "<b>Concentric Rotating Reticles:</b> วงแหวน HUD สองชั้นหมุนสวนทิศทางกัน พร้อมสเกลวัดองศาและเข็มเรดาร์กวาด 360 องศา",
+          "<b>Tactical Target Lock:</b> กรอบเล็งเป้าหมายล็อคค่าความปลอดภัย 3 มิติ (Lock Rate 99.8%) ครอบโล่ทั้งสามจุด",
+          "<b>Dynamic Data Conduits:</b> เส้นทางสายส่งข้อมูลแบบดิจิทัลเชื่อมต่อตรงระหว่างแกน Copilot ไปยังเสาหลักคุณค่าแต่ละจุดอย่างแม่นยำ",
+          "<b>สถานการณ์ที่แนะนำ:</b> สไลด์เจาะลึกสถาปัตยกรรม (Architecture & Security Deep-Dive) สำหรับนำเสนอต่อ CISO, CIO หรือผู้เชี่ยวชาญไอที"
+        ],
+        badgeColor: "border-sky-500/40 text-sky-400 bg-sky-500/10"
+      },
+      3: {
+        title: "🎬 แบบที่ 3: Cinematic 3D Spatial Spotlight & Brand Majesty",
+        subtitle: "แนวคิด: ความหรูหราเชิงสถาปัตยกรรม แสงเงาระดับพรีเมียม (Architectural Elegance & Keynote Spotlight)",
+        bullets: [
+          "<b>Anamorphic Sweeping Spotlight:</b> ลำแสงสปอตไลท์สตูดิโอความนุ่มนวลสูงกวาดผ่านผิวโลหะริบบิ้นสีแดง ก่อประกายแสงแฉกสะท้อนตามมุมโค้ง 3D",
+          "<b>Golden & Ruby Embers:</b> ละอองแสงทองและรูบี้ลอยละล่องช้า ๆ สื่อถึงประกายแห่งความคิดสร้างสรรค์และคุณค่าระดับพรีเมียม",
+          "<b>Cinematic Vignette & Depth:</b> แสงเงาที่เน้นความลึกทางสายตา ให้ความรู้สึกโอ่อ่า ทรงพลัง และน่าเชื่อถือสูงสุด",
+          "<b>สถานการณ์ที่แนะนำ:</b> สไลด์ปิดท้ายการตัดสินใจ (Executive Board & C-Level Pitch) เพื่อสร้างความประทับใจและความมั่นใจสูงสุด"
+        ],
+        badgeColor: "border-amber-500/40 text-amber-400 bg-amber-500/10"
+      }
+    };
+
+    function updateDescriptionBox(styleNum) {
+      const data = STYLE_INFO[styleNum];
+      const box = document.getElementById('styleDescriptionBox');
+      box.innerHTML = `
+        <div class="flex items-center justify-between mb-2 flex-wrap gap-2">
+          <div class="text-sm md:text-base font-extrabold text-white">${data.title}</div>
+          <span class="px-2.5 py-0.5 rounded-full text-xs font-bold border ${data.badgeColor}">Active Style</span>
+        </div>
+        <div class="text-xs font-semibold text-slate-300 mb-2.5">${data.subtitle}</div>
+        <ul class="text-xs text-slate-400 space-y-1.5 list-disc list-inside">
+          ${data.bullets.map(b => `<li>${b}</li>`).join('')}
+        </ul>
+      `;
+    }
+
+    function switchStyle(styleNum) {
+      currentStyle = styleNum;
+      
+      // Update Tab styling
+      [1, 2, 3].forEach(n => {
+        const tab = document.getElementById(`tabStyle${n}`);
+        if (n === styleNum) {
+          tab.className = "px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 bg-red-600 text-white shadow-lg shadow-red-900/40";
+        } else {
+          tab.className = "px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 text-slate-400 hover:text-white hover:bg-slate-800";
+        }
+      });
+
+      updateDescriptionBox(styleNum);
+      playSwitchSound();
+    }
+
+    function togglePlayPause() {
+      isPlaying = !isPlaying;
+      document.getElementById('playPauseIcon').textContent = isPlaying ? '⏸️' : '▶️';
+      document.getElementById('playPauseText').textContent = isPlaying ? 'หยุดชั่วคราว' : 'เล่นต่อ';
+    }
+
+    function changeSpeed(val) {
+      animSpeed = parseFloat(val);
+    }
+
+    function toggleBackdropTheme() {
+      isDarkTheme = !isDarkTheme;
+      if (isDarkTheme) {
+        document.body.classList.add('bg-slate-950');
+        document.body.classList.remove('bg-slate-100', 'text-slate-900');
+        stageContainer.classList.add('bg-slate-950');
+        stageContainer.classList.remove('bg-slate-200');
+        document.getElementById('themeIcon').textContent = '🌌';
+        document.getElementById('themeText').textContent = 'ฉากหลัง: มืด (Dark)';
+      } else {
+        document.body.classList.remove('bg-slate-950');
+        document.body.classList.add('bg-slate-100', 'text-slate-900');
+        stageContainer.classList.remove('bg-slate-950');
+        stageContainer.classList.add('bg-slate-200');
+        document.getElementById('themeIcon').textContent = '☀️';
+        document.getElementById('themeText').textContent = 'ฉากหลัง: สว่าง (Light)';
+      }
+    }
+
+    function toggleStageFullscreen() {
+      if (!document.fullscreenElement) {
+        stageContainer.requestFullscreen().catch(err => {
+          alert(`Fullscreen error: ${err.message}`);
+        });
+      } else {
+        document.exitFullscreen();
+      }
+    }
+
+    // Web Audio Synthesizer for Ambient Soundscape
+    function initAudio() {
+      if (!audioCtx) {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AudioContext();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+    }
+
+    function playSwitchSound() {
+      if (!audioEnabled) return;
+      initAudio();
+      try {
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(440, audioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.15);
+        gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.15);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.15);
+      } catch (e) {
+        console.warn(e);
+      }
+    }
+
+    function toggleAudioFX() {
+      audioEnabled = !audioEnabled;
+      const btn = document.getElementById('btnAudioToggle');
+      const icon = document.getElementById('audioIcon');
+      const txt = document.getElementById('audioText');
+      if (audioEnabled) {
+        initAudio();
+        icon.textContent = '🔊';
+        txt.textContent = 'เปิดเสียงอยู่';
+        btn.classList.add('bg-red-600/30', 'border-red-500/50', 'text-red-200');
+        playSwitchSound();
+      } else {
+        icon.textContent = '🔇';
+        txt.textContent = 'เสียงเอฟเฟกต์';
+        btn.classList.remove('bg-red-600/30', 'border-red-500/50', 'text-red-200');
+      }
+    }
+
+    // Init
+    updateDescriptionBox(1);
+    resizeCanvas();
+    animFrameId = requestAnimationFrame(render);
+  </script>
+</body>
+</html>
