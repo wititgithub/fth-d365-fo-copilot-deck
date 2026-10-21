@@ -1,0 +1,7 @@
+{
+  "name": "fth-d365-copilot-executive-brief",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "scripts": { "start": "node server.mjs", "test": "node --test tests/content.test.mjs", "check": "node --check app.js && node --check content.js && node --check visuals.js" }
+}
