@@ -1,0 +1,555 @@
+import asyncio
+import os
+import sys
+from playwright.async_api import async_playwright
+
+HTML_PATH = r"c:\FTH\FTH-D365_FO\FTH_D365_Procurement_Intelligence_Whitepaper.html"
+OUT_PDF_PATHS = [
+    r"c:\FTH\FTH-D365_FO\FTH_D365_Procurement_Intelligence_Whitepaper.pdf",
+    r"c:\FTH\FTH-D365_FO\assets\FTH_D365_Procurement_Intelligence_Whitepaper.pdf",
+    r"C:\Users\witit\.gemini\antigravity\brain\7bc4ceac-b79a-4881-9938-a5db0d7782a2\FTH_D365_Procurement_Intelligence_Whitepaper.pdf",
+]
+
+def build_html_content():
+    return """<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Procurement Intelligence with D365 &amp; Copilot AI - Fujitsu Thailand (FTH)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Sarabun:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 10mm 12mm 12mm 12mm;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', 'Sarabun', 'Leelawadee UI', Tahoma, sans-serif;
+      color: #0f172a;
+      background-color: #ffffff;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+      line-height: 1.42;
+      margin: 0;
+      padding: 0;
+    }
+    .page-container {
+      width: 100%;
+      min-height: 270mm;
+      max-height: 270mm;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      page-break-after: always;
+      break-after: page;
+      padding: 3mm 2mm;
+    }
+    .page-container:last-child {
+      page-break-after: auto;
+      break-after: auto;
+    }
+    .card-box {
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 10px 14px;
+      background: #ffffff;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+    .badge-tag {
+      font-size: 8.5px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+  </style>
+</head>
+<body class="text-slate-900 text-xs">
+
+  <!-- ==================== PAGE 1: COVER & EXECUTIVE DASHBOARD ==================== -->
+  <div class="page-container">
+    <div>
+      <!-- Top Branding Bar -->
+      <div class="flex items-center justify-between border-b border-slate-200 pb-3 mb-4">
+        <div class="flex items-center gap-3">
+          <div class="px-3 py-1 bg-red-600 text-white font-extrabold text-[11px] tracking-wider rounded uppercase">
+            FUJITSU THAILAND
+          </div>
+          <span class="text-slate-300">|</span>
+          <span class="text-[11px] font-bold text-slate-600 uppercase tracking-wide">Enterprise SCM &amp; AI Advisory Practice</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-[11px] font-semibold text-slate-500">Platform:</span>
+          <span class="px-2.5 py-0.5 rounded bg-sky-50 text-sky-700 border border-sky-200 font-bold text-[11px]">D365 SCM + Copilot AI</span>
+        </div>
+      </div>
+
+      <!-- Main Title Block -->
+      <div class="space-y-2 max-w-3xl mb-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 text-white text-[10px] font-bold uppercase tracking-wider">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          Strategic Solution Blueprint • Executive Whitepaper
+        </div>
+
+        <h1 class="text-2xl font-black text-slate-900 tracking-tight leading-tight">
+          Procurement Intelligence with D365 &amp; Copilot AI
+        </h1>
+        <p class="text-sm font-bold text-sky-700">
+          การยกระดับงานจัดซื้อเชิงกลยุทธ์: AI Vendor Selection &amp; AI Vendor Evaluation
+        </p>
+        <p class="text-[11px] text-slate-600 leading-relaxed font-normal">
+          ปฏิวัติกระบวนการจัดซื้อและการสรรหาซัพพลายเออร์ของ Microsoft Dynamics 365 Supply Chain Management (SCM) 
+          จากการตัดสินใจบน <strong>"ราคาต่ำสุดในอดีต (Lowest Unit Price)"</strong> สู่การตัดสินใจบน 
+          <strong>"ต้นทุนรวมที่แท้จริง (True Total Cost of Ownership - TCO)"</strong> 
+          และการประเมินความเสี่ยงคู่ค้าแบบ 360 องศาด้วย Generative AI และ Cognitive Analytics
+        </p>
+      </div>
+
+      <!-- Hero Visual Box -->
+      <div class="mb-4 rounded-xl overflow-hidden border border-slate-200 shadow-sm bg-slate-50">
+        <img src="assets/fujitsu_copilot_value_3d.jpg" alt="Procurement Intelligence 3D" class="w-full h-44 object-cover object-center">
+      </div>
+
+      <!-- 4 Strategic Impact Cards -->
+      <div class="grid grid-cols-4 gap-3 mb-4">
+        <div class="p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-center">
+          <div class="text-[10px] font-bold text-emerald-700 uppercase mb-0.5">True Cost Savings</div>
+          <div class="text-xl font-black text-emerald-600">5–8%</div>
+          <p class="text-[9px] text-emerald-700">ประหยัดต้นทุนรวม TCO ที่แท้จริง</p>
+        </div>
+        <div class="p-3 rounded-xl bg-sky-50 border border-sky-200 text-center">
+          <div class="text-[10px] font-bold text-sky-700 uppercase mb-0.5">Quote Comparison</div>
+          <div class="text-xl font-black text-sky-600">-90%</div>
+          <p class="text-[9px] text-sky-700">ลดเวลาเทียบใบเสนอราคาเหลือ 10 วิ</p>
+        </div>
+        <div class="p-3 rounded-xl bg-purple-50 border border-purple-200 text-center">
+          <div class="text-[10px] font-bold text-purple-700 uppercase mb-0.5">Risk Visibility</div>
+          <div class="text-xl font-black text-purple-600">360°</div>
+          <p class="text-[9px] text-purple-700">ตรวจจับสถานะการเงิน &amp; ข่าวลบ</p>
+        </div>
+        <div class="p-3 rounded-xl bg-amber-50 border border-amber-200 text-center">
+          <div class="text-[10px] font-bold text-amber-700 uppercase mb-0.5">Supply Continuity</div>
+          <div class="text-xl font-black text-amber-600">0 Stoppage</div>
+          <p class="text-[9px] text-amber-700">กระจายยอดซื้อคู่ค้าสำรองอัจฉริยะ</p>
+        </div>
+      </div>
+
+      <!-- Executive Overview Box -->
+      <div class="p-3.5 bg-gradient-to-r from-slate-900 to-slate-800 text-white rounded-xl mb-3 shadow-xs">
+        <div class="flex items-center justify-between">
+          <div>
+            <div class="text-[10px] font-black text-emerald-400 uppercase tracking-wider mb-0.5">Executive Summary</div>
+            <p class="text-[11px] text-slate-200 leading-snug">
+              ระบบ D365 Standard ในปัจจุบันยังขาดระบบปัญญาประดิษฐ์เชิงคาดการณ์ในการจัดซื้อ การประเมินคู่ค้าทำได้เพียงดูคะแนนย้อนหลัง และการเทียบใบเสนอราคายังต้องใช้มนุษย์กรอกตารางทีละบรรทัด โซลูชัน <strong>Fujitsu Procurement Intelligence</strong> จะช่วยให้ผู้บริหารจัดซื้อ (CPO/CFO) มีผู้ช่วย AI อัจฉริยะในการวิเคราะห์ข้อเสนอหลายเจ้าพร้อมกัน คำนวณ TCO ที่รวมค่าของเสียและความเสี่ยงดีเลย์ พร้อมทั้งประเมิน ESG และเครดิตคู่ค้าเชิงรุก
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Metadata Footer of Cover Page -->
+    <div class="border-t border-slate-200 pt-2 flex items-center justify-between text-[10px] text-slate-500">
+      <div>
+        <span class="font-bold text-slate-800">Fujitsu (Thailand) Co., Ltd. (FTH)</span> | Enterprise SCM &amp; AI Practice
+      </div>
+      <div>
+        <span>Document Ref: <strong>FTH-WHITE-PROCUREMENT-AI-2026</strong></span> • <span>October 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 2: ARCHITECTURAL PARADIGM SHIFT ==================== -->
+  <div class="page-container">
+    <div>
+      <!-- Section Title -->
+      <div class="flex items-center justify-between border-b-2 border-slate-900 pb-1.5 mb-2.5">
+        <div>
+          <span class="text-[10px] font-black tracking-widest text-sky-700 uppercase">Architecture &amp; Paradigm Shift</span>
+          <h2 class="text-base font-black text-slate-900">1. การก้าวข้ามข้อจำกัด: D365 Standard vs. Fujitsu AI Procurement</h2>
+        </div>
+        <div class="text-right">
+          <span class="px-2 py-0.5 bg-sky-50 text-sky-800 rounded text-[9px] font-bold">Strategic Comparison</span>
+        </div>
+      </div>
+
+      <p class="text-[10.5px] text-slate-700 leading-relaxed mb-2.5">
+        ในระบบ ERP ดั้งเดิม การจัดซื้อมักติดอยู่กับกระบวนการทำงานที่ล่าช้าและมุมมองที่จำกัด ตารางด้านล่างแสดงให้เห็นถึงความแตกต่างระหว่างระบบมาตรฐาน D365 กับสถาปัตยกรรมใหม่ของ Fujitsu ที่ผสานพลังของ <strong>Azure OpenAI &amp; Copilot Studio:</strong>
+      </p>
+
+      <!-- Comparison Matrix Table -->
+      <div class="border border-slate-200 rounded-xl overflow-hidden mb-3 shadow-xs">
+        <table class="w-full text-[10px] text-left">
+          <thead class="bg-slate-900 text-white font-bold uppercase text-[9px]">
+            <tr>
+              <th class="p-2 w-1/4">มิติการจัดซื้อ (Dimension)</th>
+              <th class="p-2 w-3/8 bg-slate-800 text-slate-300">D365 SCM Standard (ปัจจุบัน)</th>
+              <th class="p-2 w-3/8 bg-emerald-950 text-emerald-200">Fujitsu AI Procurement Intelligence</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200 text-slate-700">
+            <tr class="bg-white">
+              <td class="p-2 font-bold text-slate-900">1. การประเมินคู่ค้า (Evaluation)</td>
+              <td class="p-2 text-slate-500">
+                <strong>ย้อนหลัง (Lagging):</strong> บันทึกคะแนน OTIF และของเสียหลังจากเหตุการณ์เกิดขึ้นแล้วเป็นตารางสถิติ
+              </td>
+              <td class="p-2 bg-emerald-50/50 text-emerald-950 font-medium">
+                <strong>เชิงคาดการณ์ 360° (Predictive):</strong> ผสานประวัติใน ERP เข้ากับข่าวด้านลบ, ความเสี่ยงทางการเงิน, และพฤติกรรมการตอบกลับ
+              </td>
+            </tr>
+            <tr class="bg-slate-50/50">
+              <td class="p-2 font-bold text-slate-900">2. การเปรียบเทียบใบเสนอราคา (RFQ)</td>
+              <td class="p-2 text-slate-500">
+                <strong>ใช้แรงงานคน (Manual):</strong> เจ้าหน้าที่ต้องเปิดไฟล์ PDF ทีละเจ้า แล้วคีย์ราคาและเงื่อนไขลงตาราง Excel หรือ D365
+              </td>
+              <td class="p-2 bg-emerald-50/50 text-emerald-950 font-medium">
+                <strong>สกัดข้อมูลอัตโนมัติ (Multi-Quote AI):</strong> อ่าน PDF 3–5 ซัพพลายเออร์พร้อมกัน สรุปตารางเปรียบเทียบใน 10 วินาที
+              </td>
+            </tr>
+            <tr class="bg-white">
+              <td class="p-2 font-bold text-slate-900">3. เกณฑ์การคัดเลือก (Selection Logic)</td>
+              <td class="p-2 text-slate-500">
+                <strong>ราคาต่อหน่วย (Unit Price Bias):</strong> มักเลือกเจ้าที่ราคาหน้าบิลต่ำสุดโดยไม่คำนวณต้นทุนแฝง
+              </td>
+              <td class="p-2 bg-emerald-50/50 text-emerald-950 font-medium">
+                <strong>ต้นทุนรวมที่แท้จริง (True TCO):</strong> คำนวณราคา + ค่าขนส่ง + อัตราของเสียคาดการณ์ + ค่าความเสี่ยงไลน์ผลิตหยุด
+              </td>
+            </tr>
+            <tr class="bg-slate-50/50">
+              <td class="p-2 font-bold text-slate-900">4. กลยุทธ์การสั่งซื้อ (Awarding Strategy)</td>
+              <td class="p-2 text-slate-500">
+                <strong>สั่งเจ้าเดียว 100% (Single Source):</strong> เสี่ยงไลน์หยุดหากคู่ค้ารายนั้นส่งของไม่ทัน
+              </td>
+              <td class="p-2 bg-emerald-50/50 text-emerald-950 font-medium">
+                <strong>แนะนำแบ่งยอดซื้อ (Optimal Split-Award):</strong> แนะนำสัดส่วน (เช่น 70/30) เพื่อกระจายความเสี่ยงและเลี้ยง Volume คู่ค้า
+              </td>
+            </tr>
+            <tr class="bg-white">
+              <td class="p-2 font-bold text-slate-900">5. การตรวจสอบ ESG &amp; มาตรฐาน</td>
+              <td class="p-2 text-slate-500">
+                <strong>เอกสารกระดาษ (Static Attachments):</strong> แนบไฟล์ใบรับรอง ISO ไว้ในระบบโดยไม่มีการตรวจสอบวันหมดอายุเชิงรุก
+              </td>
+              <td class="p-2 bg-emerald-50/50 text-emerald-950 font-medium">
+                <strong>ตรวจสอบแบบเรียลไทม์ (Continuous Audit):</strong> ตรวจเกณฑ์คาร์บอนฟุตพริ้นท์ (CBAM), กฎหมายแรงงาน และใบรับรองอัตโนมัติ
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Architectural Framework Box -->
+      <div class="p-3 bg-slate-900 text-white rounded-xl shadow-xs">
+        <div class="text-[10px] font-black text-sky-400 uppercase tracking-wider mb-1">
+          ⚙️ สถาปัตยกรรมระบบ Procurement Intelligence (3-Stage Workflow)
+        </div>
+        <div class="grid grid-cols-3 gap-2 text-[9px] text-center">
+          <div class="p-2 bg-slate-800 rounded border border-slate-700">
+            <div class="font-bold text-emerald-400 mb-0.5">1. Multi-Modal Ingestion</div>
+            <p class="text-slate-300">D365 PurchTable/Line • PDF RFQ Bids • External News Feeds • Supplier Financial Data</p>
+          </div>
+          <div class="p-2 bg-slate-800 rounded border border-sky-500/50">
+            <div class="font-bold text-sky-400 mb-0.5">2. Cognitive Reasoning</div>
+            <p class="text-slate-300">Azure OpenAI • TCO Mathematical Formula • ESG Rule Matching • Risk Sentiment Score</p>
+          </div>
+          <div class="p-2 bg-slate-800 rounded border border-emerald-500/50">
+            <div class="font-bold text-emerald-400 mb-0.5">3. Actionable Awarding</div>
+            <p class="text-slate-300">Auto Draft Purchase Orders • Split PO Lines • Human-in-the-Loop Sign-off • Counter-Offer Email</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-slate-200 pt-1 text-[10px] text-slate-400 text-right">
+      Section 1: Architectural Paradigm Shift
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 3: DEEP DIVE - AI VENDOR EVALUATION ==================== -->
+  <div class="page-container">
+    <div>
+      <!-- Section Title -->
+      <div class="flex items-center justify-between border-b-2 border-purple-600 pb-1.5 mb-2.5">
+        <div>
+          <span class="text-[10px] font-black tracking-widest text-purple-700 uppercase">Core Pillar 01</span>
+          <h2 class="text-base font-black text-slate-900">2. เจาะลึก: AI Vendor Evaluation (ประเมินคู่ค้าเชิงรุก 360 องศา)</h2>
+        </div>
+        <span class="px-2 py-0.5 bg-purple-50 text-purple-700 rounded text-[9px] font-bold">Predictive Scorecard</span>
+      </div>
+
+      <p class="text-[10.5px] text-slate-700 leading-relaxed mb-2.5">
+        เปลี่ยนจากการตัดเกรดคู่ค้าย้อนหลังปีละครั้ง สู่ <strong>"Dynamic Predictive Scorecard"</strong> ที่อัปเดตแบบ Real-time ผ่านการประมวลผล 4 มิติสำคัญ:
+      </p>
+
+      <!-- 4 Dimensions Grid -->
+      <div class="grid grid-cols-2 gap-2.5 mb-3 text-[10px]">
+        <!-- Dim 1 -->
+        <div class="p-2.5 rounded-xl border border-slate-200 bg-slate-50/70">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="w-5 h-5 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold text-[9px]">1</span>
+            <h3 class="font-black text-slate-900 text-[10.5px]">Internal Performance Telemetry</h3>
+          </div>
+          <p class="text-slate-600 text-[9px] mb-1">วิเคราะห์ข้อมูลธุรกรรมจริงใน D365 SCM:</p>
+          <ul class="list-disc list-inside space-y-0.5 text-[9px] text-slate-700">
+            <li><strong>Lead-Time Drift:</strong> ตรวจจับแนวโน้มการส่งมอบที่เริ่มยืดออกช้าลงทีละน้อย</li>
+            <li><strong>Line Defect Rate:</strong> คำนวณอัตราของเสียที่เกิดจากวัตถุดิบของเจ้านี้ในโรงงาน</li>
+            <li><strong>Invoice Accuracy:</strong> ประวัติการออกอินวอยซ์ผิดพลาดหรือเรียกเก็บเงินเกิน</li>
+          </ul>
+        </div>
+
+        <!-- Dim 2 -->
+        <div class="p-2.5 rounded-xl border border-slate-200 bg-slate-50/70">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="w-5 h-5 rounded-full bg-sky-600 text-white flex items-center justify-center font-bold text-[9px]">2</span>
+            <h3 class="font-black text-slate-900 text-[10.5px]">External Operational &amp; Financial Risk</h3>
+          </div>
+          <p class="text-slate-600 text-[9px] mb-1">สแกนสัญญาณความเสี่ยงภายนอกแบบ 24/7:</p>
+          <ul class="list-disc list-inside space-y-0.5 text-[9px] text-slate-700">
+            <li><strong>Financial Distress:</strong> ตรวจจับสัญญาณสภาพคล่องทางการเงินหรือการฟ้องร้อง</li>
+            <li><strong>Labor &amp; Strike Alerts:</strong> ติดตามข่าวสารการหยุดงานประท้วงในโรงงานคู่ค้า</li>
+            <li><strong>Geopolitical Bottlenecks:</strong> ข่าวความแออัดของท่าเรือขนส่งต้นทาง</li>
+          </ul>
+        </div>
+
+        <!-- Dim 3 -->
+        <div class="p-2.5 rounded-xl border border-slate-200 bg-slate-50/70">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="w-5 h-5 rounded-full bg-emerald-600 text-white flex items-center justify-center font-bold text-[9px]">3</span>
+            <h3 class="font-black text-slate-900 text-[10.5px]">ESG &amp; Regulatory Compliance</h3>
+          </div>
+          <p class="text-slate-600 text-[9px] mb-1">ตรวจสอบมาตรฐานความยั่งยืนระดับสากล:</p>
+          <ul class="list-disc list-inside space-y-0.5 text-[9px] text-slate-700">
+            <li><strong>Carbon Footprint:</strong> ประเมินค่าคาร์บอนตามมาตรการ <strong>CBAM</strong> สำหรับส่งออก</li>
+            <li><strong>Labor Standard:</strong> ตรวจสอบประวัติด้านสิทธิแรงงานและสิ่งแวดล้อม</li>
+            <li><strong>Certification Lifecycle:</strong> เตือนล่วงหน้าเมื่อใบรับรอง ISO ใกล้หมดอายุ</li>
+          </ul>
+        </div>
+
+        <!-- Dim 4 -->
+        <div class="p-2.5 rounded-xl border border-slate-200 bg-slate-50/70">
+          <div class="flex items-center gap-2 mb-1">
+            <span class="w-5 h-5 rounded-full bg-amber-600 text-white flex items-center justify-center font-bold text-[9px]">4</span>
+            <h3 class="font-black text-slate-900 text-[10.5px]">Supplier Behavioral Sentiment</h3>
+          </div>
+          <p class="text-slate-600 text-[9px] mb-1">วิเคราะห์พฤติกรรมการสื่อสารผ่านอีเมล:</p>
+          <ul class="list-disc list-inside space-y-0.5 text-[9px] text-slate-700">
+            <li><strong>Response Agility:</strong> ความรวดเร็วในการตอบกลับใบขอราคาหรือข้อร้องเรียน</li>
+            <li><strong>Sudden Postponement:</strong> ความถี่ในการส่งอีเมลขอเลื่อนวันส่งของกะทันหัน</li>
+            <li><strong>Collaboration Score:</strong> ทัศนคติและความร่วมมือในการแก้ไขปัญหาทางเทคนิค</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Real-World Example Box -->
+      <div class="card-box border-l-4 border-l-purple-500 bg-purple-50/30">
+        <div class="text-[10px] font-black text-purple-900 uppercase tracking-wide mb-1">
+          💬 ตัวอย่างการแจ้งเตือนอัจฉริยะของ Copilot ถึงผู้บริหารจัดซื้อ (Live Executive Briefing)
+        </div>
+        <p class="text-[9.5px] text-slate-800 leading-relaxed font-normal">
+          <em>"แจ้งเตือน: <strong>ซัพพลายเออร์ Apex Polymer (รหัส V-102)</strong> แม้จะมีราคาเสนอต่ำที่สุด แต่เกรดรวมในระบบถูกปรับลดจาก <strong>A &rarr; C+</strong> เนื่องจาก 60 วันที่ผ่านมา ตรวจพบอัตราของเสียจากเรซินเพิ่มขึ้น 6.8% ในไลน์ฉีดพลาสติก และระบบสแกนพบข่าวท้องถิ่นว่าบริษัทแม่กำลังประสบปัญหาขาดสภาพคล่องทางการเงิน แนะนำให้ระงับการต่อสัญญาผูกขาด 100% ในรอบนี้"</em>
+        </p>
+      </div>
+    </div>
+
+    <div class="border-t border-slate-200 pt-1 text-[10px] text-slate-400 text-right">
+      Section 2: Deep Dive - AI Vendor Evaluation
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 4: DEEP DIVE - AI VENDOR SELECTION ==================== -->
+  <div class="page-container">
+    <div>
+      <!-- Section Title -->
+      <div class="flex items-center justify-between border-b-2 border-emerald-600 pb-1.5 mb-2.5">
+        <div>
+          <span class="text-[10px] font-black tracking-widest text-emerald-700 uppercase">Core Pillar 02</span>
+          <h2 class="text-base font-black text-slate-900">3. เจาะลึก: AI Vendor Selection (คัดเลือกคู่ค้าด้วย True TCO)</h2>
+        </div>
+        <span class="px-2 py-0.5 bg-emerald-50 text-emerald-800 rounded text-[9px] font-bold">Optimal Awarding Engine</span>
+      </div>
+
+      <p class="text-[10.5px] text-slate-700 leading-relaxed mb-2.5">
+        เมื่อจัดซื้อได้รับใบเสนอราคาจากซัพพลายเออร์หลายราย Copilot จะทำหน้าที่เป็น <strong>"Chief Procurement Analyst"</strong> ในการวิเคราะห์เปรียบเทียบและเสนอทางเลือกที่ดีที่สุด:
+      </p>
+
+      <!-- 3 Selection Engines -->
+      <div class="space-y-2 mb-3 text-[10px]">
+        <!-- Engine 1 -->
+        <div class="p-2.5 rounded-xl border border-slate-200 bg-white shadow-xs border-l-4 border-l-sky-500">
+          <div class="flex items-center justify-between mb-1">
+            <h3 class="font-black text-slate-900 text-[10.5px]">1. Multi-Quote PDF Auto-Extraction &amp; Normalization</h3>
+            <span class="badge-tag bg-sky-100 text-sky-800">10-Sec Extraction</span>
+          </div>
+          <p class="text-slate-600 text-[9px] mb-1">
+            ผู้ใช้วางไฟล์ PDF ใบเสนอราคาจาก 3–5 ซัพพลายเออร์ลงใน Copilot ระบบจะสกัดข้อมูล: ราคาต่อหน่วย, ตารางส่วนลดตาม Volume, Incoterms, เครดิตเทอม และวันส่งมอบ แปลงเป็นหน่วยมาตรฐานเดียวกันและสร้างตารางเปรียบเทียบเทียบเคียงให้อัตโนมัติใน 10 วินาที
+          </p>
+        </div>
+
+        <!-- Engine 2 -->
+        <div class="p-2.5 rounded-xl border border-slate-200 bg-white shadow-xs border-l-4 border-l-emerald-500">
+          <div class="flex items-center justify-between mb-1">
+            <h3 class="font-black text-slate-900 text-[10.5px]">2. True Total Cost of Ownership (TCO) Mathematical Algorithm</h3>
+            <span class="badge-tag bg-emerald-100 text-emerald-800">TCO Optimization</span>
+          </div>
+          <p class="text-slate-600 text-[9px] mb-1">
+            แทนที่จะมองแค่ราคาหน้าบิล Copilot จะคำนวณต้นทุนแฝงรอบด้านผ่านสูตรคณิตศาสตร์:
+          </p>
+          <div class="p-1.5 bg-slate-900 text-emerald-400 font-mono text-[9px] rounded text-center mb-1">
+            True TCO = Unit Price + Freight/Duties + Expected Scrap Cost + Risk of Delay Penalty
+          </div>
+          <p class="text-slate-600 text-[9px]">
+            *กรณีศึกษาจริง: ซัพพลายเออร์ A เสนอชิ้นละ 100 บาท (แต่มีของเสีย 5%), ซัพพลายเออร์ B เสนอ 103 บาท (ของเสีย 0.2% ส่งตรงเวลา 100%) Copilot จะคำนวณพบว่าซัพพลายเออร์ B มีต้นทุนจริงต่ำกว่าถึง 4.2 บาทต่อชิ้น!
+          </p>
+        </div>
+
+        <!-- Engine 3 -->
+        <div class="p-2.5 rounded-xl border border-slate-200 bg-white shadow-xs border-l-4 border-l-purple-500">
+          <div class="flex items-center justify-between mb-1">
+            <h3 class="font-black text-slate-900 text-[10.5px]">3. Optimal Split-Award &amp; Risk Diversification</h3>
+            <span class="badge-tag bg-purple-100 text-purple-800">Dual Sourcing</span>
+          </div>
+          <p class="text-slate-600 text-[9px] mb-1">
+            Copilot จะแนะนำสัดส่วนการแบ่งคำสั่งซื้อ (Split PO) ที่เหมาะสมที่สุดเพื่อไม่ให้องค์กรตกอยู่ในภาวะผูกขาด:
+            <em>"แนะนำสั่งซื้อแบบแบ่งยอด: 70% ให้ซัพพลายเออร์ B (เพื่อต้นทุน TCO ต่ำสุด) และ 30% ให้ซัพพลายเออร์ C (เพื่อรักษาโควตาสัญญาและสำรองความเสี่ยง)"</em>
+          </p>
+        </div>
+      </div>
+
+      <!-- Human-in-the-loop Governance Box -->
+      <div class="p-2.5 bg-emerald-50/70 border border-emerald-200 rounded-xl">
+        <div class="text-[10px] font-black text-emerald-900 uppercase tracking-wide mb-0.5">
+          👤 Human-in-the-Loop Governance (การควบคุมโดยมนุษย์ 100%)
+        </div>
+        <p class="text-[9px] text-slate-700 leading-snug">
+          Copilot มีหน้าที่วิเคราะห์และสร้าง <strong>"ใบข้อเสนอแนะพร้อมเหตุผล (Awarding Recommendation Memo)"</strong> และร่าง Purchase Order ใน D365 โดย <strong>ไม่มีการอนุมัติคำสั่งซื้อโดยพลการ</strong> เจ้าหน้าที่จัดซื้อและผู้บริหารจะเป็นผู้กดอนุมัติ (Sign-off) เสมอ ทำให้ถูกต้องตามนโยบายควบคุมภายใน (Internal Audit) 100%
+        </p>
+      </div>
+    </div>
+
+    <div class="border-t border-slate-200 pt-1 text-[10px] text-slate-400 text-right">
+      Section 3: Deep Dive - AI Vendor Selection
+    </div>
+  </div>
+
+  <!-- ==================== PAGE 5: BUSINESS CASE & 8-WEEK ROADMAP ==================== -->
+  <div class="page-container">
+    <div>
+      <!-- Section Title -->
+      <div class="flex items-center justify-between border-b-2 border-red-600 pb-1.5 mb-2.5">
+        <div>
+          <span class="text-[10px] font-black tracking-widest text-red-600 uppercase">Delivery &amp; Business Value</span>
+          <h2 class="text-base font-black text-slate-900">4. มูลค่าทางธุรกิจและแผนงานพัฒนา 8-Week Fast-Track POC</h2>
+        </div>
+        <span class="px-2 py-0.5 bg-red-50 text-red-700 rounded text-[9px] font-bold">Executive ROI &amp; Roadmap</span>
+      </div>
+
+      <!-- Tangible Business Value Grid -->
+      <div class="grid grid-cols-3 gap-2.5 mb-3 text-[10px]">
+        <div class="p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-center">
+          <div class="text-lg font-black text-emerald-600 mb-0.5">5–8%</div>
+          <div class="font-bold text-slate-900 text-[10px]">Direct Procurement Savings</div>
+          <p class="text-slate-500 text-[8.5px] mt-0.5">ประหยัดงบจัดซื้อผ่านการคำนวณ TCO และกำจัดของเสีย</p>
+        </div>
+        <div class="p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-center">
+          <div class="text-lg font-black text-sky-600 mb-0.5">2–3 Days</div>
+          <div class="font-bold text-slate-900 text-[10px]">Faster Sourcing Cycle</div>
+          <p class="text-slate-500 text-[8.5px] mt-0.5">ย่นระยะเวลาการเทียบราคาและเปิด PO ได้เร็วขึ้น</p>
+        </div>
+        <div class="p-2.5 bg-slate-50 border border-slate-200 rounded-xl text-center">
+          <div class="text-lg font-black text-purple-600 mb-0.5">100%</div>
+          <div class="font-bold text-slate-900 text-[10px]">Compliance Audit Trail</div>
+          <p class="text-slate-500 text-[8.5px] mt-0.5">มีบันทึกเหตุผลการเลือกคู่ค้าพร้อมตรวจ Auditor</p>
+        </div>
+      </div>
+
+      <!-- 8-Week Delivery Roadmap -->
+      <div class="border border-slate-200 rounded-xl p-2.5 bg-white shadow-xs mb-3">
+        <h3 class="text-xs font-black text-slate-900 mb-2 flex items-center gap-1.5">
+          <span>🚀</span>
+          <span>Fujitsu 8-Week Fast-Track POC to Production Framework</span>
+        </h3>
+        <div class="grid grid-cols-4 gap-2 text-[9.5px]">
+          <div class="p-2 rounded-lg bg-slate-50 border-l-4 border-l-slate-400 border border-slate-200">
+            <div class="font-bold text-slate-900 text-[10px] mb-0.5">Sprint 1 (W1–2): Ingestion</div>
+            <p class="text-[9px] text-slate-600 leading-snug">เชื่อมต่อ D365 PurchTable/VendTable และเทรน AI อ่าน PDF ใบเสนอราคา (RFQ)</p>
+          </div>
+          <div class="p-2 rounded-lg bg-slate-50 border-l-4 border-l-sky-500 border border-slate-200">
+            <div class="font-bold text-sky-900 text-[10px] mb-0.5">Sprint 2 (W3–4): TCO Engine</div>
+            <p class="text-[9px] text-slate-600 leading-snug">คอนฟิกสูตรคำนวณ TCO และสร้างโมเดลประเมินคะแนน Predictive Scorecard 360°</p>
+          </div>
+          <div class="p-2 rounded-lg bg-slate-50 border-l-4 border-l-purple-500 border border-slate-200">
+            <div class="font-bold text-purple-900 text-[10px] mb-0.5">Sprint 3 (W5–6): D365 Loop</div>
+            <p class="text-[9px] text-slate-600 leading-snug">เชื่อมต่อ Copilot Studio เข้ากับระบบเปิด PO ใน D365 และทดสอบ Split-Awarding</p>
+          </div>
+          <div class="p-2 rounded-lg bg-slate-50 border-l-4 border-l-emerald-500 border border-slate-200">
+            <div class="font-bold text-emerald-900 text-[10px] mb-0.5">Sprint 4 (W7–8): Go-Live</div>
+            <p class="text-[9px] text-slate-600 leading-snug">ทดสอบ UAT ร่วมกับทีมจัดซื้อ, วัดผลประหยัดต้นทุนจริง และเปิดใช้งานบน Production</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fujitsu Strategic IP Box -->
+      <div class="p-3 rounded-xl bg-gradient-to-r from-red-50 to-orange-50 border border-red-200 mb-2">
+        <div class="text-[10px] font-black text-red-700 uppercase tracking-wider mb-0.5">🏆 ทำไมโซลูชันนี้จึงสร้างความได้เปรียบสูงสุดให้ Fujitsu Thailand (FTH)?</div>
+        <p class="text-[10px] text-slate-800 leading-relaxed">
+          องค์กรข้ามชาติและกลุ่มทุนโรงงานญี่ปุ่น (Japanese Conglomerates) ในไทย ให้ความสำคัญสูงสุดกับ <strong>ความโปร่งใสและเสถียรภาพของคู่ค้า (Supplier Stability &amp; Governance)</strong> การที่ FTH สามารถนำเสนอโซลูชัน <strong>Procurement Intelligence</strong> ที่มีทั้ง AI อ่านบิล, คำนวณ TCO และตรวจสอบ ESG ล่วงหน้า จะทำให้ FTH ก้าวล้ำกว่าคู่แข่งที่ขายเพียงระบบ ERP พื้นฐาน และยกระดับเป็น <strong>Strategic Digital Transformation Partner</strong> ที่สร้างมูลค่าเพิ่มมหาศาลครับ
+        </p>
+      </div>
+    </div>
+
+    <!-- Sign-off Block -->
+    <div class="border-t border-slate-200 pt-2 flex items-center justify-between text-[10px] text-slate-500">
+      <div>
+        <span class="font-bold text-slate-800">Fujitsu (Thailand) Co., Ltd.</span> | 22nd Floor, Column Tower, Sukhumvit Road, Bangkok, Thailand<br>
+        Web: <a href="https://wititgithub.github.io/fth-d365-fo-copilot-deck/" class="text-sky-600 underline">https://wititgithub.github.io/fth-d365-fo-copilot-deck/</a>
+      </div>
+      <div class="text-right font-medium">
+        Contact: Enterprise SCM &amp; AI Practice<br>
+        Email: consulting@th.fujitsu.com
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+"""
+
+async def main():
+    print("Writing HTML Procurement Intelligence whitepaper...")
+    html_content = build_html_content()
+    with open(HTML_PATH, "w", encoding="utf-8") as f:
+        f.write(html_content)
+    print(f"Saved HTML -> {HTML_PATH}")
+
+    print("Launching Playwright to generate high-resolution vector PDF...")
+    async with async_playwright() as p:
+        browser = await p.chromium.launch()
+        page = await browser.new_page()
+        file_url = "file:///" + HTML_PATH.replace("\\", "/")
+        await page.goto(file_url, wait_until="networkidle")
+        await page.evaluate("document.fonts.ready")
+        await page.wait_for_timeout(1000)
+
+        for out_pdf in OUT_PDF_PATHS:
+            os.makedirs(os.path.dirname(out_pdf), exist_ok=True)
+            await page.pdf(
+                path=out_pdf,
+                format="A4",
+                print_background=True,
+                margin={"top": "8mm", "bottom": "10mm", "left": "10mm", "right": "10mm"},
+                display_header_footer=True,
+                header_template='<div style="font-size: 8px; color: #94a3b8; width: 100%; display: flex; justify-content: space-between; padding: 0 10mm; font-family: sans-serif; font-weight: 600;"><span>FUJITSU THAILAND (FTH) • PROCUREMENT INTELLIGENCE WITH COPILOT AI</span><span>CONFIDENTIAL</span></div>',
+                footer_template='<div style="font-size: 8px; color: #94a3b8; width: 100%; display: flex; justify-content: space-between; padding: 0 10mm; font-family: sans-serif;"><span>© 2026 Fujitsu Thailand Co., Ltd. All rights reserved.</span><span>Page <span class="pageNumber"></span> of <span class="totalPages"></span></span></div>'
+            )
+            print(f"Successfully generated PDF -> {out_pdf} ({os.path.getsize(out_pdf)//1024} KB)")
+
+        await browser.close()
+    print("PDF generation complete!")
+
+if __name__ == "__main__":
+    asyncio.run(main())
