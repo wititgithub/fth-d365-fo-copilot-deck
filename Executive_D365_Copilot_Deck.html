@@ -65,14 +65,31 @@
         </div>
 
         <!-- Language Script Toggle -->
-        <button onclick="toggleScriptLang()" id="btnLangToggle" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 flex items-center gap-1">
+        <button onclick="toggleScriptLang()" id="btnLangToggle" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 flex items-center gap-1 transition-all">
           <span>🌐 บทพูด:</span>
-          <span id="langLabel" class="text-red-400">ภาษาไทย</span>
+          <span id="langLabel" class="text-red-400 font-bold">ภาษาไทย</span>
+        </button>
+
+        <!-- AI Voice Narrator -->
+        <button onclick="toggleSpeech()" id="btnVoiceToggle" class="px-3 py-1.5 rounded-lg bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white flex items-center gap-1 shadow-md shadow-purple-950/40 transition-all">
+          <span id="voiceIcon">🎙️</span>
+          <span id="voiceLabel">ฟังเสียงบรรยาย</span>
+        </button>
+
+        <!-- Fullscreen -->
+        <button onclick="toggleFullscreen()" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 flex items-center gap-1 transition-all" title="สลับโหมดเต็มจอ">
+          <span>⛶</span>
+          <span class="hidden sm:inline">เต็มจอ</span>
         </button>
 
         <!-- PPTX Download -->
-        <a href="FTH_D365_Copilot_AI_Executive_Presentation.pptx" download class="px-3 py-1.5 rounded-lg bg-red-600 hover:bg-red-500 text-white flex items-center gap-1 shadow-md shadow-red-900/40">
-          <span>📥 ดาวน์โหลด PPTX (10 สไลด์)</span>
+        <a href="FTH_D365_Copilot_AI_Executive_Presentation.pptx" download class="px-3 py-1.5 rounded-lg bg-red-600 hover:bg-red-500 text-white flex items-center gap-1 shadow-md shadow-red-900/40 transition-all">
+          <span>📥 ดาวน์โหลด PPTX</span>
+        </a>
+
+        <!-- Link back to Hub -->
+        <a href="index.html" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white border border-slate-700 flex items-center gap-1 transition-all" title="กลับหน้าหลัก">
+          <span>🏠</span>
         </a>
       </div>
     </div>
@@ -409,6 +426,13 @@
       document.getElementById('scriptContentTh').textContent = s.scriptTh;
       document.getElementById('scriptContentEn').textContent = s.scriptEn;
 
+      // Stop previous voice if playing
+      if (window.speechSynthesis && isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        updateVoiceButtonState();
+      }
+
       // Update Dots
       renderDots();
     }
@@ -440,6 +464,75 @@
         document.getElementById('scriptContentTh').classList.add('hidden');
         document.getElementById('scriptContentEn').classList.remove('hidden');
       }
+      if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        updateVoiceButtonState();
+      }
+    }
+
+    // AI Voice Synthesis (Web Speech API)
+    let isSpeaking = false;
+    function toggleSpeech() {
+      if (!('speechSynthesis' in window)) {
+        alert("เบราว์เซอร์นี้ไม่รองรับ Web Speech API");
+        return;
+      }
+      if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        updateVoiceButtonState();
+        return;
+      }
+
+      const s = slides[currentSlide];
+      const text = isThaiScript ? s.scriptTh : s.scriptEn;
+      const lang = isThaiScript ? 'th-TH' : 'en-US';
+
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = lang;
+      utterance.rate = isThaiScript ? 1.05 : 1.0;
+      utterance.pitch = 1.0;
+
+      utterance.onstart = () => {
+        isSpeaking = true;
+        updateVoiceButtonState();
+      };
+      utterance.onend = () => {
+        isSpeaking = false;
+        updateVoiceButtonState();
+      };
+      utterance.onerror = () => {
+        isSpeaking = false;
+        updateVoiceButtonState();
+      };
+
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function updateVoiceButtonState() {
+      const btn = document.getElementById('btnVoiceToggle');
+      const icon = document.getElementById('voiceIcon');
+      const label = document.getElementById('voiceLabel');
+      if (isSpeaking) {
+        btn.classList.add('animate-pulse', 'ring-2', 'ring-red-400');
+        icon.textContent = '⏹️';
+        label.textContent = 'หยุดเสียง';
+      } else {
+        btn.classList.remove('animate-pulse', 'ring-2', 'ring-red-400');
+        icon.textContent = '🎙️';
+        label.textContent = 'ฟังเสียงบรรยาย';
+      }
+    }
+
+    // Fullscreen Toggle
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(err => console.log(err));
+      } else {
+        if (document.exitFullscreen) document.exitFullscreen();
+      }
     }
 
     // Keyboard navigation
@@ -448,6 +541,8 @@
         nextSlide();
       } else if (e.key === 'ArrowLeft') {
         prevSlide();
+      } else if (e.key.toLowerCase() === 'f') {
+        toggleFullscreen();
       }
     });
 
