@@ -4,25 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>D365 & Copilot AI Modernization — Executive Deck (10 Slides)</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Sarabun:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
   <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'Sarabun', 'sans-serif'],
-            mono: ['"JetBrains Mono"', 'monospace'],
-          },
-          colors: {
-            fujitsu: { red: '#E60012', darkred: '#B3000E' },
-            ms: { blue: '#0078D4', purple: '#7928CA', cyan: '#00F2FE' }
+    if (typeof tailwind !== 'undefined') {
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', 'Sarabun', 'sans-serif'],
+              mono: ['"JetBrains Mono"', 'monospace'],
+            },
+            colors: {
+              fujitsu: { red: '#E60012', darkred: '#B3000E' },
+              ms: { blue: '#0078D4', purple: '#7928CA', cyan: '#00F2FE' }
+            }
           }
         }
-      }
+      };
     }
   </script>
   <style>
@@ -98,9 +100,25 @@
   <!-- MAIN SLIDE VIEWER -->
   <main class="max-w-7xl mx-auto px-4 py-6 w-full flex-1 flex flex-col gap-6">
 
-    <!-- SLIDE VIEWPORT CONTAINER -->
-    <div class="w-full aspect-[16/9] bg-slate-900 rounded-3xl border border-slate-800 shadow-2xl overflow-hidden relative flex flex-col justify-between p-6 md:p-10" id="slideViewport">
-      <!-- Injected by JavaScript -->
+    <!-- SLIDE VIEWPORT CONTAINER (Pre-rendered default to prevent blank screen) -->
+    <div class="w-full aspect-[16/9] bg-gradient-to-br from-slate-950 via-slate-900 to-red-950/40 rounded-3xl border border-red-500/30 shadow-2xl overflow-hidden relative flex flex-col justify-between p-6 md:p-12 slide-enter" id="slideViewport">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-600/20 border border-red-500/40 text-red-400 text-xs font-mono font-bold mb-4">
+          <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+          <span>FUJITSU THAILAND // EXECUTIVE PRESENTATION // SLIDE 1</span>
+        </div>
+        <h2 class="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight max-w-4xl">
+          The Autonomous Enterprise: Augmenting Microsoft Dynamics 365 with Copilot AI
+        </h2>
+        <p class="text-base md:text-xl text-slate-300 font-semibold mt-4 max-w-3xl leading-relaxed">
+          ยกระดับระบบ ERP จาก 'ระบบบันทึกธุรกรรมดั้งเดิม' (System of Record) สู่ 'ระบบอัจฉริยะที่คิด วิเคราะห์ และเตือนภัยล่วงหน้า' (System of Intelligence)
+        </p>
+      </div>
+
+      <div class="border-t border-slate-800 pt-6 flex items-center justify-between text-xs text-slate-400 font-mono">
+        <div>Target Audience: C-Level Executives (CEO, CFO, CIO, COO)</div>
+        <div>Speech: ~8 Minutes // Prepared by Fujitsu Thailand</div>
+      </div>
     </div>
 
     <!-- SLIDE CONTROLS & THUMBNAIL TRACK -->
@@ -143,7 +161,7 @@
 
       <!-- Thai Script -->
       <div id="scriptContentTh" class="text-sm text-slate-200 leading-relaxed font-normal bg-slate-950/60 p-4 rounded-xl border border-slate-800/80">
-        <!-- Injected by JS -->
+        กราบเรียนท่านประธาน และคณะกรรมการบริหารทุกท่านครับ วันนี้ผมขออนุญาตนำเสนอทิศทางเชิงกลยุทธ์ในการยกระดับ Microsoft Dynamics 365 ด้วย Copilot AI... ตลอดหลายปีที่ผ่านมา ERP ทำหน้าที่เป็น 'System of Record' ที่บันทึกข้อมูลอย่างแม่นยำ แต่วันนี้ข้อมูลที่บันทึกไว้เฉยๆ ไม่เพียงพอที่จะสร้างความได้เปรียบทางธุรกิจ สิ่งที่เราต้องการคือ 'System of Intelligence' ที่สามารถคิด วิเคราะห์ ช่วยตัดสินใจ และทำงานเชิงรุกได้ครอบคลุมทุกโมดูลหลักขององค์กรครับ
       </div>
 
       <!-- English Script -->
@@ -611,21 +629,6 @@
       renderDots();
     }
 
-      // Update Scripts
-      document.getElementById('scriptContentTh').textContent = s.scriptTh;
-      document.getElementById('scriptContentEn').textContent = s.scriptEn;
-
-      // Stop previous voice if playing
-      if (window.speechSynthesis && isSpeaking) {
-        window.speechSynthesis.cancel();
-        isSpeaking = false;
-        updateVoiceButtonState();
-      }
-
-      // Update Dots
-      renderDots();
-    }
-
     function renderDots() {
       const container = document.getElementById('dotsContainer');
       container.innerHTML = slides.map((s, i) => `
@@ -736,7 +739,11 @@
     });
 
     // Init
-    renderSlide(0);
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', () => renderSlide(0));
+    } else {
+      renderSlide(0);
+    }
   </script>
 </body>
 </html>
