@@ -132,14 +132,11 @@ function updateControls() {
   $('notes').textContent = c.notes;
   $('evidence').textContent = c.evidence;
 
-  // Language buttons
-  if ($('lang-en')) {
-    $('lang-en').classList.toggle('active', lang === 'en');
-    $('lang-en').setAttribute('aria-pressed', String(lang === 'en'));
-  }
-  if ($('lang-th')) {
-    $('lang-th').classList.toggle('active', lang === 'th');
-    $('lang-th').setAttribute('aria-pressed', String(lang === 'th'));
+  // Language button
+  if ($('lang')) {
+    const isEn = lang === 'en';
+    $('lang').innerHTML = `<span data-lang="en" class="lang-opt ${isEn ? 'active' : ''}">EN</span> <span class="lang-sep">/</span> <span data-lang="th" class="lang-opt ${!isEn ? 'active' : ''}">TH</span>`;
+    $('lang').setAttribute('aria-label', isEn ? 'Switch to Thai' : 'Switch to English');
   }
 
   // FX Toggle button
@@ -233,6 +230,11 @@ function setLang(newLang) {
   render();
   if ($('drawer').open) drawPanel();
   if (playing && voiceEnabled) speak();
+  toast(lang === 'th' ? '🇹🇭 เปลี่ยนเป็นภาษาไทยแล้ว (Thai)' : '🇬🇧 Switched to English (ภาษาอังกฤษ)');
+}
+
+function toggleLang() {
+  setLang(lang === 'en' ? 'th' : 'en');
 }
 
 function toggleFx() {
@@ -399,10 +401,17 @@ $('dots').onclick = e => {
   if (button) navigate(Number(button.dataset.slide));
 };
 
-// Language switcher clicks
-if ($('lang-en')) $('lang-en').onclick = e => { e.stopPropagation(); setLang('en'); };
-if ($('lang-th')) $('lang-th').onclick = e => { e.stopPropagation(); setLang('th'); };
-if ($('lang')) $('lang').onclick = () => setLang(lang === 'en' ? 'th' : 'en');
+// Language switcher clicks (every click switches language reliably)
+if ($('lang')) {
+  $('lang').onclick = e => {
+    const opt = e.target.closest('[data-lang]');
+    if (opt && opt.dataset.lang !== lang) {
+      setLang(opt.dataset.lang);
+    } else {
+      toggleLang();
+    }
+  };
+}
 if ($('fx-toggle')) $('fx-toggle').onclick = toggleFx;
 
 $('play').onclick = () => {

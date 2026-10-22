@@ -7,8 +7,8 @@
   <meta name="description" content="Fujitsu Thailand — Customizing the Future: Building Enterprise Agents with Dynamics 365 and Copilot Studio.">
   <title>Enterprise Agents with D365 & Copilot Studio | Fujitsu Thailand</title>
   <link rel="icon" href="assets/fujitsu-red.png" type="image/png">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="cinematic.css">
+  <link rel="stylesheet" href="styles.css?v=2.2">
+  <link rel="stylesheet" href="cinematic.css?v=2.2">
 </head>
 <body>
   <a class="skip" href="#stage">Skip to presentation</a>
@@ -16,11 +16,11 @@
     <a class="brand" href="#1" aria-label="Fujitsu Thailand · First slide"><img src="assets/fujitsu-red.png" alt="Fujitsu"><span>THAILAND <b>Dynamics 365 practice</b></span></a>
     <div class="edition">EXECUTIVE BRIEF <span>22 OCT 2026</span></div>
     <div class="tools">
-      <div id="lang" class="lang-switch" role="group" aria-label="Language selection">
-        <button id="lang-en" class="lang-btn active" type="button" aria-pressed="true">EN</button>
+      <button id="lang" type="button" aria-label="Switch presentation language">
+        <span data-lang="en" class="lang-opt active">EN</span>
         <span class="lang-sep">/</span>
-        <button id="lang-th" class="lang-btn" type="button" aria-pressed="false">TH</button>
-      </div>
+        <span data-lang="th" class="lang-opt">TH</span>
+      </button>
       <button id="fx-toggle" type="button" aria-pressed="true" title="Slide transition effects (Shortcut: T)">⚡ <span>FX</span></button>
       <button id="fullscreen" aria-label="Fullscreen">⛶</button>
       <button id="menu" aria-label="Open slide overview">☷</button>
@@ -55,6 +55,6 @@
   <div id="status" class="toast" role="status"></div>
   <noscript>This presentation needs JavaScript. The bilingual narration and research are also available in the docs folder.</noscript>
   <audio id="narration-audio" preload="none"></audio>
-  <script type="module" src="app.js"></script>
+  <script type="module" src="app.js?v=2.2"></script>
 </body>
 </html>

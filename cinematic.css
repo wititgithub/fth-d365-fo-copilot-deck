@@ -113,11 +113,12 @@
 .closing-badge{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);padding:5px 16px;background:rgba(10,18,32,0.85);backdrop-filter:blur(10px);border-radius:20px;border:1px solid rgba(237,27,47,0.45);box-shadow:0 4px 20px rgba(0,0,0,0.6);font-size:9px;letter-spacing:1.8px;color:#ff9ca5;z-index:4;white-space:nowrap;font-weight:600}
 
 /* Language Control & FX Toggle (Original Executive Theme) */
-.tools .lang-switch{display:inline-flex;align-items:center;background:transparent;border:0;padding:0;gap:0;font-size:12px}
-.tools .lang-btn{font-family:inherit;font-size:12px;font-weight:400;color:var(--muted);background:transparent;border:0;padding:5px 2px;cursor:pointer;line-height:1;transition:color .15s ease}
-.tools .lang-btn:hover{color:var(--red)}
-.tools .lang-btn.active{font-weight:700;color:var(--ink)}
-.tools .lang-sep{font-size:12px;font-weight:400;color:var(--muted);padding:0 2px;user-select:none}
+.tools #lang{font-size:12px;font-weight:700;background:transparent;border:0;padding:5px;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:3px;transition:color .15s ease}
+.tools #lang .lang-opt{font-size:12px;font-weight:400;color:var(--muted);transition:all .15s ease}
+.tools #lang .lang-opt.active{font-weight:700;color:var(--ink)}
+.tools #lang .lang-sep{font-size:12px;font-weight:400;color:var(--muted);padding:0 1px}
+.tools #lang:hover{color:var(--red)}
+.tools #lang:hover .lang-opt.active{color:var(--red)}
 .tools #fx-toggle{font-size:12px;font-weight:700;background:transparent;border:0;padding:5px;color:var(--ink);cursor:pointer;display:inline-flex;align-items:center;gap:3px;transition:color .15s ease,opacity .15s ease}
 .tools #fx-toggle span{font-weight:700;color:var(--ink);transition:color .15s ease}
 .tools #fx-toggle:hover,.tools #fx-toggle:hover span{color:var(--red)}
