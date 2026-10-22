@@ -167,7 +167,7 @@ export const slides = [
   },
   {
     id: 'closing', duration: 31, theme: 'dark', visual: 'closing', chapter: '09 / FUJITSU THAILAND',
-    title: bi('ผสานความเชี่ยวชาญสู่ความเป็นเลิศ:\nFujitsu Red Infinity × Copilot', 'Empowering Enterprise Excellence:\nFujitsu Red Infinity × Copilot'),
+    title: bi('ผสานความเชี่ยวชาญสู่ความเป็นเลิศ:\nFujitsu × D365 × Copilot', 'Empowering Enterprise Excellence:\nFujitsu × D365 × Copilot'),
     subtitle: bi('ผสานรากฐานอันมั่นคงของ Dynamics 365 เข้ากับความฉลาดของ Copilot Studio สู่ความยั่งยืน', 'Unifying the operational rigor of Dynamics 365 with the transformative intelligence of Copilot Studio.'),
     takeaway: bi('ฟูจิตสึ ประเทศไทย · ทีมผู้เชี่ยวชาญ Dynamics 365 & Copilot', 'Fujitsu Thailand · Dynamics 365 & Copilot Practice'),
     labels: bi(['การเปลี่ยนแปลงที่ไม่สิ้นสุด', 'มาตรฐานองค์กร', 'พร้อมเปิดรับคำถาม'],

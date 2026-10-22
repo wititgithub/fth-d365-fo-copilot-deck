@@ -20,7 +20,7 @@
 | **6** | 02:50–03:23 | **Zero-Trust Boundary: Your Data Stays Yours**<br>ความปลอดภัยระดับองค์กร: ข้อมูลไม่รั่วไหลนอก Tenant | 33s |
 | **7** | 03:23–03:56 | **Human-in-the-Loop: 3 Tiers of Agent Autonomy**<br>การบริหารความเสี่ยง: 3 ระดับการทำงานของ Agent | 33s |
 | **8** | 03:56–04:22 | **Implementation Sequence: From Proof-of-Value to Scale**<br>ลำดับการประยุกต์ใช้: พิสูจน์ผลลัพธ์สู่ระดับองค์กร | 26s |
-| **9** | 04:22–04:53 | **Empowering Enterprise Excellence: Fujitsu Red Infinity × Copilot**<br>ผสานความเชี่ยวชาญสู่ความเป็นเลิศ: Fujitsu Red Infinity × Copilot | 31s |
+| **9** | 04:22–04:53 | **Empowering Enterprise Excellence: Fujitsu × D365 × Copilot**<br>ผสานความเชี่ยวชาญสู่ความเป็นเลิศ: Fujitsu × D365 × Copilot | 31s |
 
 ---
 
@@ -99,7 +99,7 @@
 
 ---
 
-### สไลด์ที่ 9: ผสานความเชี่ยวชาญสู่ความเป็นเลิศ: Fujitsu Red Infinity × Copilot (31 วินาที)
+### สไลด์ที่ 9: ผสานความเชี่ยวชาญสู่ความเป็นเลิศ: Fujitsu × D365 × Copilot (31 วินาที)
 สัญลักษณ์ ฟูจิตสึ เรด อินฟินิตี้ บนหน้าจอนี้ สะท้อนถึงคำมั่นสัญญาที่ไม่สิ้นสุดในการขับเคลื่อนนวัตกรรมเพื่อความยั่งยืนของลูกค้าครับ
 
 ด้วยการผสานความแข็งแกร่งของระบบไดนามิกส์ สามหกห้า เข้ากับความฉลาดของ โคไพลอต สตูดิโอ ฟูจิตสึ ประเทศไทย พร้อมสนับสนุนให้องค์กรของท่านก้าวสู่ยุคใหม่อย่างมั่นคง
@@ -151,5 +151,5 @@
 
 ---
 
-### Slide 9: Empowering Enterprise Excellence: Fujitsu Red Infinity × Copilot (31s)
+### Slide 9: Empowering Enterprise Excellence: Fujitsu × D365 × Copilot (31s)
 "The animated Fujitsu Red Infinity loop symbolizes our endless dedication to sustainable innovation and customer success. By unifying the operational rigor of Dynamics 365 with the transformative intelligence of Microsoft Copilot Studio, we empower enterprises to achieve unprecedented operational agility. Our ask today is the sponsorship to launch our pilot with an identified process owner. Thank you very much, and we welcome your questions and strategic guidance."

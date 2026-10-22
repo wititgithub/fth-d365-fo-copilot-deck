@@ -46,7 +46,7 @@ function cinematic(slide, lang) {
 export function visual(slide, lang) {
   if (photoScenes[slide.visual]) return cinematic(slide, lang);
   if (slide.visual === 'closing') {
-    return `<div class="closing-art"><div class="closing-halo"></div><img src="assets/slide9_fujitsu_red_infinity_dark.gif" alt="Fujitsu Red Infinity connecting Dynamics 365 and Copilot on dark executive stage" class="closing-image"><div class="closing-orbit"></div><div class="closing-badge"><span>FUJITSU RED INFINITY ✕ DYNAMICS 365 & COPILOT</span></div></div>`;
+    return `<div class="closing-art"><div class="closing-halo"></div><img src="assets/slide9_fujitsu_red_infinity_dark.gif" alt="Fujitsu Red Infinity connecting Dynamics 365 and Copilot on dark executive stage" class="closing-image"><div class="closing-orbit"></div><div class="closing-badge"><span>FUJITSU × D365 × COPILOT</span></div></div>`;
   }
   return '';
 }
