@@ -2,81 +2,111 @@
   {
     "id": "opportunity",
     "path": "assets/audio/th-01.mp3",
-    "duration": 36.936,
+    "en_path": "assets/audio/en-01.mp3",
+    "duration": 32.928,
+    "en_duration": 30.912,
     "cue": 40,
     "voice": "th-TH-NiwatNeural",
-    "rate": "+0%"
+    "en_voice": "en-US-AndrewNeural",
+    "rate": "+5%"
   },
   {
-    "id": "standard",
+    "id": "investigation",
     "path": "assets/audio/th-02.mp3",
-    "duration": 44.184,
+    "en_path": "assets/audio/en-02.mp3",
+    "duration": 29.856,
+    "en_duration": 32.52,
     "cue": 50,
     "voice": "th-TH-NiwatNeural",
-    "rate": "+0%"
-  },
-  {
-    "id": "accounts-payable",
-    "path": "assets/audio/th-03.mp3",
-    "duration": 51.864,
-    "cue": 55,
-    "voice": "th-TH-NiwatNeural",
-    "rate": "-15%"
-  },
-  {
-    "id": "inventory-cost",
-    "path": "assets/audio/th-04.mp3",
-    "duration": 50.76,
-    "cue": 55,
-    "voice": "th-TH-NiwatNeural",
-    "rate": "-15%"
-  },
-  {
-    "id": "warehouse",
-    "path": "assets/audio/th-05.mp3",
-    "duration": 51.0,
-    "cue": 55,
-    "voice": "th-TH-NiwatNeural",
-    "rate": "-15%"
-  },
-  {
-    "id": "production",
-    "path": "assets/audio/th-06.mp3",
-    "duration": 52.344,
-    "cue": 55,
-    "voice": "th-TH-NiwatNeural",
-    "rate": "-15%"
+    "en_voice": "en-US-AndrewNeural",
+    "rate": "+5%"
   },
   {
     "id": "architecture",
+    "path": "assets/audio/th-03.mp3",
+    "en_path": "assets/audio/en-03.mp3",
+    "duration": 28.824,
+    "en_duration": 34.536,
+    "cue": 55,
+    "voice": "th-TH-NiwatNeural",
+    "en_voice": "en-US-AndrewNeural",
+    "rate": "+5%"
+  },
+  {
+    "id": "vendor-email",
+    "path": "assets/audio/th-04.mp3",
+    "en_path": "assets/audio/en-04.mp3",
+    "duration": 26.184,
+    "en_duration": 30.816,
+    "cue": 55,
+    "voice": "th-TH-NiwatNeural",
+    "en_voice": "en-US-AndrewNeural",
+    "rate": "+5%"
+  },
+  {
+    "id": "tax-scanning",
+    "path": "assets/audio/th-05.mp3",
+    "en_path": "assets/audio/en-05.mp3",
+    "duration": 31.512,
+    "en_duration": 37.464,
+    "cue": 55,
+    "voice": "th-TH-NiwatNeural",
+    "en_voice": "en-US-AndrewNeural",
+    "rate": "+5%"
+  },
+  {
+    "id": "security",
+    "path": "assets/audio/th-06.mp3",
+    "en_path": "assets/audio/en-06.mp3",
+    "duration": 26.736,
+    "en_duration": 33.144,
+    "cue": 55,
+    "voice": "th-TH-NiwatNeural",
+    "en_voice": "en-US-AndrewNeural",
+    "rate": "+5%"
+  },
+  {
+    "id": "governance",
     "path": "assets/audio/th-07.mp3",
-    "duration": 38.52,
+    "en_path": "assets/audio/en-07.mp3",
+    "duration": 28.848,
+    "en_duration": 32.688,
     "cue": 45,
     "voice": "th-TH-NiwatNeural",
-    "rate": "+0%"
+    "en_voice": "en-US-AndrewNeural",
+    "rate": "+5%"
   },
   {
     "id": "priorities",
     "path": "assets/audio/th-08.mp3",
-    "duration": 40.128,
+    "en_path": "assets/audio/en-08.mp3",
+    "duration": 24.864,
+    "en_duration": 25.272,
     "cue": 45,
     "voice": "th-TH-NiwatNeural",
-    "rate": "+0%"
+    "en_voice": "en-US-AndrewNeural",
+    "rate": "+5%"
   },
   {
     "id": "pilot",
     "path": "assets/audio/th-09.mp3",
-    "duration": 43.152,
+    "en_path": "assets/audio/en-09.mp3",
+    "duration": 27.696,
+    "en_duration": 36.384,
     "cue": 45,
     "voice": "th-TH-NiwatNeural",
-    "rate": "+0%"
+    "en_voice": "en-US-AndrewNeural",
+    "rate": "+5%"
   },
   {
     "id": "closing",
     "path": "assets/audio/th-10.mp3",
-    "duration": 33.528,
+    "en_path": "assets/audio/en-10.mp3",
+    "duration": 24.84,
+    "en_duration": 30.384,
     "cue": 35,
     "voice": "th-TH-NiwatNeural",
-    "rate": "+0%"
+    "en_voice": "en-US-AndrewNeural",
+    "rate": "+5%"
   }
 ]

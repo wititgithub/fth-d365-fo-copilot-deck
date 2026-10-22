@@ -174,7 +174,7 @@ export const slides = [
       ['W1–2 Benchmark', 'W3–5 Build', 'W6–8 Pilot', 'Client: 70% Time Saved', 'Partner: Strategic IP', 'Dual ROI Impact']),
     sources: ['security', 'roadmap', 'update'],
     notes: bi(thaiNarration[8].join('\n\n'),
-      'Our proposed engagement is a disciplined 10-week Proof-of-Value journey. In Weeks 1 and 2, we establish baseline metrics on standard D365. In Weeks 3 through 5, we build the supervised agent. In Weeks 6 through 8, we pilot with real business users. The return on investment is immediate and dual-perspective: Clients experience a 70% reduction in cycle time and total tax compliance. For Fujitsu Thailand, it solidifies our leadership as a premier Strategic AI Transformation Partner with proprietary enterprise assets.')
+      'Our proposed engagement is a disciplined 10-week Proof-of-Value journey. In Weeks 1 and 2, we establish baseline metrics on standard D365. In Weeks 3 through 5, we build the supervised agent in Copilot Studio. In Weeks 6 through 8, we pilot with real business users. The return on investment is immediate and dual-perspective: Clients experience a 70% reduction in cycle time and total tax compliance. For Fujitsu Thailand, it solidifies our leadership as a premier Strategic AI Transformation Partner with proprietary enterprise assets.')
   },
   {
     id: 'closing', duration: 35, theme: 'dark', visual: 'closing', chapter: '10 / FUJITSU THAILAND',
@@ -191,5 +191,8 @@ export const slides = [
 
 slides.forEach((slide, i) => {
   slide.speechSegments = { th: thaiNarration[i] };
-  slide.audio = { th: `assets/audio/th-${String(i + 1).padStart(2, '0')}.mp3` };
+  slide.audio = {
+    th: `assets/audio/th-${String(i + 1).padStart(2, '0')}.mp3`,
+    en: `assets/audio/en-${String(i + 1).padStart(2, '0')}.mp3`
+  };
 });

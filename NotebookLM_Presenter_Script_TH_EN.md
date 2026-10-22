@@ -1,95 +1,92 @@
-# 🎙️ FTH x D365 F&O x Copilot Studio: Executive Pitch Script & NotebookLM Pack (EN / TH)
+# 🎙️ FTH x D365 x Copilot Studio: Executive Presentation Script & NotebookLM Pack (EN / TH)
 
-เอกสารนี้ประกอบด้วย:
-1. **Prompt คำสั่งสำหรับ Google NotebookLM** (เพื่อสร้างรายการ Podcast พิธีกรคู่แบบตื่นเต้น มีไฟ ทั้งภาษาอังกฤษและภาษาไทย)
-2. **บทพูดพิธีกรรายสไลด์ (Slide-by-Slide Presenter Script)** ทั้งภาษาอังกฤษ (Simple, Energetic English) และภาษาไทย (ตื่นเต้น เป็นกันเอง กระชับ หน้าละไม่เกิน 1 นาที)
+**Topic:** Customizing the Future: Building Enterprise Agents with Dynamics 365 and Copilot Studio  
+**Organization:** Fujitsu Thailand (FTH) · Dynamics 365 Practice  
+**Date:** 22 October 2026  
 
 ---
 
-## 🎧 ส่วนที่ 1: คำสั่ง Custom Prompt สำหรับใส่ใน NotebookLM (Audio Overview)
+## 🎧 ส่วนที่ 1: คำสั่ง Custom Prompt สำหรับ Google NotebookLM (Audio Overview)
 
 > [!TIP]
 > **วิธีใช้งานใน Google NotebookLM:**
-> 1. อัปโหลดไฟล์นี้ (และรูปภาพทั้ง 2 ภาพของคุณ) เข้าไปในสมุดบันทึก (Notebook) บนเว็บ [notebooklm.google.com](https://notebooklm.google.com)
-> 2. ในกรอบ **Audio Overview (Deep Dive Conversation)** กดปุ่ม **Customize**
-> 3. ก๊อปปี้ Prompt ด้านล่างนี้ใส่ลงไป (เลือกภาษาอังกฤษ หรือ ภาษาไทย ตามต้องการ) แล้วกด **Generate**
+> 1. อัปโหลดไฟล์นี้และเอกสารในโฟลเดอร์ `docs/` เข้าสู่ [notebooklm.google.com](https://notebooklm.google.com)
+> 2. ในส่วน **Audio Overview (Deep Dive Conversation)** กดปุ่ม **Customize**
+> 3. ก๊อปปี้ Prompt ด้านล่างนี้ไปใส่ แล้วกด **Generate** เพื่อสร้าง Podcast ผู้ดำเนินรายการคู่
 
 ### 🇬🇧 NotebookLM Prompt (English Version)
 ```text
-Act as two super-energetic, friendly, and inspiring innovation hosts presenting an executive pitch to Fujitsu Thailand (FTH) leadership. 
-Keep the English very simple, clear, punchy, and exciting! Avoid overly dense jargon.
-Walk through our 12-slide pitch for "D365 Finance & Operations Thailand Localization powered by Microsoft Copilot AI":
-1. Hook the audience: Thailand finance is transforming with AI while keeping people 100% in control.
-2. Highlight the month-end pain: Manual PDF typing, 13-digit Tax ID checks, 5-digit branch codes, 7% VAT, and WHT errors discovered too late.
-3. Explain the Microsoft AI Powerhouse: Copilot Studio + Azure AI + D365 F&O working together securely.
-4. Briefly overview the Top 5 AI Use Cases for Thailand, and zoom into our #1 Quick Win POC: AP Invoice Intelligence.
-5. Emphasize why Azure AI Document Intelligence v4.0 + Custom Model (trained on just 5-10 samples) solves the Thai language & THB challenge effortlessly.
-6. Reassure leadership on safety: Deterministic rules check the math (Modulo 11 Tax ID, 7% VAT), and there is ZERO auto-posting—a human accountant always approves Drafts.
-7. Share the exciting numbers: Target >=80% accuracy, >=70% faster processing, $0 software cost for the 4-week POC (using Azure Free Tier), and only ~0.35 THB per page in production!
-End with a high-energy call to action uniting FTH, D365 F&O, and Microsoft Copilot Studio!
+Act as two sharp, inspiring, and executive-level technology innovation hosts presenting an executive briefing to Fujitsu Thailand (FTH) leadership.
+Keep the dialogue engaging, clear, punchy, and confident. Avoid unnecessary tech buzzwords without substance.
+Walk through our 10-slide strategy: "Customizing the Future: Building Enterprise Agents with Dynamics 365 and Copilot Studio":
+1. The Paradigm Shift: Transforming D365 from a passive System of Record into an autonomous System of Agency.
+2. The Real Friction: Routine is already automated; 70% of human time is wasted sifting 10 screens and emails for operational exceptions.
+3. The 4-Pillar Agent Anatomy: Perception (Events) -> Cognition (SOPs) -> Action (ERP MCP) -> Governance (Audit).
+4. Use Case 1 (SCM/Procurement): Supplier Email Ingestion for autonomous delivery rescheduling and 1-click PO updates.
+5. Use Case 2 (Finance/Tax): Thai Tax Invoice and Withholding (P.N.D. 3/53) Scanning with AI OCR, 3-way matching, and zero tax penalty risk.
+6. Zero-Trust Security: 100% inside client tenant, Entra ID RBAC enforced, zero public model training, and Dataverse Customer Lockbox.
+7. Human-in-the-Loop Governance: 3 Tiers of Autonomy (Assisted -> Supervised 1-Click Approval -> Guardrailed Autonomous).
+8. Implementation Sequence: Wave 1 (Supplier Emails & Tax OCR) before scaling to warehouse and shopfloor.
+9. 10-Week Pilot Journey & Dual ROI: 70% cycle time reduction for clients; reusable proprietary AI IP for Fujitsu Thailand.
+10. Finale: Unifying Fujitsu Red Infinity with Microsoft Copilot Studio to lead Thailand's enterprise agent modernization.
 ```
 
 ### 🇹🇭 NotebookLM Prompt (เวอร์ชันภาษาไทย)
 ```text
-ช่วยดำเนินรายการด้วยน้ำเสียงที่ตื่นเต้น มีไฟ ดูทันสมัย แต่เป็นกันเองและเข้าใจง่าย เพื่อนำเสนอโครงการขออนุมัติจากผู้บริหารของ Fujitsu Thailand (FTH)
-เล่าเรื่องตามโครงสร้างสไลด์ 12 หน้าของโครงการ "D365 Finance & Operations Thailand Localization ด้วย Microsoft Copilot AI":
-1. เปิดตัวให้น่าตื่นเต้นว่าเรากำลังยกระดับงานบัญชีและการเงินของไทยด้วย AI โดยที่คนยังเป็นผู้ควบคุม 100% (People in Control)
-2. ชี้ให้เห็นปัญหาคลาสสิกตอนปิดงบ: ต้องคีย์ใบกำกับภาษี PDF ด้วยมือ เช็คเลข 13 หลัก สาขา 5 หลัก VAT 7% และหัก ณ ที่จ่าย กว่าจะรู้ว่าผิดก็ตอนยื่น ภ.พ.30 หรือ ภ.ง.ด.3/53
-3. อธิบายภาพรวม Copilot Studio + Azure AI + D365 F&O และ 5 Use Cases หลักของไทย
-4. เจาะลึก POC แรกที่เราจะเริ่มทันที: AP Invoice Intelligence โดยใช้ความล้ำของ Azure AI Document Intelligence v4.0 และ Custom Model ที่ใช้ตัวอย่างแค่ 5-10 ใบก็จำฟอร์มใบแจ้งหนี้ไทยได้แม่นยำ
-5. ย้ำความมั่นใจให้ผู้บริหาร: กฎภาษีใช้ Deterministic Rules คำนวณเป๊ะ และปลอดภัย 100% เพราะ AI สร้างแค่ Draft Pending Invoice เท่านั้น ไม่มี Auto-post เด็ดขาด
-6. ปิดท้ายด้วยความคุ้มค่า: POC 4 สัปดาห์ใช้งบซอฟต์แวร์เพิ่ม 0 บาท (ใช้ Free Tier 500 หน้า/เดือน) และตอนใช้งานจริงตกหน้าละแค่ 35 สตางค์! ชวนผู้บริหารกดอนุมัติเพื่อสร้างปรากฏการณ์ร่วมกันระหว่าง FTH, D365 F&O และ Microsoft Copilot Studio!
+ดำเนินรายการแบบคู่หูผู้เชี่ยวชาญเทคโนโลยีระดับองค์กร ด้วยน้ำเสียงมั่นใจ ทันสมัย น่าเชื่อถือ และกระชับ สำหรับนำเสนอต่อคณะกรรมการบริหาร Fujitsu Thailand (FTH)
+เล่าเรื่องตามโครงสร้าง 10 สไลด์ของยุทธศาสตร์ "Customizing the Future: สร้าง Enterprise Agents ด้วย D365 และ Copilot Studio":
+1. จุดเปลี่ยนสำคัญ: เปลี่ยน D365 จากระบบบันทึกธุรกรรมย้อนหลัง (System of Record) สู่ระบบปฏิบัติการอัจฉริยะเชิงรุก (System of Agency)
+2. ปัญหาจริงหน้างาน: งานปกติระบบจัดการได้ดี แต่เมื่อเกิดข้อยกเว้น คนต้องเสียเวลา 70% เปิด 10 หน้าจอดึงเมลและเอกสารแนบ
+3. สถาปัตยกรรม 4 เสาหลัก: รับรู้เหตุการณ์ (Perceive) -> วิเคราะห์ตาม SOP (Reason) -> สั่งการผ่าน ERP MCP (Act) -> ตรวจสอบย้อนหลัง (Govern)
+4. Use Case 1 จัดซื้อ: ดักจับอีเมลคู่ค้าขอเลื่อนส่งมอบ ประเมินผลกระทบสายการผลิต และร่างปรับวันส่งใน D365 ให้คนกดอนุมัติในคลิกเดียว
+5. Use Case 2 บัญชีภาษี: สแกนใบกำกับภาษีและใบหัก ณ ที่จ่าย (ภ.ง.ด. 3/53) ตรวจสอบ 3-Way Match และ VAT 7% ปลอดความเสี่ยงเบี้ยปรับสรรพากร
+6. ความปลอดภัย Zero-Trust: ประมวลผลใน Tenant ลูกค้า 100%, ไม่นำข้อมูลไปเทรนโมเดลสาธารณะ, คุมด้วย Entra ID เดิม
+7. การกำกับดูแล Human-in-the-Loop: โมเดล 3 ระดับ (ช่วยอ่าน -> ร่างรอคนอนุมัติ -> อัตโนมัติในกรอบเข้มงวด) คนคุมอำนาจตัดสินใจเสมอ
+8. ลำดับการเริ่ม: เริ่มจาก 2 Use Cases แรกที่เห็นผลเร็ว ข้อมูลพร้อม แล้วจึงขยายผลสู่คลังสินค้าและการผลิต
+9. แผนนำร่อง 10 สัปดาห์ & ROI สองมิติ: ลูกค้าลดเวลา 70% ไร้ค่าปรับ; ฟูจิตสึได้ทรัพย์สินทางปัญญา AI เชิงกลยุทธ์
+10. บทสรุป: พลังของ Fujitsu Red Infinity ผสาน Copilot Studio สู่การเป็นผู้นำที่ปรึกษา AI ยุคใหม่
 ```
 
 ---
 
-## 🎤 ส่วนที่ 2: บทพูดพิธีกรประจำสไลด์ (12-Slide Dual-Language Script)
-*(บทพูดชุดนี้ถูกฝังอยู่ใน Interactive Slide Deck พร้อมปุ่มสลับภาษา 🇹🇭/🇬🇧 และปุ่มกดฟังเสียงพากย์อัตโนมัติในตัวสไลด์แล้ว)*
+## 🎤 ส่วนที่ 2: บทพูดนำเสนอรายสไลด์ (10-Slide Dual Track)
 
-### Slide 1: The Future of Finance in Thailand (0:45)
-* **🇬🇧 EN:** "Hello everyone! Welcome to the future of finance at FTH! Today, we are going to show you how combining D365 Finance & Operations with Microsoft Copilot AI will transform Thai accounting forever. We’re talking about working faster, staying 100% tax-compliant, and keeping our people firmly in control. Let’s dive in!"
-* **🇹🇭 TH:** "สวัสดีครับทุกท่าน! ยินดีต้อนรับสู่อนาคตของงานการเงินยุคใหม่ของ FTH ครับ! วันนี้เราจะพาทุกท่านมาดูว่า เมื่อเรานำ D365 Finance & Operations มาผสานพลังกับ Microsoft Copilot AI มันจะพลิกโฉมงานบัญชีและภาษีไทยไปตลอดกาลได้อย่างไร งานจะเร็วขึ้น ถูกต้องตามกฎสรรพากร 100% และที่สำคัญ คนของเรายังเป็นผู้ควบคุมทุกขั้นตอน ไปชมกันเลยครับ!"
+### Slide 1: Customizing the Future / สร้างอนาคตองค์กร
+* **🇬🇧 EN:** "Good morning, distinguished executives. Today, we present 'Customizing the Future'—an evidence-led strategy by Fujitsu Thailand to build Enterprise Agents with Dynamics 365 and Microsoft Copilot Studio. For years, ERP has served as a passive System of Record. We are now evolving into an autonomous System of Agency: deploying intelligent, supervised agents that perceive business events, reason over corporate SOPs, and execute complex workflows under strict human governance."
+* **🇹🇭 TH:** "สวัสดีครับ ท่านคณะผู้บริหารทุกท่าน วันนี้ฟูจิตสึ ประเทศไทย ขอเสนอแนวคิด สร้างอนาคตองค์กร ด้วยการสร้างเอนเทอร์ไพรส์ เอเจนต์ บนไดนามิกส์ สามหกห้า ร่วมกับ โคไพลอต สตูดิโอ ครับ ตลอดเวลาที่ผ่านมา ระบบอีอาร์พีทำหน้าที่เป็นเพียงระบบบันทึกธุรกรรมย้อนหลัง แต่วันนี้เรากำลังยกระดับสู่ระบบปฏิบัติการอัจฉริยะเชิงรุก ที่รับรู้เหตุการณ์ทางธุรกิจ วิเคราะห์ตามระเบียบองค์กร และลงมือปฏิบัติงานร่วมกับคนได้อย่างแม่นยำ โดยหัวใจสำคัญคือการช่วยให้ธุรกิจขับเคลื่อนได้รวดเร็วขึ้น ภายใต้กรอบธรรมาภิบาลและความปลอดภัยระดับองค์กรครับ"
 
-### Slide 2: The Month-End Pain Point (0:50)
-* **🇬🇧 EN:** "Let’s be honest—month-end closing in Thailand is tough! Every day, our AP team reads hundreds of PDF invoices by hand. They manually check 13-digit Tax IDs, 5-digit branch codes, PO numbers, 7% VAT, and withholding tax. One tiny typo means big headaches during tax filing. It’s time to take this robotic work off our team’s shoulders!"
-* **🇹🇭 TH:** "ต้องยอมรับความจริงกันก่อนครับว่า ช่วงปิดงบสิ้นเดือนของไทยเรานั้นหนักหน่วงมาก! ทุกวันทีมบัญชีต้องเปิดอ่านไฟล์ PDF ใบกำกับภาษีนับร้อยใบด้วยตาเปล่า ต้องคอยเช็คเลขผู้เสียภาษี 13 หลัก รหัสสาขา 5 หลัก เลข PO ยอด VAT 7% และภาษีหัก ณ ที่จ่าย พลาดแค่ตัวเดียวก็ปวดหัวยาวตอนยื่นแบบ ถึงเวลาแล้วครับที่เราจะปลดล็อกงานซ้ำๆ เหล่านี้ออกจากบ่าของทีมงานเรา!"
+### Slide 2: The Investigation Burden / ภาระการสืบค้นข้อยกเว้น
+* **🇬🇧 EN:** "Standard ERP automates routine processes smoothly. However, the real operational bottleneck occurs when exceptions happen—such as a delayed shipment, an unaligned invoice, or a three-way matching variance. Today, resolving a single exception forces professionals to open up to ten different screens, search email threads, and cross-reference PDF attachments, consuming up to 70% of human time. Our enterprise agents assemble cross-system evidence in seconds, empowering human experts to make immediate, verified decisions."
+* **🇹🇭 TH:** "ระบบไดนามิกส์มาตรฐานจัดการงานตามขั้นตอนปกติได้อย่างราบรื่น แต่คอขวดที่แท้จริงเกิดขึ้นเมื่อมีข้อยกเว้นในกระบวนการทำงานครับ ในปัจจุบัน เมื่อเกิดปัญหาสินค้าส่งล่าช้า หรือยอดเงินไม่ตรง พนักงานต้องเสียเวลาเฉลี่ยถึงร้อยละเจ็ดสิบ ในการเปิดถึงสิบหน้าจอ ไล่ค้นหาอีเมล และเปิดเอกสารแนบ เพื่อตามหาต้นตอของปัญหา เอเจนต์ระดับองค์กรจะเข้ามาปิดช่องว่างนี้ โดยดึงข้อมูลข้ามระบบมารวบรวมเป็นชุดหลักฐานสรุปที่แม่นยำ ช่วยให้ผู้มีอำนาจตัดสินใจได้ทันทีในคลิกเดียวครับ"
 
-### Slide 3: Meet Our Microsoft AI Powerhouse (0:55)
-* **🇬🇧 EN:** "And here is the game-changer! Look at Microsoft’s official Copilot Studio blueprint. On the left, we feed it our Thai tax manuals and connect directly to D365 F&O via Dataverse and APIs. In the center, smart AI agents orchestrate the workflow. And on the right, our team interacts right inside Microsoft Teams and D365—all protected by enterprise-grade Microsoft security!"
-* **🇹🇭 TH:** "และนี่คือพระเอกของเราครับ! ดูจากพิมพ์เขียวทางการของ Microsoft Copilot Studio ได้เลย ด้านซ้ายเราป้อนความรู้คู่มือภาษีไทยและเชื่อมตรงเข้ากับข้อมูล D365 F&O ผ่าน Dataverse และ API ตรงกลางคือกองทัพ AI Agent ที่ช่วยกันคิดและจัดการงาน ส่วนด้านขวา ทีมงานสามารถสั่งงานผ่าน Teams หรือหน้าจอ D365 ได้ทันที ทั้งหมดนี้อยู่ภายใต้ระบบความปลอดภัยสูงสุดของ Microsoft ครับ!"
+### Slide 3: Anatomy of an Agent / สถาปัตยกรรม 4 เสาหลัก
+* **🇬🇧 EN:** "What separates an Enterprise Agent from a conversational chatbot? It is the ability to perceive and act with accountability. Our architecture rests on four pillars: First, Perception—monitoring D365 business events and exceptions in real time. Second, Cognition—reasoning over company SOPs and regulatory frameworks using enterprise AI. Third, Action—leveraging Microsoft ERP Model Context Protocol to execute business logic. And fourth, Governance—enforcing role-based security with an immutable audit trail."
+* **🇹🇭 TH:** "สิ่งที่ทำให้เอเจนต์ระดับองค์กรแตกต่างจากแชตบอตทั่วไป คือความสามารถในการรับรู้และลงมือปฏิบัติการอย่างรับผิดชอบครับ สถาปัตยกรรมของเราประกอบด้วยสี่เสาหลัก เสาแรกคือ การรับรู้เหตุการณ์และความผิดปกติในระบบไดนามิกส์แบบเรียลไทม์ เสาสองคือ การคิดวิเคราะห์โดยเทียบเคียงกับระเบียบปฏิบัติและนโยบายขององค์กร เสาสามคือ การลงมือปฏิบัติการสั่งงานผ่านช่องทางเชื่อมต่อมาตรฐานของไมโครซอฟท์ และเสาสี่คือ ธรรมาภิบาลที่มีบันทึกตรวจสอบย้อนหลังได้ทุกขั้นตอนครับ"
 
-### Slide 4: Top 5 AI Use Cases for Thailand (1:00)
-* **🇬🇧 EN:** "We’ve mapped out the Top 5 AI Use Cases specifically for Thailand Localization on D365 F&O! Number 1: AP Invoice Intelligence. Number 2: Thai Tax Compliance Copilot for VAT and WHT. Number 3: e-Tax Invoice Control. Number 4: Continuous Subledger Reconciliation. And Number 5: A 24/7 Finance & Tax Knowledge Assistant. Everything connects straight into D365 F&O and Fujitsu Thai Localization!"
-* **🇹🇭 TH:** "เราวางพิมพ์เขียว 5 สุดยอด Use Cases สำหรับกฎหมายภาษีไทยบน D365 F&O ไว้ครบวงจรแล้วครับ! 1. อ่านและตรวจสอบใบแจ้งหนี้อัตโนมัติ 2. ผู้ช่วยตรวจภาษี VAT และ WHT ก่อนยื่นสรรพากร 3. ระบบคุมคุณภาพ e-Tax Invoice 4. AI กระทบยอดทางบัญชีอย่างต่อเนื่อง และ 5. ผู้ช่วยถาม-ตอบระเบียบการเงินและภาษีไทย ทุกส่วนเชื่อมต่อกับแกนกลาง D365 F&O และ Fujitsu Thai Localization อย่างสมบูรณ์แบบ!"
+### Slide 4: Use Case 1: Vendor Email Ingestion / ตรวจจับอีเมลคู่ค้า
+* **🇬🇧 EN:** "Our first enterprise use case addresses supply chain delivery disruptions. When a supplier sends an email requesting to postpone a shipment, Copilot automatically ingests the message, extracts the purchase order and proposed delivery date, and checks downstream impacts against D365 production schedules. It then drafts a revised PO delivery schedule and sends a focused summary to the procurement manager for one-click approval. No delayed emails, no production surprises, and full managerial control maintained."
+* **🇹🇭 TH:** "กรณีศึกษาแรก คืองานจัดซื้อและห่วงโซ่อุปทาน กับปัญหาการขอเลื่อนส่งมอบสินค้าของคู่ค้าครับ เมื่อคู่ค้าส่งอีเมลมาแจ้งขอเลื่อนวันส่งมอบ โคไพลอตจะตรวจจับอีเมล ดึงเลขที่ใบสั่งซื้อ และตรวจสอบผลกระทบต่อแผนการผลิตในระบบไดนามิกส์ทันที จากนั้นจะจัดเตรียมแบบร่างปรับปรุงวันส่งมอบ พร้อมสรุปผลกระทบส่งให้ผู้จัดการฝ่ายจัดซื้ออนุมัติในคลิกเดียว หมดปัญหาอีเมลตกหล่น และป้องกันสายการผลิตสะดุดได้อย่างมั่นใจครับ"
 
-### Slide 5: Our First Big Win (POC): AP Invoice Intelligence (0:55)
-* **🇬🇧 EN:** "Where should we start for the fastest return? Use Case #1: AP Invoice Intelligence! Watch how smooth this official flow is: A Thai or English invoice arrives. Document AI extracts the header and lines, checks the confidence score, performs a 3-way match against the PO, Goods Receipt, and VAT setup in D365, and creates a ready-to-review Draft Invoice in seconds!"
-* **🇹🇭 TH:** "คำถามคือ เราจะเริ่มตรงไหนให้เห็นผลเร็วและคุ้มที่สุด? คำตอบคือข้อที่ 1 ครับ: AP Invoice Intelligence! ดู Flow การทำงานนี้สิครับ ทันทีที่ใบแจ้งหนี้ภาษาไทยหรืออังกฤษเข้ามา AI จะสกัดข้อมูลหัวเอกสารและรายการสินค้า ตรวจค่าความมั่นใจ วิ่งไปเช็ค 3-Way Match กับใบสั่งซื้อ ใบรับของ และรหัสภาษีใน D365 จากนั้นสร้างเป็น Draft Invoice รอให้คนตรวจได้ในพริบตาเดียว!"
+### Slide 5: Use Case 2: Tax Invoice Scanning / สแกนใบกำกับภาษี
+* **🇬🇧 EN:** "Our second enterprise case tackles statutory compliance in Accounts Payable. In Thailand, handling withholding taxes such as P.N.D. 3 and 53 and matching tax invoices requires painstaking manual verification. Our Tax Scanning Agent reads invoice and withholding certificates via AI OCR, reconciles quantities and pricing against D365 purchase orders and receipts, and validates withholding tax percentages according to Thai Revenue Department rules. It surfaces discrepancies in a clear evidence pack, cutting posting time by 75% while safeguarding against tax penalties."
+* **🇹🇭 TH:** "กรณีศึกษาที่สอง คืองานสแกนใบกำกับภาษีและใบหัก ณ ที่จ่าย เพื่อขจัดความผิดพลาดทางภาษีให้เป็นศูนย์ครับ ระบบปัญญาประดิษฐ์จะสแกนเอกสารใบกำกับภาษีและหนังสือรับรองการหัก ณ ที่จ่าย ดึงเลขประจำตัวผู้เสียภาษีสิบสามหลัก และทำการจับคู่สามทางกับใบสั่งซื้อและใบรับสินค้าในระบบไดนามิกส์โดยอัตโนมัติ พร้อมตรวจสอบอัตราภาษีตามเกณฑ์สรรพากร เช่น ภาษีมูลค่าเพิ่มร้อยละเจ็ด และ ภ.ง.ด. สาม หรือ ห้าสิบสาม ช่วยลดเวลาทำงานลงร้อยละเจ็ดสิบห้า และปลอดความเสี่ยงจากค่าปรับครับ"
 
-### Slide 6: The Secret Sauce: Azure AI Document Intelligence v4.0 (0:55)
-* **🇬🇧 EN:** "Now you might ask: Can AI really read complex Thai fonts and Thai Baht accurately? Standard OCR struggles, yes—but Azure AI Document Intelligence version 4.0 natively understands Thai and THB! Even better, with a Custom Model, we just label 5 to 10 sample invoices in Azure Studio, and the AI learns our exact vendor layouts with pinpoint precision. And it’s 100% Microsoft-compliant!"
-* **🇹🇭 TH:** "หลายท่านอาจสงสัยว่า AI จะอ่านฟอนต์ภาษาไทยและสกุลเงินบาทได้แม่นจริงหรือ? ถ้าเป็นตัวมาตรฐานทั่วไปอาจจะยากครับ แต่ด้วย Azure AI Document Intelligence เวอร์ชัน 4.0 ตัวใหม่ล่าสุด มันรองรับภาษาไทยเต็มรูปแบบ! ยิ่งไปกว่านั้น เราสามารถสร้าง Custom Model โดยใช้ตัวอย่างใบกำกับภาษีแค่ 5-10 ใบมาตีกรอบสอน AI ให้จำฟอร์มคู่ค้าของเราได้แม่นยำสุดๆ โดยไม่ผิดข้อบังคับใดๆ ของ D365 เลยครับ!"
+### Slide 6: Zero-Trust Boundary / ความปลอดภัยระดับองค์กร
+* **🇬🇧 EN:** "Enterprise adoption demands uncompromising security. Built strictly upon Microsoft Zero-Trust principles, our architecture ensures that all data reasoning and processing remain within the customer's private cloud tenant. Your enterprise transactions never train public AI models. Furthermore, agents inherit the exact Microsoft Entra ID permissions of the user. If an employee lacks access to sensitive ledger accounts, their agent cannot access them either. Every automated query and proposed action is logged in an immutable audit trail."
+* **🇹🇭 TH:** "ความปลอดภัยของข้อมูลองค์กรเป็นสิ่งที่ผู้บริหารให้ความสำคัญสูงสุด สถาปัตยกรรมนี้จึงยึดหลักความปลอดภัยสูงสุดตามมาตรฐานไมโครซอฟท์ครับ การประมวลผลทั้งหมดเกิดขึ้นภายในขอบเขตเทแนนต์คลาวด์ของลูกค้าเท่านั้น ข้อมูลธุรกิจจะไม่ถูกนำไปฝึกฝนโมเดลสาธารณะภายนอกอย่างเด็ดขาด นอกจากนี้ เอเจนต์ยังทำงานภายใต้สิทธิ์เดิมของผู้ใช้งานผ่านระบบเอนทรา ไอดี ทำให้ข้อมูลสำคัญปลอดภัย และมีบันทึกตรวจสอบย้อนหลังได้อย่างโปร่งใสครับ"
 
-### Slide 7: Smart Guardrails: Deterministic Rules + Human in the Loop (0:55)
-* **🇬🇧 EN:** "For finance, accuracy and control are non-negotiable. That’s why we never let AI 'guess' tax laws! We use strict Deterministic Rules: Modulo-11 math checks on 13-digit Tax IDs, exact 5-digit branch validation, and 7% VAT tolerance checks. Most importantly: ZERO auto-posting! The AI only creates a Draft. A human accountant always clicks Approve!"
-* **🇹🇭 TH:** "สำหรับงานการเงิน ความถูกต้องคือสิ่งสูงสุดครับ เราจึงไม่ปล่อยให้ AI คิดกฎภาษีเองเด็ดขาด! แต่เราใช้ Deterministic Rules หรือสูตรคำนวณที่ตายตัว เช่น เช็คสูตร Modulo-11 ของเลข 13 หลัก เช็ครหัสสาขา 5 หลัก และคำนวณ VAT 7% อย่างเป๊ะๆ และกฎเหล็กของเราคือ ไม่มีการโพสต์บัญชีอัตโนมัติเด็ดขาด! AI สร้างได้แค่ Draft เท่านั้น นักบัญชีตัวจริงต้องเป็นคนกดอนุมัติเสมอครับ!"
+### Slide 7: Human-in-the-Loop Governance / 3 ระดับการทำงาน
+* **🇬🇧 EN:** "We do not unleash unchecked autonomous systems. Instead, we institute a rigorous three-tier autonomy framework: Tier 1 is Assisted—read-only investigation and evidence packaging. Tier 2 is Supervised—the core tier where the agent drafts transactions, PO reschedules, or journal entries, requiring explicit human one-click sign-off. Tier 3 is Autonomous—strictly limited to low-risk, high-volume transactions under predefined thresholds. This guarantees total managerial control from day one."
+* **🇹🇭 TH:** "เราบริหารความเสี่ยงด้วยการกำหนดระดับความเป็นอิสระของเอเจนต์อย่างรัดกุมเป็นสามระดับครับ ระดับหนึ่ง คือ การช่วยสืบค้นและรวบรวมหลักฐานแบบอ่านอย่างเดียว ระดับสอง ซึ่งเป็นหัวใจหลัก คือ การช่วยร่างรายการธุรกรรม โดยต้องมีผู้มีอำนาจกดอนุมัติเสมอ และระดับสาม คือ การทำงานอัตโนมัติเฉพาะรายการความเสี่ยงต่ำที่มีส่วนต่างน้อยกว่าร้อยละสอง โครงสร้างนี้ทำให้มั่นใจได้ว่า เอเจนต์ทำหน้าที่เตรียมข้อมูลและเสนอแนะ แต่มนุษย์เป็นผู้ถืออำนาจตัดสินใจขั้นสุดท้ายเสมอครับ"
 
-### Slide 8: Future Roadmap: Phase 2 & Beyond (0:50)
-* **🇬🇧 EN:** "Once our AP Invoice POC succeeds, look at where we go next! Phase 2 launches the Thai Tax Compliance Copilot—pre-validating ภ.พ.30 and ภ.ง.ด.3/53 with built-in Rule Versioning ready for the Revenue Department’s new 2026 formats—plus our Knowledge Q&A Agent. Phase 3 unlocks e-Tax XML error translation and continuous month-end reconciliation!"
-* **🇹🇭 TH:** "และเมื่อ POC ใบแจ้งหนี้ของเราสำเร็จ ดูสเต็ปต่อไปที่เราจะขยายผลสิครับ! เฟส 2 เราจะเปิดใช้งานผู้ช่วยตรวจภาษี ภ.พ.30 และ ภ.ง.ด.3/53 ล่วงหน้า ซึ่งรองรับฟอร์มสรรพากรยุคใหม่ปี 2569 ได้ทันที พร้อมระบบแชทบอทถาม-ตอบภาษี และเฟส 3 ขยายไปสู่งานแปล Error ของ e-Tax และการกระทบยอดบัญชีอัตโนมัติครับ!"
+### Slide 8: Implementation Sequence / ลำดับการประยุกต์ใช้
+* **🇬🇧 EN:** "Where should an organization begin? We recommend starting with our two proven high-impact use cases: Supplier Email Rescheduling and Tax Invoice Scanning. Both feature clear operational boundaries, ready data access, and immediate measurable relief for procurement and accounting teams. Once value is established, the architecture naturally scales to warehouse exception investigations and smart manufacturing variance briefs."
+* **🇹🇭 TH:** "สำหรับการเริ่มต้นจริง เราแนะนำให้จัดลำดับโดยเริ่มจากสองกรณีศึกษาแรก คือ การจัดการอีเมลคู่ค้า และการสแกนใบกำกับภาษีครับ เนื่องจากเป็นจุดที่มีขอบเขตงานชัดเจน ข้อมูลในระบบมีความพร้อม และปลดล็อกภาระงานของทีมจัดซื้อและบัญชีได้ทันที เมื่อพิสูจน์ผลลัพธ์สำเร็จแล้ว สถาปัตยกรรมนี้จะสามารถต่อยอดขยายผลไปสู่การจัดการคลังสินค้า และการวิเคราะห์ต้นทุนการผลิตในระยะถัดไปได้อย่างมั่นใจครับ"
 
-### Slide 9: How We Measure Success (POC Scorecard) (0:50)
-* **🇬🇧 EN:** "We don’t just hope for success—we measure it with clear numbers! Using 50 real test invoices across Thai, English, and mixed formats, our target is at least 80% overall extraction accuracy, 60% straight-through processing to Draft with zero manual typing, over 70% time saved per invoice, and a strict 100% record of zero unauthorized auto-posting!"
-* **🇹🇭 TH:** "เราไม่ได้ทำแค่ให้ดูล้ำ แต่เราวัดผลด้วยตัวเลขที่ชัดเจนครับ! เราจะทดสอบด้วยเอกสารจริง 50 ฉบับ ทั้งไทย อังกฤษ และแบบผสม โดยมีเป้าหมายคือ ความแม่นยำรวมต้องไม่ต่ำกว่า 80%, เอกสารไหลเข้าเป็น Draft โดยไม่ต้องแก้เลยอย่างน้อย 60%, ลดเวลาทำงานต่อใบลงกว่า 70% และต้องไม่มีการหลุดโพสต์เองโดยพลการ 100% เต็มครับ!"
+### Slide 9: 10-Week Pilot Journey / แผนนำร่อง 10 สัปดาห์ & Dual ROI
+* **🇬🇧 EN:** "Our proposed engagement is a disciplined 10-week Proof-of-Value journey. In Weeks 1 and 2, we establish baseline metrics on standard D365. In Weeks 3 through 5, we build the supervised agent in Copilot Studio. In Weeks 6 through 8, we pilot with real business users. The return on investment is immediate and dual-perspective: Clients experience a 70% reduction in cycle time and total tax compliance. For Fujitsu Thailand, it solidifies our leadership as a premier Strategic AI Transformation Partner with proprietary enterprise assets."
+* **🇹🇭 TH:** "แผนงานนำร่องสิบสัปดาห์ได้รับการออกแบบให้พิสูจน์ความคุ้มค่าอย่างเป็นรูปธรรมครับ เริ่มต้นจากการวัดเกณฑ์มาตรฐานในสัปดาห์ที่หนึ่งถึงสอง สร้างเอเจนต์ในสัปดาห์ที่สามถึงห้า และทดสอบนำร่องกับผู้ใช้งานจริงในสัปดาห์ที่หกถึงแปด ก่อนวางแผนขยายผล ผลตอบแทนที่ได้เกิดขึ้นทั้งสองมิติ ลูกค้าประหยัดเวลาลงร้อยละเจ็ดสิบและขจัดเบี้ยปรับภาษี ขณะที่ฟูจิตสึ ประเทศไทย ได้ยกระดับสู่การเป็นพันธมิตรเชิงกลยุทธ์ด้านปัญญาประดิษฐ์ระดับองค์กรครับ"
 
-### Slide 10: Budget & Investment: Almost Zero for POC! (0:50)
-* **🇬🇧 EN:** "Here is the best part for executives: How much extra software budget do we need for this POC? Zero dollars! Azure AI gives us 500 free pages every month, and D365 OData and Dataverse Virtual Entities are already included in our license! Even when we go live in production, Azure AI costs just 10 dollars per 1,000 pages—that’s only 35 satang per invoice!"
-* **🇹🇭 TH:** "และนี่คือข่าวดีที่สุดสำหรับผู้บริหารครับ: โครงการ POC นี้ต้องของบซื้อซอฟต์แวร์เพิ่มเท่าไหร่? คำตอบคือ 0 บาทครับ! เพราะ Azure AI มีโควต้าให้อ่านฟรีเดือนละ 500 หน้า ส่วน OData และ Dataverse ก็รวมอยู่ใน License D365 เดิมของเราแล้ว! และแม้แต่ตอนขึ้นใช้งานจริง ค่าอ่านเอกสารของ Azure AI ก็ถูกมาก ตกเพียงหน้าละ 35 สตางค์เท่านั้นเองครับ!"
-
-### Slide 11: 4-Week POC Action Plan (0:45)
-* **🇬🇧 EN:** "Our execution plan is fast and focused—just 4 weeks! Week 1: Complete internal AI RMS registration and collect 50 masked sample invoices. Week 2: Configure Azure AI v4.0 and train our Thai Custom Model. Week 3: Connect the flow to our D365 Sandbox and run validation rules. Week 4: Present the Scorecard results for your Go/No-Go decision!"
-* **🇹🇭 TH:** "แผนการลงมือทำของเรารวดเร็วและชัดเจนใน 4 สัปดาห์ครับ! สัปดาห์ที่ 1 ลงทะเบียน AI RMS และเตรียมเอกสารทดสอบ 50 ใบ สัปดาห์ที่ 2 ตั้งค่า Azure AI v4.0 และสอน Custom Model ภาษาไทย สัปดาห์ที่ 3 เชื่อมเข้า D365 Sandbox เพื่อทดสอบกฎการตรวจสอบ และสัปดาห์ที่ 4 สรุปผลคะแนน Scorecard เพื่อตัดสินใจไปต่อทันทีครับ!"
-
-### Slide 12: Finale – Uniting FTH, D365 F&O & Microsoft Copilot Studio (0:55)
-* **🇬🇧 EN:** "Look at this synergy in motion! Fujitsu Thailand—FTH—joining forces with Microsoft Dynamics 365 Finance & Operations and Microsoft Copilot Studio! Zero extra POC cost, 100% safe guardrails, and massive productivity gains for our people. Give us the green light for this 4-week POC, and let’s lead the future of AI-powered Finance in Thailand together! Thank you!"
-* **🇹🇭 TH:** "ดูพลังของการผสานเทคโนโลยีตรงหน้านี้สิครับ! เมื่อ Fujitsu Thailand หรือ FTH ของเรา รวมพลังกับ Dynamics 365 Finance & Operations และ Microsoft Copilot Studio! งบซอฟต์แวร์เริ่มต้น 0 บาท ปลอดภัยตามหลักธรรมาภิบาล 100% และช่วยยกระดับการทำงานของทีมเราได้อย่างก้าวกระโดด ขอไฟเขียวอนุมัติ POC 4 สัปดาห์นี้ แล้วมาสร้างปรากฏการณ์ AI แห่งอนาคตไปด้วยกันนะครับ ขอบคุณครับ!"
+### Slide 10: Empowering Enterprise Excellence / Fujitsu Red Infinity × Copilot
+* **🇬🇧 EN:** "The animated Fujitsu Red Infinity loop symbolizes our endless dedication to sustainable innovation and customer success. By unifying the operational rigor of Dynamics 365 with the transformative intelligence of Microsoft Copilot Studio, we empower enterprises to achieve unprecedented operational agility. Our ask today is the sponsorship to launch our 10-week proof-of-value with an identified process owner. Thank you very much, and we welcome your questions and strategic guidance."
+* **🇹🇭 TH:** "สัญลักษณ์ ฟูจิตสึ เรด อินฟินิตี้ บนหน้าจอนี้ สะท้อนถึงคำมั่นสัญญาที่ไม่สิ้นสุดในการขับเคลื่อนนวัตกรรมเพื่อความยั่งยืนของลูกค้าครับ ด้วยการผสานความแข็งแกร่งของระบบไดนามิกส์ สามหกห้า เข้ากับความฉลาดของ โคไพลอต สตูดิโอ ฟูจิตสึ ประเทศไทย พร้อมสนับสนุนให้องค์กรของท่านก้าวสู่ยุคใหม่อย่างมั่นคง เราขอรับการสนับสนุนจากท่านผู้บริหารเพื่อเริ่มโครงการนำร่องสิบสัปดาห์ ขอขอบพระคุณทุกท่าน และพร้อมตอบข้อซักถามครับ"
