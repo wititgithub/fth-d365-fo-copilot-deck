@@ -144,9 +144,9 @@ function updateControls() {
 
   // FX Toggle button
   if ($('fx-toggle')) {
-    $('fx-toggle').classList.toggle('active', fxEnabled);
     $('fx-toggle').setAttribute('aria-pressed', String(fxEnabled));
-    $('fx-toggle').innerHTML = `⚡ <span>${fxEnabled ? c.fxOn : c.fxOff}</span>`;
+    $('fx-toggle').innerHTML = `⚡ <span>${fxEnabled ? 'FX' : 'FX off'}</span>`;
+    $('fx-toggle').setAttribute('title', fxEnabled ? (lang === 'th' ? 'เอฟเฟกต์คั่นสไลด์: เปิด (ปุ่มลัด: T)' : 'Transition effects: ON (Shortcut: T)') : (lang === 'th' ? 'เอฟเฟกต์คั่นสไลด์: ปิด (ปุ่มลัด: T)' : 'Transition effects: OFF (Shortcut: T)'));
   }
 
   $('fullscreen').setAttribute('aria-label', c.full);
@@ -400,8 +400,9 @@ $('dots').onclick = e => {
 };
 
 // Language switcher clicks
-if ($('lang-en')) $('lang-en').onclick = () => setLang('en');
-if ($('lang-th')) $('lang-th').onclick = () => setLang('th');
+if ($('lang-en')) $('lang-en').onclick = e => { e.stopPropagation(); setLang('en'); };
+if ($('lang-th')) $('lang-th').onclick = e => { e.stopPropagation(); setLang('th'); };
+if ($('lang')) $('lang').onclick = () => setLang(lang === 'en' ? 'th' : 'en');
 if ($('fx-toggle')) $('fx-toggle').onclick = toggleFx;
 
 $('play').onclick = () => {
