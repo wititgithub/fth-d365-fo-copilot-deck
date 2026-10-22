@@ -5,7 +5,7 @@
     "en_path": "assets/audio/en-01.mp3",
     "duration": 32.928,
     "en_duration": 30.912,
-    "cue": 40,
+    "cue": 33,
     "voice": "th-TH-NiwatNeural",
     "en_voice": "en-US-AndrewNeural",
     "rate": "+5%"
@@ -16,7 +16,7 @@
     "en_path": "assets/audio/en-02.mp3",
     "duration": 29.856,
     "en_duration": 32.52,
-    "cue": 50,
+    "cue": 33,
     "voice": "th-TH-NiwatNeural",
     "en_voice": "en-US-AndrewNeural",
     "rate": "+5%"
@@ -27,7 +27,7 @@
     "en_path": "assets/audio/en-03.mp3",
     "duration": 28.824,
     "en_duration": 34.536,
-    "cue": 55,
+    "cue": 35,
     "voice": "th-TH-NiwatNeural",
     "en_voice": "en-US-AndrewNeural",
     "rate": "+5%"
@@ -38,7 +38,7 @@
     "en_path": "assets/audio/en-04.mp3",
     "duration": 26.184,
     "en_duration": 30.816,
-    "cue": 55,
+    "cue": 31,
     "voice": "th-TH-NiwatNeural",
     "en_voice": "en-US-AndrewNeural",
     "rate": "+5%"
@@ -49,7 +49,7 @@
     "en_path": "assets/audio/en-05.mp3",
     "duration": 31.512,
     "en_duration": 37.464,
-    "cue": 55,
+    "cue": 38,
     "voice": "th-TH-NiwatNeural",
     "en_voice": "en-US-AndrewNeural",
     "rate": "+5%"
@@ -60,7 +60,7 @@
     "en_path": "assets/audio/en-06.mp3",
     "duration": 26.736,
     "en_duration": 33.144,
-    "cue": 55,
+    "cue": 33,
     "voice": "th-TH-NiwatNeural",
     "en_voice": "en-US-AndrewNeural",
     "rate": "+5%"
@@ -71,7 +71,7 @@
     "en_path": "assets/audio/en-07.mp3",
     "duration": 28.848,
     "en_duration": 32.688,
-    "cue": 45,
+    "cue": 33,
     "voice": "th-TH-NiwatNeural",
     "en_voice": "en-US-AndrewNeural",
     "rate": "+5%"
@@ -82,29 +82,18 @@
     "en_path": "assets/audio/en-08.mp3",
     "duration": 24.864,
     "en_duration": 25.272,
-    "cue": 45,
-    "voice": "th-TH-NiwatNeural",
-    "en_voice": "en-US-AndrewNeural",
-    "rate": "+5%"
-  },
-  {
-    "id": "pilot",
-    "path": "assets/audio/th-09.mp3",
-    "en_path": "assets/audio/en-09.mp3",
-    "duration": 27.696,
-    "en_duration": 36.384,
-    "cue": 45,
+    "cue": 26,
     "voice": "th-TH-NiwatNeural",
     "en_voice": "en-US-AndrewNeural",
     "rate": "+5%"
   },
   {
     "id": "closing",
-    "path": "assets/audio/th-10.mp3",
-    "en_path": "assets/audio/en-10.mp3",
+    "path": "assets/audio/th-09.mp3",
+    "en_path": "assets/audio/en-09.mp3",
     "duration": 24.84,
     "en_duration": 30.384,
-    "cue": 35,
+    "cue": 31,
     "voice": "th-TH-NiwatNeural",
     "en_voice": "en-US-AndrewNeural",
     "rate": "+5%"

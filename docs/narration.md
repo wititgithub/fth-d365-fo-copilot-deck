@@ -3,7 +3,7 @@
 **Prepared for:** Fujitsu Thailand (FTH) · Dynamics 365 Practice  
 **Topic:** Customizing the Future: Building Enterprise Agents with D365 and Copilot Studio  
 **Target Audience:** Executive Board / C-suite  
-**Total Schedule:** 10 Slides · 480 Seconds (8:00 Minutes)  
+**Total Schedule:** 9 Slides · 293 Seconds (4:53 Minutes)  
 **Research Date:** 22 October 2026  
 
 ---
@@ -12,16 +12,15 @@
 
 | Slide | Cue | Subject / Title | Duration |
 |:---:|:---:|:---|:---:|
-| **1** | 00:00–00:40 | **Customizing the Future: Building Enterprise Agents**<br>สร้างอนาคตองค์กร: สู่อัจฉริยภาพ Enterprise Agents | 40s |
-| **2** | 00:40–01:30 | **The Investigation Burden: Beyond the Happy Path**<br>ภาระการสืบค้นข้อยกเว้น: คอขวดที่ ERP ทิ้งไว้ | 50s |
-| **3** | 01:30–02:25 | **Anatomy of an Agent: Perceive, Reason, Act, Govern**<br>สถาปัตยกรรม 4 เสาหลัก: รับรู้ วิเคราะห์ ปฏิบัติ กำกับ | 55s |
-| **4** | 02:25–03:20 | **Use Case 1: Vendor Email Ingestion & Autonomous Rescheduling**<br>ตรวจจับอีเมลคู่ค้า: ปรับแผนส่งของอัตโนมัติ | 55s |
-| **5** | 03:20–04:15 | **Use Case 2: Tax Invoice Scanning & Statutory Compliance**<br>สแกนใบกำกับภาษี: ลดความผิดพลาดเป็นศูนย์ | 55s |
-| **6** | 04:15–05:10 | **Zero-Trust Boundary: Your Data Stays Yours**<br>ความปลอดภัยระดับองค์กร: ข้อมูลไม่รั่วไหลนอก Tenant | 55s |
-| **7** | 05:10–05:55 | **Human-in-the-Loop: 3 Tiers of Agent Autonomy**<br>การบริหารความเสี่ยง: 3 ระดับการทำงานของ Agent | 45s |
-| **8** | 05:55–06:40 | **Implementation Sequence: From Proof-of-Value to Scale**<br>ลำดับการประยุกต์ใช้: พิสูจน์ผลลัพธ์สู่ระดับองค์กร | 45s |
-| **9** | 06:40–07:25 | **10-Week Pilot Journey: Dual-Perspective ROI**<br>แผนนำร่อง 10 สัปดาห์: ผลตอบแทนร่วมแบบสองมิติ | 45s |
-| **10** | 07:25–08:00 | **Empowering Enterprise Excellence: Fujitsu Red Infinity × Copilot**<br>ผสานความเชี่ยวชาญสู่ความเป็นเลิศ: Fujitsu Red Infinity × Copilot | 35s |
+| **1** | 00:00–00:33 | **Customizing the Future: Building Enterprise Agents**<br>สร้างอนาคตองค์กร: สู่อัจฉริยภาพ Enterprise Agents | 33s |
+| **2** | 00:33–01:06 | **The Investigation Burden: Beyond the Happy Path**<br>ภาระการสืบค้นข้อยกเว้น: คอขวดที่ ERP ทิ้งไว้ | 33s |
+| **3** | 01:06–01:41 | **Anatomy of an Agent: Perceive, Reason, Act, Govern**<br>สถาปัตยกรรม 4 เสาหลัก: รับรู้ วิเคราะห์ ปฏิบัติ กำกับ | 35s |
+| **4** | 01:41–02:12 | **Use Case 1: Vendor Email Ingestion & Autonomous Rescheduling**<br>ตรวจจับอีเมลคู่ค้า: ปรับแผนส่งของอัตโนมัติ | 31s |
+| **5** | 02:12–02:50 | **Use Case 2: Tax Invoice Scanning & Statutory Compliance**<br>สแกนใบกำกับภาษี: ลดความผิดพลาดเป็นศูนย์ | 38s |
+| **6** | 02:50–03:23 | **Zero-Trust Boundary: Your Data Stays Yours**<br>ความปลอดภัยระดับองค์กร: ข้อมูลไม่รั่วไหลนอก Tenant | 33s |
+| **7** | 03:23–03:56 | **Human-in-the-Loop: 3 Tiers of Agent Autonomy**<br>การบริหารความเสี่ยง: 3 ระดับการทำงานของ Agent | 33s |
+| **8** | 03:56–04:22 | **Implementation Sequence: From Proof-of-Value to Scale**<br>ลำดับการประยุกต์ใช้: พิสูจน์ผลลัพธ์สู่ระดับองค์กร | 26s |
+| **9** | 04:22–04:53 | **Empowering Enterprise Excellence: Fujitsu Red Infinity × Copilot**<br>ผสานความเชี่ยวชาญสู่ความเป็นเลิศ: Fujitsu Red Infinity × Copilot | 31s |
 
 ---
 
@@ -91,7 +90,7 @@
 
 ---
 
-### สไลด์ที่ 8: ลำดับการประยุกต์ใช้: พิสูจน์ผลลัพธ์สู่ระดับองค์กร (45 วินาที)
+### สไลด์ที่ 8: ลำดับการประยุกต์ใช้: พิสูจน์ผลลัพธ์สู่ระดับองค์กร (26 วินาที)
 สำหรับการเริ่มต้นจริง เราแนะนำให้จัดลำดับโดยเริ่มจากสองกรณีศึกษาแรก คือ การจัดการอีเมลคู่ค้า และการสแกนใบกำกับภาษีครับ
 
 เนื่องจากเป็นจุดที่มีขอบเขตงานชัดเจน ข้อมูลในระบบมีความพร้อม และปลดล็อกภาระงานของทีมจัดซื้อและบัญชีได้ทันที
@@ -100,21 +99,12 @@
 
 ---
 
-### สไลด์ที่ 9: แผนนำร่อง 10 สัปดาห์: ผลตอบแทนร่วมแบบสองมิติ (45 วินาที)
-แผนงานนำร่องสิบสัปดาห์ได้รับการออกแบบให้พิสูจน์ความคุ้มค่าอย่างเป็นรูปธรรมครับ
-
-เริ่มต้นจากการวัดเกณฑ์มาตรฐานในสัปดาห์ที่หนึ่งถึงสอง สร้างเอเจนต์ในสัปดาห์ที่สามถึงห้า และทดสอบนำร่องกับผู้ใช้งานจริงในสัปดาห์ที่หกถึงแปด ก่อนวางแผนขยายผล
-
-ผลตอบแทนที่ได้เกิดขึ้นทั้งสองมิติ ลูกค้าประหยัดเวลาลงร้อยละเจ็ดสิบและขจัดเบี้ยปรับภาษี ขณะที่ฟูจิตสึ ประเทศไทย ได้ยกระดับสู่การเป็นพันธมิตรเชิงกลยุทธ์ด้านปัญญาประดิษฐ์ระดับองค์กรครับ
-
----
-
-### สไลด์ที่ 10: ผสานความเชี่ยวชาญสู่ความเป็นเลิศ: Fujitsu Red Infinity × Copilot (35 วินาที)
+### สไลด์ที่ 9: ผสานความเชี่ยวชาญสู่ความเป็นเลิศ: Fujitsu Red Infinity × Copilot (31 วินาที)
 สัญลักษณ์ ฟูจิตสึ เรด อินฟินิตี้ บนหน้าจอนี้ สะท้อนถึงคำมั่นสัญญาที่ไม่สิ้นสุดในการขับเคลื่อนนวัตกรรมเพื่อความยั่งยืนของลูกค้าครับ
 
 ด้วยการผสานความแข็งแกร่งของระบบไดนามิกส์ สามหกห้า เข้ากับความฉลาดของ โคไพลอต สตูดิโอ ฟูจิตสึ ประเทศไทย พร้อมสนับสนุนให้องค์กรของท่านก้าวสู่ยุคใหม่อย่างมั่นคง
 
-เราขอรับการสนับสนุนจากท่านผู้บริหารเพื่อเริ่มโครงการนำร่องสิบสัปดาห์ ขอขอบพระคุณทุกท่าน และพร้อมตอบข้อซักถามครับ
+เราขอรับการสนับสนุนจากท่านผู้บริหารเพื่อเริ่มโครงการนำร่อง ขอขอบพระคุณทุกท่าน และพร้อมตอบข้อซักถามครับ
 
 ---
 
@@ -156,15 +146,10 @@
 
 ---
 
-### Slide 8: Implementation Sequence: From Proof-of-Value to Scale (45s)
+### Slide 8: Implementation Sequence: From Proof-of-Value to Scale (26s)
 "Where should an organization begin? We recommend starting with our two proven high-impact use cases: Supplier Email Rescheduling and Tax Invoice Scanning. Both feature clear operational boundaries, ready data access, and immediate measurable relief for procurement and accounting teams. Once value is established, the architecture naturally scales to warehouse exception investigations and smart manufacturing variance briefs."
 
 ---
 
-### Slide 9: 10-Week Pilot Journey: Dual-Perspective ROI (45s)
-"Our proposed engagement is a disciplined 10-week Proof-of-Value journey. In Weeks 1 and 2, we establish baseline metrics on standard D365. In Weeks 3 through 5, we build the supervised agent in Copilot Studio. In Weeks 6 through 8, we pilot with real business users. The return on investment is immediate and dual-perspective: Clients experience a 70% reduction in cycle time and total tax compliance. For Fujitsu Thailand, it solidifies our leadership as a premier Strategic AI Transformation Partner with proprietary enterprise assets."
-
----
-
-### Slide 10: Empowering Enterprise Excellence: Fujitsu Red Infinity × Copilot (35s)
-"The animated Fujitsu Red Infinity loop symbolizes our endless dedication to sustainable innovation and customer success. By unifying the operational rigor of Dynamics 365 with the transformative intelligence of Microsoft Copilot Studio, we empower enterprises to achieve unprecedented operational agility. Our ask today is the sponsorship to launch our 10-week proof-of-value with an identified process owner. Thank you very much, and we welcome your questions and strategic guidance."
+### Slide 9: Empowering Enterprise Excellence: Fujitsu Red Infinity × Copilot (31s)
+"The animated Fujitsu Red Infinity loop symbolizes our endless dedication to sustainable innovation and customer success. By unifying the operational rigor of Dynamics 365 with the transformative intelligence of Microsoft Copilot Studio, we empower enterprises to achieve unprecedented operational agility. Our ask today is the sponsorship to launch our pilot with an identified process owner. Thank you very much, and we welcome your questions and strategic guidance."

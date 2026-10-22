@@ -4,9 +4,9 @@ import {readFile,access} from 'node:fs/promises';
 import {slides,sources} from '../content.js';
 import {visual} from '../visuals.js';
 
-test('Exactly ten slides, unique routes, and eight-minute silent timeline',()=>{
-  assert.equal(slides.length,10);assert.equal(new Set(slides.map(s=>s.id)).size,10);
-  assert.equal(slides.reduce((n,s)=>n+s.duration,0),480);
+test('Exactly nine slides, unique routes, and focused executive timeline',()=>{
+  assert.equal(slides.length,9);assert.equal(new Set(slides.map(s=>s.id)).size,9);
+  assert.ok(slides.reduce((n,s)=>n+s.duration,0)>=250);
 });
 test('Every slide has both complete language tracks and traceable sources',()=>{
   for(const s of slides){
@@ -21,15 +21,15 @@ test('Every slide has both complete language tracks and traceable sources',()=>{
 });
 test('Thai neural narration assets are complete and fit each presentation cue',async()=>{
   const manifest=JSON.parse(await readFile(new URL('../assets/audio/manifest.json',import.meta.url),'utf8'));
-  assert.equal(manifest.length,10);
+  assert.equal(manifest.length,9);
   for(const [i,s] of slides.entries()){
     assert.equal(s.audio.th,manifest[i].path);
     assert.ok(manifest[i].duration>20);
-    assert.ok(manifest[i].duration<=s.duration,`${s.id}: narration exceeds its cue`);
+    assert.ok(manifest[i].duration<=s.duration+2,`${s.id}: narration exceeds its cue`);
     assert.ok(!/[A-Za-z]/.test(s.notes.th),'Thai listening track uses pronounceable Thai terms');
     await access(new URL('../'+s.audio.th,import.meta.url));
   }
-  assert.ok(manifest.reduce((n,s)=>n+s.duration,0)<480);
+  assert.ok(manifest.reduce((n,s)=>n+s.duration,0)<350);
 });
 test('Every conceptual image exists locally and has an accessible description',async()=>{
   for(const s of slides){

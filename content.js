@@ -79,7 +79,7 @@ const bi = (th, en) => ({ th, en });
 
 export const slides = [
   {
-    id: 'opportunity', duration: 40, theme: 'dark', visual: 'hero', chapter: '01 / THE AGENTIC PARADIGM',
+    id: 'opportunity', duration: 33, theme: 'dark', visual: 'hero', chapter: '01 / THE AGENTIC PARADIGM',
     title: bi('สร้างอนาคตองค์กร:\nสู่อัจฉริยภาพ Enterprise Agents', 'Customizing the Future:\nBuilding Enterprise Agents'),
     subtitle: bi('เปลี่ยน Dynamics 365 จากระบบบันทึกธุรกรรม สู่ระบบปฏิบัติการอัจฉริยะที่ลงมือทำงานได้จริงด้วย Copilot Studio', 'Transforming Dynamics 365 from a passive System of Record into an autonomous System of Agency with Copilot Studio.'),
     takeaway: bi('ทำงานเชิงรุก · อยู่ใต้การกำกับดูแล · ขับเคลื่อนบนแกน D365', 'Actionable Intelligence · Human-Governed Execution · D365 ERP Spine'),
@@ -89,7 +89,7 @@ export const slides = [
       'Good morning, distinguished executives. Today, we present "Customizing the Future"—an evidence-led strategy to augment Microsoft Dynamics 365 with Copilot Studio to build true Enterprise Agents. For years, D365 has excelled as our core System of Record. But recording data alone no longer creates competitive advantage. We are evolving into a System of Agency: autonomous, supervised agents that perceive business events, reason over corporate SOPs, and execute complex workflows under strict human governance.')
   },
   {
-    id: 'investigation', duration: 50, theme: 'dark', visual: 'boundary', chapter: '02 / THE UNRESOLVED FRICTION',
+    id: 'investigation', duration: 33, theme: 'dark', visual: 'boundary', chapter: '02 / THE UNRESOLVED FRICTION',
     title: bi('ภาระการสืบค้นข้อยกเว้น:\nคอขวดที่ ERP ทิ้งไว้', 'The Investigation Burden:\nBeyond the Happy Path'),
     subtitle: bi('ERP มาตรฐานจัดการงานปกติได้ดี แต่เมื่อเกิดข้อยกเว้น มนุษย์ต้องเสียเวลา 70% ในการไล่สืบค้นข้ามระบบ', 'Standard ERP automates routine workflows, but operational exceptions consume 70% of human time in cross-screen investigation.'),
     takeaway: bi('Enterprise Agent เข้ามาปิดช่องว่างระหว่างข้อมูลในระบบกับการตัดสินใจของมนุษย์', 'Agents close the gap between automated records and fast human decision-making.'),
@@ -100,7 +100,7 @@ export const slides = [
       'Standard ERP automates routine processes smoothly. However, the real operational bottleneck occurs when exceptions happen—a delayed vendor shipment, an unaligned tax invoice, or a three-way matching variance. Today, resolving a single exception forces professionals to open ten different screens, search email threads, and cross-reference PDF attachments, consuming up to 70% of their time. Our enterprise agents do not duplicate standard controls; they assemble the cross-system evidence pack in seconds, empowering human experts to make immediate, verified decisions.')
   },
   {
-    id: 'architecture', duration: 55, theme: 'dark', visual: 'architecture', chapter: '03 / THE AGENT ANATOMY',
+    id: 'architecture', duration: 35, theme: 'dark', visual: 'architecture', chapter: '03 / THE AGENT ANATOMY',
     title: bi('สถาปัตยกรรม 4 เสาหลัก:\nรับรู้ วิเคราะห์ ปฏิบัติ กำกับ', 'Anatomy of an Agent:\nPerceive, Reason, Act, Govern'),
     subtitle: bi('ก้าวข้ามแชตบอตทั่วไป: ดักจับเหตุการณ์ วิเคราะห์ด้วยระเบียบบริษัท และส่งคำสั่งผ่าน ERP MCP', 'Enterprise Agents extend beyond chatbots: triggering on business events, reasoning with SOPs, and executing via ERP MCP.'),
     takeaway: bi('ตรวจจับเหตุการณ์ ➔ คิดวิเคราะห์ ➔ ดำเนินการ ➔ บันทึกตรวจสอบ', 'Perception ➔ Cognition ➔ Supervised Action ➔ Immutable Audit'),
@@ -111,7 +111,7 @@ export const slides = [
       'What separates an Enterprise Agent from a conversational chatbot? It is the ability to perceive and act with accountability. Our architecture rests on four pillars: First, Perception—monitoring D365 business events and exceptions in real time. Second, Cognition—reasoning over company SOPs and regulatory frameworks using enterprise-grade LLMs. Third, Action—leveraging Microsoft ERP Model Context Protocol (MCP) to trigger business logic. And fourth, Governance—enforcing role-based security with an immutable audit trail.')
   },
   {
-    id: 'vendor-email', duration: 55, theme: 'dark', visual: 'vendorEmail', chapter: '04 / USE CASE 1 · SCM & PROCUREMENT',
+    id: 'vendor-email', duration: 31, theme: 'dark', visual: 'vendorEmail', chapter: '04 / USE CASE 1 · SCM & PROCUREMENT',
     title: bi('ตรวจจับอีเมลคู่ค้า:\nปรับแผนส่งของอัตโนมัติ', 'Vendor Email Ingestion:\nAutonomous Rescheduling'),
     subtitle: bi('ซัพพลายเออร์ส่งเมลขอเลื่อนส่งของ ➔ AI ตรวจจับ ประเมินผลกระทบใน D365 ร่างปรับวัน และส่งขออนุมัติ', 'Vendor requests a shipment delay via email ➔ Copilot catches it, evaluates D365 impact, drafts PO date changes, and seeks approval.'),
     takeaway: bi('ไม่อีเมลตกหล่น · รู้ผลกระทบสายการผลิตทันที · อนุมัติปรับวันส่งมอบใน 1 คลิก', 'Zero missed emails · Real-time production impact check · 1-click PO update approval'),
@@ -122,7 +122,7 @@ export const slides = [
       'Our first enterprise use case addresses supply chain delivery disruptions. When a supplier sends an email requesting to postpone a shipment, Copilot automatically ingests the message, extracts the purchase order and proposed delivery date, and checks downstream impacts against D365 production schedules. It then drafts a revised PO delivery schedule and sends a focused summary to the procurement manager for one-click approval. No delayed emails, no production surprises, and full managerial control maintained.')
   },
   {
-    id: 'tax-scanning', duration: 55, theme: 'dark', visual: 'taxScanning', chapter: '05 / USE CASE 2 · FINANCE & TAX',
+    id: 'tax-scanning', duration: 38, theme: 'dark', visual: 'taxScanning', chapter: '05 / USE CASE 2 · FINANCE & TAX',
     title: bi('สแกนใบกำกับภาษี:\nลดความผิดพลาดเป็นศูนย์', 'Tax Invoice Scanning:\nZero-Error Compliance'),
     subtitle: bi('AI สแกนใบกำกับภาษีและใบหัก ณ ที่จ่าย ➔ เทียบกับ PO และเจ้าหนี้ใน D365 ➔ ตรวจอัตราภาษี ภ.ง.ด. 3, 53 ถูกต้องแม่นยำ', 'AI OCR extracts tax invoices & withholding data ➔ cross-checks with D365 PO & AP records ➔ validates tax rates (P.N.D. 3, 53).'),
     takeaway: bi('ลงบัญชีเร็วขึ้น 75% · ตรวจสอบตามกฎหมาย 100% · ปลอดความเสี่ยงค่าปรับสรรพากร', '75% faster invoice processing · 100% statutory validation · Zero tax penalty risk'),
@@ -133,7 +133,7 @@ export const slides = [
       'Our second enterprise case tackles statutory compliance in Accounts Payable. In Thailand, handling withholding taxes such as P.N.D. 3 and 53 and matching tax invoices requires painstaking manual verification. Our Tax Scanning Agent reads invoice and withholding certificates via AI OCR, reconciles quantities and pricing against D365 purchase orders and receipts, and validates withholding tax percentages according to Thai Revenue Department rules. It surfaces discrepancies in a clear evidence pack, cutting posting time by 75% while safeguarding against tax penalties.')
   },
   {
-    id: 'security', duration: 55, theme: 'dark', visual: 'security', chapter: '06 / TRUST & COMPLIANCE',
+    id: 'security', duration: 33, theme: 'dark', visual: 'security', chapter: '06 / TRUST & COMPLIANCE',
     title: bi('ความปลอดภัยระดับองค์กร:\nข้อมูลไม่รั่วไหลนอก Tenant', 'Zero-Trust Boundary:\nYour Data Stays Yours'),
     subtitle: bi('ประมวลผลภายใน Tenant ของลูกค้า 100% ข้อมูลไม่ถูกนำไปเทรนโมเดลสาธารณะ คุมด้วยสิทธิ์ Entra ID เดิม', 'All reasoning runs inside your Microsoft Cloud boundary. Zero public model training, enforced Entra ID RBAC, and full audit logs.'),
     takeaway: bi('แยก Tenant ชัดเจน · สิทธิ์ตามหน้าที่ (RBAC) · สอดคล้องตามมาตรฐาน ERP MCP', 'Enterprise Isolation · Role-Based Scopes · Microsoft ERP MCP Security'),
@@ -144,7 +144,7 @@ export const slides = [
       'Enterprise adoption demands uncompromising security. Built strictly upon Microsoft Zero-Trust principles, our architecture ensures that all data reasoning and processing remain within the customer’s private cloud tenant. Your enterprise transactions never train public AI models. Furthermore, agents inherit the exact Microsoft Entra ID permissions of the user. If an employee lacks access to sensitive ledger accounts, their agent cannot access them either. Every automated query and proposed action is logged in an immutable audit trail.')
   },
   {
-    id: 'governance', duration: 45, theme: 'dark', visual: 'governance', chapter: '07 / RISK MANAGEMENT',
+    id: 'governance', duration: 33, theme: 'dark', visual: 'governance', chapter: '07 / RISK MANAGEMENT',
     title: bi('การบริหารความเสี่ยง:\n3 ระดับการทำงานของ Agent', 'Human-in-the-Loop:\n3 Tiers of Agent Autonomy'),
     subtitle: bi('แบ่งระดับความอิสระชัดเจน: จากการช่วยสืบค้น สู่การลงมือร่างรายการ โดยคนเป็นผู้มีอำนาจกดอนุมัติเสมอ', 'Structured autonomy: from Assisted investigation to Supervised execution, with full human oversight on financial transactions.'),
     takeaway: bi('AI ทำหน้าที่สืบค้นและเสนอแนะ · ผู้มีอำนาจเป็นผู้ตัดสินใจขั้นสุดท้าย', 'AI investigates and proposes · Authorized human retains final decision authority.'),
@@ -155,7 +155,7 @@ export const slides = [
       'We do not unleash unchecked autonomous systems. Instead, we institute a rigorous three-tier autonomy framework: Tier 1 is Assisted—read-only investigation and evidence packaging. Tier 2 is Supervised—the agent drafts transactions, PO reschedules, or journal entries, requiring explicit human one-click sign-off. Tier 3 is Autonomous—strictly limited to low-risk, high-volume transactions under predefined thresholds. This guarantees total managerial control from day one.')
   },
   {
-    id: 'priorities', duration: 45, theme: 'dark', visual: 'priorities', chapter: '08 / ROADMAP & SEQUENCE',
+    id: 'priorities', duration: 26, theme: 'dark', visual: 'priorities', chapter: '08 / ROADMAP & SEQUENCE',
     title: bi('ลำดับการประยุกต์ใช้:\nพิสูจน์ผลลัพธ์สู่ระดับองค์กร', 'Implementation Sequence:\nFrom Proof-of-Value to Scale'),
     subtitle: bi('ข้อเสนอลำดับการเริ่มต้น: เริ่มจาก Email คู่ค้า และสแกนภาษี ก่อนขยายสู่คลังสินค้าและการผลิต', 'Recommended phased adoption: Start with high-impact Supplier Emails & Tax OCR before expanding to warehouse and shopfloor.'),
     takeaway: bi('เห็นผลตอบแทนเร็ว · ไม่ต้องเตรียมข้อมูลซับซ้อน · ลดภาระงานได้ทันที', 'Fastest ROI · Low data prerequisites · Immediate operational relief'),
@@ -166,26 +166,15 @@ export const slides = [
       'Where should an organization begin? We recommend starting with our two proven high-impact use cases: Supplier Email Rescheduling and Tax Invoice Scanning. Both feature clear operational boundaries, ready data access, and immediate measurable relief for procurement and accounting teams. Once value is established, the architecture naturally scales to warehouse exception investigations and smart manufacturing variance briefs.')
   },
   {
-    id: 'pilot', duration: 45, theme: 'dark', visual: 'pilot', chapter: '09 / BUSINESS VALUE',
-    title: bi('แผนนำร่อง 10 สัปดาห์:\nผลตอบแทนร่วมแบบสองมิติ', '10-Week Pilot Journey:\nDual-Perspective ROI'),
-    subtitle: bi('ความคุ้มค่าที่วัดได้: ลูกค้าลดเวลา 70% ไร้ค่าปรับ; ฟูจิตสึ ประเทศไทย ยกระดับสู่ Strategic AI Partner', 'Proven value return: 70% faster processing and zero tax penalties for clients; high-value strategic IP for Fujitsu Thailand.'),
-    takeaway: bi('สัปดาห์ 1–2 วัดเกณฑ์ ➔ สัปดาห์ 3–5 สร้างระบบ ➔ สัปดาห์ 6–8 ทดลองนำร่อง ➔ สัปดาห์ 9–10 ขยายผล', 'Weeks 1–2 Benchmark ➔ Weeks 3–5 Read-Only Build ➔ Weeks 6–8 Supervised Pilot ➔ Weeks 9–10 Scale'),
-    labels: bi(['W1–2 วัดเกณฑ์', 'W3–5 พัฒนา', 'W6–8 ทดสอบ', 'ลูกค้า: ลดเวลา 70%', 'พาร์ทเนอร์: ทรัพย์สินทางปัญญา', 'ผลตอบแทนแบบคู่'],
-      ['W1–2 Benchmark', 'W3–5 Build', 'W6–8 Pilot', 'Client: 70% Time Saved', 'Partner: Strategic IP', 'Dual ROI Impact']),
-    sources: ['security', 'roadmap', 'update'],
-    notes: bi(thaiNarration[8].join('\n\n'),
-      'Our proposed engagement is a disciplined 10-week Proof-of-Value journey. In Weeks 1 and 2, we establish baseline metrics on standard D365. In Weeks 3 through 5, we build the supervised agent in Copilot Studio. In Weeks 6 through 8, we pilot with real business users. The return on investment is immediate and dual-perspective: Clients experience a 70% reduction in cycle time and total tax compliance. For Fujitsu Thailand, it solidifies our leadership as a premier Strategic AI Transformation Partner with proprietary enterprise assets.')
-  },
-  {
-    id: 'closing', duration: 35, theme: 'dark', visual: 'closing', chapter: '10 / FUJITSU THAILAND',
+    id: 'closing', duration: 31, theme: 'dark', visual: 'closing', chapter: '09 / FUJITSU THAILAND',
     title: bi('ผสานความเชี่ยวชาญสู่ความเป็นเลิศ:\nFujitsu Red Infinity × Copilot', 'Empowering Enterprise Excellence:\nFujitsu Red Infinity × Copilot'),
     subtitle: bi('ผสานรากฐานอันมั่นคงของ Dynamics 365 เข้ากับความฉลาดของ Copilot Studio สู่ความยั่งยืน', 'Unifying the operational rigor of Dynamics 365 with the transformative intelligence of Copilot Studio.'),
     takeaway: bi('ฟูจิตสึ ประเทศไทย · ทีมผู้เชี่ยวชาญ Dynamics 365 & Copilot', 'Fujitsu Thailand · Dynamics 365 & Copilot Practice'),
     labels: bi(['การเปลี่ยนแปลงที่ไม่สิ้นสุด', 'มาตรฐานองค์กร', 'พร้อมเปิดรับคำถาม'],
       ['Infinite Transformation', 'Enterprise Rigor', 'Open for Discussion']),
     sources: ['logo'],
-    notes: bi(thaiNarration[9].join('\n\n'),
-      'The animated Fujitsu Red Infinity loop symbolizes our endless dedication to sustainable innovation and customer success. By unifying the operational rigor of Dynamics 365 with the transformative intelligence of Microsoft Copilot Studio, we empower enterprises to achieve unprecedented operational agility. Our ask today is the sponsorship to launch our 10-week proof-of-value with an identified process owner. Thank you very much, and we welcome your questions and strategic guidance.')
+    notes: bi(thaiNarration[8].join('\n\n'),
+      'The animated Fujitsu Red Infinity loop symbolizes our endless dedication to sustainable innovation and customer success. By unifying the operational rigor of Dynamics 365 with the transformative intelligence of Microsoft Copilot Studio, we empower enterprises to achieve unprecedented operational agility. Our ask today is the sponsorship to launch our pilot with an identified process owner. Thank you very much, and we welcome your questions and strategic guidance.')
   }
 ];
 

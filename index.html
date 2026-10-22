@@ -15,14 +15,40 @@
   <header class="topbar">
     <a class="brand" href="#1" aria-label="Fujitsu Thailand · First slide"><img src="assets/fujitsu-red.png" alt="Fujitsu"><span>THAILAND <b>Dynamics 365 practice</b></span></a>
     <div class="edition">EXECUTIVE BRIEF <span>22 OCT 2026</span></div>
-    <div class="tools"><button id="lang" aria-label="Switch to Thai">EN <span>/ TH</span></button><button id="fullscreen" aria-label="Fullscreen">⛶</button><button id="menu" aria-label="Open slide overview">☷</button></div>
+    <div class="tools">
+      <div id="lang" class="lang-switch" role="group" aria-label="Language selection">
+        <button id="lang-en" class="lang-btn active" type="button" aria-pressed="true">EN</button>
+        <button id="lang-th" class="lang-btn" type="button" aria-pressed="false">TH</button>
+      </div>
+      <button id="fx-toggle" class="fx-btn active" type="button" aria-pressed="true" title="Slide transition effects (Shortcut: T)">⚡ <span>FX: ON</span></button>
+      <button id="fullscreen" aria-label="Fullscreen">⛶</button>
+      <button id="menu" aria-label="Open slide overview">☷</button>
+    </div>
   </header>
   <main id="stage" tabindex="-1" aria-label="Presentation"></main>
+  <div id="slide-transition" class="slide-transition" aria-hidden="true">
+    <div class="transition-scanlines"></div>
+    <div class="transition-beams">
+      <i class="t-beam b-crimson"></i>
+      <i class="t-beam b-azure"></i>
+      <i class="t-beam b-emerald"></i>
+      <i class="t-beam b-amber"></i>
+      <i class="t-beam b-violet"></i>
+    </div>
+    <div class="transition-hud">
+      <div class="t-hud-border">
+        <span class="t-hud-badge" id="transition-badge">SYSTEM DISPATCH</span>
+        <div class="t-hud-title" id="transition-title">02 / THE UNRESOLVED FRICTION</div>
+        <div class="t-hud-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
+    </div>
+    <div class="transition-flare"></div>
+  </div>
   <footer class="transport">
-    <div class="transport-left"><button id="play" aria-label="Play 8 minute presentation">▶ <span>Play 8 min</span></button><button id="voice" aria-pressed="false" aria-label="Enable browser narration">♬ <span>Voice: off</span></button><span id="clock">00:00 / 08:00</span></div>
+    <div class="transport-left"><button id="play" aria-label="Play presentation">▶ <span>Play 5 min</span></button><button id="voice" aria-pressed="false" aria-label="Enable browser narration">♬ <span>Voice: off</span></button><span id="clock">00:00 / 04:53</span></div>
     <nav id="dots" aria-label="Slides"></nav>
-    <div class="transport-right"><button id="notes">Script</button><button id="evidence">Evidence</button><button id="prev" aria-label="Previous slide">←</button><span id="page">01 / 10</span><button id="next" aria-label="Next slide">→</button></div>
-    <div class="progress" role="progressbar" aria-label="Presentation progress" aria-valuemin="0" aria-valuemax="480" aria-valuenow="0"><i></i></div>
+    <div class="transport-right"><button id="notes">Script</button><button id="evidence">Evidence</button><button id="prev" aria-label="Previous slide">←</button><span id="page">01 / 09</span><button id="next" aria-label="Next slide">→</button></div>
+    <div class="progress" role="progressbar" aria-label="Presentation progress" aria-valuemin="0" aria-valuemax="300" aria-valuenow="0"><i></i></div>
   </footer>
   <dialog id="drawer" aria-labelledby="drawer-title"><div class="drawer-top"><h2 id="drawer-title"></h2><button id="close-drawer" aria-label="Close panel">✕</button></div><div id="drawer-body"></div></dialog>
   <div id="status" class="toast" role="status"></div>
