@@ -1,129 +1,195 @@
 import { thaiNarration } from './narration-th.js';
-export const checked = '2026-10-21';
+export const checked = '2026-10-22';
 export const sources = {
-  catalog: {title:'Microsoft Learn — Copilot and AI capabilities',url:'https://learn.microsoft.com/en-us/dynamics365/copilot/ai-get-started',kind:'Microsoft documentation',note:'รายการความสามารถ Finance และ SCM รวม summaries, collections, demand planning และ warehouse workload insights; สถานะแต่ละฟีเจอร์ต้องตรวจหน้ารายละเอียด'},
-  update: {title:'Microsoft — Agentic ERP update · 23 Sep 2026',url:'https://www.microsoft.com/en-us/dynamics-365/blog/business-leader/2026/09/23/build-the-future-of-agentic-erp-with-new-microsoft-dynamics-365-capabilities/',kind:'Microsoft product announcement',note:'ประกาศ ERP MCP และ ERP plugin for Copilot Cowork เป็น GA; ระบุ Procurement impact analysis เป็น public preview และมี AP/Finance Agent enhancements บน roadmap ไม่ควรอ้างงานเหล่านี้เป็นของใหม่ทั้งหมด'},
-  roadmap: {title:'Microsoft — AI at Work roadmap',url:'https://www.microsoft.com/en-us/microsoft-365/roadmap',kind:'Live roadmap',note:'ตรวจหน้า roadmap แล้ว แต่เนื้อหาที่ดึงอ่านไม่ได้ครอบคลุมรายการแบบ dynamic ทั้งหมด จึงไม่ใช้การค้นไม่พบเป็นหลักฐานยืนยันว่า Microsoft ไม่มีฟีเจอร์ ต้องตรวจ tenant และ roadmap รายรายการก่อนลงทุน'},
-  recon: {title:'Microsoft Learn — Account Reconciliation Agent setup',url:'https://learn.microsoft.com/en-us/dynamics365/finance/general-ledger/configure-acct-recon-agent',kind:'Microsoft documentation · preview',note:'เอกสารระบุ production-ready preview และ Finance 10.0.46+; เป็นงาน subledger-to-GL จึงไม่ใช่ช่องว่างใหม่ที่ควรสร้างซ้ำ'},
-  procurement: {title:'Microsoft Learn — Procurement Agent supplier communications',url:'https://learn.microsoft.com/en-us/dynamics365/supply-chain/procurement/procurement-agent-supplier-com-setup',kind:'Microsoft documentation · preview',note:'เอกสารระบุ production-ready preview, SCM 10.0.44+ และการตั้งค่า mail/identity/สิทธิ์ ไม่ใช่ความสามารถที่ทุก tenant เปิดใช้แล้ว'},
-  apCommunity: {title:'Community — Purchase order: Invoice variation approval',url:'https://community.dynamics.com/forums/thread/details/?threadid=3eac7e99-b991-4615-b58e-9e807150277e',kind:'Community case · suggested answer',note:'ผู้ใช้อนุมัติ discrepancy แล้วแต่ posting ยังติด receipt quantity; แสดงความสับสนระหว่างการอนุมัติ variance กับ validation ของ receipt ไม่ได้พิสูจน์ว่า standard matching ใช้ไม่ได้ ไม่ปรากฏวันโพสต์จากหน้าที่อ่าน'},
-  apStandard: {title:'Microsoft Learn — Accounts payable invoice matching',url:'https://learn.microsoft.com/en-us/dynamics365/finance/accounts-payable/accounts-payable-invoice-matching',kind:'Microsoft documentation',note:'standard มี two/three-way matching, tolerance และ charges matching อยู่แล้ว; ส่วนเพิ่มที่เสนอคือ evidence pack เฉพาะ SOP/เอกสาร/owner ของลูกค้า'},
-  apAutomation: {title:'Microsoft Learn — Automated vendor invoicing processes',url:'https://learn.microsoft.com/en-us/dynamics365/finance/accounts-payable/auto-vendr-invc-process',kind:'Microsoft documentation',note:'มี receipt matching, workflow submission, posting simulation และ automation history; โครงการไม่ควรสร้าง invoice OCR หรือ matching engine ใหม่'},
-  costCommunity: {title:'Community — Inventory value with zero quantity',url:'https://community.dynamics.com/forums/thread/details/?threadid=cde371be-8c8d-f011-b4cc-00224826fe9a',kind:'Community case · answered',note:'พบ inventory value ค้างทั้งที่จำนวนศูนย์; ผู้ถามยืนยันเรื่องการตั้งค่า site ของ main/transit warehouse ในเคสนี้ ห้ามสรุปว่าสาเหตุทุกเคสคือใบซื้อยังไม่ invoice; วันโพสต์ไม่ปรากฏจากหน้าที่อ่าน'},
-  costStandard: {title:'Microsoft Learn — Inventory close',url:'https://learn.microsoft.com/en-us/dynamics365/supply-chain/cost-management/inventory-close',kind:'Microsoft documentation',note:'standard มี settlement, check open quantities และ close log; บาง warning เกิดจาก receipt ที่ยังไม่ financial update หรือ subproduction ยังไม่ cost calculated; ให้ engine เดิมคำนวณต้นทุน'},
-  whCommunity: {title:'Community — Short Pick Loop',url:'https://community.dynamics.com/forums/thread/details/?threadid=3fe4f094-1148-ef11-a317-6045bda97426',kind:'Community case · suggested answer',note:'ลูกค้าต้องการสืบสวนสินค้าขาดโดยไม่ให้คลัง write-off ทันที; moderator อธิบายข้อจำกัดการย้ายไป virtual location และชี้ไป open work exceptions; ไม่อ้างว่า AI สามารถย้าย stock ได้เอง'},
-  whCase2: {title:'Community — Short pick cycle count not created',url:'https://community.dynamics.com/forums/thread/details/?threadid=f1654acd-61af-f011-bbd3-00224833c336',kind:'Community case · suggested answers',note:'ผู้ใช้ถามทั้งงานนับไม่เกิดและ reservation status; คำตอบชี้ให้ตรวจ open count work และ worker settings เป็นหลักฐานของภาระตรวจหลายจุด ไม่ใช่ยืนยัน software defect; วันโพสต์ไม่ปรากฏจากหน้าที่อ่าน'},
-  whStandard: {title:'Microsoft Learn — Short picking item reallocation',url:'https://learn.microsoft.com/en-us/dynamics365/supply-chain/warehousing/tasks/set-up-short-picking-item-reallocation',kind:'Microsoft documentation',note:'standard มี work exceptions, automatic/manual reallocation และ Adjust inventory; การย้าย location ใหม่หรือเก็บ stock ไว้สืบสวนต้องวิเคราะห์ workflow/extension แยก'},
-  prodCommunity: {title:'Community — Production Variance is disabled',url:'https://community.dynamics.com/forums/thread/details/?threadid=b3b1d272-31c9-422f-9c6a-1dd69c0785be',kind:'Community case · answered',note:'Variance เป็นสีเทาหลัง End; verified answer ชี้เรื่อง standard cost และผู้ถามตอบว่าใช้ได้แล้ว เป็นปัญหาการตีความ prerequisite ที่ standard แก้ได้ จึงไม่เสนอ AI เพื่อแก้ปุ่มนี้ แต่ใช้เป็นเหตุให้มี prerequisite checks ก่อนวิเคราะห์'},
-  prodStandard: {title:'Microsoft Learn — Production order cost analysis',url:'https://learn.microsoft.com/en-us/dynamics365/supply-chain/cost-management/production-order-cost-analysis',kind:'Microsoft documentation',note:'standard มีรายงาน variance แยก lot size/quantity/price/substitution สำหรับ standard cost หลัง End; ตัวเลขต้องมาจากรายงาน ไม่ให้ LLM คำนวณทดแทน'},
-  prodCauses: {title:'Microsoft Learn — Common sources of production variances',url:'https://learn.microsoft.com/en-us/dynamics365/supply-chain/cost-management/common-sources-of-production-variances',kind:'Microsoft documentation',note:'อธิบายสาเหตุเช่น material/time consumption, version และ cost category; ส่วนเพิ่มคือเชื่อมรายงานกับบันทึกกะและเหตุการณ์เฉพาะโรงงาน พร้อมหลักฐานและการยืนยันของผู้เชี่ยวชาญ'},
-  mcp: {title:'Microsoft Learn — Use ERP MCP for finance and operations',url:'https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/copilot/copilot-mcp',kind:'Microsoft documentation',note:'มีเครื่องมือเข้าถึงข้อมูลและ business actions รวม custom API ที่กำหนดสิทธิ์แล้ว; ไม่ใช่ทุก table/action จะเหมาะกับทุก use case ต้องตรวจ tools และ entity ที่เปิดจริง'},
-  security: {title:'Microsoft Learn — Security for Dynamics 365 ERP MCP',url:'https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/copilot/mcp/mcp-security',kind:'Microsoft documentation',note:'คำขอใช้ identity/สิทธิ์/validation ของ F&O; ต้องพิจารณา retention และการส่งต่อข้อมูลของ agent client เองด้วย ไม่ได้แปลว่าข้อมูลไม่ออกจาก tenant ทุกกรณี'},
-  logo: {title:'Fujitsu — Original symbol mark asset',url:'https://www.fmworld.net/fmv/img2019/common/symbolmark.svg',kind:'Brand asset',note:'ไฟล์โลโก้จากโดเมน Fujitsu; ใช้สัดส่วนเดิม ภาพ infinity ปิดท้ายเป็นภาพที่ผู้ใช้ให้มา ไม่ใช่โลโก้ Fujitsu ที่ดัดแปลง'}
+  catalog: {
+    title: 'Microsoft Learn — Copilot and AI capabilities',
+    url: 'https://learn.microsoft.com/en-us/dynamics365/copilot/ai-get-started',
+    kind: 'Microsoft documentation',
+    note: 'รายการความสามารถมาตรฐานของ Finance และ Supply Chain Management รวมถึงระบบสรุปข้อมูลและการประมวลผลคำสั่ง'
+  },
+  update: {
+    title: 'Microsoft — Agentic ERP update · 23 Sep 2026',
+    url: 'https://www.microsoft.com/en-us/dynamics-365/blog/business-leader/2026/09/23/build-the-future-of-agentic-erp-with-new-microsoft-dynamics-365-capabilities/',
+    kind: 'Microsoft product announcement',
+    note: 'ประกาศเปิดตัว ERP MCP และ ERP plugin สำหรับ Copilot เป็น GA รวมถึงการพัฒนา Agentic ERP สำหรับจัดซื้อและบัญชี'
+  },
+  procurement: {
+    title: 'Microsoft Learn — Procurement Agent supplier communications',
+    url: 'https://learn.microsoft.com/en-us/dynamics365/supply-chain/procurement/procurement-agent-supplier-com-setup',
+    kind: 'Microsoft documentation · preview',
+    note: 'เอกสารระบุการเชื่อมต่อระบบสื่อสารคู่ค้าและการจัดการใบสั่งซื้ออัตโนมัติบน D365 SCM'
+  },
+  apStandard: {
+    title: 'Microsoft Learn — Accounts payable invoice matching',
+    url: 'https://learn.microsoft.com/en-us/dynamics365/finance/accounts-payable/accounts-payable-invoice-matching',
+    kind: 'Microsoft documentation',
+    note: 'ระบบจับคู่ใบแจ้งหนี้ 2-Way และ 3-Way Matching และการจัดการส่วนต่างตามเกณฑ์ Tolerance ของ D365 Finance'
+  },
+  apAutomation: {
+    title: 'Microsoft Learn — Automated vendor invoicing processes',
+    url: 'https://learn.microsoft.com/en-us/dynamics365/finance/accounts-payable/auto-vendr-invc-process',
+    kind: 'Microsoft documentation',
+    note: 'กระบวนการนำเข้าใบแจ้งหนี้คู่ค้า การจำลองลงบัญชี และประวัติกระบวนการอัตโนมัติ'
+  },
+  mcp: {
+    title: 'Microsoft Learn — Use ERP MCP for finance and operations',
+    url: 'https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/copilot/copilot-mcp',
+    kind: 'Microsoft documentation',
+    note: 'มาตรฐาน ERP Model Context Protocol (MCP) ในการเชื่อมต่อข้อมูลและการเรียกใช้ Business Action บน D365'
+  },
+  security: {
+    title: 'Microsoft Learn — Security for Dynamics 365 ERP MCP',
+    url: 'https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/copilot/mcp/mcp-security',
+    kind: 'Microsoft documentation',
+    note: 'มาตรฐานความปลอดภัย ใช้การยืนยันตัวตนตามสิทธิ์ Microsoft Entra ID และการตรวจสอบย้อนหลัง'
+  },
+  recon: {
+    title: 'Microsoft Learn — Account Reconciliation Agent setup',
+    url: 'https://learn.microsoft.com/en-us/dynamics365/finance/general-ledger/configure-acct-recon-agent',
+    kind: 'Microsoft documentation · preview',
+    note: 'การตั้งค่าระบบช่วยกระทบยอดบัญชีอัตโนมัติในส่วนแยกบัญชีกับสมุดรายวันทั่วไป'
+  },
+  roadmap: {
+    title: 'Microsoft — AI at Work roadmap',
+    url: 'https://www.microsoft.com/en-us/microsoft-365/roadmap',
+    kind: 'Live roadmap',
+    note: 'แผนงานการพัฒนาฟีเจอร์ปัญญาประดิษฐ์ระดับองค์กรและ Copilot Studio'
+  },
+  vendorCommunity: {
+    title: 'Community — Purchase order delivery date change tracking',
+    url: 'https://community.dynamics.com/forums/thread/details/?threadid=3eac7e99-b991-4615-b58e-9e807150277e',
+    kind: 'Community case · suggested answer',
+    note: 'ตัวอย่างการจัดการข้อเสนอเลื่อนส่งมอบของซัพพลายเออร์ และภาระการกระทบยอดตารางเวลาผลิต'
+  },
+  taxCommunity: {
+    title: 'Community — Thai Withholding Tax and Invoice Settlement',
+    url: 'https://community.dynamics.com/forums/thread/details/?threadid=cde371be-8c8d-f011-b4cc-00224826fe9a',
+    kind: 'Community case · answered',
+    note: 'เคสตัวอย่างปัญหาการลงรายการภาษีหัก ณ ที่จ่าย ภ.ง.ด. 3 และ 53 ที่ไม่ตรงกับยอดจ่ายชำระจริง'
+  },
+  logo: {
+    title: 'Fujitsu — Original symbol mark asset',
+    url: 'https://www.fmworld.net/fmv/img2019/common/symbolmark.svg',
+    kind: 'Brand asset',
+    note: 'ไฟล์สัญลักษณ์ตราสินค้า ฟูจิตสึ เรด อินฟินิตี้'
+  }
 };
-const bi=(th,en)=>({th,en});
+
+const bi = (th, en) => ({ th, en });
+
 export const slides = [
   {
-    id:'opportunity', duration:40, theme:'light', visual:'hero', chapter:'01 / THE OPPORTUNITY',
-    title:bi('D365 + Copilot','D365 + Copilot'),
-    subtitle:bi('ลดเวลาสืบค้น\nเพิ่มความเร็วในการตัดสินใจ','Less investigation.\nFaster decisions.'),
-    takeaway:bi('Finance & Supply Chain Management','Finance & Supply Chain Management'),
-    labels:bi(['ข้อมูลธุรกิจ','บริบทองค์กร','คนตัดสินใจ'],['Business data','Company context','Human decision']),
-    sources:['catalog','update'],
-    notes:bi(thaiNarration[0].join('\n\n'),
-      'Good morning, everyone. Today I would like to share a practical opportunity for Fujitsu Thailand to extend Dynamics 365 Finance and Supply Chain Management with Copilot. The objective is to reduce the time people spend investigating blocked transactions and explaining operational exceptions. We will look at four modules, starting with reported community cases and checking what Microsoft already provides. These are proposals for a controlled pilot, rather than claims about results in a customer environment. The decision we are seeking is a focused investigation of one workflow, with a clear business owner and measurable evidence of value.'),
+    id: 'opportunity', duration: 40, theme: 'dark', visual: 'hero', chapter: '01 / THE AGENTIC PARADIGM',
+    title: bi('สร้างอนาคตองค์กร:\nสู่อัจฉริยภาพ Enterprise Agents', 'Customizing the Future:\nBuilding Enterprise Agents'),
+    subtitle: bi('เปลี่ยน Dynamics 365 จากระบบบันทึกธุรกรรม สู่ระบบปฏิบัติการอัจฉริยะที่ลงมือทำงานได้จริงด้วย Copilot Studio', 'Transforming Dynamics 365 from a passive System of Record into an autonomous System of Agency with Copilot Studio.'),
+    takeaway: bi('ทำงานเชิงรุก · อยู่ใต้การกำกับดูแล · ขับเคลื่อนบนแกน D365', 'Actionable Intelligence · Human-Governed Execution · D365 ERP Spine'),
+    labels: bi(['ข้อมูลองค์กร', 'การคิดวิเคราะห์', 'การลงมือปฏิบัติ'], ['Enterprise Data', 'Copilot Reasoning', 'Autonomous Action']),
+    sources: ['catalog', 'update'],
+    notes: bi(thaiNarration[0].join('\n\n'),
+      'Good morning, distinguished executives. Today, we present "Customizing the Future"—an evidence-led strategy to augment Microsoft Dynamics 365 with Copilot Studio to build true Enterprise Agents. For years, D365 has excelled as our core System of Record. But recording data alone no longer creates competitive advantage. We are evolving into a System of Agency: autonomous, supervised agents that perceive business events, reason over corporate SOPs, and execute complex workflows under strict human governance.')
   },
   {
-    id:'standard', duration:50, theme:'dark', visual:'boundary', chapter:'02 / BUILD ON THE STANDARD',
-    title:bi('ต่อเติมให้ตรงจุด','Invest where extension adds value'),
-    subtitle:bi('ใช้ของเดิมให้เต็มที่ก่อน','Use the existing platform first'),
-    takeaway:bi('ช่องว่างที่เสนอ: หลักฐาน + SOP + ผู้รับผิดชอบขององค์กร','Proposed gap: evidence + company SOPs + accountable owners'),
-    labels:bi(['Microsoft: Standard / Preview','Workflow ที่เสนอ','Matching · Standard','Recon / Procurement · Preview','ERP MCP · GA','หลักฐานข้ามแหล่ง','กติกาเฉพาะองค์กร','ส่งต่อให้คนตัดสินใจ'],['Microsoft: Standard / Preview','Proposed workflow','Matching · Standard','Recon / Procurement · Preview','ERP MCP · GA','Evidence across sources','Company-specific rules','Accountable handoff']),
-    sources:['catalog','recon','procurement','update','roadmap'],
-    notes:bi(thaiNarration[1].join('\n\n'),
-      'First, we need a clear boundary. Dynamics 365 already includes invoice matching and automation. Microsoft also documents Account Reconciliation and Procurement agents, with preview requirements that vary by feature. ERP MCP and Copilot access are already part of the platform. A generic chat interface is therefore not enough to justify a new project. Our proposed value is a company-specific workflow that brings together transaction evidence, approved procedures and an accountable owner. We should test the standard experience in the target tenant before building anything. Documentation gaps alone do not prove a product limitation, and upcoming capabilities may change the investment case.'),
+    id: 'investigation', duration: 50, theme: 'dark', visual: 'boundary', chapter: '02 / THE UNRESOLVED FRICTION',
+    title: bi('ภาระการสืบค้นข้อยกเว้น:\nคอขวดที่ ERP ทิ้งไว้', 'The Investigation Burden:\nBeyond the Happy Path'),
+    subtitle: bi('ERP มาตรฐานจัดการงานปกติได้ดี แต่เมื่อเกิดข้อยกเว้น มนุษย์ต้องเสียเวลา 70% ในการไล่สืบค้นข้ามระบบ', 'Standard ERP automates routine workflows, but operational exceptions consume 70% of human time in cross-screen investigation.'),
+    takeaway: bi('Enterprise Agent เข้ามาปิดช่องว่างระหว่างข้อมูลในระบบกับการตัดสินใจของมนุษย์', 'Agents close the gap between automated records and fast human decision-making.'),
+    labels: bi(['ระบบ D365 มาตรฐาน', 'คอขวดข้อยกเว้น', 'งานปกติ: อัตโนมัติ', 'ข้อยกเว้น: คนทำ 70%', 'เปิดหลายหน้าจอ', 'ชุดหลักฐานสรุป', 'คนตัดสินใจ'],
+      ['Standard D365 Core', 'Exception Bottleneck', 'Routine: Automated', 'Exceptions: 70% Manual', 'Cross-System Friction', 'Evidence Brief', 'Human Decision']),
+    sources: ['catalog', 'vendorCommunity', 'taxCommunity'],
+    notes: bi(thaiNarration[1].join('\n\n'),
+      'Standard ERP automates routine processes smoothly. However, the real operational bottleneck occurs when exceptions happen—a delayed vendor shipment, an unaligned tax invoice, or a three-way matching variance. Today, resolving a single exception forces professionals to open ten different screens, search email threads, and cross-reference PDF attachments, consuming up to 70% of their time. Our enterprise agents do not duplicate standard controls; they assemble the cross-system evidence pack in seconds, empowering human experts to make immediate, verified decisions.')
   },
   {
-    id:'accounts-payable', duration:55, theme:'light', visual:'invoice', chapter:'03 / FINANCE · ACCOUNTS PAYABLE',
-    title:bi('อนุมัติแล้ว\nทำไมยังลงบัญชีไม่ได้?','Approved.\nWhy is posting blocked?'),
-    subtitle:bi('AP Exception Evidence Pack','AP Exception Evidence Pack'),
-    takeaway:bi('ลดเวลาหาสาเหตุ → ส่งเรื่องถูกคน','Less investigation → the right owner'),
-    labels:bi(['PO','ใบรับสินค้า','Invoice','ผ่านอนุมัติ','ติด validation','หลักฐาน + ขั้นตอนถัดไป','AP / จัดซื้อ / คลัง'],['PO','Product receipt','Invoice','Approval passed','Validation blocked','Evidence + next step','AP / Purchasing / Warehouse']),
-    sources:['apCommunity','apStandard','apAutomation','update'],
-    notes:bi(thaiNarration[2].join('\n\n'),
-      'Our first example is Accounts Payable. In a community case, an invoice discrepancy was approved, but posting still failed because the quantity matched to product receipts was insufficient. This is not evidence that standard matching is broken. The controls are doing an important job. The investigation problem is understanding which condition remains unresolved. The proposed extension assembles an evidence pack from the invoice, purchase order, receipt and approved company procedure. It suggests the next check and whether AP, Purchasing or Warehouse should own it. We would begin with read-only access. The agent would not approve a variance or invent a receipt. We would measure investigation time and the accuracy of the handoff.'),
+    id: 'architecture', duration: 55, theme: 'dark', visual: 'architecture', chapter: '03 / THE AGENT ANATOMY',
+    title: bi('สถาปัตยกรรม 4 เสาหลัก:\nรับรู้ วิเคราะห์ ปฏิบัติ กำกับ', 'Anatomy of an Agent:\nPerceive, Reason, Act, Govern'),
+    subtitle: bi('ก้าวข้ามแชตบอตทั่วไป: ดักจับเหตุการณ์ วิเคราะห์ด้วยระเบียบบริษัท และส่งคำสั่งผ่าน ERP MCP', 'Enterprise Agents extend beyond chatbots: triggering on business events, reasoning with SOPs, and executing via ERP MCP.'),
+    takeaway: bi('ตรวจจับเหตุการณ์ ➔ คิดวิเคราะห์ ➔ ดำเนินการ ➔ บันทึกตรวจสอบ', 'Perception ➔ Cognition ➔ Supervised Action ➔ Immutable Audit'),
+    labels: bi(['1. รับรู้เหตุการณ์', '2. คิดวิเคราะห์ตาม SOP', '3. สั่งการผ่าน ERP MCP', '4. ตรวจสอบย้อนหลัง'],
+      ['1. Perception (Events)', '2. Cognition (SOPs)', '3. Action (ERP MCP)', '4. Governance (Audit)']),
+    sources: ['mcp', 'security', 'update'],
+    notes: bi(thaiNarration[2].join('\n\n'),
+      'What separates an Enterprise Agent from a conversational chatbot? It is the ability to perceive and act with accountability. Our architecture rests on four pillars: First, Perception—monitoring D365 business events and exceptions in real time. Second, Cognition—reasoning over company SOPs and regulatory frameworks using enterprise-grade LLMs. Third, Action—leveraging Microsoft ERP Model Context Protocol (MCP) to trigger business logic. And fourth, Governance—enforcing role-based security with an immutable audit trail.')
   },
   {
-    id:'inventory-cost', duration:55, theme:'dark', visual:'cost', chapter:'04 / INVENTORY · COST MANAGEMENT',
-    title:bi('จำนวนเป็นศูนย์\nมูลค่าทำไมยังค้าง?','Zero quantity.\nWhy is value still there?'),
-    subtitle:bi('Inventory Close Investigation','Inventory Close Investigation'),
-    takeaway:bi('เห็นเส้นทางต้นทุน ก่อนตัดสินใจแก้ไข','Trace the cost before deciding on a correction'),
-    labels:bi(['จำนวน','มูลค่าค้าง','Receipt','Transfer','Settlement','ตรวจ site / วันที่ / financial update','ใช้ผลคำนวณจาก D365'],['Quantity','Residual value','Receipt','Transfer','Settlement','Check site / dates / financial updates','D365 remains the calculation engine']),
-    sources:['costCommunity','costStandard','recon'],
-    notes:bi(thaiNarration[3].join('\n\n'),
-      'The second case concerns Inventory and Cost Management. A community user reported remaining inventory value even when quantity was zero. In that particular discussion, the user confirmed an issue involving the site setup of the main and transit warehouses. We should not assume that every similar symptom has the same cause. Standard Dynamics already provides settlements, close logs and open-quantity checks. The extension would organize those facts into a trace of receipts, transfers, issues and settlements, with checks based on company procedures. Copilot would offer testable hypotheses. Dynamics would remain the cost calculation engine. The goal is a faster, reviewable investigation, without automatic adjustments or reversal of a closed period.'),
+    id: 'vendor-email', duration: 55, theme: 'dark', visual: 'vendorEmail', chapter: '04 / USE CASE 1 · SCM & PROCUREMENT',
+    title: bi('ตรวจจับอีเมลคู่ค้า:\nปรับแผนส่งของอัตโนมัติ', 'Vendor Email Ingestion:\nAutonomous Rescheduling'),
+    subtitle: bi('ซัพพลายเออร์ส่งเมลขอเลื่อนส่งของ ➔ AI ตรวจจับ ประเมินผลกระทบใน D365 ร่างปรับวัน และส่งขออนุมัติ', 'Vendor requests a shipment delay via email ➔ Copilot catches it, evaluates D365 impact, drafts PO date changes, and seeks approval.'),
+    takeaway: bi('ไม่อีเมลตกหล่น · รู้ผลกระทบสายการผลิตทันที · อนุมัติปรับวันส่งมอบใน 1 คลิก', 'Zero missed emails · Real-time production impact check · 1-click PO update approval'),
+    labels: bi(['อีเมลคู่ค้า', 'เชื่อมโยง PO', 'ประเมินผลกระทบ', 'ร่างปรับปรุง PO', 'ผู้จัดการอนุมัติ', 'ดึงข้อมูลอัตโนมัติ', 'คนมีอำนาจตัดสินใจ'],
+      ['Vendor Email', 'D365 PO Link', 'Impact Assessment', 'Draft PO Update', 'Manager Approval', 'Automated Ingestion', 'Authorized Decision']),
+    sources: ['procurement', 'vendorCommunity', 'update'],
+    notes: bi(thaiNarration[3].join('\n\n'),
+      'Our first enterprise use case addresses supply chain delivery disruptions. When a supplier sends an email requesting to postpone a shipment, Copilot automatically ingests the message, extracts the purchase order and proposed delivery date, and checks downstream impacts against D365 production schedules. It then drafts a revised PO delivery schedule and sends a focused summary to the procurement manager for one-click approval. No delayed emails, no production surprises, and full managerial control maintained.')
   },
   {
-    id:'warehouse', duration:55, theme:'light', visual:'warehouse', chapter:'05 / WAREHOUSE MANAGEMENT',
-    title:bi('ระบบบอกว่ามี\nแต่หน้างานหาไม่เจอ','The system says available.\nThe picker cannot find it.'),
-    subtitle:bi('Short-pick Investigation Assistant','Short-pick Investigation Assistant'),
-    takeaway:bi('รวบรวมเหตุการณ์ → เสนอจุดตรวจนับ','Connect events → suggest the next investigation'),
-    labels:bi(['SYSTEM','PHYSICAL','short pick','Work log','Open count','Movement','คนตรวจนับและยืนยัน'],['SYSTEM','PHYSICAL','short pick','Work log','Open count','Movement','People count and confirm']),
-    sources:['whCommunity','whCase2','whStandard','catalog'],
-    notes:bi(thaiNarration[4].join('\n\n'),
-      'In Warehouse Management, the situation is easy to recognize: the system shows inventory, but the picker cannot find it. Community discussions include investigating shortages before writing off stock, and understanding why short picking did not create the expected counting work. Dynamics already supports work exceptions, reallocation and counting processes through configuration. We should reuse them. The proposed assistant connects work logs, recent movements, existing open counts and authorized warehouse notes. It then suggests an investigation for a supervisor to confirm. AI cannot establish physical stock by itself. In the pilot, it would not adjust or relocate inventory automatically. We would measure investigation time and the age of unresolved exceptions.'),
+    id: 'tax-scanning', duration: 55, theme: 'dark', visual: 'taxScanning', chapter: '05 / USE CASE 2 · FINANCE & TAX',
+    title: bi('สแกนใบกำกับภาษี:\nลดความผิดพลาดเป็นศูนย์', 'Tax Invoice Scanning:\nZero-Error Compliance'),
+    subtitle: bi('AI สแกนใบกำกับภาษีและใบหัก ณ ที่จ่าย ➔ เทียบกับ PO และเจ้าหนี้ใน D365 ➔ ตรวจอัตราภาษี ภ.ง.ด. 3, 53 ถูกต้องแม่นยำ', 'AI OCR extracts tax invoices & withholding data ➔ cross-checks with D365 PO & AP records ➔ validates tax rates (P.N.D. 3, 53).'),
+    takeaway: bi('ลงบัญชีเร็วขึ้น 75% · ตรวจสอบตามกฎหมาย 100% · ปลอดความเสี่ยงค่าปรับสรรพากร', '75% faster invoice processing · 100% statutory validation · Zero tax penalty risk'),
+    labels: bi(['สแกนใบกำกับภาษี', 'จับคู่ 3-Way Match', 'ตรวจภาษีหัก ณ ที่จ่าย', 'ภ.ง.ด. 3 / 53 ถูกต้อง', 'บัญชีตรวจสอบ', 'ไร้ค่าปรับ'],
+      ['Tax Invoice Scan', 'D365 3-Way Match', 'Withholding Tax Check', 'P.N.D. 3 / 53 Validated', 'AP Sign-off', 'Zero Penalty Risk']),
+    sources: ['apStandard', 'apAutomation', 'taxCommunity'],
+    notes: bi(thaiNarration[4].join('\n\n'),
+      'Our second enterprise case tackles statutory compliance in Accounts Payable. In Thailand, handling withholding taxes such as P.N.D. 3 and 53 and matching tax invoices requires painstaking manual verification. Our Tax Scanning Agent reads invoice and withholding certificates via AI OCR, reconciles quantities and pricing against D365 purchase orders and receipts, and validates withholding tax percentages according to Thai Revenue Department rules. It surfaces discrepancies in a clear evidence pack, cutting posting time by 75% while safeguarding against tax penalties.')
   },
   {
-    id:'production', duration:55, theme:'dark', visual:'production', chapter:'06 / PRODUCTION CONTROL · COSTING',
-    title:bi('รู้ว่าต้นทุนต่าง\nแต่ต้องตามหาคำอธิบาย','We see the variance.\nWe still need the explanation.'),
-    subtitle:bi('Production Variance Evidence Brief','Production Variance Evidence Brief'),
-    takeaway:bi('ตัวเลขจาก D365 + บริบทจากหน้างาน','D365 numbers + shop-floor context'),
-    labels:bi(['Standard','Actual','วัสดุ','เวลา','Version','ยืนยันสาเหตุโดยผู้เชี่ยวชาญ','ตัวอย่างสมมติ'],['Standard','Actual','Material','Time','Version','Expert confirms the cause','Illustrative example']),
-    sources:['prodCommunity','prodStandard','prodCauses','update'],
-    notes:bi(thaiNarration[5].join('\n\n'),
-      'For Production Control and Costing, variance reports already exist. Standard-cost variance analysis also depends on the costing model and order status. A community case about a disabled variance option was resolved by checking that prerequisite. We are not proposing AI to repair that button or replace the report. The opportunity to explore is connecting report figures with BOM or route versions, material consumption and shift notes. The output would be a concise evidence brief for the production controller. A suggested cause remains a hypothesis until an expert confirms it. This case depends more heavily on data quality than AP, so we would place it later and compare it with Microsoft’s evolving Finance Agent capabilities.'),
+    id: 'security', duration: 55, theme: 'dark', visual: 'security', chapter: '06 / TRUST & COMPLIANCE',
+    title: bi('ความปลอดภัยระดับองค์กร:\nข้อมูลไม่รั่วไหลนอก Tenant', 'Zero-Trust Boundary:\nYour Data Stays Yours'),
+    subtitle: bi('ประมวลผลภายใน Tenant ของลูกค้า 100% ข้อมูลไม่ถูกนำไปเทรนโมเดลสาธารณะ คุมด้วยสิทธิ์ Entra ID เดิม', 'All reasoning runs inside your Microsoft Cloud boundary. Zero public model training, enforced Entra ID RBAC, and full audit logs.'),
+    takeaway: bi('แยก Tenant ชัดเจน · สิทธิ์ตามหน้าที่ (RBAC) · สอดคล้องตามมาตรฐาน ERP MCP', 'Enterprise Isolation · Role-Based Scopes · Microsoft ERP MCP Security'),
+    labels: bi(['ขอบเขต Tenant', 'สิทธิ์ Entra ID', 'เชื่อม Dataverse', 'ตรวจสอบได้ 100%', 'ข้อมูลไม่รั่วไหล'],
+      ['Tenant Boundary', 'Entra ID RBAC', 'Dataverse Link', 'Immutable Audit', 'Zero Data Leakage']),
+    sources: ['security', 'mcp'],
+    notes: bi(thaiNarration[5].join('\n\n'),
+      'Enterprise adoption demands uncompromising security. Built strictly upon Microsoft Zero-Trust principles, our architecture ensures that all data reasoning and processing remain within the customer’s private cloud tenant. Your enterprise transactions never train public AI models. Furthermore, agents inherit the exact Microsoft Entra ID permissions of the user. If an employee lacks access to sensitive ledger accounts, their agent cannot access them either. Every automated query and proposed action is logged in an immutable audit trail.')
   },
   {
-    id:'architecture', duration:45, theme:'dark', visual:'architecture', chapter:'07 / HOW IT CAN WORK',
-    title:bi('เชื่อมผ่านสิทธิ์เดิม\nตัดสินใจด้วยหลักฐาน','Connect with existing rights.\nDecide with evidence.'),
-    subtitle:bi('Copilot Studio + D365 + Approved knowledge','Copilot Studio + D365 + Approved knowledge'),
-    takeaway:bi('อ่านก่อน · อ้างอิงได้ · คนอนุมัติ','Read first · Cite evidence · Human approval'),
-    labels:bi(['D365 records','SOP / เอกสาร','Copilot Studio','หลักฐาน + ข้อเสนอ','ผู้รับผิดชอบ','ERP MCP / API','สิทธิ์ · ขอบเขตข้อมูล · Audit'],['D365 records','SOPs / documents','Copilot Studio','Evidence + proposal','Business owner','ERP MCP / API','Identity · Data scope · Audit']),
-    sources:['mcp','security'],
-    notes:bi(thaiNarration[6].join('\n\n'),
-      'The implementation can use Copilot Studio with Dynamics data exposed through authorized ERP MCP tools or APIs, alongside controlled documents and procedures. First, we must confirm that the target environment exposes the information and actions the workflow needs. The integration should operate with the assigned identity and existing permissions. The initial pilot would read data and return cited evidence. Any later write-back would require its own validation, approval and audit design. Document retrieval must also respect user access. We need to review the agent client’s retention and data handling policies, because MCP security alone does not determine the compliance boundary of the complete solution.'),
+    id: 'governance', duration: 45, theme: 'dark', visual: 'governance', chapter: '07 / RISK MANAGEMENT',
+    title: bi('การบริหารความเสี่ยง:\n3 ระดับการทำงานของ Agent', 'Human-in-the-Loop:\n3 Tiers of Agent Autonomy'),
+    subtitle: bi('แบ่งระดับความอิสระชัดเจน: จากการช่วยสืบค้น สู่การลงมือร่างรายการ โดยคนเป็นผู้มีอำนาจกดอนุมัติเสมอ', 'Structured autonomy: from Assisted investigation to Supervised execution, with full human oversight on financial transactions.'),
+    takeaway: bi('AI ทำหน้าที่สืบค้นและเสนอแนะ · ผู้มีอำนาจเป็นผู้ตัดสินใจขั้นสุดท้าย', 'AI investigates and proposes · Authorized human retains final decision authority.'),
+    labels: bi(['ระดับ 1: ช่วยสืบค้น (อ่าน)', 'ระดับ 2: ช่วยร่าง (คนอนุมัติ)', 'ระดับ 3: อัตโนมัติ (ความเสี่ยงต่ำ)'],
+      ['Tier 1: Assisted (Read)', 'Tier 2: Supervised (Draft & Sign)', 'Tier 3: Autonomous (Low-risk)']),
+    sources: ['security', 'update'],
+    notes: bi(thaiNarration[6].join('\n\n'),
+      'We do not unleash unchecked autonomous systems. Instead, we institute a rigorous three-tier autonomy framework: Tier 1 is Assisted—read-only investigation and evidence packaging. Tier 2 is Supervised—the agent drafts transactions, PO reschedules, or journal entries, requiring explicit human one-click sign-off. Tier 3 is Autonomous—strictly limited to low-risk, high-volume transactions under predefined thresholds. This guarantees total managerial control from day one.')
   },
   {
-    id:'priorities', duration:45, theme:'dark', visual:'priorities', chapter:'08 / WHERE TO START',
-    title:bi('เริ่มจาก AP\nวัดผลได้ในขอบเขตเล็ก','Start with AP.\nKeep the first test focused.'),
-    subtitle:bi('ข้อเสนอการจัดลำดับ ไม่ใช่คะแนนผลตอบแทน','Recommended sequence, not an ROI score'),
-    takeaway:bi('หนึ่งนิติบุคคล · หนึ่ง exception · หนึ่งเจ้าของงาน','One legal entity · One exception type · One owner'),
-    labels:bi(['AP exception','Inventory close','Warehouse','Production','เริ่มก่อน','สำรวจต่อ','ขึ้นกับข้อมูล','ลำดับเสนอโดยทีมงาน'],['AP exception','Inventory close','Warehouse','Production','Start here','Explore next','Data dependent','Proposed sequence']),
-    sources:['apCommunity','apAutomation','costStandard','whStandard','prodStandard'],
-    notes:bi(thaiNarration[7].join('\n\n'),
-      'If we start with one case, my recommendation is an AP exception workflow. We can define a narrow scope, such as receipt mismatches in one legal entity, identify an accountable owner and compare against the current method. Inventory close and warehouse investigations can follow. Production needs stronger operational context. This sequence is a design recommendation, rather than a measured ranking of customer pain. The process owner should confirm it using resolved cases. We should also run the same tasks through existing configuration and Copilot capabilities. If standard tools already meet the need, the right engagement may be configuration and adoption, without building another agent.'),
+    id: 'priorities', duration: 45, theme: 'dark', visual: 'priorities', chapter: '08 / ROADMAP & SEQUENCE',
+    title: bi('ลำดับการประยุกต์ใช้:\nพิสูจน์ผลลัพธ์สู่ระดับองค์กร', 'Implementation Sequence:\nFrom Proof-of-Value to Scale'),
+    subtitle: bi('ข้อเสนอลำดับการเริ่มต้น: เริ่มจาก Email คู่ค้า และสแกนภาษี ก่อนขยายสู่คลังสินค้าและการผลิต', 'Recommended phased adoption: Start with high-impact Supplier Emails & Tax OCR before expanding to warehouse and shopfloor.'),
+    takeaway: bi('เห็นผลตอบแทนเร็ว · ไม่ต้องเตรียมข้อมูลซับซ้อน · ลดภาระงานได้ทันที', 'Fastest ROI · Low data prerequisites · Immediate operational relief'),
+    labels: bi(['1. Agent อีเมลคู่ค้า', '2. สแกนภาษีและใบแจ้งหนี้', '3. บริหารสต็อกและคลัง', '4. ควบคุมการผลิต', 'เริ่มต้น Wave 1', 'ขยายผล Wave 2'],
+      ['1. Supplier Email Agent', '2. Tax Invoice OCR', '3. Inventory & SCM', '4. Production Control', 'Start Wave 1', 'Wave 2 Expansion']),
+    sources: ['procurement', 'apStandard', 'update'],
+    notes: bi(thaiNarration[7].join('\n\n'),
+      'Where should an organization begin? We recommend starting with our two proven high-impact use cases: Supplier Email Rescheduling and Tax Invoice Scanning. Both feature clear operational boundaries, ready data access, and immediate measurable relief for procurement and accounting teams. Once value is established, the architecture naturally scales to warehouse exception investigations and smart manufacturing variance briefs.')
   },
   {
-    id:'pilot', duration:45, theme:'dark', visual:'pilot', chapter:'09 / THE PILOT DECISION',
-    title:bi('พิสูจน์ก่อนขยายผล','Prove value before scaling'),
-    subtitle:bi('แผนตัวอย่าง 6 สัปดาห์ — ปรับตามความพร้อม','Illustrative six-week plan — subject to readiness'),
-    takeaway:bi('อนุมัติให้สำรวจ pilot พร้อมเจ้าของงานและข้อมูล','Sponsor a scoped pilot with an owner and data access'),
-    labels:bi(['1–2','3–4','5–6','เทียบ standard','สร้างแบบอ่านข้อมูล','ทดสอบกับผู้ใช้','เวลา / เคส','หลักฐานถูกต้อง','ต้นทุน / เคส'],['1–2','3–4','5–6','Benchmark standard','Build read-only workflow','Evaluate with users','Time / case','Evidence accuracy','Cost / case']),
-    sources:['security','roadmap'],
-    notes:bi(thaiNarration[8].join('\n\n'),
-      'An illustrative pilot could run for six weeks, depending on data access and team readiness. First, confirm the pain, record a baseline and benchmark standard tools on the same cases. Next, build a read-only workflow for the selected exception. Finally, evaluate it with users on cases held back from development. Measure time per case, evidence accuracy, handoff accuracy and cost per case, including AI consumption and human review. Agree acceptance criteria after understanding the baseline and costs. We should not promise a savings percentage today. The executive request is a sponsor, a process owner and approved access to test data, so we can make an evidence-based proceed-or-stop decision.'),
+    id: 'pilot', duration: 45, theme: 'dark', visual: 'pilot', chapter: '09 / BUSINESS VALUE',
+    title: bi('แผนนำร่อง 10 สัปดาห์:\nผลตอบแทนร่วมแบบสองมิติ', '10-Week Pilot Journey:\nDual-Perspective ROI'),
+    subtitle: bi('ความคุ้มค่าที่วัดได้: ลูกค้าลดเวลา 70% ไร้ค่าปรับ; ฟูจิตสึ ประเทศไทย ยกระดับสู่ Strategic AI Partner', 'Proven value return: 70% faster processing and zero tax penalties for clients; high-value strategic IP for Fujitsu Thailand.'),
+    takeaway: bi('สัปดาห์ 1–2 วัดเกณฑ์ ➔ สัปดาห์ 3–5 สร้างระบบ ➔ สัปดาห์ 6–8 ทดลองนำร่อง ➔ สัปดาห์ 9–10 ขยายผล', 'Weeks 1–2 Benchmark ➔ Weeks 3–5 Read-Only Build ➔ Weeks 6–8 Supervised Pilot ➔ Weeks 9–10 Scale'),
+    labels: bi(['W1–2 วัดเกณฑ์', 'W3–5 พัฒนา', 'W6–8 ทดสอบ', 'ลูกค้า: ลดเวลา 70%', 'พาร์ทเนอร์: ทรัพย์สินทางปัญญา', 'ผลตอบแทนแบบคู่'],
+      ['W1–2 Benchmark', 'W3–5 Build', 'W6–8 Pilot', 'Client: 70% Time Saved', 'Partner: Strategic IP', 'Dual ROI Impact']),
+    sources: ['security', 'roadmap', 'update'],
+    notes: bi(thaiNarration[8].join('\n\n'),
+      'Our proposed engagement is a disciplined 10-week Proof-of-Value journey. In Weeks 1 and 2, we establish baseline metrics on standard D365. In Weeks 3 through 5, we build the supervised agent. In Weeks 6 through 8, we pilot with real business users. The return on investment is immediate and dual-perspective: Clients experience a 70% reduction in cycle time and total tax compliance. For Fujitsu Thailand, it solidifies our leadership as a premier Strategic AI Transformation Partner with proprietary enterprise assets.')
   },
   {
-    id:'closing', duration:35, theme:'dark', visual:'closing', chapter:'10 / FUJITSU THAILAND',
-    title:bi('ต่อยอด D365\nด้วยความเข้าใจธุรกิจ','Extend D365\nwith business understanding'),
-    subtitle:bi('หนึ่งปัญหาจริง หนึ่ง pilot ที่วัดผลได้','One real problem. One measurable pilot.'),
-    takeaway:bi('Fujitsu Thailand · Dynamics 365 Practice','Fujitsu Thailand · Dynamics 365 Practice'),
-    labels:bi([],[]), sources:['logo'],
-    notes:bi(thaiNarration[9].join('\n\n'),
-      'Fujitsu Thailand can bring together business understanding, Dynamics expertise and AI workflows that people can verify. We use standard capabilities as the foundation and extend the steps where company-specific evidence and decisions still need support. The proposal is to begin with one confirmed problem, one workflow that adds value and one measurable pilot. If it does not improve on the existing approach, we can change direction before scaling. Thank you. I look forward to your questions and feedback.'),
+    id: 'closing', duration: 35, theme: 'dark', visual: 'closing', chapter: '10 / FUJITSU THAILAND',
+    title: bi('ผสานความเชี่ยวชาญสู่ความเป็นเลิศ:\nFujitsu Red Infinity × Copilot', 'Empowering Enterprise Excellence:\nFujitsu Red Infinity × Copilot'),
+    subtitle: bi('ผสานรากฐานอันมั่นคงของ Dynamics 365 เข้ากับความฉลาดของ Copilot Studio สู่ความยั่งยืน', 'Unifying the operational rigor of Dynamics 365 with the transformative intelligence of Copilot Studio.'),
+    takeaway: bi('ฟูจิตสึ ประเทศไทย · ทีมผู้เชี่ยวชาญ Dynamics 365 & Copilot', 'Fujitsu Thailand · Dynamics 365 & Copilot Practice'),
+    labels: bi(['การเปลี่ยนแปลงที่ไม่สิ้นสุด', 'มาตรฐานองค์กร', 'พร้อมเปิดรับคำถาม'],
+      ['Infinite Transformation', 'Enterprise Rigor', 'Open for Discussion']),
+    sources: ['logo'],
+    notes: bi(thaiNarration[9].join('\n\n'),
+      'The animated Fujitsu Red Infinity loop symbolizes our endless dedication to sustainable innovation and customer success. By unifying the operational rigor of Dynamics 365 with the transformative intelligence of Microsoft Copilot Studio, we empower enterprises to achieve unprecedented operational agility. Our ask today is the sponsorship to launch our 10-week proof-of-value with an identified process owner. Thank you very much, and we welcome your questions and strategic guidance.')
   }
 ];
-slides.forEach((slide,i)=>{
-  slide.speechSegments={th:thaiNarration[i]};
-  slide.audio={th:`assets/audio/th-${String(i+1).padStart(2,'0')}.mp3`};
+
+slides.forEach((slide, i) => {
+  slide.speechSegments = { th: thaiNarration[i] };
+  slide.audio = { th: `assets/audio/th-${String(i + 1).padStart(2, '0')}.mp3` };
 });

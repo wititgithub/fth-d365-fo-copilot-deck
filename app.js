@@ -4,7 +4,7 @@ import { visual } from './visuals.js';
 const $=id=>document.getElementById(id);
 const total=slides.reduce((n,s)=>n+s.duration,0);
 const offsets=slides.map((_,i)=>slides.slice(0,i).reduce((n,s)=>n+s.duration,0));
-let lang='th', index=0, elapsed=0, playing=false, voiceEnabled=true, speaking=false;
+let lang='en', index=0, elapsed=0, playing=false, voiceEnabled=true, speaking=false;
 let lastTick=0, speechEpoch=0, chosenVoice='neural', toastTimer, panel='';
 const synth=window.speechSynthesis;
 const recorded=$('narration-audio');

@@ -39,7 +39,7 @@ test('Every conceptual image exists locally and has an accessible description',a
   }
 });
 test('Case proposals include community evidence and Microsoft standard baseline',()=>{
-  for(const id of ['accounts-payable','inventory-cost','warehouse','production']){
+  for(const id of ['vendor-email','tax-scanning','investigation']){
     const s=slides.find(s=>s.id===id);
     assert.ok(s.sources.some(key=>sources[key].kind.includes('Community')));
     assert.ok(s.sources.some(key=>sources[key].kind.includes('Microsoft documentation')));
